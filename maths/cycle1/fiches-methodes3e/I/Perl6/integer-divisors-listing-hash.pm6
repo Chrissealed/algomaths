@@ -3,7 +3,7 @@ unit module Integer-divisors-listing-hash;
 =begin pod
 =head1 Ce module contient une classe : 'IntegerDivisorsListingH'
 destinée à établir la liste des diviseurs d'un entier naturel non nul.
-Elle contient deux méthodes, l'une publique : 'list-divisors(Int $integer where ($integer > 0))' 
+Elle contient deux méthodes, l'une publique : 'list-divisors(Int $integer where {$integer > 0})' 
 et l'autre privée : 'display($integer, $perfectsquare, @hash)'
 destinée à l'affichage d'informations.
 Elle utilise le module 'usual-divisibility-criteria.pm6' pour calculer la divisibilité
@@ -23,7 +23,7 @@ use usual-divisibility-criteria;
 
 class IntegerDivisorsListingH does UsualDivisibilityCriteria is export {
 
-    method list-divisors(Int $integer where ($integer > 0)) {
+    method list-divisors(Int $integer where {$integer > 0}) {
         my Int $n = $integer;
         # Compteur des diviseurs successifs
         my Int $i = 1;

@@ -4,7 +4,7 @@ unit module usual-divisibility-criteria;
 Ce module est destiné à coder les critères de divisibilité usuels
 des nombres pour lesquels ceux-ci existent :
 2, 3, 4, 5, 9, (10, 100, 1000, etc.), 11 et 25.
-Ceci permet d'éviter d'utiliser la méthode par modulo (%)
+Ceci permet d'éviter d'utiliser la méthode par modulo (mod ou %%)
 directement sur le nombre lui-même et ainsi d'accélérer le traitement.
 Il contient autant de méthodes 'divisible_by_n?(Int $integer)'
 ou 'n' est l'un des nombres ci-dessus,

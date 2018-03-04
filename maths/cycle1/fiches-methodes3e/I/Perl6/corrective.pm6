@@ -1,5 +1,13 @@
 unit module Corrective;
 
+=begin pod
+Ce module est utilisé dans chacun des fichiers p6
+pour demander s'il faut afficher la méthode de l'exercice
+'do-put-up-method'
+et s'il faut afficher son corrigé 'do-put-up-correct-version'.
+Les méthodes renvoient une valeur booléenne.
+=end pod
+
 sub do-put-up-method is export {
     my $answer = prompt "Afficher la méthode ? O[ui]|n[on] : ";
     given $answer {

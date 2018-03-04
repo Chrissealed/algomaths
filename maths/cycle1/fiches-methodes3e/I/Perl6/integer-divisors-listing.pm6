@@ -2,7 +2,7 @@ unit module Integer-divisors-listing;
 
 =begin pod
 =head1 Cette classe est destinée à établir la liste des diviseurs d'un entier naturel non nul.
-Elle contient deux méthodes, l'une publique : 'list-divisors(Int $integer where ($integer > 0))' 
+Elle contient deux méthodes, l'une publique : 'list-divisors(Int $integer where {$integer > 0})' 
 et l'autre privée : 'display($integer, $perfectsquare, %hash)'
 destinée à l'affichage d'informations.
 Elle utilise le module 'usual-divisibility-criteria' pour calculer la divisibilité
@@ -24,14 +24,14 @@ après que la classe ait été construite.
 use usual-divisibility-criteria;
 
 class IntegerDivisorsListing does UsualDivisibilityCriteria is export {
-    has Str $.array-or-hash where (($_ ~~ / array || hash || <[@%]> /) or
-    die "Champ de classe invalide! Attendu : 'array', '@', 'hash' ou '%'.");
+    has Str $.array-or-hash where {($_ ~~ / array || hash || <[@%]> /) or
+    die "Champ de classe invalide! Attendu : 'array', '@', 'hash' ou '%'."};
 
     method array-or-hash {
         return $!array-or-hash;
     }
 
-    method list-divisors(Int $integer where ($integer > 0)) {
+    method list-divisors(Int $integer where {$integer > 0}) {
         #my Int $n = self.integer;
         my Int $n = $integer;
         # Compteur des diviseurs successifs
