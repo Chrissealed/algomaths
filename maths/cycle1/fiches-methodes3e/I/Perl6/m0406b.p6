@@ -33,7 +33,7 @@ if $boolean {
 LABELOUTLOOP:
 loop {
     $strint1 = prompt "Donnez un premier entier positif (0 pour finir) : ";
-    exit if $strint1 eq '0' || $strint eq '';
+    exit if $strint1 eq '0' || $strint1 eq '';
     try {
         $int1 = Int($strint1);
     }
