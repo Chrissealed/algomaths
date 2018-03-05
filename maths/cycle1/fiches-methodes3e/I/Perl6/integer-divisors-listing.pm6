@@ -17,19 +17,16 @@ selon la valeur de l'argument du champ 'Str $array-or-hash' qui peut prendre
 l'une des valeurs suivantes : '@' ou 'array' pour renvoyer un tableau de Int
 ou bien '%' ou 'hash' pour renvoyer un hash (%h.keys : Str et %h.elems : Int).
 Il est possible de connaître la valeur de retour employée en utilisant la méthode
-'array-or-hash' le champ étant lui-même en lecture seule, il ne peut pas être modifié
+'array-or-hash' ou bien de le modifier à l'aide de la méthode 'array-or-hash(Str $array-or-hash'
+ou $array-or-hash peut prendre l'une des valeurs du champ de la classe indiquées ci-dessus, 
 après que la classe ait été construite. 
 =end pod
 
 use usual-divisibility-criteria;
 
 class IntegerDivisorsListing does UsualDivisibilityCriteria is export {
-    has Str $.array-or-hash where {($_ ~~ / array || hash || <[@%]> /) or
+    has Str $.array-or-hash is rw where {($_ ~~ / array || hash || <[@%]> /) or
     die "Champ de classe invalide! Attendu : 'array', '@', 'hash' ou '%'."};
-
-    method array-or-hash {
-        return $!array-or-hash;
-    }
 
     method list-divisors(Int $integer where {$integer > 0}) {
         #my Int $n = self.integer;

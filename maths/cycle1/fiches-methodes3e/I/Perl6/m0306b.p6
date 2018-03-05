@@ -43,6 +43,10 @@ loop {
         $! = Any;
         redo;
     }
+    if ($int1 < 0) {
+        say "Saisie invalide !";
+        redo;
+    }
     loop {
         $str2 = prompt "Donnez un deuxième entier positif : ";
         try {
@@ -52,6 +56,10 @@ loop {
             say "Saisie invalide !";
             $! = Any;
             redo; 
+        }
+        if ($int2 < 0) {
+           say "Saisie invalide !";
+           redo;
         }
         answering;
         redo LABELOUTLOOP;

@@ -4,7 +4,7 @@ use pgcd :subtractalgo;
 
 sub answering {
     my $pgcd = PGCD.new(
-        array-or-hash => '@',
+        # Pour construire la classe PGCD pour la méthode 'subtraction algorithm'
         integer1 => 2072,
         integer2 => 370,
     );

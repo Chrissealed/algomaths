@@ -7,7 +7,7 @@ my Str ($strint1, $strint2) = "";
 sub answering {
     do-put-up-correct-version();
     my $pgcd = PGCD.new(
-        array-or-hash => '@',
+        # Pour construire la classe PGCD pour la méthode 'subtraction algorithm'
         integer1 => $int1,
         integer2 => $int2,
     );
@@ -32,6 +32,10 @@ loop {
         $! = Any;
         redo;
     }
+    if ($int1 < 0) {
+        say "Saisie invalide !";
+        redo;
+    }
     loop {
         $strint2 = prompt "Donnez un deuxième entier positif : ";
         try {
@@ -41,6 +45,10 @@ loop {
             say "Saisie invalide !";
             $! = Any;
             redo; 
+        }
+        if ($int2 < 0) {
+           say "Saisie invalide !";
+           redo;
         }
         answering;
         redo LABELOUTLOOP;

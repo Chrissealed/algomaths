@@ -29,6 +29,10 @@ loop {
         $! = Any;
         redo
     }
+    if ($int < 0) {
+       say "Saisie invalide !";
+       redo;
+    }
     answering();
 }
 
