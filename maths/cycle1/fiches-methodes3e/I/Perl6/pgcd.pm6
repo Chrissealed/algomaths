@@ -1,3 +1,5 @@
+unit module pgcd;
+
 use integer-divisors-listing;
 use common-arrays-elements;
 
