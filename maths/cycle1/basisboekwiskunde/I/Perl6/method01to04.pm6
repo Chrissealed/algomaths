@@ -152,6 +152,7 @@ sub put-up-method1to5 {
 # b. Soit en partant du deuxième.
 # c. Soit en décomposant par division.
 # d. Soit en utilisant la multiplication.
+# NOTE: Ecrivez le quotient et le reste concaténés (c-à-d. sans espace entre eux).
 # ---------------------------------------------------------------------------------
 # 5. Comment simplifier une ligne de calculs ?
 # a. Les calculs entre parenthèses en premier.
