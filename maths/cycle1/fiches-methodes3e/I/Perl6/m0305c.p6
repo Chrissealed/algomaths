@@ -8,9 +8,6 @@ sub answering {
     do-put-up-correct-version;
     my %h;
     my $divisors-listing = IntegerDivisorsListingH.new;
-    #my $divisors-listing = IntegerDivisorsListing.new(
-    #    array-or-hash => '%',
-    #);
     %h = $divisors-listing.list-divisors($p);
     say();
     # Test pour un nombre premier

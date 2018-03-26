@@ -5,7 +5,7 @@ sub answering {
     say "Existe-t-il un entier q tel que 180 = 15q ?";
     my Int $integer = 180;
     my Int $divisor = 15;
-    my Int $q = Int($integer / $divisor);
+    my Int $q = $integer div $divisor;
     if ($integer % $divisor == 0) {
         say "$integer est divisible par $divisor :";
         say "il existe un entier q tel que $divisor × q = $integer : $q.";
@@ -16,7 +16,7 @@ sub answering {
     say "";
     say "Existe-t-il un entier q tel que 260 = 15q ?";
     $integer = 260;
-    $q = Int($integer / $divisor);
+    $q = $integer div $divisor;
     my Int $m = $divisor * $q;
     my Int $n = $divisor * ($q + 1);
     if ($integer % $divisor == 0) {
@@ -41,3 +41,4 @@ if $boolean {
 }
 do-put-up-correct-version();
 answering();
+

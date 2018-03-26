@@ -33,13 +33,17 @@ if $boolean {
 LABELOUTLOOP:
 loop {
     $strint1 = prompt "Donnez un premier entier positif (0 pour finir) : ";
-    exit if $strint1 eq '0' || $strint eq '';
+    exit if $strint1 eq '0' || $strint1 eq '';
     try {
         $int1 = Int($strint1);
     }
     if $! {
         say "Saisie invalide !";
         $! = Any;
+        redo;
+    }
+    if ($int1 < 0) {
+        say "Saisie invalide !";
         redo;
     }
     loop {
@@ -51,6 +55,10 @@ loop {
             say "Saisie invalide !";
             $! = Any;
             redo; 
+        }
+        if ($int2 < 0) {
+           say "Saisie invalide !";
+           redo;
         }
         answering;
         redo LABELOUTLOOP;
