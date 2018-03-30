@@ -13,7 +13,7 @@ puis en facteurs élevés à la puissance requise.
 
 role PrimeFactors is export {
 
-    method breakdown(Int $integer is copy where {$integer > 1 or die "Argument invalide! Nombre entier supérieur à 1 requis."} --> Hash) {
+    method breakdown(Int $integer is copy where {$integer > 1 or die "Argument invalide! Nombre entier supérieur à 1 requis."} --> Hash) is export {
         #my @prime = (2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79);
         my Int $intcopy = $integer;
         my %prime{Int};
