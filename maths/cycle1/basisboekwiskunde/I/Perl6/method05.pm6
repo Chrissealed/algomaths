@@ -45,47 +45,126 @@ EOM
 }
 
 sub exercise_01 is export(:exe01) {
-    say "Décomposez les nombres suivants en facteurs premiers.";
+    say "Décomposez le nombre suivant en facteurs premiers.";
     say "a. 24";
-    say "b. 72";
-    say "c. 250";
-    say "d. 96";
-    say "e. 98";
 }
 
 sub exercise_02 is export(:exe02) {
-    say "Décomposez les nombres suivants en facteurs premiers.";
-    say "a. 288";
-    say "b. 1024";
-    say "c. 315";
-    say "d. 396";
-    say "e. 1875";
+    say "Décomposez le nombre suivant en facteurs premiers.";
+    say "b. 72";
 }
 
 sub exercise_03 is export(:exe03) {
-    say "Décomposez les nombres suivants en facteurs premiers.";
-    say "a. 972";
-    say "b. 676";
-    say "c. 2025";
-    say "d. 1122";
-    say "e. 860";
+    say "Décomposez le nombre suivant en facteurs premiers.";
+    say "c. 250";
 }
 
 sub exercise_04 is export(:exe04) {
-    say "Décomposez les nombres suivants en facteurs premiers.";
-    say "a. 255";
-    say "b. 441";
-    say "c. 722";
-    say "d. 432";
-    say "e. 985";
+    say "Décomposez le nombre suivant en facteurs premiers.";
+    say "d. 96";
 }
 
 sub exercise_05 is export(:exe05) {
-    say "Décomposez les nombres suivants en facteurs premiers.";
-    say "a. 2000";
-    say "b. 2001";
-    say "c. 2002";
-    say "d. 2003";
-    say "e. 2004";
+    say "Décomposez le nombre suivant en facteurs premiers.";
+    say "e. 98";
 }
 
+sub exercise_06 is export(:exe06) {
+    say "Décomposez le nombre suivant en facteurs premiers.";
+    say "a. 288";
+}
+
+sub exercise_07 is export(:exe07) {
+    say "Décomposez le nombre suivant en facteurs premiers.";
+    say "b. 1024";
+}
+
+sub exercise_08 is export(:exe08) {
+    say "Décomposez le nombre suivant en facteurs premiers.";
+    say "c. 315";
+}
+
+sub exercise_09 is export(:exe09) {
+    say "Décomposez le nombre suivant en facteurs premiers.";
+    say "d. 396";
+}
+
+sub exercise_10 is export(:exe10) {
+    say "Décomposez le nombre suivant en facteurs premiers.";
+    say "e. 1875";
+}
+
+sub exercise_11 is export(:exe11) {
+    say "Décomposez le nombre suivant en facteurs premiers.";
+    say "a. 972";
+}
+
+sub exercise_12 is export(:exe12) {
+    say "Décomposez le nombre suivant en facteurs premiers.";
+    say "b. 676";
+}
+
+sub exercise_13 is export(:exe13) {
+    say "Décomposez le nombre suivant en facteurs premiers.";
+    say "c. 2025";
+}
+
+sub exercise_14 is export(:exe14) {
+    say "Décomposez le nombre suivant en facteurs premiers.";
+    say "d. 1122";
+}
+
+sub exercise_15 is export(:exe15) {
+    say "Décomposez le nombre suivant en facteurs premiers.";
+    say "e. 860";
+}
+
+sub exercise_16 is export(:exe16) {
+    say "Décomposez le nombre suivant en facteurs premiers.";
+    say "a. 255";
+}
+
+sub exercise_17 is export(:exe17) {
+    say "Décomposez le nombre suivant en facteurs premiers.";
+    say "b. 441";
+}
+
+sub exercise_18 is export(:exe18) {
+    say "Décomposez le nombre suivant en facteurs premiers.";
+    say "c. 722";
+}
+
+sub exercise_19 is export(:exe19) {
+    say "Décomposez le nombre suivant en facteurs premiers.";
+    say "d. 432";
+}
+
+sub exercise_20 is export(:exe20) {
+    say "Décomposez le nombre suivant en facteurs premiers.";
+    say "e. 985";
+}
+
+sub exercise_21 is export(:exe21) {
+    say "Décomposez le nombre suivant en facteurs premiers.";
+    say "a. 2000";
+}
+
+sub exercise_22 is export(:exe22) {
+    say "Décomposez le nombre suivant en facteurs premiers.";
+    say "b. 2001";
+}
+
+sub exercise_23 is export(:exe23) {
+    say "Décomposez le nombre suivant en facteurs premiers.";
+    say "c. 2002";
+}
+
+sub exercise_24 is export(:exe24) {
+    say "Décomposez le nombre suivant en facteurs premiers.";
+    say "d. 2003";
+}
+
+sub exercise_25 is export(:exe25) {
+    say "Décomposez le nombre suivant en facteurs premiers.";
+    say "e. 2004";
+}

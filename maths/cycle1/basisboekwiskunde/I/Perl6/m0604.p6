@@ -1,5 +1,5 @@
 use corrective;
-use method06 :methodwording, :exe01;
+use method06 :methodwording, :exe04;
 use integer-divisors-listing;
 
 sub answering {
@@ -7,12 +7,12 @@ sub answering {
         array-or-hash => '@',
     );
     my @a;
-    @a = $divisors-listing.list-divisors(12);
+    @a = $divisors-listing.list-divisors(108);
     say @a;
     say();
 }
 
-exercise_01();
+exercise_04();
 my Bool $boolean = True;
 $boolean = do-put-up-method();
 if $boolean {

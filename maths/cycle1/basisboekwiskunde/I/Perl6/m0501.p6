@@ -7,14 +7,6 @@ sub answering {
     my $prime = P.new();
     my %p = $prime.breakdown(24);
     say();
-    %p = $prime.breakdown(72);
-    say();
-    %p = $prime.breakdown(250);
-    say();
-    %p = $prime.breakdown(96);
-    say();
-    %p = $prime.breakdown(98);
-    say();
 }
 
 exercise_01();

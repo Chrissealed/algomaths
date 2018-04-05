@@ -7,19 +7,7 @@ sub answering {
         array-or-hash => '@',
     );
     my @a;
-    @a = $divisors-listing.list-divisors(72);
-    say @a;
-    say();
-    @a = $divisors-listing.list-divisors(100);
-    say @a;
-    say();
-    @a = $divisors-listing.list-divisors(1001);
-    say @a;
-    say();
-    @a = $divisors-listing.list-divisors(561);
-    say @a;
-    say();
-    @a = $divisors-listing.list-divisors(196);
+    @a = $divisors-listing.list-divisors(20);
     say @a;
     say();
 }

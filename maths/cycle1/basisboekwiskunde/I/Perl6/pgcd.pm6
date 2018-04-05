@@ -26,8 +26,7 @@ class PGCD is IntegerDivisorsListing does PrimeFactors is export {
     has Int $.dividend is rw where {$_ >= 0 or die "Valeur de champ invalide: dividende >= 0 requis !"};
     # Virtual method call $.dividend may not be used on partially constructed object
     # (maybe you mean $!dividend for direct attribute access here?)
-    has Int $.divisor  is rw where {$_ > 0 or die "Champ de classe invalide: division par 0 interdite !"
-                                 && $_ <= $!dividend or die "Champ de classe invalide: le diviseur doit être inférieur ou égal au dividende !"};
+    has Int $.divisor  is rw where {$_ > 0 or die "Champ de classe invalide: division par 0 interdite !"};
 
 =begin pod
 ###################################################################################
@@ -213,6 +212,10 @@ a par b
     method euclide_algorithm(--> Int) is export(:euclidealgo) {
         my Int $dividend = self.dividend;
         my Int $divisor = self.divisor;
+        if ($dividend < $divisor) {
+            # Intervertir $x et $y
+            ($dividend, $divisor) = ($divisor, $dividend);
+        }
         my Int $quotient = $dividend div $divisor;
         my Int $rest = $dividend mod $divisor;
         my Int $div = $divisor;

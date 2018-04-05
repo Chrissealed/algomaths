@@ -5,15 +5,7 @@ use prime-factors;
 sub answering {
     class P does PrimeFactors {}
     my $prime = P.new();
-    my %p = $prime.breakdown(255);
-    say();
-    %p = $prime.breakdown(441);
-    say();
-    %p = $prime.breakdown(722);
-    say();
-    %p = $prime.breakdown(432);
-    say();
-    %p = $prime.breakdown(985);
+    my %p = $prime.breakdown(96);
     say();
 }
 

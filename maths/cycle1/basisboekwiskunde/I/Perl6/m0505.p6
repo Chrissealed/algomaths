@@ -6,15 +6,7 @@ sub answering {
     class P does PrimeFactors {}
     my $prime = P.new();
     my Int @a = ();
-    my %p = $prime.breakdown(2000);
-    say();
-    %p = $prime.breakdown(2001);
-    say();
-    %p = $prime.breakdown(2002);
-    say();
-    %p = $prime.breakdown(2003);
-    say();
-    %p = $prime.breakdown(2004);
+    my %p = $prime.breakdown(98);
     say();
 }
 

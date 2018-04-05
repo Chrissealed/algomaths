@@ -22,21 +22,61 @@ sub put-up-method is export(:methodwording) {
 EOM
 }
 sub exercise_01 is export(:exe01) {
-    say "Déterminez tous les facteurs des nombres suivants.";
-    say "Un conseil : décomposez d'abord ces nombres en facteurs premiers.";
+    say "Déterminez tous les facteurs du nombre suivant.";
+    say "Un conseil : décomposez d'abord ce nombre en facteurs premiers.";
     say "a. 12";
-    say "b. 20";
-    say "c. 32";
-    say "d. 108";
-    say "e. 144";
 }
 
 sub exercise_02 is export(:exe02) {
-    say "Déterminez tous les facteurs des nombres suivants.";
-    say "Un conseil : décomposez d'abord ces nombres en facteurs premiers.";
+    say "Déterminez tous les facteurs du nombre suivant.";
+    say "Un conseil : décomposez d'abord ce nombre en facteurs premiers.";
+    say "b. 20";
+}
+
+sub exercise_03 is export(:exe03) {
+    say "Déterminez tous les facteurs du nombre suivant.";
+    say "Un conseil : décomposez d'abord ce nombre en facteurs premiers.";
+    say "c. 32";
+}
+
+sub exercise_04 is export(:exe04) {
+    say "Déterminez tous les facteurs du nombre suivant.";
+    say "Un conseil : décomposez d'abord ce nombre en facteurs premiers.";
+    say "d. 108";
+}
+
+sub exercise_05 is export(:exe05) {
+    say "Déterminez tous les facteurs du nombre suivant.";
+    say "Un conseil : décomposez d'abord ce nombre en facteurs premiers.";
+    say "e. 144";
+}
+
+sub exercise_06 is export(:exe06) {
+    say "Déterminez tous les facteurs du nombre suivant.";
+    say "Un conseil : décomposez d'abord ce nombre en facteurs premiers.";
     say "a. 72";
+}
+
+sub exercise_07 is export(:exe07) {
+    say "Déterminez tous les facteurs du nombre suivant.";
+    say "Un conseil : décomposez d'abord ce nombre en facteurs premiers.";
     say "b. 100";
+}
+
+sub exercise_08 is export(:exe08) {
+    say "Déterminez tous les facteurs du nombre suivant.";
+    say "Un conseil : décomposez d'abord ce nombre en facteurs premiers.";
     say "c. 1001";
+}
+
+sub exercise_09 is export(:exe09) {
+    say "Déterminez tous les facteurs du nombre suivant.";
+    say "Un conseil : décomposez d'abord ce nombre en facteurs premiers.";
     say "d. 561";
+}
+
+sub exercise_10 is export(:exe10) {
+    say "Déterminez tous les facteurs du nombre suivant.";
+    say "Un conseil : décomposez d'abord ce nombre en facteurs premiers.";
     say "e. 196";
 }
