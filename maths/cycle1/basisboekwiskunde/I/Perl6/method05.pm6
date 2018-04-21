@@ -1,5 +1,7 @@
 unit module Method05;
 
+use v6;
+
 sub put-up-method is export(:methodwording) {
     say qq:to/EOM/
 ###################################################################################

@@ -1,5 +1,7 @@
 unit module Prime-factors;
 
+use v6;
+
 =begin pod
 Ce module contient un role : PrimeFactors destiné à
 établir la liste des facteurs premiers d'un entier > 1.

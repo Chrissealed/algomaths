@@ -1,5 +1,6 @@
 unit module Method01to04;
 
+use v6;
 use corrective;
 
 sub put-up-method1 {

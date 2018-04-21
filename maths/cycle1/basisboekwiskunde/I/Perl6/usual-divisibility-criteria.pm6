@@ -1,5 +1,7 @@
 unit module usual-divisibility-criteria;
 
+use v6;
+
 =begin pod
 Ce module est destiné à coder les critères de divisibilité usuels
 des nombres pour lesquels ceux-ci existent :

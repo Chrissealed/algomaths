@@ -1,5 +1,7 @@
 unit module Corrective;
 
+use v6;
+
 =begin pod
 Ce module est utilisé dans chacun des fichiers p6
 pour demander s'il faut afficher la méthode de l'exercice

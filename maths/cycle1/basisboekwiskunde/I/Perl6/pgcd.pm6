@@ -1,5 +1,6 @@
 unit module pgcd;
 
+use v6;
 use integer-divisors-listing;
 use common-arrays-elements;
 use prime-factors;

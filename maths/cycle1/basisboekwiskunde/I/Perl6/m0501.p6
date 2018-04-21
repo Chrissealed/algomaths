@@ -1,3 +1,6 @@
+#!/usr/bin/env perl6
+
+use v6;
 use corrective;
 use method05 :methodwording, :exe01;
 use prime-factors;
@@ -10,8 +13,7 @@ sub answering {
 }
 
 exercise_01();
-my Bool $boolean = True;
-$boolean = do-put-up-method();
+my Bool $boolean = do-put-up-method();
 if $boolean {
     put-up-method();
 }
