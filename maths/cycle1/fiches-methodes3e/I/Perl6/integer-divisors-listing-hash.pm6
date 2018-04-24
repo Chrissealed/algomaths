@@ -1,5 +1,7 @@
 unit module Integer-divisors-listing-hash;
 
+use v6;
+
 =begin pod
 =head1 Ce module contient une classe : 'IntegerDivisorsListingH'
 destinée à établir la liste des diviseurs d'un entier naturel non nul.

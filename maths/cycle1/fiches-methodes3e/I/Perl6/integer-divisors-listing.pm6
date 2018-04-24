@@ -1,5 +1,7 @@
 unit module Integer-divisors-listing;
 
+use v6;
+
 =begin pod
 =head1 Cette classe est destinée à établir la liste des diviseurs d'un entier naturel non nul.
 Elle contient deux méthodes, l'une publique : 'list-divisors(Int $integer where {$integer > 0})' 

@@ -1,3 +1,6 @@
+#!/usr/bin/env perl6
+
+use v6;
 use corrective;
 use method02 :methodwording, :exe08;
 
@@ -13,8 +16,7 @@ sub answering {
 }
 
 exercise_08();
-my Bool $boolean = True;
-$boolean = do-put-up-method();
+my Bool $boolean = do-put-up-method();
 if $boolean {
     put-up-method();
 }

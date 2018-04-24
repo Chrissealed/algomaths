@@ -1,3 +1,6 @@
+#!/usr/bin/env perl6
+
+use v6;
 use corrective;
 use method10 :methodwording, :exe12;
 use are-prime;
@@ -9,12 +12,17 @@ sub answering {
         # Pour construire la classe, pour la méthode 'euclide_algorithm'
         subtract-or-euclide-algo => ':',
     );
-    my $div = $prime.have-common-divisor();
+    my $are-prime = $prime.have-common-divisor();
+    if $are-prime {
+        say "Les nombres 1450 et 2691 sont donc premiers entre eux";
+        say "car ils n'ont pas de diviseurs communs autre que 1.";
+    } else {
+        say "Les nombres 1450 et 2691 ne sont donc pas premiers entre eux.";
+    }
 }
 
 exercise_12();
-my Bool $boolean = True;
-$boolean = do-put-up-method();
+my Bool $boolean = do-put-up-method();
 if $boolean {
     put-up-method();
 }

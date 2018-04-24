@@ -4,6 +4,28 @@ use v6;
 use are-prime;
 use pgcd;
 
+=begin pod
+Ce module contient une classe : PPCM qui hérite de la classe ArePrime,
+qui elle-même hérite de la classe PGCD.
+Cette classe comporte deux arguments : integer1 et integer2, qui sont
+des entiers supérieurs à 1 à passer dans son constructeur et qui seront
+utilisés par les méthodes de la classe.
+Cette classe contient trois méthodes distinctes pour calculer le PPCM
+(plus petit commun multiple) de deux entiers :
+- 'by-larger-number-multiples' qui procède par additions du plus grand
+nombre et division du résultat par le plus petit nombre.
+Elle retourne le PPCM recherché qui est donc un entier.
+- 'by-prime-factors' qui procède par décomposition des nombres en
+facteurs premiers et qui utilise la méthode 'breakdown' du module
+'prime-factors' dont il dispose du rôle par l'intermédiaire de la
+classe 'PGCD' dont il hérite en deuxième parent par le module
+'ArePrime'. Cette méthode retourne un tableau des facteurs extraits
+des deux nombres qu'il faudra multiplier pour obtenir le PPCM recherché.
+- enfin 'by-use-of-pgcd' qui comme son nom l'indique recherche d'abord
+le PGCD des deux entiers avant de diviser leur multiple par celui-ci,
+le résultat étant le PPCM recherché, soit un entier retourné par la méthode.
+=end pod
+
 class PPCM is ArePrime is export {
     has Int $.integer1 is rw where {$_ > 1 or die "Valeur de champ invalide: entier > 1 requis !"};
     has Int $.integer2 is rw where {$_ > 1 or die "Valeur de champ invalide: entier > 1 requis !"};
@@ -99,7 +121,7 @@ class PPCM is ArePrime is export {
         return @a3;
     }
 
-    method by-use-of-pgcd() {
+    method by-use-of-pgcd(--> Int) {
         my $x = self.integer1;
         my $y = self.integer2;
         if ($y > $x) {

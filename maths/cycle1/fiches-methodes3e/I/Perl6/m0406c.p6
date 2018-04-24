@@ -1,6 +1,9 @@
+#!/usr/bin/env perl6
+
+use v6;
 use corrective;
 use method04 :methodwording, :exe06b;
-use pgcd :divlistalgo;
+use pgcd;
 
 my Int ($int1, $int2) = 1;
 my Str ($strint1, $strint2) = "";
@@ -15,8 +18,7 @@ sub answering {
 }
 
 exercise_06b();
-my Bool $boolean = True;
-$boolean = do-put-up-method();
+my Bool $boolean = do-put-up-method();
 if $boolean {
     put-up-method();
 }

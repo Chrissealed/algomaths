@@ -1,6 +1,9 @@
+#!/usr/bin/env perl6
+
+use v6;
 use corrective;
 use method09 :methodwording, :exe01;
-use pgcd :euclidealgo;
+use pgcd;
 
 sub answering {
     my $pgcd = PGCD.new(
@@ -20,8 +23,7 @@ sub answering {
 }
 
 exercise_01();
-my Bool $boolean = True;
-$boolean = do-put-up-method();
+my Bool $boolean = do-put-up-method();
 if $boolean {
     put-up-method();
 }

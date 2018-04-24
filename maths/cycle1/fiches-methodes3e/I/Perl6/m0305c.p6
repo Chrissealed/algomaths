@@ -1,3 +1,6 @@
+#!/usr/bin/env perl6
+
+use v6;
 use corrective;
 use method03 :methodwording, :exe05b;
 use integer-divisors-listing-hash;
@@ -22,8 +25,7 @@ sub answering {
 }
 
 exercise_05b();
-my Bool $boolean = True;
-$boolean = do-put-up-method();
+my Bool $boolean = do-put-up-method();
 if $boolean {
     put-up-method();
 }
