@@ -19,8 +19,8 @@ Elle retourne le PPCM recherché qui est donc un entier.
 facteurs premiers et qui utilise la méthode 'breakdown' du module
 'prime-factors' dont il dispose du rôle par l'intermédiaire de la
 classe 'PGCD' dont il hérite en deuxième parent par le module
-'ArePrime'. Cette méthode retourne un tableau des facteurs extraits
-des deux nombres qu'il faudra multiplier pour obtenir le PPCM recherché.
+'ArePrime'. Cette méthode dispose d'un tableau des facteurs extraits
+des deux nombres qu'elle multiplie pour obtenir le PPCM recherché et retourné.
 - enfin 'by-use-of-pgcd' qui comme son nom l'indique recherche d'abord
 le PGCD des deux entiers avant de diviser leur multiple par celui-ci,
 le résultat étant le PPCM recherché, soit un entier retourné par la méthode.
@@ -39,6 +39,19 @@ class PPCM is ArePrime is export {
         }
         my $int = $int1;
         if $int1 == $int2 { return $int1; }
+        # Vérifier si les nombres sont premiers entre eux
+        my $are-prime = ArePrime.new(
+            integer1 => $int1,
+            integer2 => $int2,
+            subtract-or-euclide-algo => ':',
+        );
+        my Bool $have-common-divisor = $are-prime.have-common-divisor();
+        if !$have-common-divisor {
+            say "Le PGCD de $int1 et $int2 est égal à 1 ce qui signifie";
+            say "que $int1 et $int2 n'ont pas de diviseur commun autre que 1;";
+            say "le PPCM de $int1 et $int2 est donc leur produit :";
+            return $int1 * $int2;
+        }
         say "Reste de la division de $int1 par $int2 : ", $int1 % $int2;
         if $int1 %% $int2 { return $int1; }
         loop {
@@ -50,7 +63,22 @@ class PPCM is ArePrime is export {
         }
     }
 
-    method by-prime-factors(--> Array) {
+    method by-prime-factors(--> Int) {
+        my $x = self.integer1;
+        my $y = self.integer2;
+        # Vérifier si les nombres sont premiers entre eux
+        my $are-prime = ArePrime.new(
+            integer1 => $x,
+            integer2 => $y,
+            subtract-or-euclide-algo => ':',
+        );
+        my Bool $have-common-divisor = $are-prime.have-common-divisor();
+        if !$have-common-divisor {
+            say "Le PGCD de $x et $y est égal à 1 ce qui signifie";
+            say "que $x et $y n'ont pas de diviseur commun autre que 1;";
+            say "le PPCM de $x et $y est donc leur produit :";
+            return $x * $y;
+        }
         # Call méthode du module 'prime-factors' qui contient un rôle inclus dans 
         # la classe PGCD héritée de ArePrime.
         my %h1 = self.breakdown(self.integer1);
@@ -118,7 +146,16 @@ class PPCM is ArePrime is export {
                 $total2 = 1;
             }
         }
-        return @a3;
+        $i = 0;
+        say "En prenant les plus grands facteurs de chaque liste, ";
+        print "le PPCM de $x et $y équivaut donc à : ";
+        while ($i < @a3.end) {
+            print @a3[$i], " × ";
+            $i++;
+        }
+        say @a3[$i], ";";
+        my $ppcm = [*] @a3;
+        return $ppcm;
     }
 
     method by-use-of-pgcd(--> Int) {
@@ -128,15 +165,23 @@ class PPCM is ArePrime is export {
             # Inversion des termes
             ($x, $y) = ($y, $x);
         }
+        # On ne vérifie pas que les nombres sont premiers entre eux
+        # car on serait amené à rechercher deux fois leur PGCD
         my $pgcd = PGCD.new(
             dividend => $x,
             divisor => $y,
         );
         my Int $p = $pgcd.euclide_algorithm();
+        if ($p == 1) {
+            say "Le PGCD de $x et $y est égal à 1 ce qui signifie";
+            say "que $x et $y n'ont pas de diviseur commun autre que 1;";
+            say "le PPCM de $x et $y est donc leur produit :";
+            return $x * $y;
+        }
         my Int $product = $x * $y;
         say "Produit de $x par $y = $product";
         my Int $ppcm = $product div $p;
-        say "PPCM = $product / PGCD";
+        say "PPCM($x ; $y) = $product / $p";
         return $ppcm;
     }
 

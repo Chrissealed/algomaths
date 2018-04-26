@@ -39,7 +39,7 @@ l'ensemble des diviseurs de chacun des deux nombres :
 ###################################################################################
 =end pod
 
-    method divisors-listing_algorithm(--> Int) is export(:divlistalgo) {
+    method divisors-listing_algorithm(--> Int) {
         my (@a, @b, @c) = ();
 
         my $divisors-listing = IntegerDivisorsListing.new(
@@ -82,7 +82,7 @@ que deux facteurs premiers, 2 et 5. Il est clair que 5 n'est pas un facteur des
 deux nombres, par conséquent seul 2 l'est; d'ou PGCD(4352 ; 4342) = 2.
 =end pod
 
-    method factorization_algorithm(--> Array) is export(:factoralgo) {
+    method factorization_algorithm(--> Array) {
         my Int $i = $!integer1;
         my Int $j = $!integer2;
         my %factors1{Int};
@@ -162,7 +162,7 @@ si a = b, alors PGCD(a;b) = a = b et si a > b, PGCD(a;b) = PGCD(b;a-b).
 ###################################################################################
 =end pod
 
-    method subtraction_algorithm(--> Int) is export(:subtractalgo) {
+    method subtraction_algorithm(--> Int) {
         my Int $x = self.integer1;
         my Int $y = self.integer2;
         if ($x < $y) {
@@ -210,7 +210,7 @@ a par b
 ###################################################################################
 =end pod
 
-    method euclide_algorithm(--> Int) is export(:euclidealgo) {
+    method euclide_algorithm(--> Int) {
         my Int $dividend = self.dividend;
         my Int $divisor = self.divisor;
         if ($dividend < $divisor) {

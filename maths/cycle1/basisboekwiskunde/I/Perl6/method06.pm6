@@ -56,29 +56,29 @@ sub exercise_05 is export(:exe05) {
 sub exercise_06 is export(:exe06) {
     say "Déterminez tous les facteurs du nombre suivant.";
     say "Un conseil : décomposez d'abord ce nombre en facteurs premiers.";
-    say "a. 72";
+    say "f. 72";
 }
 
 sub exercise_07 is export(:exe07) {
     say "Déterminez tous les facteurs du nombre suivant.";
     say "Un conseil : décomposez d'abord ce nombre en facteurs premiers.";
-    say "b. 100";
+    say "g. 100";
 }
 
 sub exercise_08 is export(:exe08) {
     say "Déterminez tous les facteurs du nombre suivant.";
     say "Un conseil : décomposez d'abord ce nombre en facteurs premiers.";
-    say "c. 1001";
+    say "h. 1001";
 }
 
 sub exercise_09 is export(:exe09) {
     say "Déterminez tous les facteurs du nombre suivant.";
     say "Un conseil : décomposez d'abord ce nombre en facteurs premiers.";
-    say "d. 561";
+    say "i. 561";
 }
 
 sub exercise_10 is export(:exe10) {
     say "Déterminez tous les facteurs du nombre suivant.";
     say "Un conseil : décomposez d'abord ce nombre en facteurs premiers.";
-    say "e. 196";
+    say "j. 196";
 }
