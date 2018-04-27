@@ -6,15 +6,15 @@ use method10 :methodwording, :exe13;
 use are-prime;
 
 sub answering {
-    my $prime = ArePrime.new(
+    my $are-prime = ArePrime.new(
         integer1 => 2929,
         integer2 => 10605,
         # Pour construire la classe 'CommonDivisorsListing'
         # pour utiliser la méthode 'list-divisors'
         array-or-hash => '@',
     );
-    my Bool $are-prime = $prime.have-common-divisors();
-    if $are-prime {
+    my Bool $have-common-divisors = $are-prime.have-common-divisors();
+    if !$have-common-divisors {
         say "Les nombres 2929 et 10605 sont donc premiers entre eux";
         say "car ils n'ont pas de diviseurs communs autre que 1.";
     } else {

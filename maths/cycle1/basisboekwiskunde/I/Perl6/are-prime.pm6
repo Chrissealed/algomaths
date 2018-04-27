@@ -43,7 +43,7 @@ class ArePrime is PGCD is export {
         my Int @a = ();
         my Int @b = ();
         my Int @c = ();
-        my Bool $flag = True;
+        my Bool $flag = False;
         my $list = PGCD.new(
             array-or-hash => '@',
         );
@@ -55,8 +55,8 @@ class ArePrime is PGCD is export {
             for @a -> $i {
                 for @b -> $j {
                     if ($i == $j && $i != 1) {
-                        $flag = False;
                         say "Les nombres $int1 et $int2 ont un diviseur commun autre que 1 : $i;";
+                        $flag = True;
                         push @c, $i;
                     }
                 }
@@ -65,15 +65,15 @@ class ArePrime is PGCD is export {
             for @b -> $i {
                 for @a -> $j {
                     if ($i == $j && $i != 1) {
-                        $flag = False;
                         say "Les nombres $int1 et $int2 ont un diviseur commun autre que 1 : $i;";
+                        $flag = True;
                         push @c, $i;
                     }
                 }
             }
         }
 
-        if $flag {
+        if !$flag {
             say "Les nombres $int1 et $int2 n'ont pas de diviseur commun autre que 1;";
             say @a;
             say @b;
@@ -97,6 +97,10 @@ class ArePrime is PGCD is export {
         my Int $i;
         my Bool $flag = True;
         my $pgcd = PGCD.new(
+            # Pour la méthode subtraction_algorithm
+            integer1 => $dvd,
+            integer2 => $dvs,
+            # Pour la méthode euclide_algorithm
             dividend => $dvd,
             divisor => $dvs,
         );
