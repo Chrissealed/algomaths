@@ -82,69 +82,119 @@ que deux facteurs premiers, 2 et 5. Il est clair que 5 n'est pas un facteur des
 deux nombres, par conséquent seul 2 l'est; d'ou PGCD(4352 ; 4342) = 2.
 =end pod
 
-    method factorization_algorithm(--> Array) {
-        my Int $i = $!integer1;
-        my Int $j = $!integer2;
+    method factorization_algorithm(--> Int) {
+        my Int $int1 = $!integer1;
+        my Int $int2 = $!integer2;
         my %factors1{Int};
         my %factors2{Int};
-        my Int @keys1 = ();
-        my Int @keys2 = ();
-        say "Facteurs premiers de $!integer1 :";
+        my Int @values1 = ();
+        my Int @values2 = ();
+        say "Facteurs premiers de $int1 :";
         # Méthode de prime-factors.
-        %factors1 = self.breakdown($i);
-        @keys1 = %factors1.values.sort;
-        say "Facteurs premiers de $!integer2 :";
-        %factors2 = self.breakdown($j);
-        @keys2 = %factors2.values.sort;
+        %factors1 = self.breakdown($int1);
+        @values1 = %factors1.values.sort;
+        say "Facteurs premiers de $int2 :";
+        %factors2 = self.breakdown($int2);
+        @values2 = %factors2.values.sort;
         my Int @factors = ();
-        my Int $idx1 = 0;
-        my Int $idx2 = 0;
-        my Bool $next = False;
-        if (@keys1.elems >= @keys2.elems) {
-            while ($idx2 < @keys2.elems) {
-                while ($idx1 < @keys1.elems) {
-                    if (@keys2[$idx2] == @keys1[$idx1]) {
-                        push @factors, @keys2[$idx2] if (@keys2[$idx2] == @keys1[$idx1]) && ($next == False);
-                        $next = True;
+        my Int $i = 0;
+        my Int $count = 0;
+        my Int $int = 1;
+
+        if (@values1.elems > @values2.elems) {
+            repeat {
+                $int = @values2[$count] if ($count < @values2.elems);
+
+                $i = 0;
+                my Int $count1 = 0;
+                while ($i < @values2.elems) {
+                    if (@values2[$i] == $int) {
+                        $count1++;
                     }
-                    $idx1++;
+                    $i++;
                 }
-                $idx2++;
-                $idx1 = $idx2;
-                $next = False;
-            }
+                $count += $count1;
+                $i = 0;
+                my Int $count2 = 0;
+                while ($i < @values1.elems) {
+                    if (@values1[$i] == $int) {
+                        $count2++;
+                    }
+                    $i++;
+                }
+                $i = 0;
+                if ($count1 <= $count2) {
+                    loop ($i = 1; $i <= $count1; $i++) {
+                        push @factors, $int;
+                    }
+                } 
+                else {
+                    loop ($i = 1; $i <= $count2; $i++) {
+                        push @factors, $int;
+                    }
+                }
+            } until ($count >= @values2.end);
         }
         else {
-            while ($idx1 < @keys1.elems) {
-                while ($idx2 < @keys2.elems) {
-                    if (@keys1[$idx1] == @keys2[$idx2]) {
-                        push @factors, @keys1[$idx1] if (@keys1[$idx1] == @keys2[$idx2]) && ($next == False);
-                        $next = True;
+            repeat {
+                $int = @values1[$count] if ($count < @values1.elems);
+            
+                $i = 0;
+                my Int $count1 = 0;
+                while ($i < @values1.elems) {
+                    if (@values1[$i] == $int) {
+                        $count1++;
                     }
-                    $idx2++;
+                    $i++;
                 }
-                $idx1++;
-                $idx2 = $idx1;
-                $next = False;
-            }
+                $count += $count1;
+                $i = 0;
+                my Int $count2 = 0;
+                while ($i < @values2.elems) {
+                    if (@values2[$i] == $int) {
+                        $count2++;
+                    }
+                    $i++;
+                }
+                $i = 0;
+                if ($count1 <= $count2) {
+                    loop ($i = 1; $i <= $count1; $i++) {
+                        push @factors, $int;
+                    }
+                } 
+                else {
+                    loop ($i = 1; $i <= $count2; $i++) {
+                        push @factors, $int;
+                    }
+                }
+            } until ($count >= @values1.end);
         }
-        say "Facteurs communs à $!integer1 et $!integer2 :";
+        
+        say "Facteurs communs à $int1 et $int2 :";
         say @factors;
-        say "PGCD($i ; $j) :";
-        my $idx = 0;
-        while $idx < @factors.elems - 1 {
-            print @factors[$idx], " × ";
-            $idx++;
+        say "PGCD($int1 ; $int2) :" if (@factors.elems > 0);
+        $i = 0;
+        while $i < @factors.elems - 1 {
+            print @factors[$i], " × ";
+            $i++;
         }
-        print @factors[$idx];
-        $idx = 0;
+        if (@factors.elems == 1) {
+            print "@factors[$i] × 1";
+        }
+        elsif (@factors.elems == 0) {
+            say "pas de facteurs communs.";
+        }
+        else {
+            print @factors[$i];
+        }
+        $i = 0;
         my Int $factor = 1;
-        while $idx < @factors.elems {
-            $factor *= @factors[$idx];
-            $idx++;
+        while $i < @factors.elems {
+            $factor *= @factors[$i];
+            $i++;
         }
-        say " = $factor.";
-        return @factors;
+        say " = $factor." if ($factor > 1);
+        return $factor;
     }
 
 =begin pod    

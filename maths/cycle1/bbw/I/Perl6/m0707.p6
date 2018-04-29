@@ -10,7 +10,7 @@ sub answering {
         integer1 => 144,
         integer2 => 216,
     );
-    my Int @a = $pgcd.factorization_algorithm();
+    my Int $p = $pgcd.factorization_algorithm();
 }
 
 exercise_07();
