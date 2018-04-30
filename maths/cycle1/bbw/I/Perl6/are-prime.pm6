@@ -32,8 +32,8 @@ Tous les champs sont en lecture et écriture.
 =end pod
 
 class ArePrime is PGCD is export {
-    has Int $.integer1 is rw where {$_ > 0 or die "Valeur de champ invalide: entier supérieur à 0 requis !"};
-    has Int $.integer2 is rw where {$_ > 0 or die "Valeur de champ invalide: entier supérieur à 0 requis !"};
+    has Int $.integer1:D is rw where {$_ > 0 or die "Valeur de champ invalide: entier supérieur à 0 requis !"};
+    has Int $.integer2:D is rw where {$_ > 0 or die "Valeur de champ invalide: entier supérieur à 0 requis !"};
     has Str $.subtract-or-euclide-algo is rw where { ($_ ~~ / subtract || euclide || <[_:]> /) or
     die "Champ de classe invalide! Attendu : 'subtract', '_', 'euclide' ou ':'." };
 
@@ -97,12 +97,8 @@ class ArePrime is PGCD is export {
         my Int $i;
         my Bool $flag = True;
         my $pgcd = PGCD.new(
-            # Pour la méthode subtraction_algorithm
             integer1 => $dvd,
             integer2 => $dvs,
-            # Pour la méthode euclide_algorithm
-            dividend => $dvd,
-            divisor => $dvs,
         );
         if $pgcd.is_divisible_by_2($dvd) && $pgcd.is_divisible_by_2($dvs) {
             say "$dvd et $dvs ont un diviseur commun autre que 1 : 2;";

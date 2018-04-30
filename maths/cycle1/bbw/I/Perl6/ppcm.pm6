@@ -79,7 +79,7 @@ class PPCM is ArePrime is export {
             say "le PPCM de $x et $y est donc leur produit :";
             return $x * $y;
         }
-        # Call méthode du module 'prime-factors' qui contient un rôle inclus dans 
+        # Call méthode du module 'prime-factors' qui contient un rôle inclus dans
         # la classe PGCD héritée de ArePrime.
         my %h1 = self.breakdown(self.integer1);
         my %h2 = self.breakdown(self.integer2);
@@ -168,8 +168,8 @@ class PPCM is ArePrime is export {
         # On ne vérifie pas que les nombres sont premiers entre eux
         # car on serait amené à rechercher deux fois leur PGCD
         my $pgcd = PGCD.new(
-            dividend => $x,
-            divisor => $y,
+            integer1 => $x,
+            integer2 => $y,
         );
         my Int $p = $pgcd.euclide_algorithm();
         if ($p == 1) {

@@ -10,24 +10,20 @@ Ce module contient la classe PGCD qui hérite de IntegerDivisorsListing du fichi
 du module 'integer-divisors-listing.pm6' et utilise le module 'common-arrays-elements.pm6'.
 Il est destiné à déterminer le PGCD (plus grand commun diviseur) de deux entiers,
 integer1 et integer2 de type Int qui sont des attributs de la classe
-devant être supérieur ou égal à 0.
+devant être supérieur ou égal à 0 pour le premier,
+supérieur à 0 pour le deuxième.
 Il utilise pour cela trois méthodes distinctes au choix :
 l'algorithme consistant à établir la liste des diviseurs de
-chacun des nombres et de prendre le plus grand nombre commun;
-l'algorithme des soustractions.
-Enfin l'algorithme d'Euclide (par divisions euclidiennes)
-pour lequel sont prévus deux attributs dédiés : dividend et divisor de type Int
-le diviseur devant être supérieur à 0 et inférieur ou égal au dividende.
+chacun des nombres et de prendre le plus grand nombre commun :
+'divisors-listing_algorithm()';
+l'algorithme des soustractions : 'subtraction_algorithm()';
+enfin l'algorithme d'Euclide (par divisions euclidiennes) :
+'euclide_algorithm()'.
 =end pod
 
 class PGCD is IntegerDivisorsListing does PrimeFactors is export {
-    has Int $.integer1 is rw where {$_ > 0 or die "Valeur de champ invalide: entier > 0 requis !"};
+    has Int $.integer1 is rw where {$_ >= 0 or die "Valeur de champ invalide: entier >= 0 requis !"};
     has Int $.integer2 is rw where {$_ > 0 or die "Valeur de champ invalide: entier > 0 requis !"};
-    
-    has Int $.dividend is rw where {$_ >= 0 or die "Valeur de champ invalide: dividende >= 0 requis !"};
-    # Virtual method call $.dividend may not be used on partially constructed object
-    # (maybe you mean $!dividend for direct attribute access here?)
-    has Int $.divisor  is rw where {$_ > 0 or die "Champ de classe invalide: division par 0 interdite !"};
 
 =begin pod
 ###################################################################################
@@ -261,8 +257,8 @@ a par b
 =end pod
 
     method euclide_algorithm(--> Int) {
-        my Int $dividend = self.dividend;
-        my Int $divisor = self.divisor;
+        my Int $dividend = self.integer1;
+        my Int $divisor = self.integer2;
         if ($dividend < $divisor) {
             # Intervertir $x et $y
             ($dividend, $divisor) = ($divisor, $dividend);
@@ -317,7 +313,7 @@ a par b
 
         say "PGCD($dividend ; $divisor) = $divisor.";
         say "Le reste de la division de $dividend par $divisor est nul,";
-        say "donc PGCD(", self.dividend, " ; ", self.divisor, ") = $pgcd.";
+        say "donc PGCD($!integer1 ; $!integer2) = $pgcd.";
         return $pgcd;
     }
 }
