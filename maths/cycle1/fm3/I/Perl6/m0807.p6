@@ -9,8 +9,8 @@ my $pgcd = PGCD.new();
 sub answering {
     # Pour construire la classe PGCD pour la méthode 'euclide_algorithm'
     say 'a.';
-    $pgcd.dividend = 108777;
-    $pgcd.divisor = 61206;
+    $pgcd.integer1 = 108777;
+    $pgcd.integer2 = 61206;
     $pgcd.euclide_algorithm();
 
     say();

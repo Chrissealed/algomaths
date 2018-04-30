@@ -7,9 +7,8 @@ use pgcd;
 
 sub answering {
     my $pgcd = PGCD.new(
-        # Pour construire la classe PGCD pour la méthode 'euclide_algorithm'
-        dividend => 2037,
-        divisor => 454,
+        integer1 => 2037,
+        integer2 => 454,
     );
     $pgcd.euclide_algorithm();
 }

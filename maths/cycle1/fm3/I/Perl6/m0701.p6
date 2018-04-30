@@ -7,9 +7,8 @@ use pgcd;
 
 sub answering {
     my $pgcd = PGCD.new(
-        array-or-hash => '@',
-        dividend => 780,
-        divisor => 504,
+        integer1 => 780,
+        integer2 => 504,
     );
     $pgcd.euclide_algorithm();
 }

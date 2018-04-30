@@ -10,12 +10,12 @@ sub answering {
         # Pour construire la classe 'IntegerDivisorsListing' (dont hérite PGCD)
         array-or-hash => '@',
         # Pour construire la classe 'PGCD', pour la méthode 'euclide_algorithm'
-        dividend => 2037,
-        divisor => 454,
+        integer1 => 2037,
+        integer2 => 454,
     );
     my Int $p = $pgcd.euclide_algorithm();
     say();
-    say "Liste des diviseurs de $p, PGCD de (", $pgcd.dividend, " ; ", $pgcd.divisor, ").";
+    say "Liste des diviseurs de $p, PGCD de (", $pgcd.integer1, " ; ", $pgcd.integer2, ").";
     # Méthode héritée
     my @a = $pgcd.list-divisors($p);
     say "Les diviseurs communs à deux nombres sont les diviseurs de leur PGCD :";

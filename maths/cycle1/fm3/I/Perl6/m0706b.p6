@@ -10,9 +10,8 @@ my Str ($strint1, $strint2) = "";
 my $pgcd = PGCD.new();
 sub answering {
     do-put-up-correct-version();
-    # Pour construire la classe PGCD pour la méthode 'euclide algorithm'
-    $pgcd.dividend = $int1;
-    $pgcd.divisor = $int2;
+    $pgcd.integer1 = $int1;
+    $pgcd.integer2 = $int2;
     $pgcd.euclide_algorithm();
 }
 
@@ -38,7 +37,7 @@ loop {
         redo;
     }
     loop {
-        $strint2 = prompt "Donnez un divisor entier positif < ou = au dividende : ";
+        $strint2 = prompt "Donnez un diviseur entier positif < ou = au dividende : ";
         try {
             $int2 = Int($strint2);
         }
