@@ -17,8 +17,10 @@ l'algorithme consistant à établir la liste des diviseurs de
 chacun des nombres et de prendre le plus grand nombre commun :
 'divisors-listing_algorithm()';
 l'algorithme des soustractions : 'subtraction_algorithm()';
-enfin l'algorithme d'Euclide (par divisions euclidiennes) :
-'euclide_algorithm()'.
+l'algorithme d'Euclide (par divisions euclidiennes) : 'euclide_algorithm()';
+enfin l'algorithme consistant à décomposer les nombres
+en facteurs premiers et extraire leurs facteurs communs.
+Les quatre méthodes renvoient un Int qui est le PGCD trouvé.
 =end pod
 
 class PGCD is IntegerDivisorsListing does PrimeFactors is export {
@@ -129,7 +131,7 @@ deux nombres, par conséquent seul 2 l'est; d'ou PGCD(4352 ; 4342) = 2.
                         push @factors, $int;
                     }
                 }
-            } until ($count >= @values2.end);
+            } until ($count >= @values2.elems);
         }
         else {
             repeat {
@@ -163,7 +165,7 @@ deux nombres, par conséquent seul 2 l'est; d'ou PGCD(4352 ; 4342) = 2.
                         push @factors, $int;
                     }
                 }
-            } until ($count >= @values1.end);
+            } until ($count >= @values1.elems);
         }
         
         say "Facteurs communs à $int1 et $int2 :";
