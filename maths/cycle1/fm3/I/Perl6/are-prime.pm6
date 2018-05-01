@@ -90,16 +90,13 @@ class ArePrime is PGCD is export {
     method have-common-divisor(--> Bool) {
         my Int $dvd = self.integer1;
         my Int $dvs = self.integer2;
-        if ($dvs > $dvd) {
-            # Inverser les termes
-            ($dvd, $dvs) = ($dvs, $dvd);
-        }
         my Int $i;
         my Bool $flag = True;
         my $pgcd = PGCD.new(
             integer1 => $dvd,
             integer2 => $dvs,
         );
+        
         if $pgcd.is_divisible_by_2($dvd) && $pgcd.is_divisible_by_2($dvs) {
             say "$dvd et $dvs ont un diviseur commun autre que 1 : 2;";
             return $flag;
