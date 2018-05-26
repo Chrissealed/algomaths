@@ -1,3 +1,6 @@
+#!/usr/bin/env perl6
+
+use v6;
 use corrective;
 use method03 :methodwording, :exe01;
 

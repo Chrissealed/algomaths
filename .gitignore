@@ -1,4 +1,5 @@
 .precomp/
+tmp/
 *~
 *.bak
 *.code-workspace

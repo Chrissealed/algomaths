@@ -1,0 +1,31 @@
+CHAPITRE I -- ARITHMÉTIQUE
+
+MÉTHODES
+
+1. Comment utiliser la notion de multiple d'un entier naturel ?
+
+2. Comment utiliser la division euclidienne ?
+
+3. Comment établir la liste des diviseurs d'un entier non nul ?
+
+4. Comment déterminer le PGCD de deux nombre entiers connaissant
+   l'ensemble des diviseurs de chacun des deux nombres ?
+
+5. Comment déterminer le PGCD de deux nombres entiers par l'algorithme des soustractions ?
+
+6. Comment déterminer le PGCD de deux nombres entiers
+   par l'algorithme des soustractions à l'aide d'un tableur ?
+
+7. Comment déterminer le PGCD de deux nombres entiers par l'algorithme d'Euclide ?
+
+8. Comment déterminer le PGCD de deux nombres entiers
+   par l'algorithme d'Euclide à l'aide d'un tableur ?
+
+9. Comment déterminer tous les diviseurs communs à deux nombres avec leur PGCD ?
+
+10. Comment savoir si deux nombres entiers sont premiers entre eux ?
+
+11. Comment déterminer la fraction irréductible égale à une fraction donnée ?
+
+12. Comment résoudre un problème se ramenant au calcul du PGCD de deux nombres entiers ?
+
