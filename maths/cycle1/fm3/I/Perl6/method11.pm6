@@ -191,4 +191,5 @@ sub exercise_07 is export(:exe07) {
     say '#    EA = 10,37m ; EB = 9,01m ; EC = 12,72m ; ED = 14,64m.';
     say '#    Les droites (AB) et (CD) sont-elles parallèles ?';
     say '-----------------------------------------------------------------------------------';
+    shell 'xdg-open ./m1107c-fig.svg &';
 }
