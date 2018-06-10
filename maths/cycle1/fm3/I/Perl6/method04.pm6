@@ -1,7 +1,11 @@
 unit module Method04;
 
+use v6;
+
 sub put-up-method is export(:methodwording) {
     say q:to/EOM/;
+###################################################################################
+# Chapitre I : ARITHMÉTIQUE.
 ###################################################################################
 # Méthode 4. Comment déterminer le PGCD de deux nombres entiers connaissant
 # l'ensemble des diviseurs de chacun des deux nombres :
@@ -11,6 +15,10 @@ sub put-up-method is export(:methodwording) {
 ###################################################################################
 
 EOM
+}
+
+sub show-examples is export(:examples) {
+    shell 'xdg-open ../examples04.pdf &';
 }
 
 sub exercise_01 is export(:exe01) {

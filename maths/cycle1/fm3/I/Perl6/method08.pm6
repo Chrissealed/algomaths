@@ -1,7 +1,11 @@
 unit module Method08;
 
+use v6;
+
 sub put-up-method is export(:methodwording) {
     say qq:to/EOM/;
+###################################################################################
+# Chapitre I : ARITHMÉTIQUE.
 ###################################################################################
 # Comment déterminer le PGCD de deux nombres entiers par l'algorithme
 # d'Euclide à l'aide d'un tableur ?
@@ -23,6 +27,10 @@ sub put-up-method is export(:methodwording) {
 ###################################################################################
 
 EOM
+}
+
+sub show-examples is export(:examples) {
+    shell 'xdg-open ../examples08.pdf &';
 }
 
 sub exercise_01 is export(:exe01) {

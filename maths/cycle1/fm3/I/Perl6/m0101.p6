@@ -2,7 +2,7 @@
 
 use v6;
 use corrective;
-use method01 :methodwording, :exe01;
+use method01 :methodwording, :exe01, :examples;
 
 sub answering {
     say "Existe-t-il un entier q tel que 180 = 15q ?";
@@ -40,6 +40,10 @@ exercise_01();
 my Bool $boolean = do-put-up-method();
 if $boolean {
     put-up-method;
+}
+$boolean = do-put-up-examples();
+if $boolean {
+    show-examples;
 }
 do-put-up-correct-version();
 answering();

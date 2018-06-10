@@ -2,7 +2,7 @@
 
 use v6;
 use corrective;
-use method01 :methodwording, :exe04;
+use method01 :methodwording, :exe04, :examples;
 
 sub answering {
     my Int $q1 = 4;
@@ -16,6 +16,10 @@ exercise_04();
 my Bool $boolean = do-put-up-method();
 if $boolean {
     put-up-method();
+}
+$boolean = do-put-up-examples();
+if $boolean {
+    show-examples;
 }
 do-put-up-correct-version();
 answering();

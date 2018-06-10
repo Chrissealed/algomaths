@@ -2,7 +2,7 @@
 
 use v6;
 use corrective;
-use method10 :methodwording, :exe07;
+use method10 :methodwording, :exe07, :examples;
 use are-prime;
 
 sub answering {
@@ -26,6 +26,10 @@ exercise_07();
 my Bool $boolean = do-put-up-method();
 if $boolean {
     put-up-method();
+}
+$boolean = do-put-up-examples();
+if $boolean {
+    show-examples;
 }
 do-put-up-correct-version();
 answering();

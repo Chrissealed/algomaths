@@ -2,7 +2,7 @@
 
 use v6;
 use corrective;
-use method11 :methodwording, :exe01a;
+use method11 :methodwording, :exe01a, :examples;
 use irreducible-fraction;
 
 sub answering {
@@ -17,6 +17,10 @@ exercise_01a();
 my Bool $boolean = do-put-up-method();
 if $boolean {
     put-up-method();
+}
+$boolean = do-put-up-examples();
+if $boolean {
+    show-examples;
 }
 do-put-up-correct-version();
 answering();

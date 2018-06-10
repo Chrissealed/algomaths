@@ -2,7 +2,7 @@
 
 use v6;
 use corrective;
-use method01 :methodwording, :exe03;
+use method01 :methodwording, :exe03, :examples;
 
 sub answering {
     my Int $q1 = Int(36 / 6);
@@ -39,6 +39,10 @@ exercise_03();
 my Bool $boolean = do-put-up-method();
 if $boolean {
     put-up-method();
+}
+$boolean = do-put-up-examples();
+if $boolean {
+    show-examples;
 }
 do-put-up-correct-version();
 answering();

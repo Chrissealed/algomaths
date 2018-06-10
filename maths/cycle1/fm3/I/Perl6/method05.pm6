@@ -1,7 +1,11 @@
 unit module Method05;
 
+use v6;
+
 sub put-up-method is export(:methodwording) {
     say q:to/EOM/;
+###################################################################################
+# Chapitre I : ARITHMÉTIQUE.
 ###################################################################################
 # Méthode 5. Pour déterminer le PGCD de deux nombres entiers par l'algorithme
 # des soustractions :
@@ -16,6 +20,10 @@ sub put-up-method is export(:methodwording) {
 ###################################################################################
 
 EOM
+}
+
+sub show-examples is export(:examples) {
+    shell 'xdg-open ../examples05.pdf &';
 }
 
 sub exercise_01 is export(:exe01) {

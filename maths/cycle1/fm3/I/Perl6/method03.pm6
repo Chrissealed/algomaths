@@ -1,7 +1,11 @@
 unit module Method03;
 
+use v6;
+
 sub put-up-method is export(:methodwording) {
     say q:to/EOM/;
+###################################################################################
+# Chapitre I : ARITHMÉTIQUE.
 ###################################################################################
 # Méthode 3. Comment établir la liste des diviseurs d'un entier non nul ?
 ###################################################################################
@@ -20,6 +24,10 @@ sub put-up-method is export(:methodwording) {
 ###################################################################################
 
 EOM
+}
+
+sub show-examples is export(:examples) {
+    shell 'xdg-open ../examples03.pdf &';
 }
 
 sub exercise_01 is export(:exe01) {
@@ -53,7 +61,7 @@ sub exercise_04 is export(:exe04) {
 
 sub exercise_04b is export(:exe04b) {
     say '# Exercice 4b.';
-    say '# ----------';
+    say '# -----------';
     say '# Donner la liste des diviseurs d\'un entier non nul (saisie utilisateur).';
     say '# (ex: 108, 36, 257, 300...).';
     say '-----------------------------------------------------------------------------------'
@@ -88,7 +96,7 @@ sub exercise_06 is export(:exe06) {
 
 sub exercise_06b is export(:exe06b) {
     say '# Exercice 6b.';
-    say '# ----------';
+    say '# -----------';
     say '# a. Donner la liste des diviseurs de n1. (saisie utilisateur)';
     say '# b. Donner la liste des diviseurs de n2. (saisie utilisateur)';
     say '# c. Donner la liste des diviseurs communs de n1 et de n2.';

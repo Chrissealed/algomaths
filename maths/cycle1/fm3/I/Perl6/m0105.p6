@@ -2,7 +2,7 @@
 
 use v6;
 use corrective;
-use method01 :methodwording, :exe05;
+use method01 :methodwording, :exe05, :examples;
 
 sub answering {
     say "Trois multiples consécutifs de 5 s'écrivent :";
@@ -22,6 +22,10 @@ exercise_05();
 my Bool $boolean = do-put-up-method();
 if $boolean {
     put-up-method();
+}
+$boolean = do-put-up-examples();
+if $boolean {
+    show-examples;
 }
 do-put-up-correct-version();
 answering();

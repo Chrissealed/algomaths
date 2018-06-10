@@ -1,7 +1,11 @@
 unit module Method09;
 
+use v6;
+
 sub put-up-method is export(:methodwording) {
     say qq:to/EOM/;
+###################################################################################
+# Chapitre I : ARITHMÉTIQUE.
 ###################################################################################
 # Méthode 9. Comment déterminer tous les diviseurs communs à deux nombres avec leur
 # PGCD :
@@ -15,6 +19,10 @@ sub put-up-method is export(:methodwording) {
 ###################################################################################
 
 EOM
+}
+
+sub show-examples is export(:examples) {
+    shell 'xdg-open ../examples09.pdf &';
 }
 
 sub exercise_01 is export(:exe01) {
