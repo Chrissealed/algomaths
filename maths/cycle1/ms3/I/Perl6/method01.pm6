@@ -1,5 +1,7 @@
 unit module Method01;
 
+use v6;
+
 sub put-up-method is export(:methodwording) {
     say qq:to/EOM/;
 ###################################################################################
@@ -10,18 +12,13 @@ sub put-up-method is export(:methodwording) {
 # L'idée est de se ramener aux nombres 10, 20, 30... (ou 100, 200, etc.) les plus
 # proches en décomposant (par exemple +7 en +3+4).
 # On calcule bien plus rapidement ensuite.
-# ▲ Exemple : Calculer 17 + 7.
-# Voici comment on procède : on peut aller de 17 à 20 (la dizaine suivante la plus
-# proche) avec 3, il reste 4. D'ou : 17 + 7 = 17 + 3 + 4 = 24.
-# ▲ Exemple : Calculer 86 + 27.
-# On peut aller de 86 à 100 avec 14, il reste 13 (car 27 = 14 + 13).
-# D'ou : 86 + 27 = 86 + 14 + 13 = 100 + 13 = 113.
-# ▲ Exemple : Calculer 174 + 257.
-# On peut aller de 174 à 200 avec 26, il reste 231 (car 257 = 26 + 231).
-# D'ou 174 + 257 = 174 + 26 + 231 = 200 + 231 = 431.
 ###################################################################################
 
 EOM
+}
+
+sub show-examples is export(:examples) {
+    shell 'xdg-open ../examples01.pdf &';
 }
 
 sub result(Int:D $int1, Str:D $int2) {

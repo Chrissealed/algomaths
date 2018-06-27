@@ -1,5 +1,7 @@
 unit module Method03;
 
+use v6;
+
 sub put-up-method is export(:methodwording) {
     say qq:to/EOM/;
 ###################################################################################
@@ -11,39 +13,25 @@ sub put-up-method is export(:methodwording) {
 # ---------------------------------------------------------------------------------
 # ▲ B. Principe: En décomposant par addition.
 # On utilise la propriété (a + b) × c = a × c + b × c.
-# ▲ Exemple : Calculer 17 × 3.
-# On a : 17 × 3 = (10 + 7) × 3 = 10 × 3 + 7 × 3 = 30 + 21 = 51.
-# Ramenez vous toujours à des nombres faciles com 10, 100, 1000... les dizaines sont
-# simples et très maniables.
-# ▲ Exemple : Calculer 27 × 16.
-# On a : 27 × 16 = (20 + 7) × 16 = 20 × 16 + 7 × 16 = 320 + 7 × (10 + 6)
-# = 320 + 7 × 10 + 7 × 6 = 320 + 70 + 42 = 390 + 42 = 432.
 # ---------------------------------------------------------------------------------
 # ▲ C. Principe: En décomposant par soustraction.
 # On utilise la propriété (a – b) × c = a × c – b × c.
-# ▲ Exemple : Calculer 19 × 7.
-# On a 19 × 7 = (20 – 1) × 17 = 20 × 17 – 1 × 17 = 340 – 17 = 323.
 # ---------------------------------------------------------------------------------
 # ▲ D. Principe: En décomposant par plusieurs petites multiplications.
 # Pour multiplier par 6, on multiplie par 2 puis par 3.
 # Pour multiplier par 15, on multiplie par 3 puis par 5, etc.
-# ▲ Exemple: Calculer 153 × 6.
-# On a : 153 × 6 = 153 × 2 × 3 = 306 × 3 = 918
-#(car 306 × 3 = (300 + 6) × 3 = 300 × 3 + 6 × 3 = 900 + 18).
-# ▲ Exemple: Calculer 38 × 15.
-# On a : 38 × 15 = 38 × 3 × 5 = 114 × 5 = 570
-# (car 114 × 5 = (100 + 14) × 5 = 100 × 5 + 14 × 5 = 500 + 70 = 570).
 # ---------------------------------------------------------------------------------
 # ▲ E. Principe: En utilisant la division.
 # Pour multiplier par 50 (par exemple), on multiplie par 100 puis on divise par 2
 # (car 50 = 100 ÷ 2). S'il s'agit de multiplier par 25, on multiplie par 100 puis
 # on divise par 4 (car 25 = 100 ÷ 4), etc.
-# ▲ Exemple: Calculer 12 × 25.
-# On a 12 × 25 = 12 × 100 ÷ 4 = 1200 ÷ 4 = 300 (sinon on pouvait utiliser la méthode 3
-# et obtenir 12 × 25 = (10 + 2) × 25 = 10 × 25 + 2 × 25 = 250 + 50 = 300).
 ###################################################################################
 
 EOM
+}
+
+sub show-examples is export(:examples) {
+    shell 'xdg-open ../examples03.pdf &';
 }
 
 sub result(Int:D $int1, Str:D $int2) {

@@ -1,5 +1,7 @@
 unit module Method04;
 
+use v6;
+
 sub put-up-method is export(:methodwording) {
     say qq:to/EOM/;
 ###################################################################################
@@ -8,29 +10,23 @@ sub put-up-method is export(:methodwording) {
 # ▲ A. Principe: En partant du deuxième.
 # Plutôt que de calculer a ÷ b en partant de a, on part de b pour rejoindre a en
 # essayant de trouver par combien il faut multiplier.
-# ▲ Exemple : Calculer 72 ÷ 8.
-# On sait que 8 × 9 = 72. Ainsi 72 ÷ 8 = 9.
-# ▲ Exemple : Calculer 720 ÷ 120.
-# On a 120 × 6 = 720 d'ou : 720 ÷ 120 = 6.
 # ---------------------------------------------------------------------------------
 # ▲ B. Principe: En décomposant par plusieurs petites divisions.
 # Pour diviser par 6, on divise successivement par 2 puis par 3 (c'est ce que l'on
 # fait concrètement lorsqu'on coupe un gâteau d'anniversaire en 6 parts : on le
 # coupe d'abord en 2 puis chacune des deux moitiés en 3).
 # De même pour diviser par 15, on divise successivement par 3 puis par 5, etc.
-# ▲ Exemple : Calculer 162 ÷ 18.
-# On a 162 ÷ 18 = (162 ÷ 2) ÷ 9 = 81 ÷ 9 = 9.
 # ---------------------------------------------------------------------------------
 # ▲ C. Principe: En utilisant la multiplication.
 # Plutôt que de diviser par 5, on multiplie par 2 puis on divise par 10. S'il s'agit
 # de diviser par 25, on multiplie par 4 puis on divise par 100, etc.
-# ▲ Exemple : Calculer 7500 ÷ 5.
-# On a : 7500 ÷ 5 = (7500 × 2) ÷ 10 = 15000 ÷ 10 = 1500.
-# ▲ Exemple : Calculer 1500 ÷ 25.
-# On a : 1500 ÷ 25 = (1500 × 4) ÷ 100 = 6000 ÷ 100 = 60.
 ###################################################################################
 
 EOM
+}
+
+sub show-examples is export(:examples) {
+    shell 'xdg-open ../examples04.pdf &';
 }
 
 sub result(Int:D $int1, Str:D $int2) {

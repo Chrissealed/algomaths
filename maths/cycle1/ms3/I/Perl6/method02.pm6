@@ -1,5 +1,7 @@
 unit module Method02;
 
+use v6;
+
 sub put-up-method is export(:methodwording) {
     say qq:to/EOM/;
 ###################################################################################
@@ -9,24 +11,15 @@ sub put-up-method is export(:methodwording) {
 # L'idée est la suivante : plutôt que de calculer a – b en partant de a (ce qui
 # n'est pas ce qu'il y a de plus facile), on part de b pour rejoindre a en
 # essayant de trouver ce qui manque.
-# ▲ Exemple : Calculer 67 – 39.
-# On part de 39 pour rejoindre 67. De 39 à 40, il faut 1. De 40 à 67, il faut 27
-# d'ou 67 – 39 = 1 + 27 = 28.
 # L'idée étant toujours de se ramener à des dizaines proches (comme 10, 20, 30, etc.)
 # ou à des centaines (100, 200, etc.) très facilement maniables.
-# ▲ Exemple : Calculer 452 – 267.
-# De 267 à 270, il faut 3. De 270 à 300, il faut 30. De 300 à 452, il faut 152
-# d'ou 452 – 267 = 3 + 30 + 152 = 33 + 152 = 185.
-# ▲ Exemple : Calculer 45014 – 41965.
-# De 41965 à 42000, il faut 35. De 42000 à 45000, il faut 3000. De 45000 à 45014,
-# il faut 14. D'ou 45014 – 41965 = 35 + 3000 + 14 = 3049.
-# ▲ Exemple : Calculer 70250 – 67587.
-# De 67587 à 67600, il faut 13. De 67600 à 68000, il faut 400. De 68000 à 70000,
-# il faut 2000. De 70000 à 70250, il faut 250.
-# D'ou : 70250 – 67587 = 13 + 400 + 2000 + 250 = 2413 + 250 = 2663.
 ###################################################################################
 
 EOM
+}
+
+sub show-examples is export(:examples) {
+    shell 'xdg-open ../examples02.pdf &';
 }
 
 sub result(Int:D $int1, Str:D $int2) {
