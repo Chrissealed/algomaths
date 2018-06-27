@@ -1,26 +1,29 @@
 unit module Are-prime;
 
 use v6;
+use usual-divisibility-criteria;
+use integer-divisors-listing;
 use pgcd;
 
 =begin pod
-Cette classe hérite de la classe PGCD et utilise la méthode
-'list-divisors' de la classe 'IntegerDivisorsListing'
-(dont hérite la classe PGCD) dans sa méthode 1 'have-common-divisors'
+Cette classe inclue le rôle 'UsualDivisibilityCriteria'
+et utilise la méthode 'list-divisors' de la classe 'IntegerDivisorsListing'
+dans sa méthode 1 'have-common-divisors'
 pour déterminer si deux nombres sont premiers entre eux
 cherchant les diviseurs communs en comparant
 les listes de diviseurs de chaque nombre.
 Une deuxième méthode 'have-common-divisor' (notez le singulier) utilise
-les méthodes du rôle inclus dans la classe 'IntegerDivisorsListing' :
-'UsualDivisibilityCriteria' chargé de coder les critères usuels
-de divisibilité de deux nombres (cf. doc de 'UsualDivisibilityCriteria).
+les méthodes du rôle inclus dans la classe 'UsualDivisibilityCriteria'
+chargé de coder les critères usuels
+de divisibilité de deux nombres (cf. doc du module 'usual-divisibility-criteria.pm6)
+ainsi que la classe PGCD.
 Chaque méthode renvoie un booléen True si les nombres sont premiers
 entre eux ou False dans le cas contraire.
 La première méthode trouve tous les diviseurs communs
 tandis que la deuxième trouve seulement le premier diviseur commun :
 1 si les nombres sont premiers entre eux
 ou un nombre supérieur à 1 s'ils ne le sont pas.
-La classe possède deux attributs : integer1 et integer2
+La classe possède deux attributs requis : integer1 et integer2
 qui doivent être des entiers supérieurs à 0
 et un attribut subtract-or-euclide-algo qui peut prendre
 l'une des valeurs 'subtract' ou '_' ou bien
@@ -28,23 +31,25 @@ l'une des valeurs 'subtract' ou '_' ou bien
 souhaite appliquer, c'est à dire la méthode par soustractions
 successives ou la méthode par divisions euclidiennes successives,
 ceci pour la méthode 2 'have-common-divisor' uniquement.
+Par défaut la valeur de cet attribut est 'euclide'.
 Tous les champs sont en lecture et écriture.
 =end pod
 
-class ArePrime is PGCD is export {
-    has Int $.integer1:D is rw where {$_ > 0 or die "Valeur de champ invalide: entier supérieur à 0 requis !"};
-    has Int $.integer2:D is rw where {$_ > 0 or die "Valeur de champ invalide: entier supérieur à 0 requis !"};
+class ArePrime does UsualDivisibilityCriteria is export {
+    has Int $.integer1 is required is rw where {$_ > 0 or die "Valeur de champ invalide: entier supérieur à 0 requis !"};
+    has Int $.integer2 is required is rw where {$_ > 0 or die "Valeur de champ invalide: entier supérieur à 0 requis !"};
     has Str $.subtract-or-euclide-algo is rw where { ($_ ~~ / subtract || euclide || <[_:]> /) or
-    die "Champ de classe invalide! Attendu : 'subtract', '_', 'euclide' ou ':'." };
+    die "Champ de classe invalide! Attendu : 'subtract', '_', 'euclide' ou ':'." } = 'euclide';
 
     method have-common-divisors(--> Bool) {
-        my $int1 = self.integer1;
-        my $int2 = self.integer2;
+        my Int $int1 = self.integer1;
+        my Int $int2 = self.integer2;
         my Int @a = ();
         my Int @b = ();
         my Int @c = ();
         my Bool $flag = False;
-        my $list = PGCD.new(
+        my $list = IntegerDivisorsListing.new(
+            # Attribut de IntegerDivisorsListing (par défaut : array)
             array-or-hash => '@',
         );
         @a = $list.list-divisors($int1);
@@ -55,7 +60,7 @@ class ArePrime is PGCD is export {
             for @a -> $i {
                 for @b -> $j {
                     if ($i == $j && $i != 1) {
-                        say "Les nombres $int1 et $int2 ont un diviseur commun autre que 1 : $i;";
+                        say "Les nombres $int1 et $int2 ont un diviseur commun autre que 1 : $i; ils ne sont donc pas premiers entre eux.";
                         $flag = True;
                         push @c, $i;
                     }
@@ -65,7 +70,7 @@ class ArePrime is PGCD is export {
             for @b -> $i {
                 for @a -> $j {
                     if ($i == $j && $i != 1) {
-                        say "Les nombres $int1 et $int2 ont un diviseur commun autre que 1 : $i;";
+                        say "Les nombres $int1 et $int2 ont un diviseur commun autre que 1 : $i; ils ne sont donc pas premiers entre eux.";
                         $flag = True;
                         push @c, $i;
                     }
@@ -74,7 +79,7 @@ class ArePrime is PGCD is export {
         }
 
         if !$flag {
-            say "Les nombres $int1 et $int2 n'ont pas de diviseur commun autre que 1;";
+            say "Les nombres $int1 et $int2 n'ont pas de diviseur commun autre que 1; ils sont donc premiers entre eux.";
             say @a;
             say @b;
             push @c, 1;
@@ -92,25 +97,25 @@ class ArePrime is PGCD is export {
         my Int $dvs = self.integer2;
         my Int $i;
         my Bool $flag = True;
-        my $pgcd = PGCD.new(
-            integer1 => $dvd,
-            integer2 => $dvs,
-        );
+        #my $pgcd = PGCD.new(
+        #    integer1 => $dvd,
+        #    integer2 => $dvs,
+        #);
         
-        if $pgcd.is_divisible_by_2($dvd) && $pgcd.is_divisible_by_2($dvs) {
-            say "$dvd et $dvs ont un diviseur commun autre que 1 : 2;";
+        if self.is_divisible_by_2($dvd) && self.is_divisible_by_2($dvs) {
+            say "$dvd et $dvs ont un diviseur commun autre que 1 : 2; ils ne sont donc pas premiers entre eux.";
             return $flag;
         }
-        elsif $pgcd.is_divisible_by_3($dvd) && $pgcd.is_divisible_by_3($dvs) {
-            say "$dvd et $dvs ont un diviseur commun autre que 1 : 3;";
+        elsif self.is_divisible_by_3($dvd) && self.is_divisible_by_3($dvs) {
+            say "$dvd et $dvs ont un diviseur commun autre que 1 : 3; ils ne sont donc pas premiers entre eux.";
             return $flag;
         }
-        elsif $pgcd.is_divisible_by_4($dvd) && $pgcd.is_divisible_by_4($dvs) {
-            say "$dvd et $dvs ont un diviseur commun autre que 1 : 4;";
+        elsif self.is_divisible_by_4($dvd) && self.is_divisible_by_4($dvs) {
+            say "$dvd et $dvs ont un diviseur commun autre que 1 : 4; ils ne sont donc pas premiers entre eux.";
             return $flag;
         }
-        elsif $pgcd.is_divisible_by_5($dvd) && $pgcd.is_divisible_by_5($dvs) {
-            say "$dvd et $dvs ont un diviseur commun autre que 1 : 5;";
+        elsif self.is_divisible_by_5($dvd) && self.is_divisible_by_5($dvs) {
+            say "$dvd et $dvs ont un diviseur commun autre que 1 : 5; ils ne sont donc pas premiers entre eux.";
             return $flag;
         }
         else {
@@ -119,22 +124,22 @@ class ArePrime is PGCD is export {
             $i = 6;
             until ($i == 8) {
                 if ($dvd %% $i && $dvs %% $i) {
-                    say "$dvd et $dvs ont un diviseur commun autre que 1 : $i;";
+                    say "$dvd et $dvs ont un diviseur commun autre que 1 : $i; ils ne sont donc pas premiers entre eux.";
                     return $flag;
                 }
                 $i++;
             }
         }
-        if $pgcd.is_divisible_by_9($dvd) && $pgcd.is_divisible_by_9($dvs) {
-            say "$dvd et $dvs ont un diviseur commun autre que 1 : 9;";
+        if self.is_divisible_by_9($dvd) && self.is_divisible_by_9($dvs) {
+            say "$dvd et $dvs ont un diviseur commun autre que 1 : 9; ils ne sont donc pas premiers entre eux.";
             return $flag;
         }
-        elsif $pgcd.is_divisible_by_0_queue($dvd) && $pgcd.is_divisible_by_0_queue($dvs) {
-            say "$dvd et $dvs ont un diviseur commun autre que 1 : 10;";
+        elsif self.is_divisible_by_0_queue($dvd) && self.is_divisible_by_0_queue($dvs) {
+            say "$dvd et $dvs ont un diviseur commun autre que 1 : 10; ils ne sont donc pas premiers entre eux.";
             return $flag;
         }
-        elsif $pgcd.is_divisible_by_11($dvd) && $pgcd.is_divisible_by_11($dvs) {
-            say "$dvd et $dvs ont un diviseur commun autre que 1 : 11;";
+        elsif self.is_divisible_by_11($dvd) && self.is_divisible_by_11($dvs) {
+            say "$dvd et $dvs ont un diviseur commun autre que 1 : 11; ils ne sont donc pas premiers entre eux.";
             return $flag;
         }
         else {
@@ -143,37 +148,41 @@ class ArePrime is PGCD is export {
             $i = 12;
             until ($i == 24) {
                 if ($dvd %% $i && $dvs %% $i) {
-                    say "$dvd et $dvs ont un diviseur commun autre que 1 : $i;";
+                    say "$dvd et $dvs ont un diviseur commun autre que 1 : $i; ils ne sont donc pas premiers entre eux.";
                     return $flag;
                 }
                 $i++;
             }
         }
-        if $pgcd.is_divisible_by_25($dvd) && $pgcd.is_divisible_by_25($dvs) {
-            say "$dvd et $dvs ont un diviseur commun autre que 1 : 25;";
+        if self.is_divisible_by_25($dvd) && self.is_divisible_by_25($dvs) {
+            say "$dvd et $dvs ont un diviseur commun autre que 1 : 25; ils ne sont donc pas premiers entre eux.";
             return $flag;
         }
             
         # Pour les nombres supérieurs à 25
+        my $pgcd = PGCD.new(
+            integer1 => self.integer1,
+            integer2 => self.integer2,
+        );
         if (self.subtract-or-euclide-algo ~~ / subtract || _ /) {
             my Int $p = $pgcd.subtraction_algorithm();
             if ($p > 1) {
-                say "$dvd et $dvs ont un diviseur commun autre que 1 : $p;";
+                say "$dvd et $dvs ont un diviseur commun autre que 1 : $p; ils ne sont donc pas premiers entre eux.";
                 return $flag;
             }
             else {
-                say "$dvd et $dvs n'ont pas de diviseur commun autre que 1;";
+                say "$dvd et $dvs n'ont pas de diviseur commun autre que 1; ils ne sont donc pas premiers entre eux.";
                 return $flag = False;
             }
         }
         elsif (self.subtract-or-euclide-algo ~~ / euclide || \: /) {
             my Int $p = $pgcd.euclide_algorithm();
             if ($p > 1) {
-                say "$dvd et $dvs ont un diviseur commun autre que 1 : $p;";
+                say "$dvd et $dvs ont un diviseur commun autre que 1 : $p; ils ne sont donc pas premiers entre eux.";
                 return $flag;
             }
             else {
-                say "$dvd et $dvs n'ont pas de diviseur commun autre que 1;";
+                say "$dvd et $dvs n'ont pas de diviseur commun autre que 1; ils ne sont donc pas premiers entre eux.";
                 return $flag = False;
             }
         }

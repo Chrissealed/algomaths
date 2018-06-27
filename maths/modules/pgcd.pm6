@@ -6,26 +6,25 @@ use common-arrays-elements;
 use prime-factors;
 
 =begin pod
-Ce module contient la classe PGCD qui hérite de IntegerDivisorsListing du fichier
-du module 'integer-divisors-listing.pm6' et utilise le module 'common-arrays-elements.pm6'.
+Ce module contient la classe PGCD qui a le rôle 'PrimeFactors'.
 Il est destiné à déterminer le PGCD (plus grand commun diviseur) de deux entiers,
 integer1 et integer2 de type Int qui sont des attributs de la classe
 devant être supérieur ou égal à 0 pour le premier,
 supérieur à 0 pour le deuxième.
-Il utilise pour cela trois méthodes distinctes au choix :
+Il utilise pour cela quatre méthodes distinctes au choix :
 l'algorithme consistant à établir la liste des diviseurs de
 chacun des nombres et de prendre le plus grand nombre commun :
 'divisors-listing_algorithm()';
 l'algorithme des soustractions : 'subtraction_algorithm()';
 l'algorithme d'Euclide (par divisions euclidiennes) : 'euclide_algorithm()';
 enfin l'algorithme consistant à décomposer les nombres
-en facteurs premiers et extraire leurs facteurs communs.
+en facteurs premiers et extraire leurs facteurs communs : 'factorization_algorithm()'.
 Les quatre méthodes renvoient un Int qui est le PGCD trouvé.
 =end pod
 
-class PGCD is IntegerDivisorsListing does PrimeFactors is export {
-    has Int $.integer1 is rw where {$_ >= 0 or die "Valeur de champ invalide: entier >= 0 requis !"};
-    has Int $.integer2 is rw where {$_ > 0 or die "Valeur de champ invalide: entier > 0 requis !"};
+class PGCD does PrimeFactors is export {
+    has Int $.integer1 is required is rw where {$_ >= 0 or die "Valeur de champ invalide: entier >= 0 requis !"};
+    has Int $.integer2 is required is rw where {$_ > 0 or die "Valeur de champ invalide: entier > 0 requis !"};
 
 =begin pod
 ###################################################################################

@@ -3,23 +3,23 @@ unit module Integer-divisors-listing;
 use v6;
 
 =begin pod
-=head1 Cette classe est destinée à établir la liste des diviseurs d'un entier naturel non nul.
-Elle contient deux méthodes, l'une publique : 'list-divisors(Int $integer where {$integer > 0})' 
-et l'autre privée : 'display($integer, $perfectsquare, %hash)'
-destinée à l'affichage d'informations.
-Elle utilise le module 'usual-divisibility-criteria' pour calculer la divisibilité
+Cette classe est destinée à établir la liste des diviseurs d'un entier naturel non nul.
+Elle contient une méthode publique : 'list-divisors(Int $integer where {$integer > 0})' 
+et une méthode privée destinée à l'affichage d'informations.
+Elle a le rôle 'UsualDivisibilityCriteria' pour calculer la divisibilité
 des nombres 2, 3, 4, 5, 9, (10, 100, 1000, etc.), 11 et 25
-en utilisant les critères de divisibilité les plus usuels (voir la doc du fichier
+en utilisant les critères de divisibilité les plus usuels (voir la doc du module
 'usual-divisibility-criteria.pm6').
 Pour les autres nombres, elle utilise l'opérateur modulo (mod) ou %% (critère de divisibilité).
-Contrairement au module du fichier 'integer-divisors-listing-array.pm6'
+Contrairement au module 'integer-divisors-listing-array.pm6'
 implémenté par l'emploi de tableaux, et qui renvoie systématiquement un tableau,
 celui-ci est implémenté par l'emploi de hash et renvoie soit un hash, soit un tableau de Int,
 selon la valeur de l'argument du champ 'Str $array-or-hash' qui peut prendre
 l'une des valeurs suivantes : '@' ou 'array' pour renvoyer un tableau de Int
-ou bien '%' ou 'hash' pour renvoyer un hash (%h.keys : Str et %h.elems : Int).
+ou bien '%' ou 'hash' pour renvoyer un hash (%h.keys : Int et %h.elems : Int).
+Par défaut un array est retourné. 
 Il est possible de connaître la valeur de retour employée en utilisant la méthode
-'array-or-hash' ou bien de le modifier à l'aide de la méthode 'array-or-hash(Str $array-or-hash'
+'array-or-hash' ou bien de le modifier à l'aide de la méthode 'array-or-hash(Str $array-or-hash)'
 ou $array-or-hash peut prendre l'une des valeurs du champ de la classe indiquées ci-dessus, 
 après que la classe ait été construite. 
 =end pod
@@ -28,7 +28,7 @@ use usual-divisibility-criteria;
 
 class IntegerDivisorsListing does UsualDivisibilityCriteria is export {
     has Str $.array-or-hash is rw where {($_ ~~ / array || hash || <[@%]> /) or
-    die "Champ de classe invalide! Attendu : 'array', '@', 'hash' ou '%'."};
+    die "Champ de classe invalide! Attendu : 'array', '@', 'hash' ou '%'."} = 'array';
 
     method list-divisors(Int $integer where {$integer > 0}) {
         #my Int $n = self.integer;
@@ -42,19 +42,19 @@ class IntegerDivisorsListing does UsualDivisibilityCriteria is export {
         # Hash en retour de fonction
         my %hr;
         # Array en retour de fonction
-        my @a;
+        my @ar;
         my Bool $last = False;
 
         # 1 est le premier diviseur commun à tous les nombres
         #%h<$i> = $n;
-        my %h = ($i => $n);
+        my %h{Int} = ($i => $n);
         if ($n == 1) {
             # Utilise | (the any junction operator) pour éviter une clause when multiple
             # dans un bloc given ... when
             my $return1 = 'array' | '@';
             if (self.array-or-hash eq $return1) {
-                @a = self!display($n, $square, %h);
-                return @a;
+                @ar = self!display($n, $square, %h);
+                return @ar;
             }
             my $return2 = 'hash' | '%';
             if (self.array-or-hash eq $return2) {
@@ -78,8 +78,8 @@ class IntegerDivisorsListing does UsualDivisibilityCriteria is export {
             %h{$i}:delete unless $square > 0;
             my $return1 = 'array' | '@';
             if (self.array-or-hash eq $return1) {
-                @a = self!display($n, $square, %h);
-                return @a;
+                @ar = self!display($n, $square, %h);
+                return @ar;
             }
             my $return2 = 'hash' | '%';
             if (self.array-or-hash eq $return2) {
@@ -102,8 +102,8 @@ class IntegerDivisorsListing does UsualDivisibilityCriteria is export {
             %h{$i}:delete unless $square > 0;
             my $return1 = 'array' | '@';
             if (self.array-or-hash eq $return1) {
-                @a = self!display($n, $square, %h);
-                return @a;
+                @ar = self!display($n, $square, %h);
+                return @ar;
             }
             my $return2 = 'hash' | '%';
             if (self.array-or-hash eq $return2) {
@@ -126,8 +126,8 @@ class IntegerDivisorsListing does UsualDivisibilityCriteria is export {
             %h{$i}:delete unless $square > 0;
             my $return1 = 'array' | '@';
             if (self.array-or-hash eq $return1) {
-                @a = self!display($n, $square, %h);
-                return @a;
+                @ar = self!display($n, $square, %h);
+                return @ar;
             }
             my $return2 = 'hash' | '%';
             if (self.array-or-hash eq $return2) {
@@ -150,8 +150,8 @@ class IntegerDivisorsListing does UsualDivisibilityCriteria is export {
             %h{$i}:delete unless $square > 0;
             my $return1 = 'array' | '@';
             if (self.array-or-hash eq $return1) {
-                @a = self!display($n, $square, %h);
-                return @a;
+                @ar = self!display($n, $square, %h);
+                return @ar;
             }
             my $return2 = 'hash' | '%';
             if (self.array-or-hash eq $return2) {
@@ -175,8 +175,8 @@ class IntegerDivisorsListing does UsualDivisibilityCriteria is export {
                 %h{$i}:delete unless $square > 0;
                 my $return1 = 'array' | '@';
                 if (self.array-or-hash) eq $return1 {
-                    @a = self!display($n, $square, %h);
-                    return @a;
+                    @ar = self!display($n, $square, %h);
+                    return @ar;
                 }
                 my $return2 = 'hash' | '%';
                 if (self.array-or-hash) eq $return2 {
@@ -200,8 +200,8 @@ class IntegerDivisorsListing does UsualDivisibilityCriteria is export {
             %h{$i}:delete unless $square > 0;
             my $return1 = 'array' | '@';
             if (self.array-or-hash eq $return1) {
-                @a = self!display($n, $square, %h);
-                return @a;
+                @ar = self!display($n, $square, %h);
+                return @ar;
             }
             my $return2 = 'hash' | '%';
             if (self.array-or-hash eq $return2) {
@@ -224,8 +224,8 @@ class IntegerDivisorsListing does UsualDivisibilityCriteria is export {
             %h{$i}:delete unless $square > 0;
             my $return1 = 'array' | '@';
             if (self.array-or-hash eq $return1) {
-                @a = self!display($n, $square, %h);
-                return @a;
+                @ar = self!display($n, $square, %h);
+                return @ar;
             }
             my $return2 = 'hash' | '%';
             if (self.array-or-hash eq $return2) {
@@ -248,8 +248,8 @@ class IntegerDivisorsListing does UsualDivisibilityCriteria is export {
             %h{$i}:delete unless $square > 0;
             my $return1 = 'array' | '@';
             if (self.array-or-hash eq $return1) {
-                @a = self!display($n, $square, %h);
-                return @a;
+                @ar = self!display($n, $square, %h);
+                return @ar;
             }
             my $return2 = 'hash' | '%';
             if (self.array-or-hash eq $return2) {
@@ -273,8 +273,8 @@ class IntegerDivisorsListing does UsualDivisibilityCriteria is export {
                 %h{$i}:delete unless $square > 0;
                 my $return1 = 'array' | '@';
                 if (self.array-or-hash eq $return1) {
-                    @a = self!display($n, $square, %h);
-                    return @a;
+                    @ar = self!display($n, $square, %h);
+                    return @ar;
                 }
                 my $return2 = 'hash' | '%';
                 if (self.array-or-hash eq $return2) {
@@ -297,8 +297,8 @@ class IntegerDivisorsListing does UsualDivisibilityCriteria is export {
             %h{$i}:delete unless $square > 0;
             my $return1 = 'array' | '@';
             if (self.array-or-hash eq $return1) {
-                @a = self!display($n, $square, %h);
-                return @a;
+                @ar = self!display($n, $square, %h);
+                return @ar;
             }
             my $return2 = 'hash' | '%';
             if (self.array-or-hash eq $return2) {
@@ -322,8 +322,8 @@ class IntegerDivisorsListing does UsualDivisibilityCriteria is export {
                 %h{$i}:delete unless $square > 0;
                 my $return1 = 'array' | '@';
                 if (self.array-or-hash eq $return1) {
-                    @a = self!display($n, $square, %h);
-                    return @a;
+                    @ar = self!display($n, $square, %h);
+                    return @ar;
                 }
                 my $return2 = 'hash' | '%';
                 if (self.array-or-hash eq $return2) {
@@ -335,8 +335,8 @@ class IntegerDivisorsListing does UsualDivisibilityCriteria is export {
     }
 
     method !display(Int $integer, Int $perfectsquare, %hash) {
-        my %reverse-hash;
-        my %my-hash;
+        my %reverse-hash{Int};
+        my %my-hash{Int};
         my @a;
         my @b;
         #my @array = @array1.append(@array2);

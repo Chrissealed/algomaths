@@ -1,32 +1,32 @@
 unit module ppcm;
 
 use v6;
-use are-prime;
-use pgcd;
 
 =begin pod
-Ce module contient une classe : PPCM qui hérite de la classe ArePrime,
-qui elle-même hérite de la classe PGCD.
-Cette classe comporte deux arguments : integer1 et integer2, qui sont
-des entiers supérieurs à 1 à passer dans son constructeur et qui seront
-utilisés par les méthodes de la classe.
-Cette classe contient trois méthodes distinctes pour calculer le PPCM
+Ce module contient une classe : PPCM qui dispose du rôle 'PrimeFactors'
+et qui utilise les classes ArePrime et PGCD.
+Cette classe comporte deux attributs : integer1 et integer2, qui sont
+des entiers supérieurs 1 qui seront utilisés par les méthodes de la classe.
+Elle contient trois méthodes distinctes pour calculer le PPCM
 (plus petit commun multiple) de deux entiers :
-- 'by-larger-number-multiples' qui procède par additions du plus grand
+=item 'by-larger-number-multiples()' qui procède par additions du plus grand
 nombre et division du résultat par le plus petit nombre.
 Elle retourne le PPCM recherché qui est donc un entier.
-- 'by-prime-factors' qui procède par décomposition des nombres en
-facteurs premiers et qui utilise la méthode 'breakdown' du module
-'prime-factors' dont il dispose du rôle par l'intermédiaire de la
-classe 'PGCD' dont il hérite en deuxième parent par le module
-'ArePrime'. Cette méthode dispose d'un tableau des facteurs extraits
+=item 'by-prime-factors()' qui procède par décomposition des nombres en
+facteurs premiers et qui utilise pour cela la méthode 'breakdown' du module
+'prime-factors' dont la classe a le rôle.
+Cette méthode dispose d'un tableau des facteurs extraits
 des deux nombres qu'elle multiplie pour obtenir le PPCM recherché et retourné.
-- enfin 'by-use-of-pgcd' qui comme son nom l'indique recherche d'abord
+=item - enfin 'by-use-of-pgcd()' qui comme son nom l'indique recherche d'abord
 le PGCD des deux entiers avant de diviser leur multiple par celui-ci,
 le résultat étant le PPCM recherché, soit un entier retourné par la méthode.
 =end pod
 
-class PPCM is ArePrime is export {
+use are-prime;
+use pgcd;
+use prime-factors;
+
+class PPCM does PrimeFactors is export {
     has Int $.integer1 is rw where {$_ > 1 or die "Valeur de champ invalide: entier > 1 requis !"};
     has Int $.integer2 is rw where {$_ > 1 or die "Valeur de champ invalide: entier > 1 requis !"};
 
