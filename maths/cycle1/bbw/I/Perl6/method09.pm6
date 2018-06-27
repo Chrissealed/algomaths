@@ -16,73 +16,77 @@ sub put-up-method is export(:methodwording) {
 EOM
 }
 
-sub exercise_01 is export(:exe01) {
+sub show-examples is export(:examples) {
+    shell 'xdg-open ../examples09.pdf &';
+}
+
+sub exercise_01a is export(:exe01a) {
     say '# Exercice 1.';
     say '# Déterminez le PGCD et le PPCM.';
     say '# a. PGCD(9 ; 12 ; 30). PPCM(9 ; 12 ; 30).';
     say '-----------------------------------------------------------------------------------';
 }
 
-sub exercise_02 is export(:exe02) {
-    say '# Exercice 2.';
+sub exercise_01b is export(:exe01b) {
+    say '# Exercice 1.';
     say '# Déterminez le PGCD et le PPCM.';
     say '# b. PGCD(24 ; 30 ; 36). PPCM(24 ; 30 ; 36).';
     say '-----------------------------------------------------------------------------------';
 }
 
-sub exercise_03 is export(:exe03) {
-    say '# Exercice 3.';
+sub exercise_01c is export(:exe01c) {
+    say '# Exercice 1.';
     say '# Déterminez le PGCD et le PPCM.';
     say '# c. PGCD(10 ; 15 ; 35). PPCM(10 ; 15 ; 35).';
     say '-----------------------------------------------------------------------------------';
 }
 
-sub exercise_04 is export(:exe04) {
-    say '# Exercice 4.';
+sub exercise_01d is export(:exe01d) {
+    say '# Exercice 1.';
     say '# Déterminez le PGCD et le PPCM.';
     say '# d. PGCD(18 ; 27 ; 63). PPCM(18 ; 27 ; 63).';
     say '-----------------------------------------------------------------------------------';
 }
 
-sub exercise_05 is export(:exe05) {
-    say '# Exercice 5.';
+sub exercise_01e is export(:exe01e) {
+    say '# Exercice 1.';
     say '# Déterminez le PGCD et le PPCM.';
     say '# e. PGCD(21 ; 24 ; 27). PPCM(21 ; 24 ; 27).';
     say '-----------------------------------------------------------------------------------';
 }
 
-sub exercise_06 is export(:exe06) {
-    say '# Exercice 6.';
+sub exercise_02a is export(:exe02a) {
+    say '# Exercice 2.';
     say '# Déterminez le PGCD et le PPCM.';
-    say '# f. PGCD(28 ; 35 ; 49). PPCM(28 ; 35 ; 49).';
+    say '# a. PGCD(28 ; 35 ; 49). PPCM(28 ; 35 ; 49).';
     say '-----------------------------------------------------------------------------------';
 }
 
-sub exercise_07 is export(:exe07) {
-    say '# Exercice 7.';
+sub exercise_02b is export(:exe02b) {
+    say '# Exercice 2.';
     say '# Déterminez le PGCD et le PPCM.';
-    say '# g. PGCD(64 ; 80 ; 112). PPCM(64 ; 80 ; 112).';
+    say '# b. PGCD(64 ; 80 ; 112). PPCM(64 ; 80 ; 112).';
     say '-----------------------------------------------------------------------------------';
 }
 
-sub exercise_08 is export(:exe08) {
-    say '# Exercice 8.';
+sub exercise_02c is export(:exe02c) {
+    say '# Exercice 2.';
     say '# Déterminez le PGCD et le PPCM.';
-    say '# h. PGCD(39 ; 52 ; 130). PPCM(39 ; 52 ; 130).';
+    say '# c. PGCD(39 ; 52 ; 130). PPCM(39 ; 52 ; 130).';
     say '-----------------------------------------------------------------------------------';
 }
 
-sub exercise_09 is export(:exe09) {
-    say '# Exercice 9.';
+sub exercise_02d is export(:exe02d) {
+    say '# Exercice 2.';
     say '# Déterminez le PGCD et le PPCM.';
-    say '# i. PGCD(144 ; 168 ; 252). PPCM(144 ; 168 ; 252).';
+    say '# d. PGCD(144 ; 168 ; 252). PPCM(144 ; 168 ; 252).';
     say '-----------------------------------------------------------------------------------';
 }
 
-sub exercise_10 is export(:exe10) {
-    say '# Exercice 10.';
+sub exercise_02e is export(:exe02e) {
+    say '# Exercice 2.';
     say '# Déterminez le PGCD et le PPCM.';
-    say '# j. PGCD(189 ; 252 ; 315). PPCM(189 ; 252 ; 315).';
+    say '# e. PGCD(189 ; 252 ; 315). PPCM(189 ; 252 ; 315).';
     say '-----------------------------------------------------------------------------------';
 }
 

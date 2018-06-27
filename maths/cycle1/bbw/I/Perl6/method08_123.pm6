@@ -10,18 +10,12 @@ sub put-up-method {
 # ▲ Le 'plus petit commun multiple' (PPCM) de deux nombres est le plus petit nombre
 # qui est à la fois multiple de l'un et de l'autre nombre. En d'autres mots, c'est
 # le plus petit nombre qui est divisible par chacun des deux nombres.
-# On peut en pratique distinguer trois cas dans la recherche du PPCM de deux naturels.
-# a. Un nombre est multiple de l'autre : c'est lui qui sert de PPCM;
-#    par exemple, 15 est le PPCM de 15 et 3 : 4/15 + 2/3 = 4/15 + 10/15 = 14/15.
-# b. Les deux nombres sont premiers entre eux : c'est dans ce cas que le PPCM est
-#    leur produit; par exemple : 3/8 + 1/9 = 27/72 + 8/72 = 35/72.
-# c. Les deux nombres ont un diviseur commun : par exemple, 15 et 12 se trouvent dans
-#    la même table, celle des 3; on a en effet : 15 = 3 × 5 et 12 = 3 × 4.
-#    En mettant ce 3 de côté, on voit que tout se passe comme si on était ramené au
-#    cas précédent et qu'il suffit de multiplier 15 par 4 et 12 par 5 pour obtenir
-#    le même nombre : 3 × 5 × 4 ou 3 × 4 × 5.
 ####################################################################################
 EOM
+}
+
+sub show-examples() is export(:examples) {
+    shell 'xdg-open ../examples08.pdf &';
 }
 
 sub put-up-method1 is export(:methodwording1) {
@@ -77,122 +71,122 @@ sub put-up-method3 is export(:methodwording3) {
 EOM
 }
 
-sub exercise_01 is export(:exe01) {
+sub exercise_01a is export(:exe01a) {
     say '# Exercice 1.';
     say '# a. PPCM(12 ; 30)';
     say '-----------------------------------------------------------------------------------';
 }
 
-sub exercise_02 is export(:exe02) {
-    say '# Exercice 2.';
+sub exercise_01b is export(:exe01b) {
+    say '# Exercice 1.';
     say '# b. PPCM(27 ; 45)';
     say '-----------------------------------------------------------------------------------';
 }
 
-sub exercise_03 is export(:exe03) {
-    say '# Exercice 3.';
+sub exercise_01c is export(:exe01c) {
+    say '# Exercice 1.';
     say '# c. PPCM(18 ; 63)';
     say '-----------------------------------------------------------------------------------';
 }
 
-sub exercise_04 is export(:exe04) {
-    say '# Exercice 4.';
+sub exercise_01d is export(:exe01d) {
+    say '# Exercice 1.';
     say '# d. PPCM(16 ; 40)';
     say '-----------------------------------------------------------------------------------';
 }
 
-sub exercise_05 is export(:exe05) {
-    say '# Exercice 5.';
+sub exercise_01e is export(:exe01e) {
+    say '# Exercice 1.';
     say '# e. PPCM(33 ; 121)';
     say '-----------------------------------------------------------------------------------';
 }
 
-sub exercise_06 is export(:exe06) {
-    say '# Exercice 6.';
-    say '# f. PPCM(52 ; 39)';
+sub exercise_02a is export(:exe02a) {
+    say '# Exercice 2.';
+    say '# a. PPCM(52 ; 39)';
     say '-----------------------------------------------------------------------------------';
 }
 
-sub exercise_07 is export(:exe07) {
-    say '# Exercice 7.';
-    say '# g. PPCM(64 ; 80)';
+sub exercise_02b is export(:exe02b) {
+    say '# Exercice 2.';
+    say '# b. PPCM(64 ; 80)';
     say '-----------------------------------------------------------------------------------';
 }
 
-sub exercise_08 is export(:exe08) {
-    say '# Exercice 8.';
-    say '# h. PPCM(144 ; 240)';
+sub exercise_02c is export(:exe02c) {
+    say '# Exercice 2.';
+    say '# c. PPCM(144 ; 240)';
     say '-----------------------------------------------------------------------------------';
 }
 
-sub exercise_09 is export(:exe09) {
-    say '# Exercice 9.';
-    say '# i. PPCM(169 ; 130)';
+sub exercise_02d is export(:exe02d) {
+    say '# Exercice 2.';
+    say '# d. PPCM(169 ; 130)';
     say '-----------------------------------------------------------------------------------';
 }
 
-sub exercise_10 is export(:exe10) {
-    say '# Exercice 10.';
-    say '# j. PPCM(33 ; 121)';
+sub exercise_02e is export(:exe02e) {
+    say '# Exercice 2.';
+    say '# e. PPCM(33 ; 121)';
     say '-----------------------------------------------------------------------------------';
 }
 
-sub exercise_11 is export(:exe11) {
-    say '# Exercice 11.';
-    say '# k. PPCM(250 ; 125)';
+sub exercise_03a is export(:exe03a) {
+    say '# Exercice 3.';
+    say '# a. PPCM(250 ; 125)';
     say '-----------------------------------------------------------------------------------';
 }
 
-sub exercise_12 is export(:exe12) {
-    say '# Exercice 12.';
-    say '# l. PPCM(144 ; 216)';
+sub exercise_03b is export(:exe03b) {
+    say '# Exercice 3.';
+    say '# b. PPCM(144 ; 216)';
     say '-----------------------------------------------------------------------------------';
 }
 
-sub exercise_13 is export(:exe13) {
-    say '# Exercice 13.';
-    say '# m. PPCM(520 ; 390)';
+sub exercise_03c is export(:exe03c) {
+    say '# Exercice 3.';
+    say '# c. PPCM(520 ; 390)';
     say '-----------------------------------------------------------------------------------';
 }
 
-sub exercise_14 is export(:exe14) {
-    say '# Exercice 14.';
-    say '# n. PPCM(888 ; 185)';
+sub exercise_03d is export(:exe03d) {
+    say '# Exercice 3.';
+    say '# d. PPCM(888 ; 185)';
     say '-----------------------------------------------------------------------------------';
 }
 
-sub exercise_15 is export(:exe15) {
-    say '# Exercice 15.';
-    say '# o. PPCM(124 ; 341)';
+sub exercise_03e is export(:exe03e) {
+    say '# Exercice 3.';
+    say '# e. PPCM(124 ; 341)';
     say '-----------------------------------------------------------------------------------';
 }
 
-sub exercise_16 is export(:exe16) {
-    say '# Exercice 16.';
-    say '# p. PPCM(240 ; 180)';
+sub exercise_04a is export(:exe04a) {
+    say '# Exercice 4.';
+    say '# a. PPCM(240 ; 180)';
     say '-----------------------------------------------------------------------------------';
 }
 
-sub exercise_17 is export(:exe17) {
-    say '# Exercice 17.';
-    say '# q. PPCM(276 ; 414)';
+sub exercise_04b is export(:exe04b) {
+    say '# Exercice 4.';
+    say '# b. PPCM(276 ; 414)';
     say '-----------------------------------------------------------------------------------';
 }
 
-sub exercise_18 is export(:exe18) {
-    say '# Exercice 18.';
-    say '# r. PPCM(588 ; 504)';
+sub exercise_04c is export(:exe04c) {
+    say '# Exercice 4.';
+    say '# c. PPCM(588 ; 504)';
     say '-----------------------------------------------------------------------------------';
 }
 
-sub exercise_19 is export(:exe19) {
-    say '# Exercice 19.';
-    say '# s. PPCM(315 ; 189)';
+sub exercise_04d is export(:exe04d) {
+    say '# Exercice 4.';
+    say '# d. PPCM(315 ; 189)';
     say '-----------------------------------------------------------------------------------';
 }
 
-sub exercise_20 is export(:exe20) {
-    say '# Exercice 20.';
-    say '# t. PPCM(403 ; 221)';
+sub exercise_04e is export(:exe04e) {
+    say '# Exercice 4.';
+    say '# e. PPCM(403 ; 221)';
     say '-----------------------------------------------------------------------------------';
 }
