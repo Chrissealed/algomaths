@@ -10,7 +10,7 @@ sub answering {
         numerator => 644,
         denominator => 294,
     );
-    my Bool $is-irreducible = $irreducible.reduce-fraction-with-subtraction-algorithm();
+    $irreducible.reduce-fraction-with-subtraction-algorithm();
 }
 
 exercise_01e();

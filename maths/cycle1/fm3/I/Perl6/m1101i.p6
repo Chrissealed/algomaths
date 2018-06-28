@@ -10,7 +10,7 @@ sub answering {
         numerator => 60,
         denominator => 75,
     );
-    my Bool $is-irreducible = $irreducible.reduce-fraction-with-factorization-algorithm();
+    $irreducible.reduce-fraction-with-factorization-algorithm();
 }
 
 exercise_01i();

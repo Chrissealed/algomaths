@@ -171,7 +171,7 @@ class ArePrime does UsualDivisibilityCriteria is export {
                 return $flag;
             }
             else {
-                say "$dvd et $dvs n'ont pas de diviseur commun autre que 1; ils ne sont donc pas premiers entre eux.";
+                say "$dvd et $dvs n'ont pas de diviseur commun autre que 1; ils sont donc premiers entre eux.";
                 return $flag = False;
             }
         }
@@ -182,7 +182,7 @@ class ArePrime does UsualDivisibilityCriteria is export {
                 return $flag;
             }
             else {
-                say "$dvd et $dvs n'ont pas de diviseur commun autre que 1; ils ne sont donc pas premiers entre eux.";
+                say "$dvd et $dvs n'ont pas de diviseur commun autre que 1; ils sont donc premiers entre eux.";
                 return $flag = False;
             }
         }

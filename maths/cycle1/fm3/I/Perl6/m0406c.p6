@@ -10,7 +10,7 @@ my Str ($strint1, $strint2) = "";
 sub answering {
     do-put-up-correct-version();
     my $pgcd = PGCD.new(
-        # Pour construire la classe PGCD pour la méthode 'subtraction algorithm'
+        # Pour construire la classe PGCD pour la méthode 'divisors-listing_algorithm()'
         integer1 => $int1,
         integer2 => $int2,
     );

@@ -2,18 +2,18 @@
 
 use v6;
 use corrective;
-use method11 :methodwording, :exe01b, :examples;
+use method11 :methodwording, :exe04b, :examples;
 use irreducible-fraction;
 
 sub answering {
     my $irreducible = IrreducibleFraction.new(
-        numerator => 25,
-        denominator => 45,
+        numerator => 295,
+        denominator => 567,
     );
-    $irreducible.reduce-fraction-with-factorization-algorithm();
+    my Pair $pair = $irreducible.reduce-fraction-with-euclide-algorithm();
 }
 
-exercise_01b();
+exercise_04b();
 my Bool $boolean = do-put-up-method();
 if $boolean {
     put-up-method();

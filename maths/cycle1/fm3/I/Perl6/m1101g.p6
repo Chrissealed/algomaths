@@ -10,7 +10,7 @@ sub answering {
         numerator => 312,
         denominator => 273,
     );
-    my Bool $is-irreducible = $irreducible.reduce-fraction-with-euclide-algorithm();
+    $irreducible.reduce-fraction-with-euclide-algorithm();
 }
 
 exercise_01g();

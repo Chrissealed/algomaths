@@ -174,7 +174,7 @@ sub exercise_06 is export(:exe06) {
     say '# ----------';
     say '# On donne : A = 43,01/84,15.';
     say "# a. Peut-on déterminer le PGCD du numérateur et du dénominateur de A tels qu'ils figurent";
-    say "#   dans l'énoncé ? Justifier la réponse.";
+    say "#    dans l'énoncé ? Justifier la réponse.";
     say '# b. Ecrire A sous forme de fraction';
     say '# c. Déterminer le PGCD du numérateur et du dénominateur.';
     say "# d. En déduire l'écriture de A sous forme d'une fraction irréductible.";
@@ -191,5 +191,5 @@ sub exercise_07 is export(:exe07) {
     say '#    EA = 10,37m ; EB = 9,01m ; EC = 12,72m ; ED = 14,64m.';
     say '#    Les droites (AB) et (CD) sont-elles parallèles ?';
     say '-----------------------------------------------------------------------------------';
-    shell 'xdg-open ./m1107c-fig.svg &';
+    shell 'xdg-open ../m1107c-fig.svg &';
 }
