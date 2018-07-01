@@ -1,0 +1,13 @@
+I - CALCULER AVEC DES NOMBRES ENTIERS
+
+1. Addition.
+2. Soustraction.
+3. Multiplication.
+4. Division avec reste.
+
+5. Décomposer un entier en facteurs premiers.
+6. Déterminer tous les facteurs d'un entier.
+
+7. PGCD.
+8. PPCM.
+9. PGCD et PPCM.
