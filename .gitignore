@@ -1,8 +1,10 @@
 .precomp/
+tmp/
 *~
 *.bak
 *.code-workspace
 *.log
+*.lyx
 *.o
 *.ppu
 *.swo

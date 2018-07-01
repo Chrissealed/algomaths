@@ -2,7 +2,7 @@
 
 use v6;
 use corrective;
-use method04 :methodwording, :exe01;
+use method04 :methodwording, :exe01, :examples;
 use integer-divisors-listing;
 use common-arrays-elements;
 
@@ -29,6 +29,10 @@ exercise_01();
 my Bool $boolean = do-put-up-method();
 if $boolean {
     put-up-method();
+}
+$boolean = do-put-up-examples();
+if $boolean {
+    show-examples;
 }
 do-put-up-correct-version();
 answering();

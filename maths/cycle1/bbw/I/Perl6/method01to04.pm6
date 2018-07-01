@@ -3,6 +3,22 @@ unit module Method01to04;
 use v6;
 use corrective;
 
+sub show-examples1 {
+    shell 'xdg-open ../examples01.pdf &';
+}
+
+sub show-examples2 {
+    shell 'xdg-open ../examples02.pdf &';
+}
+
+sub show-examples3 {
+    shell 'xdg-open ../examples03.pdf &';
+}
+
+sub show-examples4 {
+    shell 'xdg-open ../examples04.pdf &';
+}
+
 sub put-up-method1 {
     say qq:to/EOM/;
 ###################################################################################
@@ -13,15 +29,6 @@ sub put-up-method1 {
 # L'idée est de se ramener aux nombres 10, 20, 30... (ou 100, 200, etc.) les plus
 # proches en décomposant (par exemple +7 en +3+4).
 # On calcule bien plus rapidement ensuite.
-# ▲ Exemple : Calculer 17 + 7.
-# Voici comment on procède : on peut aller de 17 à 20 (la dizaine suivante la plus
-# proche) avec 3, il reste 4. D'ou : 17 + 7 = 17 + 3 + 4 = 24.
-# ▲ Exemple : Calculer 86 + 27.
-# On peut aller de 86 à 100 avec 14, il reste 13 (car 27 = 14 + 13).
-# D'ou : 86 + 27 = 86 + 14 + 13 = 100 + 13 = 113.
-# ▲ Exemple : Calculer 174 + 257.
-# On peut aller de 174 à 200 avec 26, il reste 231 (car 257 = 26 + 231).
-# D'ou 174 + 257 = 174 + 26 + 231 = 200 + 231 = 431.
 ###################################################################################
 
 EOM
@@ -36,21 +43,6 @@ sub put-up-method2 {
 # L'idée est la suivante : plutôt que de calculer a – b en partant de a (ce qui
 # n'est pas ce qu'il y a de plus facile), on part de b pour rejoindre a en
 # essayant de trouver ce qui manque.
-# ▲ Exemple : Calculer 67 – 39.
-# On part de 39 pour rejoindre 67. De 39 à 40, il faut 1. De 40 à 67, il faut 27
-# d'ou 67 – 39 = 1 + 27 = 28.
-# L'idée étant toujours de se ramener à des dizaines proches (comme 10, 20, 30, etc.)
-# ou à des centaines (100, 200, etc.) très facilement maniables.
-# ▲ Exemple : Calculer 452 – 267.
-# De 267 à 270, il faut 3. De 270 à 300, il faut 30. De 300 à 452, il faut 152
-# d'ou 452 – 267 = 3 + 30 + 152 = 33 + 152 = 185.
-# ▲ Exemple : Calculer 45014 – 41965.
-# De 41965 à 42000, il faut 35. De 42000 à 45000, il faut 3000. De 45000 à 45014,
-# il faut 14. D'ou 45014 – 41965 = 35 + 3000 + 14 = 3049.
-# ▲ Exemple : Calculer 70250 – 67587.
-# De 67587 à 67600, il faut 13. De 67600 à 68000, il faut 400. De 68000 à 70000,
-# il faut 2000. De 70000 à 70250, il faut 250.
-# D'ou : 70250 – 67587 = 13 + 400 + 2000 + 250 = 2413 + 250 = 2663.
 ###################################################################################
 
 EOM
@@ -67,36 +59,18 @@ sub put-up-method3 {
 # ---------------------------------------------------------------------------------
 # ▲ B. Principe: En décomposant par addition.
 # On utilise la propriété (a + b) × c = a × c + b × c.
-# ▲ Exemple : Calculer 17 × 3.
-# On a : 17 × 3 = (10 + 7) × 3 = 10 × 3 + 7 × 3 = 30 + 21 = 51.
-# Ramenez vous toujours à des nombres faciles com 10, 100, 1000... les dizaines sont
-# simples et très maniables.
-# ▲ Exemple : Calculer 27 × 16.
-# On a : 27 × 16 = (20 + 7) × 16 = 20 × 16 + 7 × 16 = 320 + 7 × (10 + 6)
-# = 320 + 7 × 10 + 7 × 6 = 320 + 70 + 42 = 390 + 42 = 432.
 # ---------------------------------------------------------------------------------
 # ▲ C. Principe: En décomposant par soustraction.
 # On utilise la propriété (a – b) × c = a × c – b × c.
-# ▲ Exemple : Calculer 19 × 7.
-# On a 19 × 7 = (20 – 1) × 17 = 20 × 17 – 1 × 17 = 340 – 17 = 323.
 # ---------------------------------------------------------------------------------
 # ▲ D. Principe: En décomposant par plusieurs petites multiplications.
 # Pour multiplier par 6, on multiplie par 2 puis par 3.
 # Pour multiplier par 15, on multiplie par 3 puis par 5, etc.
-# ▲ Exemple: Calculer 153 × 6.
-# On a : 153 × 6 = 153 × 2 × 3 = 306 × 3 = 918
-#(car 306 × 3 = (300 + 6) × 3 = 300 × 3 + 6 × 3 = 900 + 18).
-# ▲ Exemple: Calculer 38 × 15.
-# On a : 38 × 15 = 38 × 3 × 5 = 114 × 5 = 570
-# (car 114 × 5 = (100 + 14) × 5 = 100 × 5 + 14 × 5 = 500 + 70 = 570).
 # ---------------------------------------------------------------------------------
 # ▲ E. Principe: En utilisant la division.
 # Pour multiplier par 50 (par exemple), on multiplie par 100 puis on divise par 2
 # (car 50 = 100 ÷ 2). S'il s'agit de multiplier par 25, on multiplie par 100 puis
 # on divise par 4 (car 25 = 100 ÷ 4), etc.
-# ▲ Exemple: Calculer 12 × 25.
-# On a 12 × 25 = 12 × 100 ÷ 4 = 1200 ÷ 4 = 300 (sinon on pouvait utiliser la méthode 3
-# et obtenir 12 × 25 = (10 + 2) × 25 = 10 × 25 + 2 × 25 = 250 + 50 = 300).
 ###################################################################################
 
 EOM
@@ -110,26 +84,16 @@ sub put-up-method4 {
 # ▲ A. Principe: En partant du deuxième.
 # Plutôt que de calculer a ÷ b en partant de a, on part de b pour rejoindre a en
 # essayant de trouver par combien il faut multiplier.
-# ▲ Exemple : Calculer 72 ÷ 8.
-# On sait que 8 × 9 = 72. Ainsi 72 ÷ 8 = 9.
-# ▲ Exemple : Calculer 720 ÷ 120.
-# On a 120 × 6 = 720 d'ou : 720 ÷ 120 = 6.
 # ---------------------------------------------------------------------------------
 # ▲ B. Principe: En décomposant par plusieurs petites divisions.
 # Pour diviser par 6, on divise successivement par 2 puis par 3 (c'est ce que l'on
 # fait concrètement lorsqu'on coupe un gâteau d'anniversaire en 6 parts : on le
 # coupe d'abord en 2 puis chacune des deux moitiés en 3).
 # De même pour diviser par 15, on divise successivement par 3 puis par 5, etc.
-# ▲ Exemple : Calculer 162 ÷ 18.
-# On a 162 ÷ 18 = (162 ÷ 2) ÷ 9 = 81 ÷ 9 = 9.
 # ---------------------------------------------------------------------------------
 # ▲ C. Principe: En utilisant la multiplication.
 # Plutôt que de diviser par 5, on multiplie par 2 puis on divise par 10. S'il s'agit
 # de diviser par 25, on multiplie par 4 puis on divise par 100, etc.
-# ▲ Exemple : Calculer 7500 ÷ 5.
-# On a : 7500 ÷ 5 = (7500 × 2) ÷ 10 = 15000 ÷ 10 = 1500.
-# ▲ Exemple : Calculer 1500 ÷ 25.
-# On a : 1500 ÷ 25 = (1500 × 4) ÷ 100 = 6000 ÷ 100 = 60.
 ###################################################################################
 
 EOM
@@ -201,22 +165,30 @@ sub exercise_01to04 is export(:exe01to04) {
                 say "ADDITIONS";
                 $boolean = do-put-up-method;
                 if $boolean { put-up-method1; }
+                $boolean = do-put-up-examples;
+                if $boolean { show-examples1; }
             }
             when $_ ~~ / <[2sS]> / {
                 say "SOUSTRACTIONS";
                 $boolean = do-put-up-method;
                 if $boolean { put-up-method2; }
+                $boolean = do-put-up-examples;
+                if $boolean { show-examples2; }
             }
             when $_ ~~ / <[3mM]> / {
                 say "MULTIPLICATIONS";
                 $boolean = do-put-up-method;
                 if $boolean { put-up-method3; }
+                $boolean = do-put-up-examples;
+                if $boolean { show-examples3; }
             }
             when $_ ~~ / <[4dD]> / {
                 say "DIVISIONS";
                 say "Donnez le quotient et le reste concaténés (c-à-d. sans espace entre eux).";
                 $boolean = do-put-up-method;
                 if $boolean { put-up-method4; }
+                $boolean = do-put-up-examples;
+                if $boolean { show-examples4; }
             }
             when '0' {
                 say "Choix aléatoire";

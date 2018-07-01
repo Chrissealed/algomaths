@@ -2,7 +2,7 @@
 
 use v6;
 use corrective;
-use method02 :methodwording, :exe02;
+use method02 :methodwording, :exe02, :examples;
 
 sub answering {
     my Int $dividend = 260;
@@ -26,6 +26,10 @@ exercise_02();
 my Bool $boolean = do-put-up-method();
 if $boolean {
     put-up-method();
+}
+$boolean = do-put-up-examples();
+if $boolean {
+    show-examples;
 }
 do-put-up-correct-version();
 answering();

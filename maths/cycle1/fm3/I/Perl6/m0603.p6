@@ -2,7 +2,7 @@
 
 use v6;
 use corrective;
-use method06 :methodwording, :exe03;
+use method06 :methodwording, :exe03, :examples;
 use pgcd;
 
 sub answering {
@@ -18,6 +18,10 @@ exercise_03();
 my Bool $boolean = do-put-up-method();
 if $boolean {
     put-up-method();
+}
+$boolean = do-put-up-examples();
+if $boolean {
+    show-examples;
 }
 do-put-up-correct-version();
 answering();

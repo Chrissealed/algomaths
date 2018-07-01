@@ -2,7 +2,7 @@
 
 use v6;
 use corrective;
-use method03 :methodwording, :exe06b;
+use method03 :methodwording, :exe06b, :examples;
 use integer-divisors-listing;
 use common-arrays-elements;
 
@@ -32,6 +32,10 @@ exercise_06b();
 my Bool $boolean = do-put-up-method();
 if $boolean {
     put-up-method();
+}
+$boolean = do-put-up-examples();
+if $boolean {
+    show-examples;
 }
 LABELOUTLOOP:
 loop {

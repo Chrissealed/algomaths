@@ -2,7 +2,7 @@
 
 use v6;
 use corrective;
-use method01 :methodwording, :exe06;
+use method01 :methodwording, :exe06, :examples;
 
 sub answering {
     say "Si un nombre est multiple à la fois de 11 et de 17 qui n'ont pas de diviseur";
@@ -32,6 +32,10 @@ exercise_06();
 my Bool $boolean = do-put-up-method();
 if $boolean {
     put-up-method();
+}
+$boolean = do-put-up-examples();
+if $boolean {
+    show-examples;
 }
 do-put-up-correct-version();
 answering();

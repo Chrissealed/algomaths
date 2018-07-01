@@ -1,7 +1,11 @@
 unit module Method06;
 
+use v6;
+
 sub put-up-method is export(:methodwording) {
     say q:to/EOM/;
+###################################################################################
+# Chapitre I : ARITHMÉTIQUE.
 ###################################################################################
 # Méthode 6. Pour déterminer le PGCD de deux nombres entiers par l'algorithme
 # des soustractions à l'aide d'un tableur :
@@ -19,6 +23,10 @@ sub put-up-method is export(:methodwording) {
 ###################################################################################
 
 EOM
+}
+
+sub show-examples is export(:examples) {
+    shell 'xdg-open ../examples06.pdf &';
 }
 
 sub exercise_01 is export(:exe01) {

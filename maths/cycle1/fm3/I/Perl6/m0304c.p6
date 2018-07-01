@@ -2,7 +2,7 @@
 
 use v6;
 use corrective;
-use method03 :methodwording, :exe04b;
+use method03 :methodwording, :exe04b, :examples;
 use integer-divisors-listing;
 
 my $strint = '';
@@ -21,6 +21,10 @@ exercise_04b();
 my Bool $boolean = do-put-up-method();
 if $boolean {
     put-up-method();
+}
+$boolean = do-put-up-examples();
+if $boolean {
+    show-examples;
 }
 loop {
     $strint = prompt "Saisissez un entier positif non nul (0 pour finir) : ";

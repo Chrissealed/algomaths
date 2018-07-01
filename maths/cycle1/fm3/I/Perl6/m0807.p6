@@ -2,15 +2,15 @@
 
 use v6;
 use corrective;
-use method08 :methodwording, :exe07;
+use method08 :methodwording, :exe07, :examples;
 use pgcd;
 
 my $pgcd = PGCD.new();
 sub answering {
     # Pour construire la classe PGCD pour la méthode 'euclide_algorithm'
     say 'a.';
-    $pgcd.dividend = 108777;
-    $pgcd.divisor = 61206;
+    $pgcd.integer1 = 108777;
+    $pgcd.integer2 = 61206;
     $pgcd.euclide_algorithm();
 
     say();
@@ -30,6 +30,10 @@ exercise_07();
 my Bool $boolean = do-put-up-method();
 if $boolean {
     put-up-method();
+}
+$boolean = do-put-up-examples();
+if $boolean {
+    show-examples;
 }
 do-put-up-correct-version();
 answering();

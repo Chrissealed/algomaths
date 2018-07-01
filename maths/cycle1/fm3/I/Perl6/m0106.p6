@@ -2,7 +2,7 @@
 
 use v6;
 use corrective;
-use method01 :methodwording, :exe06;
+use method01 :methodwording, :exe06, :examples;
 
 sub answering {
     my Int $n1 = Int(500 / 11);
@@ -41,6 +41,10 @@ exercise_06();
 my Bool $boolean = do-put-up-method();
 if $boolean {
     put-up-method();
+}
+$boolean = do-put-up-examples();
+if $boolean {
+    show-examples;
 }
 do-put-up-correct-version();
 answering();

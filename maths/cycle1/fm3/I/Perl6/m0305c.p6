@@ -2,7 +2,7 @@
 
 use v6;
 use corrective;
-use method03 :methodwording, :exe05b;
+use method03 :methodwording, :exe05b, :examples;
 use integer-divisors-listing-hash;
 
 my Str $pupils;
@@ -28,6 +28,10 @@ exercise_05b();
 my Bool $boolean = do-put-up-method();
 if $boolean {
     put-up-method();
+}
+$boolean = do-put-up-examples();
+if $boolean {
+    show-examples;
 }
 loop {
     $pupils = prompt "Donnez un nombre d'élèves s.v.p. (0 pour finir) : ";

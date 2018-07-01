@@ -2,7 +2,7 @@
 
 use v6;
 use corrective;
-use method04 :methodwording, :exe06b;
+use method04 :methodwording, :exe06b, :examples;
 use pgcd;
 
 my Int ($int1, $int2) = 1;
@@ -10,7 +10,7 @@ my Str ($strint1, $strint2) = "";
 sub answering {
     do-put-up-correct-version();
     my $pgcd = PGCD.new(
-        # Pour construire la classe PGCD pour la méthode 'subtraction algorithm'
+        # Pour construire la classe PGCD pour la méthode 'divisors-listing_algorithm()'
         integer1 => $int1,
         integer2 => $int2,
     );
@@ -21,6 +21,10 @@ exercise_06b();
 my Bool $boolean = do-put-up-method();
 if $boolean {
     put-up-method();
+}
+$boolean = do-put-up-examples();
+if $boolean {
+    show-examples;
 }
 LABELOUTLOOP:
 loop {

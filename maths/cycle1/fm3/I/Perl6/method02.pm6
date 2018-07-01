@@ -1,7 +1,11 @@
 unit module Method02;
 
+use v6;
+
 sub put-up-method is export(:methodwording) {
     say q:to/EOM/;
+###################################################################################
+# Chapitre I : ARITHMÉTIQUE.
 ###################################################################################
 # Méthode 2. Comment utiliser la division euclidienne ?
 ###################################################################################
@@ -13,6 +17,10 @@ sub put-up-method is export(:methodwording) {
 ###################################################################################
 
 EOM
+}
+
+sub show-examples is export(:examples) {
+    shell 'xdg-open ../examples02.pdf &';
 }
 
 sub exercise_01 is export(:exe01) {
