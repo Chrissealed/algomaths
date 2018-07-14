@@ -1,0 +1,14 @@
+CHAPITRE 2 - MÉTHODES SUR LES PGCD
+
+1. Comment déterminer un PGCD ?
+
+MÉTHODE 1 : En listant la liste des diviseurs de chacun des deux.
+
+MÉTHODE 2 : En utilisant l'algorithme d'Euclide.
+
+2. Comment utiliser un PGCD ?
+
+MÉTHODE 3 : Pour simplifier des fractions.
+
+MÉTHODE 4 : Pour résoudre des problèmes.
+
