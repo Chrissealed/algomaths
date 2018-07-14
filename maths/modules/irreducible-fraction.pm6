@@ -38,8 +38,7 @@ class IrreducibleFraction is export {
             return $pair;
         }
 
-        say "On calcule le PGCD de $n et $d par l'algorithme d'Euclide";
-        say "(voir méthodes 7 et 8 de fm3).";
+        say "On calcule le PGCD de $n et $d par l'algorithme d'Euclide :";
         my $pgcd = PGCD.new(
             integer1 => $n,
             integer2 => $d,
@@ -65,7 +64,7 @@ class IrreducibleFraction is export {
                     $pair = $dividend => $divisor;
                     return $pair;
                 }
-                say "et la fraction $dividend/$divisor est réductible";
+                say "et la fraction $dividend/$divisor est réductible :";
                 my Int $dvd = $dividend div $p;
                 my Int $dvs = $divisor div $p;
                 say "$dividend/$divisor = $p × $dvd / $p × $dvs";
@@ -97,8 +96,7 @@ class IrreducibleFraction is export {
             return $pair;
         }
 
-        say "On calcule le PGCD de $n et $d par l'algorithme des soustractions";
-        say "(voir méthodes 5 et 6 de fm3).";
+        say "On calcule le PGCD de $n et $d par l'algorithme des soustractions :";
         my $pgcd = PGCD.new(
             integer1 => $n,
             integer2 => $d,
@@ -124,7 +122,7 @@ class IrreducibleFraction is export {
                     $pair = $dividend => $divisor;
                     return $pair;
                 }
-                say "et la fraction $dividend/$divisor est réductible";
+                say "et la fraction $dividend/$divisor est réductible :";
                 my Int $dvd = $dividend div $p;
                 my Int $dvs = $divisor div $p;
                 say "$dividend/$divisor = $p × $dvd / $p × $dvs";
@@ -156,8 +154,7 @@ class IrreducibleFraction is export {
             return $pair;
         }
 
-        say "On calcule le PGCD de $n et $d par la décomposition en facteurs premiers";
-        say "(voir méthode 7 de bbw).";
+        say "On calcule le PGCD de $n et $d par la décomposition en facteurs premiers :";
         my $pgcd = PGCD.new(
             integer1 => $n,
             integer2 => $d,
@@ -183,7 +180,7 @@ class IrreducibleFraction is export {
                     $pair = $dividend => $divisor;
                     return $pair;
                 }
-                say "La fraction $dividend/$divisor est réductible.";
+                say "La fraction $dividend/$divisor est réductible :";
                 my Int $dvd = $dividend div $p;
                 my Int $dvs = $divisor div $p;
                 say "$dividend/$divisor = $p × $dvd / $p × $dvs";
