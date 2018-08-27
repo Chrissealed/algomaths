@@ -4,7 +4,8 @@ use v6;
 
 =begin pod
 Ce module contient un role : PrimeFactors destiné à
-établir la liste des facteurs premiers d'un entier > 1.
+établir la liste des facteurs premiers d'un entier > 1
+ou < -1.
 Il a une seule méthode : breakdown(Int $integer) qui
 renvoie un Hash comprenant le mappage des nombres avec
 leurs facteurs.
@@ -15,13 +16,13 @@ puis en facteurs élevés à la puissance requise.
 
 role PrimeFactors is export {
 
-    method breakdown(Int $integer is copy where {$integer > 1 or die "Argument invalide! Nombre entier supérieur à 1 requis."} --> Hash) {
+    method breakdown(Int $integer is copy where { ($integer > 1 || $integer < -1) or die "Argument invalide! Nombre entier > 1 ou < -1 requis." } --> Hash) {
         #my @prime = (2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79);
         my Int $intcopy = $integer;
         my %prime{Int};
         my Int $i = 2;
         loop {
-            last if $integer == 1;
+            last if ($integer == 1 || $integer == -1);
             if is-prime($i) {
                 if ($integer %% $i) {
                     push %prime, ($integer => $i);

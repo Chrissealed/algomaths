@@ -1,9 +1,6 @@
 unit module pgcd;
 
 use v6;
-use integer-divisors-listing;
-use common-arrays-elements;
-use prime-factors;
 
 =begin pod
 Ce module contient la classe PGCD qui a le rôle 'PrimeFactors'.
@@ -22,9 +19,13 @@ en facteurs premiers et extraire leurs facteurs communs : 'factorization_algorit
 Les quatre méthodes renvoient un Int qui est le PGCD trouvé.
 =end pod
 
+use integer-divisors-listing;
+use common-arrays-elements;
+use prime-factors;
+
 class PGCD does PrimeFactors is export {
-    has Int $.integer1 is required is rw where {$_ >= 0 or die "Valeur de champ invalide: entier >= 0 requis !"};
-    has Int $.integer2 is required is rw where {$_ > 0 or die "Valeur de champ invalide: entier > 0 requis !"};
+    has Int $.integer1 is required is rw where { ($_ > 1 || $_ < -1) or die "Valeur de champ invalide! Entier > 1 ou < -1 requis." };
+    has Int $.integer2 is required is rw where { ($_ > 1 || $_ < -1) or die "Valeur de champ invalide! Entier > 1 ou < -1 requis." };
 
 =begin pod
 ###################################################################################
@@ -52,7 +53,7 @@ l'ensemble des diviseurs de chacun des deux nombres :
         say "Les diviseurs communs à $!integer1 et $!integer2 sont :";
         say @c;
         say "Le PGCD de $!integer1 et $!integer2 est ", @c[@c.end], ".";
-        return @c.end;
+        return @c[@c.end];
     }
 
 =begin pod
