@@ -6,18 +6,18 @@ use method10 :methodwording, :exe10, :examples;
 use are-prime;
 
 sub answering {
+    my Int $n1 = 9438;
+    my Int $n2 = 6799;
     my $are-prime = ArePrime.new(
-        integer1 => 9438,
-        integer2 => 6799,
-        # Pour construire la classe, pour la méthode 'euclide_algorithm'
-        subtract-or-euclide-algo => ':',
+        integer1 => $n1,
+        integer2 => $n2,
     );
-    my $have-common-divisor = $are-prime.have-common-divisor();
+    my $have-common-divisor = $are-prime.have-common-divisor('-');
     if !$have-common-divisor {
-        say "Les nombres 9438 et 6799 sont donc premiers entre eux";
+        say "Les nombres $n1 et $n2 sont donc premiers entre eux";
         say "car ils n'ont pas de diviseurs communs autre que 1.";
     } else {
-        say "Les nombres 9438 et 6799 ne sont donc pas premiers entre eux.";
+        say "Les nombres $n1 et $n2 ne sont donc pas premiers entre eux.";
     }
 }
 
