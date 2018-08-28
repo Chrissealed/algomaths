@@ -25,7 +25,7 @@ en interne :
 - 'euclide' ou '1';
 - 'subtraction' ou '2';
 - 'factorization' ou '3'.
-3) 'which-are-prime-algorithm' peut prendre l'une des valeurs :
+3) 'which-pgcd-algorithm' peut prendre l'une des valeurs :
 - 'euclide' ou ':' ou '1';
 - 'subtraction' ou '-' ou '2';
 - 'factorization' ou '*' ou '3';
@@ -46,7 +46,7 @@ class OperationsOnFractions is export {
     has Str $.which-irreducible-fraction-algorithm is rw where { ($_ ~~ / 'euclide' || 1 || 'subtraction' || 2 || 'factorization' || 3 /) or
     die "Champ de classe invalide! Attendu 'euclide' ou '1', ou 'subtraction' ou '2', ou 'factorization' ou '3'."; }
     = '1';
-    has Str $.which-are-prime-algorithm is rw where { $_ ~~ / euclide || ':' || 1 || subtract || \-  || 2 || factorization || '*' || 3 || divisors\-listing || '#' || 4 / 
+    has Str $.which-pgcd-algorithm is rw where { $_ ~~ / euclide || ':' || 1 || subtraction || \-  || 2 || factorization || '*' || 3 || divisors\-listing || '#' || 4 / 
     or die "Valeur de champ invalide! Précisez 'euclide' ou ':' ou '1'; 'subtract' ou '-' ou '2'; 'factorization' ou '*' ou '3'; 'divisors-listing' ou '#' ou '4'"; }
     = 'euclide';
     
@@ -140,7 +140,7 @@ class OperationsOnFractions is export {
         my $irreducible = IrreducibleFraction.new(
             numerator => $numerator,
             denominator => $denominator,
-            are-prime-algorithm => self.which-are-prime-algorithm,
+            pgcd-algorithm => self.which-pgcd-algorithm,
         );
         my Pair $P;
         say "on simplifie la dernière fraction obtenue :";

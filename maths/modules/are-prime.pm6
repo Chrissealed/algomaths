@@ -47,8 +47,6 @@ use pgcd;
 class ArePrime does UsualDivisibilityCriteria is export {
     has Int $.integer1 is required is rw where { ($_ > 1 || $_ < -1) or die "Valeur de champ invalide: entier > 1 ou < -1 requis !" };
     has Int $.integer2 is required is rw where { ($_ > 1 || $_ < -1) or die "Valeur de champ invalide: entier > 1 ou < -1 requis !" };
-    #has Str $.subtract-or-euclide-algo is rw where { ($_ ~~ / subtract || euclide || <[_:]> /) or
-    #die "Champ de classe invalide! Attendu : 'subtract', '_', 'euclide' ou ':'." } = 'euclide';
 
     method have-common-divisors(--> Bool) {
         my Int $int1 = self.integer1;

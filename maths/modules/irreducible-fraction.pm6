@@ -7,13 +7,13 @@ L'objectif de ce module est de renvoyer la fraction irréductible
 de la fraction initiale dont on passe le numérateur et le dénominateur
 aux attributs 'numerator' et 'denominator', le numérateur étant
 un entier différent de 0 ainsi que le dénominateur.
-Il y a un 3e champ facultatif 'are-prime-algorithm' du type string (Str)
+Il y a un 3e champ facultatif 'pgcd-algorithm' du type string (Str)
 qui permet de préciser quelle méthode du module 'are-prime.pm6'
 sera utilisée pour effectuer les calculs en interne.
 4 choix sont possibles, on a :
-1) 'euclide' ou ':' ou '1';
+1) 'euclide' ou ':' ou '1' (par défaut);
 2) 'subtract' ou '_' ou '2';
-3) 'factorization' ou '*' ou '3' ou bien enfin
+3) 'factorization' ou '*' ou '3';
 4) 'divisors-listing' ou '#' ou '4'.
 La classe 'IrreducibleFraction' utilise l'une des trois méthodes
 suivantes pour effectuer la réduction : 'reduce-fraction-with-euclide-algorithm()',
@@ -30,7 +30,7 @@ use pgcd;
 class IrreducibleFraction is export {
     has Int $.numerator is required is rw where { $_ != 0 or die "Valeur de champ invalide! Numérateur différent de 0 requis." };
     has Int $.denominator is required is rw where { $_ != 0 or die "Valeur de champ invalide! Dénominateur différent de 0 requis." };
-    has Str $.are-prime-algorithm is rw where { $_ ~~ / euclide || ':' || 1 || subtract || _  || 2 || factorization || '*' || 3 || divisors\-listing || '#' || 4 / 
+    has Str $.pgcd-algorithm is rw where { $_ ~~ / euclide || ':' || 1 || subtract || _  || 2 || factorization || '*' || 3 || divisors\-listing || '#' || 4 / 
     or die "Valeur de champ invalide! Précisez 'euclide' ou ':' ou '1'; 'subtract' ou '_' ou '2'; 'factorization' ou '*' ou '3'; 'divisors-listing' ou '#' ou '4'"; }
     = 'euclide';
 
@@ -46,7 +46,7 @@ class IrreducibleFraction is export {
             $pair = $n => $d;
             return $pair;
         }
-        my Str $algo = self.are-prime-algorithm;
+        my Str $algo = self.pgcd-algorithm;
         my $are-prime = ArePrime.new(
             integer1 => $n,
             integer2 => $d,
@@ -123,7 +123,7 @@ class IrreducibleFraction is export {
             say "La fraction $n/$d est irréductible.";
             return $pair;
         }
-        my Str $algo = self.are-prime-algorithm;
+        my Str $algo = self.pgcd-algorithm;
         my $are-prime = ArePrime.new(
             integer1 => $n,
             integer2 => $d,
@@ -202,7 +202,7 @@ class IrreducibleFraction is export {
             say "La fraction $n/$d est irréductible.";
             return $pair;
         }
-        my Str $algo = self.are-prime-algorithm;
+        my Str $algo = self.pgcd-algorithm;
         my $are-prime = ArePrime.new(
             integer1 => $n,
             integer2 => $d,

@@ -16,12 +16,10 @@ implémenté par l'emploi de tableaux, et qui renvoie systématiquement un table
 celui-ci est implémenté par l'emploi de hash et renvoie soit un hash, soit un tableau de Int,
 selon la valeur de l'argument du champ 'Str $array-or-hash' qui peut prendre
 l'une des valeurs suivantes : '@' ou 'array' pour renvoyer un tableau de Int
-ou bien '%' ou 'hash' pour renvoyer un hash (%h.keys : Int et %h.elems : Int).
+ou bien '%' ou 'hash' pour renvoyer un hash de Int (%h.keys : Int et %h.values : Int).
 Par défaut un array est retourné. 
-Il est possible de connaître la valeur de retour employée en utilisant la méthode
-'array-or-hash' ou bien de le modifier à l'aide de la méthode 'array-or-hash(Str $array-or-hash)'
-ou $array-or-hash peut prendre l'une des valeurs du champ de la classe indiquées ci-dessus, 
-après que la classe ait été construite. 
+Remarque : il existe aussi un module 'integer-divisors-listing-hash.pm6' qui est
+implémenté par l'emploi de hash et qui renvoie systématiquement un hash.
 =end pod
 
 use usual-divisibility-criteria;

@@ -6,7 +6,7 @@ use v6;
 Ce module contient une classe : PPCM qui dispose du rôle 'PrimeFactors'
 et qui utilise les classes ArePrime et PGCD.
 Cette classe comporte deux attributs : integer1 et integer2, qui sont
-des entiers supérieurs 1 qui seront utilisés par les méthodes de la classe.
+des entiers > 1 ou < -1 qui seront utilisés par les méthodes de la classe.
 Elle contient trois méthodes distinctes pour calculer le PPCM
 (plus petit commun multiple) de deux entiers :
 =item 'by-larger-number-multiples()' qui procède par additions du plus grand
@@ -17,9 +17,9 @@ facteurs premiers et qui utilise pour cela la méthode 'breakdown' du module
 'prime-factors' dont la classe a le rôle.
 Cette méthode dispose d'un tableau des facteurs extraits
 des deux nombres qu'elle multiplie pour obtenir le PPCM recherché et retourné.
-=item - enfin 'by-use-of-pgcd()' qui comme son nom l'indique recherche d'abord
+=item 'by-use-of-pgcd()' qui comme son nom l'indique recherche d'abord
 le PGCD des deux entiers avant de diviser leur multiple par celui-ci,
-le résultat étant le PPCM recherché, soit un entier retourné par la méthode.
+le résultat étant le PPCM recherché, c'est-à-dire un entier en valeur de retour.
 =end pod
 
 use are-prime;

@@ -6,8 +6,7 @@ use v6;
 Ce module contient la classe PGCD qui a le rôle 'PrimeFactors'.
 Il est destiné à déterminer le PGCD (plus grand commun diviseur) de deux entiers,
 integer1 et integer2 de type Int qui sont des attributs de la classe
-devant être supérieur ou égal à 0 pour le premier,
-supérieur à 0 pour le deuxième.
+devant être supérieur à 1 ou inférieur à -1.
 Il utilise pour cela quatre méthodes distinctes au choix :
 l'algorithme consistant à établir la liste des diviseurs de
 chacun des nombres et de prendre le plus grand nombre commun :
