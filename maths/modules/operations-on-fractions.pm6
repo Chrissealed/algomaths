@@ -56,7 +56,7 @@ class OperationsOnFractions is export {
         my Int $n2 = self.nominator2;
         my Int $d2 = self.denominator2;
         if (!$operation ~~ / add\-up || '+' || subtract || '-' || multiply || '*' || divide || ':' /) {
-            die "Argument invalide! L'un de ceux-ci est requis : 'add-up' ou '+'; 'subtract' ou '-'; 'multiply' ou '*'; 'divide' ou ':'";
+            die "Argument $operation invalide! L'un de ceux-ci est requis : 'add-up' ou '+'; 'subtract' ou '-'; 'multiply' ou '*'; 'divide' ou ':'";
         }
 
         say "On cherche le PPCM de $d1 et $d2 :";
@@ -80,21 +80,21 @@ class OperationsOnFractions is export {
             $multiple1 = $d1;
             $multiple2 = $d2;
             given $operation {
-                when 'add-up' { say "$n1/$d1 + $n2/$d2 = $n1+$n2/$d1;" }
-                when 'subtract' { say "$n1/$d1 − $n2/$d2 = $n1 − $n2/$d1;" }
-                when 'multiply' {}
-                when 'divide' {}
-                default { die "Argument invalide! 'add-up', 'subtract', 'multiply' or 'divide' requis." }
+                when / 'add-up' || '+' / { say "$n1/$d1 + $n2/$d2 = $n1+$n2/$d1;" }
+                when / 'subtract' || '-' / { say "$n1/$d1 − $n2/$d2 = $n1 − $n2/$d1;" }
+                when / 'multiply' || '*' / {}
+                when / 'divide' || ':' / {}
+                default { die "Argument $operation invalide! 'add-up' ou '+', 'subtract' ou '-', 'multiply' ou '*', 'divide' ou ':' requis." }
             }
         } else {
             $multiple1 = $p div $d1;
             $multiple2 = $p div $d2;
             given $operation {
-                when 'add-up' { say "$n1/$d1 + $n2/$d2 = $n1×$multiple1/$d1×$multiple1 + $n2×$multiple2/$d2×$multiple2;" }
-                when 'subtract' { say "$n1/$d1 − $n2/$d2 = $n1×$multiple1/$d1×$multiple1 − $n2×$multiple2/$d2×$multiple2;" }
-                when 'multiply' {}
-                when 'divide' {}
-                default { die "Argument invalide! 'add-up', 'subtract', 'multiply' or 'divide' requis." }
+                when / 'add-up' || '+' / { say "$n1/$d1 + $n2/$d2 = $n1×$multiple1/$d1×$multiple1 + $n2×$multiple2/$d2×$multiple2;" }
+                when / 'subtract' || '-' / { say "$n1/$d1 − $n2/$d2 = $n1×$multiple1/$d1×$multiple1 − $n2×$multiple2/$d2×$multiple2;" }
+                when / 'multiply' || '*' / {}
+                when / 'divide' || ':' / {}
+                default { die "Argument $operation invalide! 'add-up' ou '+', 'subtract' ou '-', 'multiply' ou '*', 'divide' ou ':' requis." }
             }
         }
         say();
@@ -112,27 +112,27 @@ class OperationsOnFractions is export {
             $denominator1 = $d1 * $multiple1;
             $denominator2 = $d2 * $multiple2;
             given $operation {
-                when 'add-up' { say "$n1/$d1 + $n2/$d2 = $numerator1/$denominator1 + $numerator2/$denominator2;" }
-                when 'subtract' { say "$n1/$d1 − $n2/$d2 = $numerator1/$denominator1 − $numerator2/$denominator2;" }
-                when 'multiply' {}
-                when 'divide' {}
-                default { die "Argument invalide! 'add-up', 'subtract', 'multiply' or 'divide' requis." }
+                when / 'add-up' || '+' / { say "$n1/$d1 + $n2/$d2 = $numerator1/$denominator1 + $numerator2/$denominator2;" }
+                when / 'subtract' || '-' / { say "$n1/$d1 − $n2/$d2 = $numerator1/$denominator1 − $numerator2/$denominator2;" }
+                when / 'multiply' || '*' / {}
+                when / 'divide' || ':' / {}
+                default { die "Argument invalide! 'add-up' ou '+', 'subtract' ou '-', 'multiply ou '*'', 'divide' ou ':' requis." }
             }
         }
         say();
         my Int $numerator = 0;
         my Int $denominator = 0;
         given $operation {
-            when 'add-up' {
+            when / 'add-up' || '+' / {
                 say "on ajoute les numérateurs et on garde le dénominateur commun :";
                 $numerator = $numerator1 + $numerator2;
             }
-            when 'subtract' {
+            when / 'subtract' || '-' / {
                 say "on soustrait les numérateurs et on garde le dénominateur commun :";
                 $numerator = $numerator1 - $numerator2;
             }
-            when 'multiply' {}
-            when 'divide' {}
+            when / 'multiply' || '*' / {}
+            when / 'divide' || ':' / {}
         }
         $denominator = $p;
         say "$numerator/$denominator";
