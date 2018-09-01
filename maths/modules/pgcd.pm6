@@ -210,8 +210,9 @@ si a = b, alors PGCD(a;b) = a = b et si a > b, PGCD(a;b) = PGCD(b;a-b).
 =end pod
 
     method subtraction_algorithm(--> Int) {
-        my Int $x = self.integer1;
-        my Int $y = self.integer2;
+        # Parer les nombres négatifs avec leurs effets de bord
+        my Int $x = abs(self.integer1);
+        my Int $y = abs(self.integer2);
         if ($x < $y) {
             # Intervertir $x et $y
             ($x, $y) = ($y, $x);

@@ -106,19 +106,19 @@ class ArePrime does UsualDivisibilityCriteria is export {
         my Bool $flag = True;
         
         if self.is_divisible_by_2($dvd) && self.is_divisible_by_2($dvs) {
-            say "$dvd et $dvs ont un diviseur commun autre que 1 : 2.";
+            say "$dvd et $dvs ont un diviseur commun autre que 1 ou -1 : 2.";
             return $flag;
         }
         elsif self.is_divisible_by_3($dvd) && self.is_divisible_by_3($dvs) {
-            say "$dvd et $dvs ont un diviseur commun autre que 1 : 3.";
+            say "$dvd et $dvs ont un diviseur commun autre que 1 ou -1 : 3.";
             return $flag;
         }
         elsif self.is_divisible_by_4($dvd) && self.is_divisible_by_4($dvs) {
-            say "$dvd et $dvs ont un diviseur commun autre que 1 : 4.";
+            say "$dvd et $dvs ont un diviseur commun autre que 1 ou -1 : 4.";
             return $flag;
         }
         elsif self.is_divisible_by_5($dvd) && self.is_divisible_by_5($dvs) {
-            say "$dvd et $dvs ont un diviseur commun autre que 1 : 5.";
+            say "$dvd et $dvs ont un diviseur commun autre que 1 ou -1 : 5.";
             return $flag;
         }
         else {
@@ -127,22 +127,22 @@ class ArePrime does UsualDivisibilityCriteria is export {
             $i = 6;
             until ($i == 8) {
                 if ($dvd %% $i && $dvs %% $i) {
-                    say "$dvd et $dvs ont un diviseur commun autre que 1 : $i.";
+                    say "$dvd et $dvs ont un diviseur commun autre que 1 ou -1 : $i.";
                     return $flag;
                 }
                 $i++;
             }
         }
         if self.is_divisible_by_9($dvd) && self.is_divisible_by_9($dvs) {
-            say "$dvd et $dvs ont un diviseur commun autre que 1 : 9.";
+            say "$dvd et $dvs ont un diviseur commun autre que 1 ou -1 : 9.";
             return $flag;
         }
         elsif self.is_divisible_by_0_queue($dvd) && self.is_divisible_by_0_queue($dvs) {
-            say "$dvd et $dvs ont un diviseur commun autre que 1 : 10.";
+            say "$dvd et $dvs ont un diviseur commun autre que 1 ou -1 : 10.";
             return $flag;
         }
         elsif self.is_divisible_by_11($dvd) && self.is_divisible_by_11($dvs) {
-            say "$dvd et $dvs ont un diviseur commun autre que 1 : 11.";
+            say "$dvd et $dvs ont un diviseur commun autre que 1 ou -1 : 11.";
             return $flag;
         }
         else {
@@ -151,14 +151,14 @@ class ArePrime does UsualDivisibilityCriteria is export {
             $i = 12;
             until ($i == 24) {
                 if ($dvd %% $i && $dvs %% $i) {
-                    say "$dvd et $dvs ont un diviseur commun autre que 1 : $i.";
+                    say "$dvd et $dvs ont un diviseur commun autre que 1 ou -1 : $i.";
                     return $flag;
                 }
                 $i++;
             }
         }
         if self.is_divisible_by_25($dvd) && self.is_divisible_by_25($dvs) {
-            say "$dvd et $dvs ont un diviseur commun autre que 1 : 25.";
+            say "$dvd et $dvs ont un diviseur commun autre que 1 ou -1 : 25.";
             return $flag;
         }
             
@@ -170,44 +170,44 @@ class ArePrime does UsualDivisibilityCriteria is export {
         if ($pgcd-algorithm ~~ / euclide || ':' || 1 /) {
             my Int $p = $pgcd.euclide_algorithm();
             if ($p > 1 || $p < -1) {
-                say "$dvd et $dvs ont un diviseur commun autre que 1 : $p.";
+                say "$dvd et $dvs ont un diviseur commun autre que 1 ou -1 : $p.";
                 return $flag;
             }
             else {
-                say "$dvd et $dvs n'ont pas de diviseur commun autre que 1.";
+                say "$dvd et $dvs n'ont pas de diviseur commun autre que 1 ou -1.";
                 return $flag = False;
             }
         }
         elsif ($pgcd-algorithm ~~ / subtraction || _ || 2 /) {
             my Int $p = $pgcd.subtraction_algorithm();
             if ($p > 1 || $p < -1) {
-                say "$dvd et $dvs ont un diviseur commun autre que 1 : $p.";
+                say "$dvd et $dvs ont un diviseur commun autre que 1 ou -1 : $p.";
                 return $flag;
             }
             else {
-                say "$dvd et $dvs n'ont pas de diviseur commun autre que 1.";
+                say "$dvd et $dvs n'ont pas de diviseur commun autre que 1 ou -1.";
                 return $flag = False;
             }
         }
         elsif ($pgcd-algorithm ~~ / factorization || '*' || 3 /) {
             my Int $p = $pgcd.factorization_algorithm();
             if ($p > 1 || $p < -1) {
-                say "$dvd et $dvs ont un diviseur commun autre que 1 : $p.";
+                say "$dvd et $dvs ont un diviseur commun autre que 1 ou -1 : $p.";
                 return $flag;
             }
             else {
-                say "$dvd et $dvs n'ont pas de diviseur commun autre que 1.";
+                say "$dvd et $dvs n'ont pas de diviseur commun autre que 1 ou -1.";
                 return $flag = False;
             }
         }
         elsif ($pgcd-algorithm ~~ / 'divisors-listing' || '#' || 4 /) {
             my Int $p = $pgcd.divisors-listing_algorithm();
             if ($p > 1 || $p < -1) {
-                say "$dvd et $dvs ont un diviseur commun autre que 1 : $p.";
+                say "$dvd et $dvs ont un diviseur commun autre que 1 ou -1 : $p.";
                 return $flag;
             }
             else {
-                say "$dvd et $dvs n'ont pas de diviseur commun autre que 1.";
+                say "$dvd et $dvs n'ont pas de diviseur commun autre que 1 ou -1.";
                 return $flag = False;
             }
         }

@@ -77,8 +77,6 @@ class OperationsOnFractions is export {
         my Int $multiple1 = 0;
         my Int $multiple2 = 0;
         if ($d1 == $d2) {
-            $multiple1 = $d1;
-            $multiple2 = $d2;
             given $operation {
                 when / 'add-up' || '+' / { say "$n1/$d1 + $n2/$d2 = $n1+$n2/$d1;" }
                 when / 'subtract' || '-' / { say "$n1/$d1 − $n2/$d2 = $n1 − $n2/$d1;" }
