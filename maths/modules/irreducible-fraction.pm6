@@ -6,7 +6,7 @@ use v6;
 L'objectif de ce module est de renvoyer la fraction irréductible
 de la fraction initiale dont on passe le numérateur et le dénominateur
 aux attributs 'numerator' et 'denominator', le numérateur étant
-un entier différent de 0 ainsi que le dénominateur.
+un entier quelconque et le dénominateur un entier différent de 0.
 Il y a un 3e champ facultatif 'pgcd-algorithm' du type string (Str)
 qui permet de préciser quelle méthode du module 'are-prime.pm6'
 sera utilisée pour effectuer les calculs en interne.
@@ -28,7 +28,7 @@ use are-prime;
 use pgcd;
 
 class IrreducibleFraction is export {
-    has Int $.numerator is required is rw where { $_ != 0 or die "Valeur de champ invalide! Numérateur différent de 0 requis." };
+    has Int $.numerator is required is rw;
     has Int $.denominator is required is rw where { $_ != 0 or die "Valeur de champ invalide! Dénominateur différent de 0 requis." };
     has Str $.pgcd-algorithm is rw where { $_ ~~ / euclide || ':' || 1 || subtract || _  || 2 || factorization || '*' || 3 || divisors\-listing || '#' || 4 / 
     or die "Valeur de champ invalide! Précisez 'euclide' ou ':' ou '1'; 'subtract' ou '_' ou '2'; 'factorization' ou '*' ou '3'; 'divisors-listing' ou '#' ou '4'"; }
@@ -38,6 +38,7 @@ class IrreducibleFraction is export {
         my Int $n = self.numerator;
         my Int $d = self.denominator;
         my Pair $pair;
+        if ($n == 0) { say '0'; $pair = $n => $d; return $pair; }
         if ($n == 1 || $n == -1) {
             $pair = $n => $d;
             return $pair;
@@ -113,6 +114,7 @@ class IrreducibleFraction is export {
         my Int $n = self.numerator;
         my Int $d = self.denominator;
         my Pair $pair;
+        if ($n == 0) { say '0'; $pair = $n => $d; return $pair; }
         if ($n == 1 || $n == -1) {
             $pair = $n => $d;
             say "La fraction $n/$d est irréductible.";
@@ -192,6 +194,7 @@ class IrreducibleFraction is export {
         my Int $n = self.numerator;
         my Int $d = self.denominator;
         my Pair $pair;
+        if ($n == 0) { say '0'; $pair = $n => $d; return $pair; }
         if ($n == 1 || $n == -1) {
             $pair = $n => $d;
             say "La fraction $n/$d est irréductible.";
