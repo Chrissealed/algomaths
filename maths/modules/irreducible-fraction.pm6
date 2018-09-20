@@ -41,11 +41,11 @@ class IrreducibleFraction is export {
         if ($n == 0) { say '0'; $pair = $n => $d; return $pair; }
         if ($n == 1 || $n == -1) {
             $pair = $n => $d;
-            return $pair;
+            #return $pair;
         }
         if ($d == 1 || $d == -1) {
             $pair = $n => $d;
-            return $pair;
+            #return $pair;
         }
         my Str $algo = self.pgcd-algorithm;
         my $are-prime = ArePrime.new(

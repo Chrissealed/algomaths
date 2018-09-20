@@ -45,8 +45,8 @@ use integer-divisors-listing;
 use pgcd;
 
 class ArePrime does UsualDivisibilityCriteria is export {
-    has Int $.integer1 is required is rw where { ($_ > 1 || $_ < -1) or die "Valeur de champ invalide: entier > 1 ou < -1 requis !" };
-    has Int $.integer2 is required is rw where { ($_ > 1 || $_ < -1) or die "Valeur de champ invalide: entier > 1 ou < -1 requis !" };
+    has Int $.integer1 is required is rw where { ($_ != 0) or die "Valeur de champ invalide: entier relatif différent de 0 requis !" };
+    has Int $.integer2 is required is rw where { ($_ != 0) or die "Valeur de champ invalide: entier relatif différent de 0 requis !" };
 
     method have-common-divisors(--> Bool) {
         my Int $int1 = self.integer1;

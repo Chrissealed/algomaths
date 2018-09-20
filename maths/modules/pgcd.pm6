@@ -5,15 +5,14 @@ use v6;
 =begin pod
 Ce module contient la classe PGCD qui a le rôle 'PrimeFactors'.
 Il est destiné à déterminer le PGCD (plus grand commun diviseur) de deux entiers,
-integer1 et integer2 de type Int qui sont des attributs de la classe
-devant être supérieur à 1 ou inférieur à -1.
+integer1 et integer2 de type Int non nuls qui sont des attributs de la classe.
 Il utilise pour cela quatre méthodes distinctes au choix :
-l'algorithme consistant à établir la liste des diviseurs de
+=item l'algorithme consistant à établir la liste des diviseurs de
 chacun des nombres et de prendre le plus grand nombre commun :
 'divisors-listing_algorithm()';
-l'algorithme des soustractions : 'subtraction_algorithm()';
-l'algorithme d'Euclide (par divisions euclidiennes) : 'euclide_algorithm()';
-enfin l'algorithme consistant à décomposer les nombres
+=item l'algorithme des soustractions : 'subtraction_algorithm()';
+=item l'algorithme d'Euclide (par divisions euclidiennes) : 'euclide_algorithm()';
+=item enfin l'algorithme consistant à décomposer les nombres
 en facteurs premiers et extraire leurs facteurs communs : 'factorization_algorithm()'.
 Les quatre méthodes renvoient un Int qui est le PGCD trouvé.
 =end pod
@@ -23,8 +22,8 @@ use common-arrays-elements;
 use prime-factors;
 
 class PGCD does PrimeFactors is export {
-    has Int $.integer1 is required is rw where { ($_ > 1 || $_ < -1) or die "Valeur de champ invalide! Entier > 1 ou < -1 requis." };
-    has Int $.integer2 is required is rw where { ($_ > 1 || $_ < -1) or die "Valeur de champ invalide! Entier > 1 ou < -1 requis." };
+    has Int $.integer1 is required is rw where { ($_ != 0) or die "Valeur de champ invalide! Entier relatif différent de 0 requis." };
+    has Int $.integer2 is required is rw where { ($_ != 0) or die "Valeur de champ invalide! Entier relatif différent de 0 requis." };
 
 =begin pod
 ###################################################################################
@@ -313,7 +312,7 @@ a par b
             }
         } until ($rest == 0);
 
-        say "PGCD($dividend ; $divisor) = $divisor.";
+        #say "PGCD($dividend ; $divisor) = $divisor.";
         say "Le reste de la division de $dividend par $divisor est nul,";
         say "donc PGCD($!integer1 ; $!integer2) = $pgcd.";
         return $pgcd;

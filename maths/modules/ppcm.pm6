@@ -181,6 +181,7 @@ class PPCM does PrimeFactors is export {
         my Int $product = $x * $y;
         say "Produit de $x par $y = $product";
         my Int $ppcm = $product div $p;
+        say "PPCM($x ; $y) = $product div $p = $ppcm.";
         return $ppcm;
     }
 

@@ -36,10 +36,10 @@ use ppcm;
 use irreducible-fraction;
 
 class OperationsOnFractions is export {
-    has Int $.nominator1 is required is rw where { $_ > 0 || $_ < 0 or die "Valeur de champ invalide! numérateur différent de 0 requis." }
-    has Int $.denominator1 is required is rw where { $_ > 0 || $_ < 0 or die "Valeur de champ invalide! dénominateur différent de 0 requis." }
-    has Int $.nominator2 is required is rw where { $_ > 0 || $_ < 0 or die "Valeur de champ invalide! numérateur différent de 0 requis." }
-    has Int $.denominator2 is required is rw where { $_ > 0 || $_ < 0 or die "Valeur de champ invalide! dénominateur différent de 0 requis." }
+    has Int $.nominator1 is required is rw where { $_ != 0 or die "Valeur de champ invalide! numérateur différent de 0 requis." }
+    has Int $.denominator1 is required is rw where { $_ != 0 or die "Valeur de champ invalide! dénominateur différent de 0 requis." }
+    has Int $.nominator2 is required is rw where { $_ != 0 or die "Valeur de champ invalide! numérateur différent de 0 requis." }
+    has Int $.denominator2 is required is rw where { $_ != 0 or die "Valeur de champ invalide! dénominateur différent de 0 requis." }
     has Str $.which-ppcm-algorithm is rw where { ($_ ~~ / 'by-larger-number-multiples' || 1 || 'by-prime-factors' || 2 || 'by-use-of-pgcd' || 3 /) or
     die "Champ de classe invalide! Attendu 'by-larger-number-multiples' ou '1', ou 'by-prime-factors' ou '2', ou 'by-use-of-pgcd' ou '3'."; }
     = '3'; 
