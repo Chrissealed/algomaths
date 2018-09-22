@@ -17,15 +17,15 @@ fraction sur laquelle pratiquer l'opération choisie.
 Les autres champs, facultatifs, sont destinés à choisir
 parmi les diverses méthodes utilisées pour le calcul
 en interne :
-1) 'which-ppcm-algorithm' peut prendre l'une des valeurs suivantes :
+=item 1) 'which-ppcm-algorithm' peut prendre l'une des valeurs suivantes :
 - 'by-larger-number-multiples' ou '1';
 - 'by-prime-factors' ou '2';
 - 'by-use-of-pgcd' ou '3'.
-2) 'which-irreducible-fraction-algorithm' peut prendre les valeurs :
+=item 2) 'which-irreducible-fraction-algorithm' peut prendre les valeurs :
 - 'euclide' ou '1';
 - 'subtraction' ou '2';
 - 'factorization' ou '3'.
-3) 'which-pgcd-algorithm' peut prendre l'une des valeurs :
+=item 3) 'which-pgcd-algorithm' peut prendre l'une des valeurs :
 - 'euclide' ou ':' ou '1';
 - 'subtraction' ou '-' ou '2';
 - 'factorization' ou '*' ou '3';
@@ -62,15 +62,20 @@ class OperationsOnFractions is export {
         say "On cherche le PPCM de $d1 et $d2 :";
         my Str $ppcm-algorithm = self.which-ppcm-algorithm;
         my Int $p = 0;
-        my $ppcm = PPCM.new(
-            integer1 => $d1,
-            integer2 => $d2,
-        );
-        given $ppcm-algorithm {
-            when / 1 || 'by-larger-number-multiples' / { $p = $ppcm.by-larger-number-multiples; }
-            when / 2 || 'by-prime-factors' / { $p = $ppcm.by-prime-factors; }
-            when / 3 || 'by-use-of-pgcd' / { $p = $ppcm.by-use-of-pgcd; }
-            #default { $p = $ppcm.by-use-of-pgcd; }
+        if ($d1 == $d2) {
+            $p = $d1;
+        }
+        else {
+            my $ppcm = PPCM.new(
+                integer1 => $d1,
+                integer2 => $d2,
+            );
+            given $ppcm-algorithm {
+                when / 1 || 'by-larger-number-multiples' / { $p = $ppcm.by-larger-number-multiples; }
+                when / 2 || 'by-prime-factors' / { $p = $ppcm.by-prime-factors; }
+                when / 3 || 'by-use-of-pgcd' / { $p = $ppcm.by-use-of-pgcd; }
+                #default { $p = $ppcm.by-use-of-pgcd; }
+            }
         }
         say();
         say "on réduit au même dénominateur :";
@@ -133,7 +138,7 @@ class OperationsOnFractions is export {
             when / 'divide' || ':' / {}
         }
         $denominator = $p;
-        say "$numerator/$denominator";
+        say "$numerator/$denominator.";
         say();
         my $irreducible = IrreducibleFraction.new(
             numerator => $numerator,
@@ -141,7 +146,7 @@ class OperationsOnFractions is export {
             pgcd-algorithm => self.which-pgcd-algorithm,
         );
         my Pair $P;
-        say "on simplifie la dernière fraction obtenue :";
+        say "On simplifie la dernière fraction obtenue :";
         my Str $irreducible-fraction-algorithm = self.which-irreducible-fraction-algorithm;
         given $irreducible-fraction-algorithm {
             when /'1' || 'euclide'/ { $P = $irreducible.reduce-fraction-with-euclide-algorithm(); }

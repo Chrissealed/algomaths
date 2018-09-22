@@ -48,7 +48,7 @@ class PPCM does PrimeFactors is export {
         if !$have-common-divisor {
             say "Le PGCD de $int1 et $int2 est égal à 1 ou -1 ce qui signifie";
             say "que $int1 et $int2 n'ont pas de diviseur commun autre que 1 ou -1;";
-            say "le PPCM de $int1 et $int2 est donc leur produit :";
+            say "le PPCM de $int1 et $int2 est donc leur produit : ", $int1 * $int2, ".";
             return $int1 * $int2;
         }
         say "Reste de la division de $int1 par $int2 : ", $int1 mod $int2;
@@ -76,7 +76,7 @@ class PPCM does PrimeFactors is export {
         if !$have-common-divisor {
             say "Le PGCD de $x et $y est égal à 1 ou -1 ce qui signifie";
             say "que $x et $y n'ont pas de diviseur commun autre que 1 ou -1;";
-            say "le PPCM de $x et $y est donc leur produit :";
+            say "le PPCM de $x et $y est donc leur produit : ", $x * $y, ".";
             return $x * $y;
         }
         # Call méthode du module 'prime-factors' qui contient un rôle inclus dans
@@ -175,11 +175,11 @@ class PPCM does PrimeFactors is export {
         if ($p == 1 || $p == -1) {
             say "Le PGCD de $x et $y est égal à 1 ou -1 ce qui signifie";
             say "que $x et $y n'ont pas de diviseur commun autre que 1 ou -1;";
-            say "le PPCM de $x et $y est donc leur produit : ", $x * $y;
+            say "le PPCM de $x et $y est donc leur produit : ", $x * $y, ".";
             return $x * $y;
         }
         my Int $product = $x * $y;
-        say "Produit de $x par $y = $product";
+        say "Produit de $x par $y = $product;";
         my Int $ppcm = $product div $p;
         say "PPCM($x ; $y) = $product div $p = $ppcm.";
         return $ppcm;

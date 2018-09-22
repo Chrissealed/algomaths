@@ -38,6 +38,7 @@ l'ensemble des diviseurs de chacun des deux nombres :
     method divisors-listing_algorithm(--> Int) {
         my (@a, @b, @c) = ();
 
+        say "− Utilisation de l'algorithme de comparaison des listes de tous les diviseurs −";
         my $divisors-listing = IntegerDivisorsListing.new(
             array-or-hash => '@',
         );
@@ -85,6 +86,7 @@ deux nombres, par conséquent seul 2 l'est; d'ou PGCD(4352 ; 4342) = 2.
         my %factors2{Int};
         my Int @values1 = ();
         my Int @values2 = ();
+        say "− Utilisation de l'algorithme de factorisation en facteurs premiers −";
         say "Facteurs premiers de $int1 :";
         # Méthode de prime-factors.
         %factors1 = self.breakdown($int1);
@@ -212,6 +214,7 @@ si a = b, alors PGCD(a;b) = a = b et si a > b, PGCD(a;b) = PGCD(b;a-b).
         # Parer les nombres négatifs avec leurs effets de bord
         my Int $x = abs(self.integer1);
         my Int $y = abs(self.integer2);
+        say "− Utilisation de l'algorithme des soustractions −";
         if ($x < $y) {
             # Intervertir $x et $y
             ($x, $y) = ($y, $x);
@@ -260,6 +263,7 @@ a par b
     method euclide_algorithm(--> Int) {
         my Int $dividend = self.integer1;
         my Int $divisor = self.integer2;
+        say "− Utilisation de l'algorithme d'Euclide −";
         if ($dividend < $divisor) {
             # Intervertir $x et $y
             ($dividend, $divisor) = ($divisor, $dividend);
@@ -312,7 +316,6 @@ a par b
             }
         } until ($rest == 0);
 
-        #say "PGCD($dividend ; $divisor) = $divisor.";
         say "Le reste de la division de $dividend par $divisor est nul,";
         say "donc PGCD($!integer1 ; $!integer2) = $pgcd.";
         return $pgcd;
