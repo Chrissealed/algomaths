@@ -59,6 +59,37 @@ class OperationsOnFractions is export {
             die "Argument $operation invalide! L'un de ceux-ci est requis : 'add-up' ou '+'; 'subtract' ou '-'; 'multiply' ou '*'; 'divide' ou ':'";
         }
 
+        my Pair $P1;
+        say "On simplifie si possible chaque fraction :";
+        my Str $irreducible-fraction-algorithm = self.which-irreducible-fraction-algorithm;
+        my $irreducible = IrreducibleFraction.new(
+            numerator => $n1,
+            denominator => $d1,
+            pgcd-algorithm => self.which-pgcd-algorithm,
+        );
+        given $irreducible-fraction-algorithm {
+            when /'1' || 'euclide'/ { $P1 = $irreducible.reduce-fraction-with-euclide-algorithm(); }
+            when /'2' || 'subtraction'/ { $P1 = $irreducible.reduce-fraction-with-subtraction-algorithm(); }
+            when /'3' || 'factorization'/ { $P1 = $irreducible.reduce-fraction-with-factorization-algorithm(); }
+            #default { $P = $irreducible.reduce-fraction-with-euclide-algorithm(); }
+        }
+        $n1 = $P1.key; $d1 = $P1.value;
+        say();
+        my Pair $P2;
+        $irreducible = IrreducibleFraction.new(
+            numerator => $n2,
+            denominator => $d2,
+            pgcd-algorithm => self.which-pgcd-algorithm,
+        );
+        given $irreducible-fraction-algorithm {
+            when /'1' || 'euclide'/ { $P2 = $irreducible.reduce-fraction-with-euclide-algorithm(); }
+            when /'2' || 'subtraction'/ { $P2 = $irreducible.reduce-fraction-with-subtraction-algorithm(); }
+            when /'3' || 'factorization'/ { $P2 = $irreducible.reduce-fraction-with-factorization-algorithm(); }
+            #default { $P = $irreducible.reduce-fraction-with-euclide-algorithm(); }
+        }
+        $n2 = $P2.key; $d2 = $P2.value;
+        say();
+
         say "On cherche le PPCM de $d1 et $d2 :";
         my Str $ppcm-algorithm = self.which-ppcm-algorithm;
         my Int $p = 0;
@@ -140,14 +171,14 @@ class OperationsOnFractions is export {
         $denominator = $p;
         say "$numerator/$denominator.";
         say();
-        my $irreducible = IrreducibleFraction.new(
+        say "On simplifie la dernière fraction obtenue :";
+        my Pair $P;
+        $irreducible = IrreducibleFraction.new(
             numerator => $numerator,
             denominator => $denominator,
             pgcd-algorithm => self.which-pgcd-algorithm,
         );
-        my Pair $P;
-        say "On simplifie la dernière fraction obtenue :";
-        my Str $irreducible-fraction-algorithm = self.which-irreducible-fraction-algorithm;
+        #my Str $irreducible-fraction-algorithm = self.which-irreducible-fraction-algorithm;
         given $irreducible-fraction-algorithm {
             when /'1' || 'euclide'/ { $P = $irreducible.reduce-fraction-with-euclide-algorithm(); }
             when /'2' || 'subtraction'/ { $P = $irreducible.reduce-fraction-with-subtraction-algorithm(); }
