@@ -9,14 +9,16 @@ sub answering {
     my $fraction = OperationsOnFractions.new(
         nominator1 => 5,
         denominator1 => 18,
+        reduce-fraction1 => False,
         nominator2 => 4,
         denominator2 => 12,
+        reduce-fraction2 => True,
         which-ppcm-algorithm => 'by-use-of-pgcd',
         which-irreducible-fraction-algorithm => 'euclide',
         which-pgcd-algorithm => 'euclide',
     );
     my Pair $P;
-    $P = $fraction.add-up-or-subtract-fractions('-');
+    $P = $fraction.calculate-fractions('-');
 }
 
 exercise_06a();

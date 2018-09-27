@@ -6,7 +6,6 @@ use method01 :methodwording, :exe01c, :examples;
 use operations-on-fractions;
 
 sub answering {
-    say "On doit calculer 4/5 – 7/25;";
     my $fraction = OperationsOnFractions.new(
         nominator1 => 4,
         denominator1 => 5,
@@ -16,7 +15,7 @@ sub answering {
         which-irreducible-fraction-algorithm => 'factorization-algorithm', # '3',
     );
     my Pair $P;
-    $P = $fraction.add-up-or-subtract-fractions('subtract');
+    $P = $fraction.calculate-fractions('subtract');
 }
 
 exercise_01c();

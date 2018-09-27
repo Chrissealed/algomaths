@@ -6,7 +6,6 @@ use method01 :methodwording, :exe03a, :examples;
 use operations-on-fractions;
 
 sub answering {
-    say "On doit calculer 19/46 − 17/69;";
     my $fraction = OperationsOnFractions.new(
         nominator1 => 19,
         denominator1 => 46,
@@ -17,7 +16,7 @@ sub answering {
         which-pgcd-algorithm => 'euclide', # ':' ou '1',
     );
     my Pair $P;
-    $P = $fraction.add-up-or-subtract-fractions('-');
+    $P = $fraction.calculate-fractions('-');
 }
 
 exercise_03a();

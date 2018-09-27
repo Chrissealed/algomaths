@@ -59,7 +59,7 @@ class IrreducibleFraction is export {
             return $pair;
         }
 
-        say "On calcule le PGCD de $n et $d par l'algorithme d'Euclide :";
+        #say "On calcule le PGCD de $n et $d par l'algorithme d'Euclide :";
         my $pgcd = PGCD.new(
             integer1 => $n,
             integer2 => $d,
@@ -137,7 +137,7 @@ class IrreducibleFraction is export {
             return $pair;
         }
 
-        say "On calcule le PGCD de $n et $d par l'algorithme des soustractions :";
+        #say "On calcule le PGCD de $n et $d par l'algorithme des soustractions :";
         my $pgcd = PGCD.new(
             integer1 => $n,
             integer2 => $d,
@@ -217,7 +217,7 @@ class IrreducibleFraction is export {
             return $pair;
         }
 
-        say "On calcule le PGCD de $n et $d par la décomposition en facteurs premiers :";
+        #say "On calcule le PGCD de $n et $d par la décomposition en facteurs premiers :";
         my $pgcd = PGCD.new(
             integer1 => $n,
             integer2 => $d,

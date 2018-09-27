@@ -6,16 +6,17 @@ use method01 :methodwording, :exe02b, :examples;
 use operations-on-fractions;
 
 sub answering {
-    say "On doit calculer 5/6 – 6/5;";
     my $fraction = OperationsOnFractions.new(
         nominator1 => 5,
         denominator1 => 6,
+        reduce-fraction1 => False,
         nominator2 => 6,
         denominator2 => 5,
+        reduce-fraction2 => False,
         which-pgcd-algorithm => 'factorization',
     );
     my Pair $P;
-    $P = $fraction.add-up-or-subtract-fractions('subtract');
+    $P = $fraction.calculate-fractions('subtract');
 }
 
 exercise_02b();

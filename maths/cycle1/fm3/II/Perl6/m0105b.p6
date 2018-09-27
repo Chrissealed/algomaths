@@ -5,7 +5,6 @@ use corrective;
 use method01 :methodwording, :exe05b, :examples;
 
 sub answering {
-    say "On doit calculer π/3 − π/4;";
     say "π/3 − π/4 = 4π/12 − 3π/12 = π/12.";
 }
 

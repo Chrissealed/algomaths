@@ -6,23 +6,24 @@ use method01 :methodwording, :exe03b, :examples;
 use operations-on-fractions;
 
 sub answering {
-    say "On doit calculer 4/3 + 5/7 − 3/21;";
     my $fraction = OperationsOnFractions.new(
         nominator1 => 4,
         denominator1 => 3,
+        reduce-fraction1 => False,
         nominator2 => 5,
         denominator2 => 7,
+        reduce-fraction2 => False,
         which-ppcm-algorithm => 'by-prime-factors', # '2',
         which-irreducible-fraction-algorithm => 'euclide', # '1',
         which-pgcd-algorithm => 'euclide', # ':' ou '1',
     );
     my Pair $P;
-    $P = $fraction.add-up-or-subtract-fractions('add-up');
+    $P = $fraction.calculate-fractions('add-up');
     $fraction.nominator1 = $P.key;
     $fraction.denominator1 = $P.value;
     $fraction.nominator2 = 3;
     $fraction.denominator2 = 21;
-    $P = $fraction.add-up-or-subtract-fractions('subtract');
+    $P = $fraction.calculate-fractions('subtract');
 }
 
 exercise_03b();

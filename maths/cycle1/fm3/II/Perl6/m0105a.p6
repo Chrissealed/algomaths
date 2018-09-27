@@ -9,33 +9,36 @@ sub answering {
     my $fraction = OperationsOnFractions.new(
         nominator1 => 1,
         denominator1 => 2,
+        reduce-fraction1 => False,
         nominator2 => 2,
         denominator2 => 3,
+        reduce-fraction2 => False,
         which-ppcm-algorithm => 'by-prime-factors',
         which-irreducible-fraction-algorithm => 'euclide',
         which-pgcd-algorithm => 'euclide',
     );
     my Pair $P;
-    $P = $fraction.add-up-or-subtract-fractions('+');
+    $P = $fraction.calculate-fractions('+');
+    say();
     $fraction.nominator1 = $P.key;
     $fraction.denominator1 = $P.value;
     $fraction.nominator2 = 3;
     $fraction.denominator2 = 4;
-    $P = $fraction.add-up-or-subtract-fractions('add-up');
+    $P = $fraction.calculate-fractions('add-up');
 
-    $P = $fraction.add-up-or-subtract-fractions('+');
+    say();
     $fraction.nominator1 = $P.key;
     $fraction.denominator1 = $P.value;
     $fraction.nominator2 = 5;
     $fraction.denominator2 = 6;
-    $P = $fraction.add-up-or-subtract-fractions('add-up');
+    $P = $fraction.calculate-fractions('+');
     
-    $P = $fraction.add-up-or-subtract-fractions('+');
+    say();
     $fraction.nominator1 = $P.key;
     $fraction.denominator1 = $P.value;
     $fraction.nominator2 = 4;
     $fraction.denominator2 = 5;
-    $P = $fraction.add-up-or-subtract-fractions('add-up');
+    $P = $fraction.calculate-fractions('add-up');
 }
 
 exercise_05a();

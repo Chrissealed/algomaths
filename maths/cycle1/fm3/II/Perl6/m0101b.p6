@@ -6,15 +6,16 @@ use method01 :methodwording, :exe01b, :examples;
 use operations-on-fractions;
 
 sub answering {
-    say "On doit calculer 2/21 – 5/21;";
     my $fraction = OperationsOnFractions.new(
         nominator1 => 2,
         denominator1 => 21,
+        #reduce-fraction1 => False,
         nominator2 => 5,
         denominator2 => 21,
+        #reduce-fraction2 => False,
     );
     my Pair $P;
-    $P = $fraction.add-up-or-subtract-fractions('subtract');
+    $P = $fraction.calculate-fractions('subtract');
 }
 
 exercise_01b();

@@ -6,18 +6,19 @@ use method01 :methodwording, :exe04b, :examples;
 use operations-on-fractions;
 
 sub answering {
-    say "On doit calculer −6/11 + −6/−11;";
     my $fraction = OperationsOnFractions.new(
         nominator1 => -6,
         denominator1 => 11,
+        reduce-fraction1 => False,
         nominator2 => -6,
         denominator2 => -11,
+        reduce-fraction2 => False,
         which-ppcm-algorithm => 'by-larger-number-multiples',
         which-irreducible-fraction-algorithm => 'factorization',
         which-pgcd-algorithm => 'divisors-listing',
     );
     my Pair $P;
-    $P = $fraction.add-up-or-subtract-fractions('+');
+    $P = $fraction.calculate-fractions('+');
 }
 
 exercise_04b();
