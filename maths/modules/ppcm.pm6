@@ -5,8 +5,11 @@ use v6;
 =begin pod
 Ce module contient une classe : PPCM qui dispose du rôle 'PrimeFactors'
 et qui utilise les classes ArePrime et PGCD.
-Cette classe comporte deux attributs : integer1 et integer2, qui sont
-des entiers > 1 ou < -1 qui seront utilisés par les méthodes de la classe.
+Cette classe comporte deux attributs requis : integer1 et integer2, qui sont
+des entiers différents de 0 qui seront utilisés par les méthodes de la classe
+et un attribut facultatif de type Str qui peut prendre l'une des valeurs suivantes :
+'euclide' ou ':' ou '1'; 'subtraction' ou '-' ou '2',
+'factorization' ou '*' ou '3' et 'divisors-listing' ou '#' ou '4'.
 Elle contient trois méthodes distinctes pour calculer le PPCM
 (plus petit commun multiple) de deux entiers :
 =item 'by-larger-number-multiples()' qui procède par additions du plus grand
@@ -27,24 +30,34 @@ use pgcd;
 use prime-factors;
 
 class PPCM does PrimeFactors is export {
-    has Int $.integer1 is required is rw where { ($_ < -1 || $_ > 1) or die "Valeur de champ invalide! Entier < -1 ou > 1 requis." };
-    has Int $.integer2 is required is rw where { ($_ < -1 || $_ > 1) or die "Valeur de champ invalide! Entier < -1 ou > 1 requis." };
+    has Int $.integer1 is required is rw where { ($_ != 0) or die "Valeur de champ invalide! Entier différent de 0 requis." };
+    has Int $.integer2 is required is rw where { ($_ != 0) or die "Valeur de champ invalide! Entier différent de 0 requis." };
+    has Str $.which-pgcd-algorithm is rw where { $_ ~~ / euclide || ':' || 1 || subtraction || \-  || 2 || factorization || '*' || 3 || divisors\-listing || '#' || 4 / 
+    or die "Valeur de champ invalide! Précisez 'euclide' ou ':' ou '1'; 'subtraction' ou '-' ou '2'; 'factorization' ou '*' ou '3'; 'divisors-listing' ou '#' ou '4'"; }
+    = 'euclide';
+    
 
     method by-larger-number-multiples(--> Int) {
         my Int $int1 = self.integer1;
         my Int $int2 = self.integer2;
+        if ($int1 == 1 || $int1 == -1 || $int2 == 1 || $int2 == -1) {
+            say "int1 et $int2 n'ont pas de diviseur commun autre que 1 ou -1;";
+            say "le PPCM de $int1 et $int2 est donc leur produit : ", $int1 * $int2, ".";
+            return $int1 * $int2 if ($int1 == 1 || $int1 == -1);
+            return $int2 * $int1 if ($int2 == 1 || $int2 == -1);
+        }
         if (abs($int1) < abs($int2)) {
             # Intervertir $x et $y
             ($int1, $int2) = ($int2, $int1);
         }
         my Int $int = $int1;
+        my Str $pgcd-algorithm = self.which-pgcd-algorithm;
         # Vérifier si les nombres sont premiers entre eux
         my $are-prime = ArePrime.new(
             integer1 => $int1,
             integer2 => $int2,
-            subtract-or-euclide-algo => ':',
         );
-        my Bool $have-common-divisor = $are-prime.have-common-divisor();
+        my Bool $have-common-divisor = $are-prime.have-common-divisor($pgcd-algorithm);
         if !$have-common-divisor {
             say "Le PGCD de $int1 et $int2 est égal à 1 ou -1 ce qui signifie";
             say "que $int1 et $int2 n'ont pas de diviseur commun autre que 1 ou -1;";
@@ -65,14 +78,20 @@ class PPCM does PrimeFactors is export {
     method by-prime-factors(--> Int) {
         my $x = self.integer1;
         my $y = self.integer2;
+        if ($x == 1 || $x == -1 || $y == 1 || $y == -1) {
+            say "$x et $y n'ont pas de diviseur commun autre que 1 ou -1;";
+            say "le PPCM de $x et $y est donc leur produit : ", $x * $y, ".";
+            return $x * $y if ($x == 1 || $x == -1);
+            return $y * $x if ($y == 1 || $y == -1);
+        }
         if ($x == $y) { return $x; }
         # Vérifier si les nombres sont premiers entre eux
+        my Str $pgcd-algorithm = self.which-pgcd-algorithm;
         my $are-prime = ArePrime.new(
             integer1 => $x,
             integer2 => $y,
-            subtract-or-euclide-algo => ':',
         );
-        my Bool $have-common-divisor = $are-prime.have-common-divisor();
+        my Bool $have-common-divisor = $are-prime.have-common-divisor($pgcd-algorithm);
         if !$have-common-divisor {
             say "Le PGCD de $x et $y est égal à 1 ou -1 ce qui signifie";
             say "que $x et $y n'ont pas de diviseur commun autre que 1 ou -1;";
@@ -161,17 +180,30 @@ class PPCM does PrimeFactors is export {
     method by-use-of-pgcd(--> Int) {
         my Int $x = self.integer1;
         my Int $y = self.integer2;
+        if ($x == 1 || $x == -1 || $y == 1 || $y == -1) {
+            say "$x et $y n'ont pas de diviseur commun autre que 1 ou -1;";
+            say "le PPCM de $x et $y est donc leur produit : ", $x * $y, ".";
+            return $x * $y if ($x == 1 || $x == -1);
+            return $y * $x if ($y == 1 || $y == -1);
+        }
         if (abs($y) > abs($x)) {
             # Inversion des termes
             ($x, $y) = ($y, $x);
         }
         # On ne vérifie pas que les nombres sont premiers entre eux
         # car on serait amené à rechercher deux fois leur PGCD
+        my Str $pgcd-algorithm = self.which-pgcd-algorithm;
         my $pgcd = PGCD.new(
             integer1 => $x,
             integer2 => $y,
         );
-        my Int $p = $pgcd.euclide_algorithm();
+        my Int $p = 0;
+        given $pgcd-algorithm {
+            when / 1 || 'euclide' / { $p = $pgcd.euclide_algorithm(); }
+            when / 2 || 'subtraction' / { $p = $pgcd.subtraction_algorithm(); }
+            when / 3 || 'factorization' / { $p = $pgcd.factorization_algorithm(); }
+            when / 4 || 'divisors-listing' / { $p = $pgcd.divisors-listing_algorithm(); }
+        }
         if ($p == 1 || $p == -1) {
             say "Le PGCD de $x et $y est égal à 1 ou -1 ce qui signifie";
             say "que $x et $y n'ont pas de diviseur commun autre que 1 ou -1;";

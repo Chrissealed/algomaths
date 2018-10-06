@@ -4,9 +4,11 @@ use v6;
 
 =begin pod
 Ce module contient un role : PrimeFactors destiné à
-établir la liste des facteurs premiers d'un entier > 1
-ou < -1.
-Il a une seule méthode : breakdown(Int $integer) qui
+établir la liste des facteurs premiers d'un entier 
+différent de 0, c'est-à-dire de le décomposer en
+facteurs premiers.
+Il a une seule méthode : breakdown(Int $integer)
+avec $integer différent de 0 qui
 renvoie un Hash comprenant le mappage des nombres avec
 leurs facteurs.
 Il affiche ce mappage sous plusieurs formes :
@@ -16,10 +18,17 @@ puis en facteurs élevés à la puissance requise.
 
 role PrimeFactors is export {
 
-    method breakdown(Int $integer is copy where { ($integer > 1 || $integer < -1) or die "Argument invalide! Nombre entier > 1 ou < -1 requis." } --> Hash) {
+    method breakdown(Int $integer is copy where { ($integer != 0) or die "Argument invalide! Nombre entier différent de 0 requis." } --> Hash) {
         #my @prime = (2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79);
         my Int $intcopy = $integer;
         my %prime{Int};
+        if ($integer == 1 || $integer == -1) {
+            say "$integer\t=>\t1";
+            say "$integer est un nombre premier!";
+            say "Il n'admet que 1 comme diviseur.";
+            push %prime, ($integer => 1);
+            return %prime;
+        }
         my Int $i = 2;
         loop {
             last if ($integer == 1 || $integer == -1);
@@ -80,17 +89,17 @@ role PrimeFactors is export {
             if ($k != $e) && ($v > 1) && (!$is-prime) {
                 "$k^$v × ".print;
             }
-            elsif ($k != $e) && ($v == 1) && (!$is-prime) && ($display) {
+            elsif ($k != $e) && $v == 1 && (!$is-prime) && ($display) {
                 "$k × ".print;
             }
-            elsif ($k == $e) && ($v > 1) && (!$is-prime) {
+            elsif ($k == $e) && $v > 1 && (!$is-prime) {
                 "$k^$v".say;
             }
-            elsif ($k == $e) && ($v == 1) && (!$is-prime) && ($display) {
+            elsif ($k == $e) && $v == 1 && (!$is-prime) && ($display) {
                 "$k".say;
             }
-            elsif ($k == $e) && ($v == 1) && ($is-prime) {
-                "1 × $k".say;
+            elsif ($k == $e) && $v == 1 && ($is-prime) {
+                "$v × $k".say;
             }
         }
         return %prime;

@@ -8,16 +8,21 @@ de la fraction initiale dont on passe le numérateur et le dénominateur
 aux attributs 'numerator' et 'denominator', le numérateur étant
 un entier quelconque et le dénominateur un entier différent de 0.
 Il y a un 3e champ facultatif 'pgcd-algorithm' du type string (Str)
-qui permet de préciser quelle méthode du module 'are-prime.pm6'
-sera utilisée pour effectuer les calculs en interne.
+qui permet de préciser l'argument de la méthode du module 'are-prime.pm6'
+'have-common-divisor($pgcd-algorithm)'
+qui sera utilisée pour effectuer les calculs en interne.
 4 choix sont possibles, on a :
-1) 'euclide' ou ':' ou '1' (par défaut);
-2) 'subtract' ou '_' ou '2';
-3) 'factorization' ou '*' ou '3';
-4) 'divisors-listing' ou '#' ou '4'.
+=item 1) 'euclide' ou ':' ou '1' (par défaut);
+=item 2) 'subtract' ou '_' ou '2';
+=item 3) 'factorization' ou '*' ou '3';
+=item 4) 'divisors-listing' ou '#' ou '4'.
+
 La classe 'IrreducibleFraction' utilise l'une des trois méthodes
-suivantes pour effectuer la réduction : 'reduce-fraction-with-euclide-algorithm()',
-'reduce-fraction-with-subtraction-algorithm()' et 'reduce-fraction-with-factorization-algorithm()'.
+suivantes pour effectuer la réduction :
+=item 'reduce-fraction-with-euclide-algorithm()',
+=item 'reduce-fraction-with-subtraction-algorithm()' et
+=item 'reduce-fraction-with-factorization-algorithm()'.
+
 Elle affiche les informations selon la méthode utilisée
 et chaque méthode renvoie une paire (Pair) correspondant
 pour la clé de la paire au numérateur de la fraction réduite
@@ -30,6 +35,7 @@ use pgcd;
 class IrreducibleFraction is export {
     has Int $.numerator is required is rw;
     has Int $.denominator is required is rw where { $_ != 0 or die "Valeur de champ invalide! Dénominateur différent de 0 requis." };
+    # Champ utilisé par la classe ArePrime dans sa méthode 'have-common-divisor($pgcd-algorithm)'
     has Str $.pgcd-algorithm is rw where { $_ ~~ / euclide || ':' || 1 || subtract || _  || 2 || factorization || '*' || 3 || divisors\-listing || '#' || 4 / 
     or die "Valeur de champ invalide! Précisez 'euclide' ou ':' ou '1'; 'subtract' ou '_' ou '2'; 'factorization' ou '*' ou '3'; 'divisors-listing' ou '#' ou '4'"; }
     = 'euclide';
@@ -41,11 +47,13 @@ class IrreducibleFraction is export {
         if ($n == 0) { say '0'; $pair = $n => $d; return $pair; }
         if ($n == 1 || $n == -1) {
             $pair = $n => $d;
-            #return $pair;
+            say "La fraction $n/$d est irréductible.";
+            return $pair;
         }
         if ($d == 1 || $d == -1) {
             $pair = $n => $d;
-            #return $pair;
+            say "La fraction $n/$d est irréductible.";
+            return $pair;
         }
         my Str $algo = self.pgcd-algorithm;
         my $are-prime = ArePrime.new(

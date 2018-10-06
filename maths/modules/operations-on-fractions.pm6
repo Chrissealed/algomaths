@@ -59,7 +59,7 @@ class OperationsOnFractions is export {
     die "Champ de classe invalide! Attendu 'euclide' ou '1', ou 'subtraction' ou '2', ou 'factorization' ou '3'."; }
     = '1';
     has Str $.which-pgcd-algorithm is rw where { $_ ~~ / euclide || ':' || 1 || subtraction || \-  || 2 || factorization || '*' || 3 || divisors\-listing || '#' || 4 / 
-    or die "Valeur de champ invalide! Précisez 'euclide' ou ':' ou '1'; 'subtract' ou '-' ou '2'; 'factorization' ou '*' ou '3'; 'divisors-listing' ou '#' ou '4'"; }
+    or die "Valeur de champ invalide! Précisez 'euclide' ou ':' ou '1'; 'subtraction' ou '-' ou '2'; 'factorization' ou '*' ou '3'; 'divisors-listing' ou '#' ou '4'"; }
     = 'euclide';
     
     method calculate-fractions(Str $operation --> Pair) {
@@ -109,6 +109,7 @@ class OperationsOnFractions is export {
 
         say "On cherche le PPCM de $d1 et $d2 :";
         my Str $ppcm-algorithm = self.which-ppcm-algorithm;
+        my Str $pgcd-algorithm = self.which-pgcd-algorithm;
         my Int $p = 0;
         if ($d1 == $d2) {
             $p = $d1;
@@ -117,6 +118,7 @@ class OperationsOnFractions is export {
             my $ppcm = PPCM.new(
                 integer1 => $d1,
                 integer2 => $d2,
+                which-pgcd-algorithm => $pgcd-algorithm,
             );
             given $ppcm-algorithm {
                 when / 1 || 'by-larger-number-multiples' / { $p = $ppcm.by-larger-number-multiples; }

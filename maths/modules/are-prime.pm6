@@ -18,8 +18,8 @@ Chaque méthode renvoie un booléen True si les nombres sont premiers
 entre eux ou False dans le cas contraire.
 La première méthode trouve tous les diviseurs communs
 tandis que la deuxième trouve seulement le premier diviseur commun :
-1 (ou -1) si les nombres sont premiers entre eux
-ou un nombre supérieur à 1 (ou < -1) s'ils ne le sont pas.
+1 si les nombres sont premiers entre eux
+ou un nombre supérieur à 1 s'ils ne le sont pas.
 La classe possède deux attributs requis : integer1 et integer2
 qui doivent être des entiers différents de 0.
 Tous les champs sont en lecture et écriture.
@@ -33,10 +33,10 @@ souhaite appliquer, c'est à dire la méthode
 par divisions euclidiennes successives,
 ou la méthode par soustractions, ou celle par factorization
 ou encore celle par comparaison de la liste des diviseurs :
-1) 'euclide' ou ':' ou '1' ou bien
-2) 'subtract' ou '_' ou '2' ou bien
-3) 'factorization' ou '*' ou '3' ou bien
-4) 'divisors-listing' ou '#' ou '4'. 
+=item 1) 'euclide' ou ':' ou '1' ou bien
+=item 2) 'subtract' ou '_' ou '2' ou bien
+=item 3) 'factorization' ou '*' ou '3' ou bien
+=item 4) 'divisors-listing' ou '#' ou '4'. 
 Par défaut la valeur de ce paramètre est 'euclide'.
 =end pod
 
@@ -55,6 +55,18 @@ class ArePrime does UsualDivisibilityCriteria is export {
         my Int @b = ();
         my Int @c = ();
         my Bool $flag = False;
+        if (is-prime $int1) {
+            push @a, 1, $int1;
+            say "Le nombre $int1 est un nombre premier; il n'a pas de diviseur commun autre que 1 et lui-même.";
+            say @a;
+            return $flag;
+        }
+        if (is-prime $int2) {
+            push @a, 1, $int2;
+            say "Le nombre $int2 est un nombre premier; il n'a pas de diviseur commun autre que 1 et lui-même.";
+            say @a;
+            return $flag;
+        }
         my $list = IntegerDivisorsListing.new(
             # Attribut de IntegerDivisorsListing (par défaut : array)
             array-or-hash => '@',
@@ -67,7 +79,7 @@ class ArePrime does UsualDivisibilityCriteria is export {
             for @a -> $i {
                 for @b -> $j {
                     if ($i == $j && $i != 1) {
-                        say "Les nombres $int1 et $int2 ont un diviseur commun autre que 1 : $i.";
+                        say "Les nombres $int1 et $int2 ont un diviseur commun autre que 1 ou -1 : $i.";
                         $flag = True;
                         push @c, $i;
                     }
@@ -77,7 +89,7 @@ class ArePrime does UsualDivisibilityCriteria is export {
             for @b -> $i {
                 for @a -> $j {
                     if ($i == $j && $i != 1) {
-                        say "Les nombres $int1 et $int2 ont un diviseur commun autre que 1 : $i.";
+                        say "Les nombres $int1 et $int2 ont un diviseur commun autre que 1 ou -1 : $i.";
                         $flag = True;
                         push @c, $i;
                     }
@@ -86,7 +98,7 @@ class ArePrime does UsualDivisibilityCriteria is export {
         }
 
         if !$flag {
-            say "Les nombres $int1 et $int2 n'ont pas de diviseur commun autre que 1.";
+            say "Les nombres $int1 et $int2 n'ont pas de diviseur commun autre que 1 ou -1.";
             say @a;
             say @b;
             push @c, 1;
@@ -103,8 +115,23 @@ class ArePrime does UsualDivisibilityCriteria is export {
         my Int $dvd = self.integer1;
         my Int $dvs = self.integer2;
         my Int $i;
+        my Int @a = ();
         my Bool $flag = True;
         
+        if (is-prime $dvd) {
+            push @a, 1, $dvd;
+            say "Le nombre $dvd est un nombre premier; il n'a pas de diviseur commun autre que 1 et lui-même.";
+            say @a;
+            $flag = False;
+            return $flag;
+        }
+        if (is-prime $dvs) {
+            push @a, 1, $dvs;
+            say "Le nombre $dvs est un nombre premier; il n'a pas de diviseur commun autre que 1 et lui-même.";
+            say @a;
+            $flag = False;
+            return $flag;
+        }
         if self.is_divisible_by_2($dvd) && self.is_divisible_by_2($dvs) {
             say "$dvd et $dvs ont un diviseur commun autre que 1 ou -1 : 2.";
             return $flag;
