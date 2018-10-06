@@ -3,7 +3,6 @@
 use v6;
 use corrective;
 use method02 :methodwording, :exe-p, :examples;
-use operations-on-fractions;
 
 sub answering {
     say "π/3 − π/1 = π×1/3×1 − 3π/1×3 = −2π/3."

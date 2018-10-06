@@ -48,6 +48,18 @@ class ArePrime does UsualDivisibilityCriteria is export {
     has Int $.integer1 is required is rw where { ($_ != 0) or die "Valeur de champ invalide: entier relatif différent de 0 requis !" };
     has Int $.integer2 is required is rw where { ($_ != 0) or die "Valeur de champ invalide: entier relatif différent de 0 requis !" };
 
+    method !is-it-prime($number where {$_ != 0} --> Bool) {
+        my Pair $pair;
+        my Bool $flag = True;
+        if (is-prime $number) {
+            $pair = 1 => $number;
+            say "Le nombre $number est un nombre premier; il n'a pas de diviseur commun autre que 1 et lui-même.";
+            say $pair;
+            return $flag;
+        }
+        return $flag = False;
+    }
+
     method have-common-divisors(--> Bool) {
         my Int $int1 = self.integer1;
         my Int $int2 = self.integer2;
@@ -55,18 +67,12 @@ class ArePrime does UsualDivisibilityCriteria is export {
         my Int @b = ();
         my Int @c = ();
         my Bool $flag = False;
-        if (is-prime $int1) {
-            push @a, 1, $int1;
-            say "Le nombre $int1 est un nombre premier; il n'a pas de diviseur commun autre que 1 et lui-même.";
-            say @a;
-            return $flag;
-        }
-        if (is-prime $int2) {
-            push @a, 1, $int2;
-            say "Le nombre $int2 est un nombre premier; il n'a pas de diviseur commun autre que 1 et lui-même.";
-            say @a;
-            return $flag;
-        }
+
+        $flag = self!is-it-prime($int1);
+        if $flag { return False; }
+        $flag = self!is-it-prime($int2);
+        if $flag { return False; }
+        
         my $list = IntegerDivisorsListing.new(
             # Attribut de IntegerDivisorsListing (par défaut : array)
             array-or-hash => '@',
@@ -78,7 +84,7 @@ class ArePrime does UsualDivisibilityCriteria is export {
         if (@a.elems < @b.elems || @a.elems == @b.elems) {
             for @a -> $i {
                 for @b -> $j {
-                    if ($i == $j && $i != 1) {
+                    if ($i == $j && $i != 1 && $i != -1) {
                         say "Les nombres $int1 et $int2 ont un diviseur commun autre que 1 ou -1 : $i.";
                         $flag = True;
                         push @c, $i;
@@ -88,7 +94,7 @@ class ArePrime does UsualDivisibilityCriteria is export {
         } else {
             for @b -> $i {
                 for @a -> $j {
-                    if ($i == $j && $i != 1) {
+                    if ($i == $j && $i != 1 && $i != -1) {
                         say "Les nombres $int1 et $int2 ont un diviseur commun autre que 1 ou -1 : $i.";
                         $flag = True;
                         push @c, $i;
@@ -116,22 +122,15 @@ class ArePrime does UsualDivisibilityCriteria is export {
         my Int $dvs = self.integer2;
         my Int $i;
         my Int @a = ();
-        my Bool $flag = True;
+        my Bool $flag = False;
         
-        if (is-prime $dvd) {
-            push @a, 1, $dvd;
-            say "Le nombre $dvd est un nombre premier; il n'a pas de diviseur commun autre que 1 et lui-même.";
-            say @a;
-            $flag = False;
-            return $flag;
-        }
-        if (is-prime $dvs) {
-            push @a, 1, $dvs;
-            say "Le nombre $dvs est un nombre premier; il n'a pas de diviseur commun autre que 1 et lui-même.";
-            say @a;
-            $flag = False;
-            return $flag;
-        }
+        $flag = self!is-it-prime($dvd);
+        if $flag { return False; }
+        $flag = self!is-it-prime($dvs);
+        if $flag { return False; }
+
+        $flag = True;
+        
         if self.is_divisible_by_2($dvd) && self.is_divisible_by_2($dvs) {
             say "$dvd et $dvs ont un diviseur commun autre que 1 ou -1 : 2.";
             return $flag;

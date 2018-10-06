@@ -3,7 +3,6 @@
 use v6;
 use corrective;
 use method02 :methodwording, :exe-q, :examples;
-use operations-on-fractions;
 
 sub answering {
     say "π/1 + π/7 = 7π/7 + π/7 = 8π/7."
