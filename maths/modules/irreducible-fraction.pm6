@@ -12,10 +12,10 @@ qui permet de préciser l'argument de la méthode du module 'are-prime.pm6'
 'have-common-divisor($pgcd-algorithm)'
 qui sera utilisée pour effectuer les calculs en interne.
 4 choix sont possibles, on a :
-=item 1) 'euclide' ou ':' ou '1' (par défaut);
-=item 2) 'subtract' ou '_' ou '2';
-=item 3) 'factorization' ou '*' ou '3';
-=item 4) 'divisors-listing' ou '#' ou '4'.
+=item 1) 'euclide' ou 'e' ou ':' ou '÷' (par défaut);
+=item 2) 'subtraction' ou 's' ou '-' ou '−';
+=item 3) 'factorization' ou 'f' ou '*' ou '×';
+=item 4) 'divisors-listing' ou 'd' ou '#' ou '/'.
 
 La classe 'IrreducibleFraction' utilise l'une des trois méthodes
 suivantes pour effectuer la réduction :
@@ -36,8 +36,8 @@ class IrreducibleFraction is export {
     has Int $.numerator is required is rw;
     has Int $.denominator is required is rw where { $_ != 0 or die "Valeur de champ invalide! Dénominateur différent de 0 requis." };
     # Champ utilisé par la classe ArePrime dans sa méthode 'have-common-divisor($pgcd-algorithm)'
-    has Str $.pgcd-algorithm is rw where { $_ ~~ / euclide || ':' || 1 || subtract || _  || 2 || factorization || '*' || 3 || divisors\-listing || '#' || 4 / 
-    or die "Valeur de champ invalide! Précisez 'euclide' ou ':' ou '1'; 'subtract' ou '_' ou '2'; 'factorization' ou '*' ou '3'; 'divisors-listing' ou '#' ou '4'"; }
+    has Str $.pgcd-algorithm is rw where { $_ ~~ / euclide || e || ':' || '÷' || subtraction || s || '-' || '−' || factorization || f || '*' || '×' || divisors\-listing || 'd' || '#' || '/' / 
+    or die "Valeur de champ invalide! Précisez 'euclide' ou 'e' ou ':' ou '÷'; 'subtraction' ou 's' ou '-'; 'factorization' ou 'f' ou '*' ou '×'; 'divisors-listing' ou 'd' ou '#' ou '/'"; }
     = 'euclide';
 
     method reduce-fraction-with-euclide-algorithm(--> Pair) {
@@ -74,9 +74,8 @@ class IrreducibleFraction is export {
         );
         my Int $p = $pgcd.euclide_algorithm();
         say "On simplifie avec le PGCD trouvé :";
-        # Eviter les effets de bord des nombres négatifs
-        my Int $dividend = $n div abs($p);
-        my Int $divisor = $d div abs($p);
+        my Int $dividend = $n div $p;
+        my Int $divisor = $d div $p;
         say "$n/$d = $p × $dividend / $p × $divisor";
         say "$n/$d = $dividend/$divisor";
         if ($p == 1 || $p == -1) {
@@ -153,8 +152,10 @@ class IrreducibleFraction is export {
         my Int $p = $pgcd.subtraction_algorithm();
         say "On simplifie avec le PGCD trouvé :";
         # Eviter les effets de bord des nombres négatifs
-        my Int $dividend = $n div abs($p);
-        my Int $divisor = $d div abs($p);
+        #my Int $dividend = $n div abs($p);
+        my Int $dividend = $n div $p;
+        #my Int $divisor = $d div abs($p);
+        my Int $divisor = $d div $p;
         say "$n/$d = $p × $dividend / $p × $divisor";
         say "$n/$d = $dividend/$divisor";
         if ($p == 1 || $p == -1) {
@@ -198,19 +199,19 @@ class IrreducibleFraction is export {
         }
     }
 
-    method reduce-fraction-with-factorization-algorithm(--> Pair) {
+    method reduce-fraction-with-factorization-algorithm(Str $sign = '' --> Pair) {
         my Int $n = self.numerator;
         my Int $d = self.denominator;
         my Pair $pair;
         if ($n == 0) { say '0'; $pair = $n => $d; return $pair; }
         if ($n == 1 || $n == -1) {
-            $pair = $n => $d;
-            say "La fraction $n/$d est irréductible.";
+            $pair = $sign ~ $n => $d;
+            say "La fraction $sign$n/$d est irréductible.";
             return $pair;
         }
         if ($d == 1 || $d == -1) {
-            $pair = $n => $d;
-            say "La fraction $n/$d est irréductible.";
+            $pair = $sign ~ $n => $d;
+            say "La fraction $sign$n/$d est irréductible.";
             return $pair;
         }
         my Str $algo = self.pgcd-algorithm;
@@ -220,8 +221,8 @@ class IrreducibleFraction is export {
         );
         if !$are-prime.have-common-divisor($algo) {
             say "$n et $d sont premiers entre eux!";
-            say "La fraction $n/$d est irréductible.";
-            $pair = $n => $d;
+            say "La fraction $sign$n/$d est irréductible.";
+            $pair = $sign ~ $n => $d;
             return $pair;
         }
 
@@ -233,39 +234,46 @@ class IrreducibleFraction is export {
         my Int $p = $pgcd.factorization_algorithm();
         say "On simplifie avec le PGCD trouvé :";
         # Eviter les effets de bord des nombres négatifs
-        my Int $dividend = $n div abs($p);
-        my Int $divisor = $d div abs($p);
-        say "$n/$d = $p × $dividend / $p × $divisor";
-        say "$n/$d = $dividend/$divisor";
+        #my Int $dividend = $n div abs($p);
+        my Int $dividend = $n div $p;
+        #my Int $divisor = $d div abs($p);
+        my Int $divisor = $d div $p;
+        say "$n/$d = $p × $sign$dividend / $p × $divisor";
+        say "$n/$d = $sign$dividend/$divisor";
         if ($p == 1 || $p == -1) {
-            say "La fraction $dividend/$divisor est irréductible.";
-            $pair = $dividend => $divisor;
+            #$pair = $dividend => $divisor;
+            $pair = $sign ~ $dividend => $divisor;
+            say "La fraction $sign$dividend/$divisor est irréductible.";
             return $pair;
         } else {
             repeat {
                 if ($dividend == 1 || $dividend == -1) {
                     $pair = $dividend => $divisor;
-                    say "La fraction $dividend/$divisor est irréductible.";
+                    $pair = $sign ~ $dividend => $divisor;
+                    say "La fraction $sign$dividend/$divisor est irréductible.";
                     return $pair;
                 }
                 if ($divisor == 1 || $divisor == -1) {
-                    $pair = $dividend => $divisor;
-                    say "La fraction $dividend/$divisor est irréductible.";
+                    #$pair = $dividend => $divisor;
+                    $pair = $sign ~ $dividend => $divisor;
+                    say "La fraction $sign$dividend/$divisor est irréductible.";
                     return $pair;
                 }
                 $are-prime.integer1 = $dividend;
                 $are-prime.integer2 = $divisor;
                 if !$are-prime.have-common-divisor($algo) {
                     say "$dividend et $divisor sont premiers entre eux!";
-                    say "La fraction $dividend/$divisor est irréductible.";
+                    say "La fraction $sign$dividend/$divisor est irréductible.";
                     $p = 1;
-                    $pair = $dividend => $divisor;
+                    $pair = $sign ~ $dividend => $divisor;
                     return $pair;
                 }
                 say "La fraction $dividend/$divisor est réductible :";
                 # Eviter les effets de bord des nombres négatifs
-                my Int $dvd = $dividend div abs($p);
-                my Int $dvs = $divisor div abs($p);
+                #my Int $dvd = $dividend div abs($p);
+                my Int $dvd = $dividend div $p;
+                #my Int $dvs = $divisor div abs($p);
+                my Int $dvs = $divisor div $p;
                 say "$dividend/$divisor = $p × $dvd / $p × $dvs";
                 $pgcd.integer1 = $dvd;
                 $pgcd.integer2 = $dvs;
@@ -273,8 +281,8 @@ class IrreducibleFraction is export {
                 $dividend = $dvd;
                 $divisor = $dvs;
             } until ($p == 1 || $p == -1);
-            say "La fraction $dividend/$divisor est irréductible.";
-            $pair = $dividend => $divisor;
+            say "La fraction $sign$dividend/$divisor est irréductible.";
+            $pair = $sign ~ $dividend => $divisor;
             return $pair;
         }
     }

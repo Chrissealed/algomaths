@@ -3,11 +3,11 @@ unit module Prime-factors;
 use v6;
 
 =begin pod
-Ce module contient un role : PrimeFactors destiné à
+Ce module contient un rôle : PrimeFactors destiné à
 établir la liste des facteurs premiers d'un entier 
 différent de 0, c'est-à-dire de le décomposer en
 facteurs premiers.
-Il a une seule méthode : breakdown(Int $integer)
+Il a deux méthodes, la première : breakdown(Int $integer)
 avec $integer différent de 0 qui
 renvoie un Hash comprenant le mappage des nombres avec
 leurs facteurs.
@@ -25,7 +25,7 @@ role PrimeFactors is export {
         if ($integer == 1 || $integer == -1) {
             say "$integer\t=>\t1";
             say "$integer est un nombre premier!";
-            say "Il n'admet que 1 comme diviseur.";
+            say "Il n'admet que 1 et lui-même comme diviseurs.";
             push %prime, ($integer => 1);
             return %prime;
         }
@@ -47,7 +47,7 @@ role PrimeFactors is export {
         my Int @a = ();
         my Bool $is-prime = False;
         if %prime.elems == 1 { $is-prime = True; }
-        for %prime.sort(*.key.Int).reverse>>.kv -> ($k, $v) {
+        for %prime.sort(*.key).reverse>>.kv -> ($k, $v) {
             "$k\t=>\t$v".say if !$is-prime;
             push @a, $v;
             if $is-prime {
@@ -57,10 +57,12 @@ role PrimeFactors is export {
             };
         }
         # Affichage de tous les facteurs premiers.
-        for (0..@a.end - 1) -> $idx {
-            print "@a[$idx] × ";
+        if (! $is-prime) {
+            for (0..@a.end - 1) -> $idx {
+                print "@a[$idx] × ";
+            }
+            say @a[@a.end]; # if !$is-prime;
         }
-        say @a[@a.end] if !$is-prime;
 
         # Hash des nombres et de leur exposant.
         my %exponents{Int};
@@ -85,7 +87,7 @@ role PrimeFactors is export {
             if $_ > 1 { $display = True; }
         }
         # Affichage des nombres avec leur exposant.
-        for %exponents.sort(*.key.Int)>>.kv -> ($k, $v) {
+        for %exponents.sort(*.key)>>.kv -> ($k, $v) {
             if ($k != $e) && ($v > 1) && (!$is-prime) {
                 "$k^$v × ".print;
             }
@@ -99,10 +101,73 @@ role PrimeFactors is export {
                 "$k".say;
             }
             elsif ($k == $e) && $v == 1 && ($is-prime) {
-                "$v × $k".say;
+                #"$v × $k.".say;
+                # $k ne prend pas la valeur d'un nombre négatif!
+                "$v × $intcopy.".say;
             }
         }
         return %prime;
+    }
+
+=begin pod
+La deuxième méthode :
+=item 'reduce-fractions-prime-factors(Int @numerators, Int @denominators, Int $returned-array)'
+qui prend 2 tableaux de Int en arguments et délivre pour chacun des 2 tableaux
+un troisième et quatrième tableau contenant les valeurs qui se trouvent dans l'un des tableaux
+et pas dans l'autre.
+Selon la valeur de l'argument $returned-array (1 ou 2),
+le premier tableau ou le deuxième tableau sera retourné,
+pour disposer des valeurs contenues dans les 2 tableaux,
+il faudra faire deux appels avec une valeur différente de $returned-array
+pour chacun d'eux.
+=end pod
+
+    method reduce-fractions-prime-factors(Int @numerators is copy, Int @denominators is copy, Int $return-array --> Array) {
+        my Int @a = ();
+        my Int @b = ();
+        my Int $i = 0;
+        my Int $j = 0;
+        if (@numerators.elems <= @denominators.elems) {
+            repeat {
+                repeat {
+                    if @numerators[$i] == @denominators[$j] {
+                        @numerators[$i] = 0;
+                        @denominators[$j] = 0;
+                        last;
+                    }
+                    $j++;
+                } while ($j < @denominators.elems);
+                $i++;
+                $j = 0;
+            } while ($i < @numerators.elems);
+        }
+        else {
+            repeat {
+                repeat {
+                    if @denominators[$i] == @numerators[$j] {
+                        @denominators[$i] = 0;
+                        @numerators[$j] = 0;
+                        last;
+                    }
+                    $j++;
+                } while ($j < @numerators.elems);
+                $i++;
+                $j = 0;
+            } while ($i < @denominators.elems);
+        }
+
+        for @numerators -> $elem {
+            push @a, $elem if ($elem != 0);
+        }
+        for @denominators -> $elem {
+            push @b, $elem if ($elem != 0);
+        }
+
+        if ($return-array == 1) {
+            return @a;
+        } else {
+            return @b;
+        }
     }
 
 }

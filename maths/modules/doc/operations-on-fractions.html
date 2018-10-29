@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <title></title>
+  <meta charset="UTF-8" />
+  <style>
+    /* code gets the browser-default font
+     * kbd gets a slightly less common monospace font
+     * samp gets the hard pixelly fonts
+     */
+    kbd { font-family: "Droid Sans Mono", "Luxi Mono", "Inconsolata", monospace }
+    samp { font-family: "Terminus", "Courier", "Lucida Console", monospace }
+    /* WHATWG HTML frowns on the use of <u> because it looks like a link,
+     * so we make it not look like one.
+     */
+    u { text-decoration: none }
+    .nested {
+        margin-left: 3em;
+    }
+    // footnote things:
+    aside, u { opacity: 0.7 }
+    a[id^="fn-"]:target { background: #ff0 }
+  </style>
+  <link rel="stylesheet" href="//design.perl6.org/perl.css">
+  <meta name="author" value="Christian Béloscar." />
+<meta name="version" value="0.1." />
+  
+</head>
+<body class="pod">
+<div id="___top"></div>
+
+
+<nav class="indexgroup">
+<table id="TOC">
+<caption><h2 id="TOC_Title">Table of Contents</h2></caption>
+   <tr class="toc-level-1"><td class="toc-number">1</td><td class="toc-text"><a href="#Ce_module_est_destiné_à_faire_des_opérations_sur_des_fractions.">Ce module est destiné à faire des opérations sur des fractions.</a></td></tr>
+                  <tr class="toc-level-1"><td class="toc-number">2</td><td class="toc-text"><a href="#Voici_la_liste_des_méthodes_de_la_classe_OperationsOnFractions_:">Voici la liste des méthodes de la classe OperationsOnFractions :</a></td></tr>
+ <tr class="toc-level-2"><td class="toc-number">2.1</td><td class="toc-text"><a href="#reduce-fraction(Int_$numerator,_Int_$denominator_--&gt;_Pair)">reduce-fraction(Int $numerator, Int $denominator --&gt; Pair)</a></td></tr>
+  <tr class="toc-level-2"><td class="toc-number">2.2</td><td class="toc-text"><a href="#add-up(Pair_$pair1,_Pair_$pair2_--&gt;_Pair)">add-up(Pair $pair1, Pair $pair2 --&gt; Pair)</a></td></tr>
+  <tr class="toc-level-2"><td class="toc-number">2.3</td><td class="toc-text"><a href="#add-upx2(Pair_$pair1,_Pair_$pair2,_Pair_$pair3_--&gt;_Pair)">add-upx2(Pair $pair1, Pair $pair2, Pair $pair3 --&gt; Pair)</a></td></tr>
+  <tr class="toc-level-2"><td class="toc-number">2.4</td><td class="toc-text"><a href="#subtract(Pair_$pair1,_Pair_$pair2_--&gt;_Pair)">subtract(Pair $pair1, Pair $pair2 --&gt; Pair)</a></td></tr>
+  <tr class="toc-level-2"><td class="toc-number">2.5</td><td class="toc-text"><a href="#subtractx2(Pair_$pair1,_Pair_$pair2,_Pair_$pair3_--&gt;_Pair)">subtractx2(Pair $pair1, Pair $pair2, Pair $pair3 --&gt; Pair)</a></td></tr>
+  <tr class="toc-level-2"><td class="toc-number">2.6</td><td class="toc-text"><a href="#add-up-subtract(Pair_$pair1,_Pair_$pair2,_Pair_$pair3_--&gt;_Pair)">add-up-subtract(Pair $pair1, Pair $pair2, Pair $pair3 --&gt; Pair)</a></td></tr>
+  <tr class="toc-level-2"><td class="toc-number">2.7</td><td class="toc-text"><a href="#subtract-add-up(Pair_$pair1,_Pair_$pair2,_Pair_$pair3_--&gt;_Pair)">subtract-add-up(Pair $pair1, Pair $pair2, Pair $pair3 --&gt; Pair)</a></td></tr>
+  <tr class="toc-level-2"><td class="toc-number">2.8</td><td class="toc-text"><a href="#breakdown-factors(Int_@array-of-factors_--&gt;_Array)">breakdown-factors(Int @array-of-factors --&gt; Array)</a></td></tr>
+  <tr class="toc-level-2"><td class="toc-number">2.9</td><td class="toc-text"><a href="#compute-prime-factors(Int_@array1,_Int_@array2,_Int_$return-array_=_1_--&gt;_Array)">compute-prime-factors(Int @array1, Int @array2, Int $return-array = 1 --&gt; Array)</a></td></tr>
+  <tr class="toc-level-2"><td class="toc-number">2.10</td><td class="toc-text"><a href="#fractions-product-sign(Pair_$p1,_Pair_$p2,_Pair_$p3?_--&gt;_Str)">fractions-product-sign(Pair $p1, Pair $p2, Pair $p3? --&gt; Str)</a></td></tr>
+  <tr class="toc-level-2"><td class="toc-number">2.11</td><td class="toc-text"><a href="#multiply(Pair_$pair1,_Pair_$pair2,_Pair_$pair3?_--&gt;_Pair)">multiply(Pair $pair1, Pair $pair2, Pair $pair3? --&gt; Pair)</a></td></tr>
+ 
+</table>
+</nav>
+
+<div class="pod-body
+
+">
+<section><h1>NAME</h1>
+<p>OperationsOnFractions.</p>
+</section>
+<section><h1>AUTHOR</h1>
+<p>Christian Béloscar.</p>
+</section>
+<section><h1>VERSION</h1>
+<p>0.1.</p>
+</section>
+<h1 id="Ce_module_est_destiné_à_faire_des_opérations_sur_des_fractions."><a class="u" href="#___top" title="go to top of document">Ce module est destiné à faire des opérations sur des fractions.</a></h1>
+<p>Il utilise les modules &#39;ppcm.pm6&#39; et &#39;irreducible-fraction.pm6&#39; et hérite du rôle &#39;PrimeFactors&#39;. La méthode principale de la classe &#39;OperationsOnFractions&#39; est &#39;calculate-fractions(Str $operation) ou le</p>
+<ul><li><p>paramètre &#39;$operation&#39; est soit &#39;add-up&#39; ou &#39;+&#39; soit &#39;subtract&#39; ou &#39;-&#39; ou &#39;−&#39;, soit &#39;multiply&#39; ou &#39;*&#39; ou &#39;×&#39; soit &#39;divide&#39; ou &#39;:&#39; ou &#39;÷&#39;, dans le cas ou il n&#39;y a que deux fractions.</p>
+</li>
+</ul>
+<p>Elle renvoie une paire (Pair) comme valeur de retour. Les champs obligatoires à renseigner sont &#39;numerator1&#39;, &#39;denominator1&#39;, &#39;numerator2&#39; et &#39;denominator2&#39; correspondant aux numérateur et dénominateur de chaque fraction sur laquelle pratiquer l&#39;opération choisie.</p>
+<p>Les deux champs suivants sont facultatifs :</p>
+<ul><li><p>&#39;numerator3&#39; et &#39;denominator3&#39;, pour lesquels d&#39;autres opérateurs sont disponibles, c&#39;est-à-dire :</p>
+</li>
+<li><p>&#39;add-upx2&#39; ou &#39;++&#39;, &#39;subtractx2&#39; ou &#39;--&#39; ou &#39;−−&#39;, &#39;add-up-subtract&#39; ou &#39;+-&#39; ou &#39;+−&#39;, et enfin &#39;subtract-add-up&#39; ou &#39;-+&#39; ou &#39;−+&#39;.</p>
+</li>
+</ul>
+<p>Ensuite, trois champs booléens facultatifs associés aux champs &#39;numerator/denominator&#39; servent à préciser si l&#39;on effectue la réduction de la fraction en question avant le traitement des données,</p>
+<ul><li><p>ce sont &#39;reduce-fraction1&#39;, &#39;reduce-fraction2&#39; et &#39;reduce-fraction3&#39;;</p>
+</li>
+</ul>
+<p>ces champs par défaut sont à False, autrement dit on ne tente pas d&#39;opérer une réduction de chaque fraction avant d&#39;effectuer l&#39;opération. Noter que la dernière fraction résultante de l&#39;opération est toujours donnée irréductible, mais qu&#39;on peut jouer sur deux autres attributs Booléens à True par défaut :</p>
+<ul><li><p>&#39;reduce-last-once&#39;, et &#39;reduce-last-one&#39;;</p>
+</li>
+</ul>
+<p>le premier visant à réduire une seule fois la première fraction calculée dans une liste chaînée d&#39;opérations (par exemple : +−), et le deuxième à réduire systématiquement la dernière fraction obtenue à tous les niveaux de cette liste. Ces attributs visent à modifier les opérations de calcul de manière à produire plusieurs options pour générer un même résultat. Viennent ensuite deux autres champs facultatifs :</p>
+<ul><li><p>&#39;breakdown&#39;factors&#39; et &#39;compute&#39;prime&#39;factors&#39;</p>
+</li>
+</ul>
+<p>(remarquez les séparateurs &#39; qui sont parfaitement valides); le premier de ces champs est destiné à établir la liste des facteurs premiers d&#39;un entier différent de 0; le deuxième permet de supprimer les facteurs en double dans le numérateur et le dénominateur pour opérer la réduction de la fraction. Ces deux champs sont à True par défaut.</p>
+<p>Les autres champs, facultatifs, sont destinés à choisir parmi les diverses méthodes utilisées pour le calcul en interne :</p>
+<ul><li><p>&#39;which-ppcm-algorithm&#39; peut prendre l&#39;une des valeurs suivantes : &#39;by-larger-number-multiples&#39; ou &#39;b.l.n.m.&#39; ou &#39;bm&#39;; &#39;by-prime-factors&#39; ou &#39;b.p.f.&#39; ou &#39;bf&#39;; &#39;by-use-of-pgcd&#39; ou &#39;b.u.o.p.&#39; ou &#39;bp&#39; (utilisé par défaut).</p>
+</li>
+<li><p>&#39;which-irreducible-fraction-algorithm&#39; peut prendre les valeurs : &#39;euclide&#39; ou &#39;e&#39; ou &#39;:&#39; ou &#39;÷&#39; (utilisé par défaut); &#39;subtraction&#39; ou &#39;s&#39; ou &#39;-&#39; ou &#39;−&#39;; &#39;factorization&#39; ou &#39;f&#39; ou &#39;*&#39; ou &#39;×&#39;.</p>
+</li>
+<li><p>&#39;which-pgcd-algorithm&#39; peut prendre l&#39;une des valeurs : &#39;euclide&#39; ou &#39;e&#39; ou &#39;:&#39; ou &#39;÷&#39; (utilisé par défaut); &#39;subtraction&#39; ou &#39;s&#39; ou &#39;-&#39; ou &#39;−&#39;; &#39;factorization&#39; ou &#39;f&#39; ou &#39;*&#39; ou &#39;×&#39;; &#39;divisors-listing&#39; ou &#39;d&#39; ou &#39;#&#39; ou &#39;/&#39;.</p>
+</li>
+</ul>
+<h1 id="Voici_la_liste_des_méthodes_de_la_classe_OperationsOnFractions_:"><a class="u" href="#___top" title="go to top of document">Voici la liste des méthodes de la classe OperationsOnFractions :</a></h1>
+<h2 id="reduce-fraction(Int_$numerator,_Int_$denominator_-->_Pair)"><a class="u" href="#___top" title="go to top of document">reduce-fraction(Int $numerator, Int $denominator --&gt; Pair)</a></h2>
+<p>Cette méthode destinée à obtenir la fraction irréductible à partir du numérateur et du dénominateur passés en argument utilise la classe IrreducibleFraction du module &#39;irreducible-fraction.pm6&#39; et utilse deux attributs de la classe, soit &#39;which-irreducible-fraction-algorithm&#39; et &#39;which-pgcd-algorithm&#39; qui déterminent le choix pour le premier de l&#39;algorithme de la méthode utilisée en interne par IrreducibleFraction pour effectuer les calculs, ainsi que l&#39;algorithme du module &#39;pgdc.pm6&#39; dont IrreducibleFraction se servira en interne.</p>
+<h2 id="add-up(Pair_$pair1,_Pair_$pair2_-->_Pair)"><a class="u" href="#___top" title="go to top of document">add-up(Pair $pair1, Pair $pair2 --&gt; Pair)</a></h2>
+<p>Cette méthode renvoie l&#39;addition des numérateurs et dénominateurs passés aux attributs de la classe, c&#39;est-à-dire, &#39;numerator1&#39;, &#39;denominator1&#39; et &#39;numerator2&#39; et &#39;denominator2&#39;. Elle utilise les modules &#39;ppcm.pm6&#39; et &#39;pgcd.pm6&#39;, ainsi que la méthode de la classe &#39;reduce-fraction($numerator, $denominator&#39;). Elle renvoie une paire constituée du numérateur et du dénominateur de la fraction résultante.</p>
+<h2 id="add-upx2(Pair_$pair1,_Pair_$pair2,_Pair_$pair3_-->_Pair)"><a class="u" href="#___top" title="go to top of document">add-upx2(Pair $pair1, Pair $pair2, Pair $pair3 --&gt; Pair)</a></h2>
+<p>Cette méthode renvoie l&#39;addition des numérateurs et dénominateurs passés aux attributs de la classe, c&#39;est-à-dire, &#39;numerator1&#39;, &#39;denominator1&#39;, &#39;numerator2&#39;, &#39;denominator2&#39; et &#39;numerator3&#39; et &#39;denominator3&#39; pour calculer la somme de trois fractions. Elle utilise les modules &#39;ppcm.pm6&#39; et &#39;pgcd.pm6&#39;, ainsi que la méthode de la classe : &#39;reduce-fraction($numerator, $denominator&#39;). Elle renvoie une paire constituée par le numérateur et le dénominateur de la fraction résultante.</p>
+<h2 id="subtract(Pair_$pair1,_Pair_$pair2_-->_Pair)"><a class="u" href="#___top" title="go to top of document">subtract(Pair $pair1, Pair $pair2 --&gt; Pair)</a></h2>
+<p>Cette méthode renvoie la soustraction des numérateurs et dénominateurs passés aux attributs de la classe, c&#39;est-à-dire, &#39;numerator1&#39;, &#39;denominator1&#39; et &#39;numerator2&#39; et &#39;denominator2&#39;. Elle utilise les modules &#39;ppcm.pm6&#39; et &#39;pgcd.pm6&#39;, ainsi que la méthode de la classe &#39;reduce-fraction($numerator, $denominator&#39;). Elle renvoie une paire constituée du numérateur et du dénominateur de la fraction résultante.</p>
+<h2 id="subtractx2(Pair_$pair1,_Pair_$pair2,_Pair_$pair3_-->_Pair)"><a class="u" href="#___top" title="go to top of document">subtractx2(Pair $pair1, Pair $pair2, Pair $pair3 --&gt; Pair)</a></h2>
+<p>Cette méthode renvoie la soustraction des numérateurs et dénominateurs passés aux attributs de la classe, c&#39;est-à-dire, &#39;numerator1&#39;, &#39;denominator1&#39;, &#39;numerator2&#39;, &#39;denominator2&#39; et &#39;numerator3&#39; et &#39;denominator3&#39; pour calculer la différence de trois fractions. Elle utilise les modules &#39;ppcm.pm6&#39; et &#39;pgcd.pm6&#39;, ainsi que la méthode de la classe : &#39;reduce-fraction($numerator, $denominator&#39;). Elle renvoie une paire constituée par le numérateur et le dénominateur de la fraction résultante.</p>
+<h2 id="add-up-subtract(Pair_$pair1,_Pair_$pair2,_Pair_$pair3_-->_Pair)"><a class="u" href="#___top" title="go to top of document">add-up-subtract(Pair $pair1, Pair $pair2, Pair $pair3 --&gt; Pair)</a></h2>
+<p>Cette méthode renvoie l&#39;addition des numérateurs et dénominateurs passés aux attributs de la classe, c&#39;est-à-dire, &#39;numerator1&#39;, &#39;denominator1&#39;, &#39;numerator2&#39;, &#39;denominator2&#39; et la soustraction des &#39;numerator3&#39; et &#39;denominator3&#39; pour calculer la somme des deux premières fractions et la différence du résultat et de la troisième fraction. Elle utilise les modules &#39;ppcm.pm6&#39; et &#39;pgcd.pm6&#39;, ainsi que la méthode de la classe : &#39;reduce-fraction($numerator, $denominator&#39;). Elle renvoie une paire constituée par le numérateur et le dénominateur de la fraction résultante.</p>
+<h2 id="subtract-add-up(Pair_$pair1,_Pair_$pair2,_Pair_$pair3_-->_Pair)"><a class="u" href="#___top" title="go to top of document">subtract-add-up(Pair $pair1, Pair $pair2, Pair $pair3 --&gt; Pair)</a></h2>
+<p>Cette méthode est l&#39;inverse de la précédente, c&#39;est-à-dire qu&#39;elle renvoie la soustraction des numérateurs et dénominateurs passés aux attributs de la classe, c&#39;est-à-dire, &#39;numerator1&#39;, &#39;denominator1&#39;, &#39;numerator2&#39;, &#39;denominator2&#39; pour calculer la différence des deux premières fractions et la somme du résultat et de la troisième fraction. Elle utilise les modules &#39;ppcm.pm6&#39; et &#39;pgcd.pm6&#39;, ainsi que la méthode de la classe : &#39;reduce-fraction($numerator, $denominator&#39;). Elle renvoie une paire constituée par le numérateur et le dénominateur de la fraction résultante.</p>
+<h2 id="breakdown-factors(Int_@array-of-factors_-->_Array)"><a class="u" href="#___top" title="go to top of document">breakdown-factors(Int @array-of-factors --&gt; Array)</a></h2>
+<p>Cette méthode décompose un tableau de facteurs en facteurs premiers. Elle utilise la méthode &#39;breakdown&#39; du rôle PrimeFactors. Consultez la documentation du module &#39;prime-factors.pm6&#39; pour plus d&#39;informations.</p>
+<h2 id="compute-prime-factors(Int_@array1,_Int_@array2,_Int_$return-array_=_1_-->_Array)"><a class="u" href="#___top" title="go to top of document">compute-prime-factors(Int @array1, Int @array2, Int $return-array = 1 --&gt; Array)</a></h2>
+<p>Cette méthode elle aussi appelle une méthode de PrimeFactors : &#39;reduce-fractions-prime-factors(Int @numerators, Int @denominators, Int $return-array)&#39; Elle consiste à produire les facteurs qui sont dans l&#39;un des tableaux mais pas dans l&#39;autre. Il faut passer l&#39;argument 1 (par défaut) à $return-array pour retourner le premier tableau, c&#39;est-à-dire les numérateurs ou 2 pour retourner le deuxième tableau, celui des dénominateurs. Consultez aussi la documentation du module &#39;prime-factors.pm6&#39;.</p>
+<h2 id="fractions-product-sign(Pair_$p1,_Pair_$p2,_Pair_$p3?_-->_Str)"><a class="u" href="#___top" title="go to top of document">fractions-product-sign(Pair $p1, Pair $p2, Pair $p3? --&gt; Str)</a></h2>
+<p>Cette méthode est utilisée pour déduire le signe du résultat du produit des fractions passées en arguments avant d&#39;effectuer les calculs. Elle retourne &#39;+&#39; ou &#39;−&#39;.</p>
+<h2 id="multiply(Pair_$pair1,_Pair_$pair2,_Pair_$pair3?_-->_Pair)"><a class="u" href="#___top" title="go to top of document">multiply(Pair $pair1, Pair $pair2, Pair $pair3? --&gt; Pair) </a></h2>
+<p>Cette méthode est utilisée pour multiplier deux ou trois fractions données en arguments sous forme de paires numérateur =&gt; dénominateur. Elle renvoie une nouvelle paire en valeur de retour.</p>
+
+</div>
+
+
+</body>
+</html>
+

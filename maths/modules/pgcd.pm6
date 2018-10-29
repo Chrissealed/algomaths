@@ -43,10 +43,11 @@ l'ensemble des diviseurs de chacun des deux nombres :
             array-or-hash => '@',
         );
         say "Diviseurs de $!integer1 :";
-        @a = $divisors-listing.list-divisors(self.integer1);
+        # Palier les effets de bord des nombres négatifs
+        @a = $divisors-listing.list-divisors(abs($!integer1));
 
         say "Diviseurs de $!integer2 :";
-        @b = $divisors-listing.list-divisors(self.integer2);
+        @b = $divisors-listing.list-divisors(abs($!integer2));
 
         @c = common-arrays-elements(@a, @b);
         say "Les diviseurs communs à $!integer1 et $!integer2 sont :";
@@ -80,6 +81,7 @@ deux nombres, par conséquent seul 2 l'est; d'ou PGCD(4352 ; 4342) = 2.
 =end pod
 
     method factorization_algorithm(--> Int) {
+        # Palier les effets de bord des nombres négatifs
         my Int $int1 = $!integer1;
         my Int $int2 = $!integer2;
         my %factors1{Int};
@@ -261,8 +263,9 @@ a par b
 =end pod
 
     method euclide_algorithm(--> Int) {
-        my Int $dividend = self.integer1;
-        my Int $divisor = self.integer2;
+        # Palier les effets de bord des nombres négatifs
+        my Int $dividend = abs(self.integer1);
+        my Int $divisor = abs(self.integer2);
         say "− Utilisation de l'algorithme d'Euclide −";
         if ($dividend < $divisor) {
             # Intervertir $x et $y
