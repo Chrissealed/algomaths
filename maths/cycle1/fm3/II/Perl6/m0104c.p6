@@ -7,18 +7,16 @@ use operations-on-fractions;
 
 sub answering {
     my $fraction = OperationsOnFractions.new(
-        nominator1 => 7,
+        numerator1 => 7,
         denominator1 => 12,
-        reduce-fraction1 => False,
-        nominator2 => 11,
+        numerator2 => 11,
         denominator2 => 16,
-        reduce-fraction2 => False,
-        which-ppcm-algorithm => 'by-prime-factors',
-        which-irreducible-fraction-algorithm => 'factorization',
-        which-pgcd-algorithm => 'divisors-listing',
+        which-ppcm-algorithm => 'b.p.f.', # by-prime-factors
+        which-irreducible-fraction-algorithm => '×', # factorization,
+        which-pgcd-algorithm => '#', # divisors-listing,
     );
     my Pair $P;
-    $P = $fraction.calculate-fractions('-');
+    $P = $fraction.calculate-fractions('−');
 }
 
 exercise_04c();

@@ -7,38 +7,27 @@ use operations-on-fractions;
 
 sub answering {
     my $fraction = OperationsOnFractions.new(
-        nominator1 => 1,
+        numerator1 => 1,
         denominator1 => 2,
-        reduce-fraction1 => False,
-        nominator2 => 2,
+        numerator2 => 2,
         denominator2 => 3,
-        reduce-fraction2 => False,
+        numerator3 => 3,
+        denominator3 => 4,
         which-ppcm-algorithm => 'by-prime-factors',
-        which-irreducible-fraction-algorithm => 'euclide',
-        which-pgcd-algorithm => 'euclide',
+        which-irreducible-fraction-algorithm => '÷', # euclide,
+        which-pgcd-algorithm => '÷', # euclide,
     );
     my Pair $P;
-    $P = $fraction.calculate-fractions('+');
-    say();
-    $fraction.nominator1 = $P.key;
-    $fraction.denominator1 = $P.value;
-    $fraction.nominator2 = 3;
-    $fraction.denominator2 = 4;
-    $P = $fraction.calculate-fractions('add-up');
+    $P = $fraction.calculate-fractions('++');
 
     say();
-    $fraction.nominator1 = $P.key;
+    $fraction.numerator1 = $P.key;
     $fraction.denominator1 = $P.value;
-    $fraction.nominator2 = 5;
-    $fraction.denominator2 = 6;
-    $P = $fraction.calculate-fractions('+');
-    
-    say();
-    $fraction.nominator1 = $P.key;
-    $fraction.denominator1 = $P.value;
-    $fraction.nominator2 = 4;
+    $fraction.numerator2 = 4;
     $fraction.denominator2 = 5;
-    $P = $fraction.calculate-fractions('add-up');
+    $fraction.numerator3 = 5;
+    $fraction.denominator3 = 6;
+    $P = $fraction.calculate-fractions('add-upx2');
 }
 
 exercise_05a();

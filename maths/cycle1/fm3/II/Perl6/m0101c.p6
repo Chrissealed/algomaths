@@ -7,12 +7,12 @@ use operations-on-fractions;
 
 sub answering {
     my $fraction = OperationsOnFractions.new(
-        nominator1 => 4,
+        numerator1 => 4,
         denominator1 => 5,
-        nominator2 => 7,
+        numerator2 => 7,
         denominator2 => 25,
-        which-ppcm-algorithm => 'by-prime-factors', # '2',
-        which-irreducible-fraction-algorithm => 'factorization-algorithm', # '3',
+        which-ppcm-algorithm => 'by-prime-factors', # 'b.p.f.' ou 'bf',
+        which-irreducible-fraction-algorithm => 'factorization', # 'f' ou '*' ou '×',
     );
     my Pair $P;
     $P = $fraction.calculate-fractions('subtract');

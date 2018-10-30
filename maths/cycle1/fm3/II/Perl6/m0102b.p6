@@ -7,12 +7,10 @@ use operations-on-fractions;
 
 sub answering {
     my $fraction = OperationsOnFractions.new(
-        nominator1 => 5,
+        numerator1 => 5,
         denominator1 => 6,
-        reduce-fraction1 => False,
-        nominator2 => 6,
+        numerator2 => 6,
         denominator2 => 5,
-        reduce-fraction2 => False,
         which-pgcd-algorithm => 'factorization',
     );
     my Pair $P;

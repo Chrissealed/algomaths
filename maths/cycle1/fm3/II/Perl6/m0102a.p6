@@ -8,15 +8,13 @@ use operations-on-fractions;
 sub answering {
     say "Les fractions 13/15 et 6/5 sont irréductibles.";
     my $fraction = OperationsOnFractions.new(
-        nominator1 => 13,
+        numerator1 => 13,
         denominator1 => 15,
-        reduce-fraction1 => False,
-        nominator2 => 6,
+        numerator2 => 6,
         denominator2 => 5,
-        reduce-fraction2 => False,
-        which-ppcm-algorithm => 'by-prime-factors', # '2',
-        which-irreducible-fraction-algorithm => 'factorization', # '3',
-        which-pgcd-algorithm => 'factorization', # '*' ou '3',
+        which-ppcm-algorithm => 'by-prime-factors',
+        which-irreducible-fraction-algorithm => 'factorization',
+        which-pgcd-algorithm => 'factorization',
     );
     my Pair $P;
     $P = $fraction.calculate-fractions('subtract');

@@ -7,10 +7,10 @@ use operations-on-fractions;
 
 sub answering {
     my $fraction = OperationsOnFractions.new(
-        nominator1 => 2,
+        numerator1 => 2,
         denominator1 => 21,
         #reduce-fraction1 => False,
-        nominator2 => 5,
+        numerator2 => 5,
         denominator2 => 21,
         #reduce-fraction2 => False,
     );

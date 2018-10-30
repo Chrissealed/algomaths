@@ -7,14 +7,12 @@ use operations-on-fractions;
 
 sub answering {
     my $fraction = OperationsOnFractions.new(
-        nominator1 => 5,
+        numerator1 => 5,
         denominator1 => 8,
-        reduce-fraction1 => False,
-        nominator2 => 3,
+        numerator2 => 3,
         denominator2 => 11,
-        reduce-fraction2 => False,
-        which-irreducible-fraction-algorithm => 'factorization', # '3',
-        which-pgcd-algorithm => 'factorization', # '*' ou '3',
+        which-irreducible-fraction-algorithm => 'factorization',
+        which-pgcd-algorithm => 'factorization',
     );
     my Pair $P;
     say "Les fractions 5/8 et 3/11 sont irréductibles.";

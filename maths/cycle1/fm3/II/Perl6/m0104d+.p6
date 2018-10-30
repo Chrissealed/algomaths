@@ -10,15 +10,15 @@ sub answering {
         numerator1 => 1,
         denominator1 => 2,
         numerator2 => 1,
-        denominator2 => 3,
+        denominator2 => 4,
         numerator3 => 1,
-        denominator3 => 4,
-        which-ppcm-algorithm => 'by-larger-number-multiples',
+        denominator3 => 3,
+        which-ppcm-algorithm => 'b.l.n.m.', # by-larger-number-multiples,
         which-irreducible-fraction-algorithm => 'subtraction',
-        which-pgcd-algorithm => 'divisors-listing',
+        which-pgcd-algorithm => '/', # divisors-listing,
     );
     my Pair $P;
-    $P = $fraction.calculate-fractions('subtract-add-up');
+    $P = $fraction.calculate-fractions('add-up-subtract');
     say();
     say "Pour faire les calculs en une passe, on peut écrire :";
     say "1/2 − 1/3 + 1/4 = 6/12 − 4/12 + 3/12 = 6−4+3/12 = 5/12.";

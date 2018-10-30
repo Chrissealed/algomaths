@@ -7,12 +7,12 @@ use operations-on-fractions;
 
 sub answering {
     my $fraction = OperationsOnFractions.new(
-        nominator1 => 21,
+        numerator1 => 21,
         denominator1 => 2121,
-        nominator2 => 55,
+        numerator2 => 55,
         denominator2 => 44,
     );
-    my Pair $P = $fraction.calculate-fractions('-');
+    my Pair $P = $fraction.calculate-fractions('subtract');
 }
 
 exercise_06d();

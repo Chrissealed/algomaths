@@ -7,22 +7,17 @@ use operations-on-fractions;
 
 sub answering {
     my $fraction = OperationsOnFractions.new(
-        nominator1 => 15,
+        numerator1 => 15,
         denominator1 => 25,
-        nominator2 => 12,
+        reduce-fraction1 => True,
+        numerator2 => 12,
         denominator2 => 16,
+        reduce-fraction2 => True,
+        numerator3 => 7,
+        denominator3 => 20,
+        reduce-fraction3 => True,
     );
-    my Pair $P = $fraction.calculate-fractions('-');
-    say();
-    $fraction = OperationsOnFractions.new(
-        nominator1 => $P.key,
-        denominator1 => $P.value,
-        # La fraction étant déjà réduite, j'ajoute ce champ
-        reduce-fraction1 => False,
-        nominator2 => 7,
-        denominator2 => 20,
-    );
-    $P = $fraction.calculate-fractions('+');
+    my Pair $P = $fraction.calculate-fractions('−+');
 }
 
 exercise_06c();

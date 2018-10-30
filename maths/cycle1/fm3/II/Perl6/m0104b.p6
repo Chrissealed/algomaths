@@ -7,12 +7,10 @@ use operations-on-fractions;
 
 sub answering {
     my $fraction = OperationsOnFractions.new(
-        nominator1 => -6,
+        numerator1 => -6,
         denominator1 => 11,
-        reduce-fraction1 => False,
-        nominator2 => -6,
+        numerator2 => -6,
         denominator2 => -11,
-        reduce-fraction2 => False,
         which-ppcm-algorithm => 'by-larger-number-multiples',
         which-irreducible-fraction-algorithm => 'factorization',
         which-pgcd-algorithm => 'divisors-listing',
