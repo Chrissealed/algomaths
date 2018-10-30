@@ -8,17 +8,15 @@ use operations-on-fractions;
 sub answering {
     say "0,5 exprimé sous forme de fraction = 1/2.";
     my $fraction = OperationsOnFractions.new(
-        nominator1 => 1,
+        numerator1 => 1,
         denominator1 => 2,
-        reduce-fraction1 => False,
-        nominator2 => 5,
+        numerator2 => 5,
         denominator2 => 6,
-        reduce-fraction2 => False,
-        which-ppcm-algorithm => 'by-larger-number-multiples',
-        which-irreducible-fraction-algorithm => 'factorization',
-        which-pgcd-algorithm => 'divisors-listing',
+        which-ppcm-algorithm => 'b.l.n.m.', # by-larger-number-multiples,
+        which-irreducible-fraction-algorithm => '×', # factorization,
+        which-pgcd-algorithm => '#', # divisors-listing,
     );
-    my Pair $P = $fraction.calculate-fractions('-');
+    my Pair $P = $fraction.calculate-fractions('−');
 }
 
 exercise_g();

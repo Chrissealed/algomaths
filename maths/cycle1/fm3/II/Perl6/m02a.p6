@@ -7,15 +7,13 @@ use operations-on-fractions;
 
 sub answering {
     my $fraction = OperationsOnFractions.new(
-        nominator1 => 7,
+        numerator1 => 7,
         denominator1 => 1,
-        reduce-fraction1 => False,
-        nominator2 => 3,
+        numerator2 => 3,
         denominator2 => 4,
-        reduce-fraction2 => False,
-        which-ppcm-algorithm => '1',
-        which-irreducible-fraction => '3',
-        which-pgcd-algorithm => '3',
+        which-ppcm-algorithm => 'by-use-of-pgcd', # b.u.o.p.,
+        which-irreducible-fraction => '×', # factorization,
+        which-pgcd-algorithm => '×', # factorization,
     );
     my Pair $P = $fraction.calculate-fractions('+');
 }

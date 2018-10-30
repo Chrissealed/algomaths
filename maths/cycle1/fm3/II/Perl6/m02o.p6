@@ -8,29 +8,35 @@ use operations-on-fractions;
 sub answering {
     say "Le nombre 1 est équivalent à la fraction 1/1.";
     my $fraction = OperationsOnFractions.new(
-        nominator1 => 1,
-        denominator1 => 1,
-        reduce-fraction1 => False,
-        nominator2 => 3,
-        denominator2 => 7,
-        reduce-fraction2 => False,
-        which-ppcm-algorithm => 'by-prime-factors',
-        which-irreducible-fraction-algorithm => 'factorization',
-        which-pgcd-algorithm => 'factorization',
+        numerator1 => 5,
+        denominator1 => 12,
+        numerator2 => 4,
+        denominator2 => 21,
+        numerator3 => 3,
+        denominator3 => 7,
+        # On joue sur les options de réduction dans une liste
+        # chaînée d'opérations
+        reduce-last-one => False,
+        reduce-last-once => False,
+        which-ppcm-algorithm => 'bp',
+        which-irreducible-fraction-algorithm => 'e',
+        which-pgcd-algorithm => 'e',
     );
-    my Pair $P = $fraction.calculate-fractions('-');
+    my Pair $P = $fraction.calculate-fractions('+−');
     say();
-    $fraction.nominator1 = $P.key;
+    $fraction.numerator1 = $P.key;
     $fraction.denominator1 = $P.value;
-    $fraction.nominator2 = 5;
-    $fraction.denominator2 = 12;
+    $fraction.numerator2 = 1;
+    $fraction.denominator2 = 1;
+    # Ne pas oublier de mettre à Nil les attributs inemployés
+    $fraction.numerator3 = Nil;
+    $fraction.denominator3 = Nil;
+    # On réduit cette fois la dernière fraction
+    $fraction.reduce-last-one = True;
     $P = $fraction.calculate-fractions('+');
     say();
-    $fraction.nominator1 = $P.key;
-    $fraction.denominator1 = $P.value;
-    $fraction.nominator2 = 4;
-    $fraction.denominator2 = 21;
-    $P = $fraction.calculate-fractions('+');
+    put q/Pour faire les calculs en une seule passe/;
+    put q|84/84 − 36/84 + 35/84 + 16/84 = 99/84 = 33/28.|;
 }
 
 exercise_o();

@@ -7,25 +7,17 @@ use operations-on-fractions;
 
 sub answering {
     my $fraction = OperationsOnFractions.new(
-        nominator1 => 4,
+        numerator1 => 4,
         denominator1 => 11,
-        reduce-fraction1 => False,
-        nominator2 => 3,
+        numerator2 => 3,
         denominator2 => 7,
-        reduce-fraction2 => False,
-        which-ppcm-algorithm => 'by-prime-factors',
-        which-irreducible-fraction-algorithm => 'factorization',
-        which-pgcd-algorithm => 'factorization',
+        numerator3 => 2,
+        denominator3 => 1,
+        which-ppcm-algorithm => 'bf', # by-prime-factors,
+        which-irreducible-fraction-algorithm => 'f', # factorization,
+        which-pgcd-algorithm => 'f', # factorization,
     );
-    my Pair $P = $fraction.calculate-fractions('-');
-    say();
-    say "Le nombre 2 est équivalent à la fraction 2/1.";
-    $fraction.nominator1 = $P.key;
-    $fraction.denominator1 = $P.value;
-    $fraction.nominator2 = 2;
-    $fraction.denominator2 = 1;
-    $fraction.which-pgcd-algorithm = 'euclide';
-    $P = $fraction.calculate-fractions('-');
+    my Pair $P = $fraction.calculate-fractions('subtractx2');
     say();
     say "Equivalent de ces calculs en une seule passe :";
     say "4/11 − 3/7 − 2 = 28/77 − 33/77 − 154/77 = −159/77.";

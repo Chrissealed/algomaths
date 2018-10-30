@@ -7,23 +7,17 @@ use operations-on-fractions;
 
 sub answering {
     my $fraction = OperationsOnFractions.new(
-        nominator1 => 5,
+        numerator1 => 5,
         denominator1 => 3,
-        reduce-fraction1 => False,
-        nominator2 => 4,
-        denominator2 => 1,
-        reduce-fraction2 => False,
+        numerator2 => 2,
+        denominator2 => 7,
+        numerator3 => 4,
+        denominator3 => 1,
         which-ppcm-algorithm => 'by-larger-number-multiples',
         which-irreducible-fraction-algorithm => 'factorization',
         which-pgcd-algorithm => 'euclide',
     );
-    my Pair $P = $fraction.calculate-fractions('add-up');
-    say();
-    $fraction.nominator1 = $P.key;
-    $fraction.denominator1 = $P.value;
-    $fraction.nominator2 = 2;
-    $fraction.denominator2 = 7;
-    $P = $fraction.calculate-fractions('+');
+    my Pair $P = $fraction.calculate-fractions('add-upx2');
 }
 
 exercise_e();

@@ -8,28 +8,25 @@ use operations-on-fractions;
 sub answering {
     say "Le nombre 1 est équivalent à la fraction 1/1.";
     my $fraction = OperationsOnFractions.new(
-        nominator1 => 1,
+        numerator1 => 1,
         denominator1 => 1,
-        reduce-fraction1 => False,
-        nominator2 => 1,
-        denominator2 => 2,
-        reduce-fraction2 => False,
-        which-ppcm-algorithm => 'by-prime-factors',
-        which-irreducible-fraction-algorithm => 'factorization',
+        numerator2 => 5,
+        denominator2 => 6,
+        numerator3 => 3,
+        denominator3 => 4,
+        which-ppcm-algorithm => 'b.p.f.', # by-prime-factors,
+        which-irreducible-fraction-algorithm => '×', # factorization,
         which-pgcd-algorithm => 'factorization',
     );
-    my Pair $P = $fraction.calculate-fractions('+');
+    my Pair $P = $fraction.calculate-fractions('++');
     say();
-    $fraction.nominator1 = $P.key;
+    $fraction.numerator1 = $P.key;
     $fraction.denominator1 = $P.value;
-    $fraction.nominator2 = 3;
-    $fraction.denominator2 = 4;
-    $P = $fraction.calculate-fractions('+');
-    say();
-    $fraction.nominator1 = $P.key;
-    $fraction.denominator1 = $P.value;
-    $fraction.nominator2 = 5;
-    $fraction.denominator2 = 6;
+    $fraction.numerator2 = 1;
+    $fraction.denominator2 = 2;
+    # Ne pas oublier de désactiver la troisième fraction
+    $fraction.numerator3 = Nil;
+    $fraction.denominator3 = Nil;
     $P = $fraction.calculate-fractions('+');
     say();
     say "Equivalent de ces calculs en une seule passe :";

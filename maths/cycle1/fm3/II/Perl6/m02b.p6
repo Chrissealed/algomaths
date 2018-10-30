@@ -7,17 +7,15 @@ use operations-on-fractions;
 
 sub answering {
     my $fraction = OperationsOnFractions.new(
-        nominator1 => 1,
+        numerator1 => 1,
         denominator1 => 1,
-        reduce-fraction1 => False,
-        nominator2 => 5,
+        numerator2 => 5,
         denominator2 => 7,
-        reduce-fraction2 => False,
-        which-ppcm-algorithm => 'by-larger-number-multiples',
+        which-ppcm-algorithm => 'b.l.n.m.', # by-larger-number-multiples,
         which-irreducible-fraction-algorithm => 'factorization',
         which-pgcd-algorithm => 'factorization',
     );
-    my Pair $P = $fraction.calculate-fractions('-');
+    my Pair $P = $fraction.calculate-fractions('subtract');
 }
 
 exercise_b();
