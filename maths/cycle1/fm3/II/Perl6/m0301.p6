@@ -7,25 +7,23 @@ use operations-on-fractions;
 
 sub answering {
     my $fraction = OperationsOnFractions.new(
-        nominator1 => 7,
+        numerator1 => 7,
         denominator1 => 12,
-        reduce-fraction1 => False,
-        nominator2 => 1,
+        numerator2 => 1,
         denominator2 => 4,
-        reduce-fraction2 => False,
-        which-ppcm-algorithm => 'by-prime-factors',
-        which-irreducible-fraction-algorithm => 'factorization',
-        which-pgcd-algorithm => 'factorization',
+        which-ppcm-algorithm => 'b.p.f.',
+        which-irreducible-fraction-algorithm => 'f',
+        which-pgcd-algorithm => 'f',
     );
     my Pair $P = $fraction.calculate-fractions('+');
-    say "Les ", $P.key, "/", $P.value, " du cocktail d'agrumes sont de l'orange ou du pamplemousse.";
+    say "Les {$P.key}/{$P.value} du cocktail d'agrumes sont de l'orange ou du pamplemousse.";
     say();
-    $fraction.nominator1 = 1;
+    $fraction.numerator1 = 1;
     $fraction.denominator1 = 1;
-    $fraction.nominator2 = $P.key;
+    $fraction.numerator2 = $P.key;
     $fraction.denominator2 = $P.value;
-    $P = $fraction.calculate-fractions('-');
-    say "Dans ce cocktail d'agrumes, la proportion de citron est de ", $P.key, "/", $P.value, ".";
+    $P = $fraction.calculate-fractions('−');
+    say "Dans ce cocktail d'agrumes, la proportion de citron est de {$P.key}/{$P.value}.";
 }
 
 exercise_01();

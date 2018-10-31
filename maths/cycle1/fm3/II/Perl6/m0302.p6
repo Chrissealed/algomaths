@@ -7,25 +7,23 @@ use operations-on-fractions;
 
 sub answering {
     my $fraction = OperationsOnFractions.new(
-        nominator1 => 1,
+        numerator1 => 1,
         denominator1 => 7,
-        reduce-fraction1 => False,
-        nominator2 => 2,
+        numerator2 => 2,
         denominator2 => 5,
-        reduce-fraction2 => False,
         which-ppcm-algorithm => 'by-prime-factors',
         which-irreducible-fraction-algorithm => 'factorization',
         which-pgcd-algorithm => 'factorization',
     );
     my Pair $P = $fraction.calculate-fractions('+');
-    say "Antoine a payé ", $P.key, "/", $P.value, " du prix total de l'automobile avant le dernier versement.";
+    say "Antoine a payé {$P.key}/{$P.value} du prix total de l'automobile avant le dernier versement.";
     say();
-    $fraction.nominator1 = 1;
+    $fraction.numerator1 = 1;
     $fraction.denominator1 = 1;
-    $fraction.nominator2 = $P.key;
+    $fraction.numerator2 = $P.key;
     $fraction.denominator2 = $P.value;
-    $P = $fraction.calculate-fractions('-');
-    say "Le dernier versement représente ", $P.key, "/", $P.value, " du prix total.";
+    $P = $fraction.calculate-fractions('−');
+    say "Le dernier versement représente {$P.key}/{$P.value} du prix total.";
 }
 
 exercise_02();

@@ -7,31 +7,29 @@ use operations-on-fractions;
 
 sub answering {
     my $fraction = OperationsOnFractions.new(
-        nominator1 => 1,
-        denominator1 => 3,
-        reduce-fraction1 => False,
-        nominator2 => 1,
-        denominator2 => 6,
-        reduce-fraction2 => False,
-        which-ppcm-algorithm => 'by-prime-factors',
-        which-irreducible-fraction-algorithm => 'factorization',
-        which-pgcd-algorithm => 'factorization',
+        numerator1 => 1,
+        denominator1 => 6,
+        numerator2 => 1,
+        denominator2 => 4,
+        numerator3 => 1,
+        denominator3 => 3,
+        which-ppcm-algorithm => 'bm',
+        which-irreducible-fraction-algorithm => 's',
+        which-pgcd-algorithm => 'f',
     );
-    my Pair $P = $fraction.calculate-fractions('+');
+    my Pair $P = $fraction.calculate-fractions('++');
     say();
-    $fraction.nominator1 = $P.key;
-    $fraction.denominator1 = $P.value;
-    $fraction.nominator2 = 1;
-    $fraction.denominator2 = 4;
-    $P = $fraction.calculate-fractions('+');
-    say();
-    $fraction.nominator1 = 1;
+    $fraction.numerator1 = 1;
     $fraction.denominator1 = 1;
-    $fraction.nominator2 = $P.key;
+    $fraction.numerator2 = $P.key;
     $fraction.denominator2 = $P.value;
-    $P = $fraction.calculate-fractions('-');
+    $fraction.numerator3 = Nil;
+    $fraction.denominator3 = Nil;
+    $fraction.which-ppcm-algorithm = 'b.u.o.p.';
+    $fraction.which-pgcd-algorithm = '#';
+    $P = $fraction.calculate-fractions('−');
     
-    say "Il reste ", $P.key, "/", $P.value, " de la pizza pour Jules.";
+    say "Il reste {$P.key}/{$P.value} de la pizza pour Jules.";
 }
 
 exercise_03();

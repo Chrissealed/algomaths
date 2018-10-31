@@ -7,24 +7,23 @@ use operations-on-fractions;
 
 sub answering {
     my $fraction = OperationsOnFractions.new(
-        nominator1 => 1,
+        numerator1 => 1,
         denominator1 => 3,
-        reduce-fraction1 => False,
-        nominator2 => 1,
+        numerator2 => 1,
         denominator2 => 2,
         reduce-fraction2 => False,
-        which-ppcm-algorithm => 'by-prime-factors',
-        which-irreducible-fraction-algorithm => 'factorization',
-        which-pgcd-algorithm => 'factorization',
+        which-ppcm-algorithm => 'bm',
+        which-irreducible-fraction-algorithm => 'f',
+        which-pgcd-algorithm => '×',
     );
     my Pair $P = $fraction.calculate-fractions('+');
     say();
-    $fraction.nominator1 = 1;
+    $fraction.numerator1 = 1;
     $fraction.denominator1 = 1;
-    $fraction.nominator2 = $P.key;
+    $fraction.numerator2 = $P.key;
     $fraction.denominator2 = $P.value;
-    $P = $fraction.calculate-fractions('-');
-    say "Il reste au cultivateur ", $P.key, "/", $P.value, " de la surface de son champ à planter.";
+    $P = $fraction.calculate-fractions('−');
+    say "Il reste au cultivateur {$P.key}/{$P.value} de la surface de son champ à planter.";
 }
 
 exercise_04();

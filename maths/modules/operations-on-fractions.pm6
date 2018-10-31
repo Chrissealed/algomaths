@@ -10,9 +10,9 @@ use v6;
 Ce module est destiné à faire des opérations sur des fractions.
 
 Il utilise les modules 'ppcm.pm6' et 'irreducible-fraction.pm6'
-et hérite du rôle 'PrimeFactors'.
-La méthode principale de la classe 'OperationsOnFractions'
-est 'calculate-fractions(Str $operation) ou le
+et hérite du rôle B<PrimeFactors>.
+La méthode principale de la classe B<OperationsOnFractions>
+est B<calculate-fractions(Str $operation)> ou le
 =item paramètre '$operation' est soit 'add-up' ou '+'
 soit 'subtract' ou '-' ou '−', soit 'multiply' ou '*' ou '×'
 soit 'divide' ou ':' ou '÷',
@@ -38,19 +38,22 @@ avant le traitement des données,
 =item ce sont 'reduce-fraction1', 'reduce-fraction2'
 et 'reduce-fraction3';
 
-ces champs par défaut sont à False,
+ces champs par défaut sont à B<False>,
 autrement dit on ne tente pas d'opérer une réduction de chaque fraction
 avant d'effectuer l'opération.
 Noter que la dernière fraction résultante de l'opération
 est toujours donnée irréductible, mais qu'on peut jouer
-sur deux autres attributs Booléens à True par défaut :
-=item 'reduce-last-once', et 'reduce-last-one';
+sur deux autres attributs Booléens :
+=item 'reduce-last-once' (B<False> par défaut), et
+'reduce-last-one' (B<True> par défaut);
 
 le premier visant à réduire une seule fois
 la première fraction calculée dans une liste chaînée
 d'opérations (par exemple : +−),
 et le deuxième à réduire systématiquement la dernière
-fraction obtenue à tous les niveaux de cette liste.
+fraction obtenue à tous les niveaux de cette liste
+ou bien lors d'une opération simple suivie
+éventuellement d'une autre.
 Ces attributs visent à modifier les opérations de calcul
 de manière à produire plusieurs options pour générer
 un même résultat.
@@ -62,7 +65,7 @@ le premier de ces champs est destiné à établir la liste
 des facteurs premiers d'un entier différent de 0;
 le deuxième permet de supprimer les facteurs en double
 dans le numérateur et le dénominateur pour opérer la
-réduction de la fraction. Ces deux champs sont à True
+réduction de la fraction. Ces deux champs sont à B<True>
 par défaut.
 
 Les autres champs, facultatifs, sont destinés à choisir
@@ -101,7 +104,7 @@ class OperationsOnFractions does PrimeFactors is export {
     has Int $.denominator3 is rw where { $_ != 0 or die "Valeur de champ invalide! Dénominateur différent de 0 requis." }
     has Bool $.reduce-fraction3 is rw = False;
     has Bool $.reduce-last-one is rw = True;
-    has Bool $.reduce-last-once is rw = True;
+    has Bool $.reduce-last-once is rw = False;
     has Bool $.breakdown'factors is rw = True;
     has Bool $.compute'prime'factors is rw = True;
     has Str $.which-ppcm-algorithm is rw where { ($_ ~~ / 'by-larger-number-multiples' || 'b.l.n.m.' || 'bm' || 'by-prime-factors' || 'b.p.f.' || 'bf' || 'by-use-of-pgcd' || 'b.u.o.p.' || 'bp' /) or
@@ -118,17 +121,26 @@ class OperationsOnFractions does PrimeFactors is export {
 =for head1
 Voici la liste des méthodes de la classe OperationsOnFractions :
 =for head2
-reduce-fraction(Int $numerator, Int $denominator --> Pair)
+calculate-fractions(Str $operation --> Pair)
+
+Cette méthode est la principale de la classe,
+qui donne accès à toutes les autres méthodes
+− bien que celles-là ne soient pas privées et sont
+donc accessibles isolément −
+en employant un seul argument, le type d'opération
+à effectuer. (Voir plus haut)
+=for head2
+reduce-fraction(Int $numerator, Int $denominator, Str $sign = '' --> Pair)
 
 Cette méthode destinée à obtenir la fraction irréductible
 à partir du numérateur et du dénominateur passés en argument
-utilise la classe IrreducibleFraction du module 'irreducible-fraction.pm6'
+utilise la classe B<IrreducibleFraction> du module 'irreducible-fraction.pm6'
 et utilse deux attributs de la classe, soit
 'which-irreducible-fraction-algorithm' et 'which-pgcd-algorithm'
 qui déterminent le choix pour le premier de l'algorithme
-de la méthode utilisée en interne par IrreducibleFraction
-pour effectuer les calculs, ainsi que l'algorithme
-du module 'pgdc.pm6' dont IrreducibleFraction se servira en interne.
+de la méthode utilisée en interne par B<IrreducibleFraction>
+pour effectuer les calculs, et pour le deuxième l'algorithme
+du module 'pgdc.pm6' dont B<IrreducibleFraction> se servira en interne.
 =end pod
 
     method reduce-fraction(Int $numerator, Int $denominator, Str $sign = '' --> Pair) {
@@ -151,18 +163,22 @@ du module 'pgdc.pm6' dont IrreducibleFraction se servira en interne.
 
 =begin pod
 =for head2
-add-up(Pair $pair1, Pair $pair2 --> Pair)
+add-up(Pair $pair1, Pair $pair2, Int $times = 0 --> Pair)
 
 Cette méthode renvoie l'addition des numérateurs et dénominateurs
 passés aux attributs de la classe, c'est-à-dire,
 'numerator1', 'denominator1' et 'numerator2' et 'denominator2'.
 Elle utilise les modules 'ppcm.pm6' et 'pgcd.pm6',
 ainsi que la méthode de la classe 'reduce-fraction($numerator, $denominator'). 
-Elle renvoie une paire constituée du numérateur et du dénominateur
+Le paramètre '$times' s'il est mis à 1
+et que l'attribut de la classe 'reduce-last-onU<c>e'
+est passé à B<True>, la méthode ne réduira pas la fraction résultante
+lors d'un premier appel, mais la réduira lors d'un appel subséquent.
+Elle renvoie une B<paire> constituée du numérateur et du dénominateur
 de la fraction résultante.
 =end pod
 
-    method add-up(Pair $pair1, Pair $pair2 --> Pair) {
+    method add-up(Pair $pair1, Pair $pair2, Int $times = 0 --> Pair) {
         my Int $n1 = $pair1.key;
         my Int $n2 = $pair2.key;
         my Int $d1 = $pair1.value;
@@ -183,7 +199,7 @@ de la fraction résultante.
             say "$n1/$d1 + $n2/$d2 = $n1 + $n2/$denominator;";
             $pair = $numerator => $denominator;
             say();
-            if ($!reduce-last-once || $!reduce-last-one) {
+            if ($!reduce-last-once && ($times == 1) || $!reduce-last-one && ($times == 0)) {
                 say "On simplifie la dernière fraction obtenue :";
                 $pair = self.reduce-fraction($numerator, $denominator);
             }
@@ -217,7 +233,7 @@ de la fraction résultante.
         $denominator = $p;
         say "$numerator/$denominator.";
         say();
-        if ($!reduce-last-once || $!reduce-last-one) {
+        if ($!reduce-last-once && ($times == 1) || $!reduce-last-one && ($times == 0)) {
             say "On simplifie la dernière fraction obtenue :";
             $pair = self.reduce-fraction($numerator, $denominator);
         } else {
@@ -237,89 +253,31 @@ et 'numerator3' et 'denominator3' pour calculer la somme
 de trois fractions.
 Elle utilise les modules 'ppcm.pm6' et 'pgcd.pm6',
 ainsi que la méthode de la classe : 'reduce-fraction($numerator, $denominator'). 
-Elle renvoie une paire constituée par le numérateur et le dénominateur
+Elle renvoie une B<paire> constituée par le numérateur et le dénominateur
 de la fraction résultante.
 =end pod
 
     method add-upx2(Pair $pair1, Pair $pair2, Pair $pair3 --> Pair) {
-        my Pair $pair = self.add-up($pair1, $pair2);
-        my Int $n1 = $pair.key;
-        my Int $n2 = $pair3.key;
-        my Int $d1 = $pair.value;
-        my Int $d2 = $pair3.value;
-        my Int $p = 0;
-        my Int $numerator = 0;
-        my Int $denominator = 0;
-        my Int $multiple1 = 0;
-        my Int $multiple2 = 0;
-        say "On cherche le PPCM de $d1 et $d2 :";
-        my Str $ppcm-algorithm = self.which-ppcm-algorithm;
-        my Str $pgcd-algorithm = self.which-pgcd-algorithm;
-        if ($d1 == $d2) {
-            $numerator = $n1 + $n2;
-            $denominator = $d1;
-            put 'Les deux fractions ont même dénominateur donc :';
-            say "$n1/$d1 + $n2/$d2 = $n1 + $n2/$denominator;";
-            $pair = $numerator => $denominator;
-            say "$numerator/$denominator.";
-            say();
-            if ($!reduce-last-one) {
-                say "On simplifie la dernière fraction obtenue :";
-                $pair = self.reduce-fraction($numerator, $denominator);
-            }
-            return $pair;
-        }
-        else {
-            my $ppcm = PPCM.new(
-                integer1 => $d1,
-                integer2 => $d2,
-                which-pgcd-algorithm => $pgcd-algorithm,
-            );
-            given $ppcm-algorithm {
-                when / 'b.l.n.m.' || 'bm' || 'by-larger-number-multiples' / { $p = $ppcm.by-larger-number-multiples; }
-                when / 'b.p.f.' || 'bf' || 'by-prime-factors' / { $p = $ppcm.by-prime-factors; }
-                when / 'b.u.o.p.' || 'bp' || 'by-use-of-pgcd' / { $p = $ppcm.by-use-of-pgcd; }
-                #default { $p = $ppcm.by-use-of-pgcd; }
-            }
-            $multiple1 = $p div $d1;
-            $multiple2 = $p div $d2;
-            say "$n1/$d1 + $n2/$d2 = $n1×$multiple1/$d1×$multiple1 + $n2×$multiple2/$d2×$multiple2;";
-        }
-        say "on effectue les calculs :";
-        my Int $numerator1 = $n1 * $multiple1;
-        my Int $numerator2 = $n2 * $multiple2;
-        my Int $denominator1 = $d1 * $multiple1;
-        my Int $denominator2 = $d2 * $multiple2;
-        say "$n1/$d1 + $n2/$d2 = $numerator1/$denominator1 + $numerator2/$denominator2;";
-        say();
-        put 'on ajoute les numérateurs et on garde le dénominateur commun :';
-        $numerator = $numerator1 + $numerator2;
-        $denominator = $p;
-        say "$numerator/$denominator.";
-        say();
-        if ($!reduce-last-once || $!reduce-last-one) {
-            say "On simplifie la dernière fraction obtenue :";
-            $pair = self.reduce-fraction($numerator, $denominator);
-        } else {
-            $pair = $numerator div $denominator;
-        }
+        my Pair $pair = self.add-up($pair1, $pair2, 1);
+        $pair = self.add-up($pair, $pair3);
         return $pair;
     }
 
 =begin pod
 =for head2
-subtract(Pair $pair1, Pair $pair2 --> Pair)
+subtract(Pair $pair1, Pair $pair2, Int $times = 0 --> Pair)
 
 Cette méthode renvoie la soustraction des numérateurs et dénominateurs
 passés aux attributs de la classe, c'est-à-dire,
 'numerator1', 'denominator1' et 'numerator2' et 'denominator2'.
 Elle utilise les modules 'ppcm.pm6' et 'pgcd.pm6',
 ainsi que la méthode de la classe 'reduce-fraction($numerator, $denominator'). 
+Le paramètre '$times' a le même effet que pour l'opération 'add-up' (voir plus haut).
 Elle renvoie une paire constituée du numérateur et du dénominateur
 de la fraction résultante.
 =end pod
 
-    method subtract(Pair $pair1, Pair $pair2 --> Pair) {
+    method subtract(Pair $pair1, Pair $pair2, Int $times = 0 --> Pair) {
         my Int $n1 = $pair1.key;
         my Int $n2 = $pair2.key;
         my Int $d1 = $pair1.value;
@@ -341,7 +299,7 @@ de la fraction résultante.
             $pair = $numerator => $denominator;
             say "$numerator/$denominator";
             say();
-            if ($!reduce-last-one) {
+            if ($!reduce-last-once && ($times == 1) || $!reduce-last-one && ($times == 0)) {
                 say "On simplifie la dernière fraction obtenue :";
                 $pair = self.reduce-fraction($numerator, $denominator);
             }
@@ -373,9 +331,10 @@ de la fraction résultante.
         put 'on soustrait les numérateurs et on garde le dénominateur commun :';
         $numerator = $numerator1 − $numerator2;
         $denominator = $p;
+        $pair = $numerator => $denominator;
         say "$numerator/$denominator.";
         say();
-        if ($!reduce-last-one) {
+        if ($!reduce-last-once && ($times == 1) || $!reduce-last-one && ($times == 0)) {
             say "On simplifie la dernière fraction obtenue :";
             $pair = self.reduce-fraction($numerator, $denominator);
         }
@@ -393,72 +352,13 @@ et 'numerator3' et 'denominator3' pour calculer la différence
 de trois fractions.
 Elle utilise les modules 'ppcm.pm6' et 'pgcd.pm6',
 ainsi que la méthode de la classe : 'reduce-fraction($numerator, $denominator'). 
-Elle renvoie une paire constituée par le numérateur et le dénominateur
+Elle renvoie une B<paire> constituée par le numérateur et le dénominateur
 de la fraction résultante.
 =end pod
 
     method subtractx2(Pair $pair1, Pair $pair2, Pair $pair3 --> Pair) {
-        my Pair $pair = self.subtract($pair1, $pair2);
-        my Int $n1 = $pair.key;
-        my Int $n2 = $pair3.key;
-        my Int $d1 = $pair.value;
-        my Int $d2 = $pair3.value;
-        my Int $p = 0;
-        my Int $numerator = 0;
-        my Int $denominator = 0;
-        my Int $multiple1 = 0;
-        my Int $multiple2 = 0;
-        say "On cherche le PPCM de $d1 et $d2 :";
-        my Str $ppcm-algorithm = self.which-ppcm-algorithm;
-        my Str $pgcd-algorithm = self.which-pgcd-algorithm;
-        if ($d1 == $d2) {
-            $numerator = $n1 − $n2;
-            $denominator = $d1;
-            put 'Les deux fractions ont même dénominateur donc :';
-            say "$n1/$d1 − $n2/$d2 = $n1 − $n2/$denominator;";
-            $pair = $numerator => $denominator;
-            say "$numerator/$denominator.";
-            say();
-            if ($!reduce-last-one || $!reduce-last-once) {
-                say "On simplifie la dernière fraction obtenue :";
-                $pair = self.reduce-fraction($numerator, $denominator);
-            }
-            return $pair;
-        }
-        else {
-            my $ppcm = PPCM.new(
-                integer1 => $d1,
-                integer2 => $d2,
-                which-pgcd-algorithm => $pgcd-algorithm,
-            );
-            given $ppcm-algorithm {
-                when / 'b.l.n.m.' || 'bm' || 'by-larger-number-multiples' / { $p = $ppcm.by-larger-number-multiples; }
-                when / 'b.p.f.' || 'bf' || 'by-prime-factors' / { $p = $ppcm.by-prime-factors; }
-                when / 'b.u.o.p.' || 'bp' || 'by-use-of-pgcd' / { $p = $ppcm.by-use-of-pgcd; }
-                #default { $p = $ppcm.by-use-of-pgcd; }
-            }
-            $multiple1 = $p div $d1;
-            $multiple2 = $p div $d2;
-            say "$n1/$d1 − $n2/$d2 = $n1×$multiple1/$d1×$multiple1 − $n2×$multiple2/$d2×$multiple2;";
-        }
-        say "on effectue les calculs :";
-        my Int $numerator1 = $n1 * $multiple1;
-        my Int $numerator2 = $n2 * $multiple2;
-        my Int $denominator1 = $d1 * $multiple1;
-        my Int $denominator2 = $d2 * $multiple2;
-        say "$n1/$d1 − $n2/$d2 = $numerator1/$denominator1 − $numerator2/$denominator2;";
-        say();
-        put 'on ajoute les numérateurs et on garde le dénominateur commun :';
-        $numerator = $numerator1 - $numerator2;
-        $denominator = $p;
-        say "$numerator/$denominator.";
-        say();
-        if ($!reduce-last-one || $!reduce-last-once) {
-            say "On simplifie la dernière fraction obtenue :";
-            $pair = self.reduce-fraction($numerator, $denominator);
-        } else {
-            $pair = $numerator div $denominator;
-        }
+        my Pair $pair = self.subtract($pair1, $pair2, 1);
+        $pair = self.subtract($pair, $pair3);
         return $pair;
     }
 
@@ -474,72 +374,13 @@ pour calculer la somme des deux premières fractions
 et la différence du résultat et de la troisième fraction.
 Elle utilise les modules 'ppcm.pm6' et 'pgcd.pm6',
 ainsi que la méthode de la classe : 'reduce-fraction($numerator, $denominator'). 
-Elle renvoie une paire constituée par le numérateur et le dénominateur
+Elle renvoie une B<paire> constituée par le numérateur et le dénominateur
 de la fraction résultante.
 =end pod
 
     method add-up-subtract(Pair $pair1, Pair $pair2, Pair $pair3 --> Pair) {
-        my Pair $pair = self.add-up($pair1, $pair2);
-        my Int $n1 = $pair.key;
-        my Int $n2 = $pair3.key;
-        my Int $d1 = $pair.value;
-        my Int $d2 = $pair3.value;
-        my Int $p = 0;
-        my Int $numerator = 0;
-        my Int $denominator = 0;
-        my Int $multiple1 = 0;
-        my Int $multiple2 = 0;
-        say "On cherche le PPCM de $d1 et $d2 :";
-        my Str $ppcm-algorithm = self.which-ppcm-algorithm;
-        my Str $pgcd-algorithm = self.which-pgcd-algorithm;
-        if ($d1 == $d2) {
-            $numerator = $n1 − $n2;
-            $denominator = $d1;
-            put 'Les deux fractions ont même dénominateur donc :';
-            say "$n1/$d1 − $n2/$d2 = $n1 − $n2/$denominator;";
-            $pair = $numerator => $denominator;
-            say "$numerator/$denominator.";
-            say();
-            if ($!reduce-last-one || $!reduce-last-once) {
-                say "On simplifie la dernière fraction obtenue :";
-                $pair = self.reduce-fraction($numerator, $denominator);
-            }
-            return $pair;
-        }
-        else {
-            my $ppcm = PPCM.new(
-                integer1 => $d1,
-                integer2 => $d2,
-                which-pgcd-algorithm => $pgcd-algorithm,
-            );
-            given $ppcm-algorithm {
-                when / 'b.l.n.m.' || 'bm' || 'by-larger-number-multiples' / { $p = $ppcm.by-larger-number-multiples; }
-                when / 'b.p.f.' || 'bf' || 'by-prime-factors' / { $p = $ppcm.by-prime-factors; }
-                when / 'b.u.o.p.' || 'bp' || 'by-use-of-pgcd' / { $p = $ppcm.by-use-of-pgcd; }
-                #default { $p = $ppcm.by-use-of-pgcd; }
-            }
-            $multiple1 = $p div $d1;
-            $multiple2 = $p div $d2;
-            say "$n1/$d1 − $n2/$d2 = $n1×$multiple1/$d1×$multiple1 − $n2×$multiple2/$d2×$multiple2;";
-        }
-        say "on effectue les calculs :";
-        my Int $numerator1 = $n1 * $multiple1;
-        my Int $numerator2 = $n2 * $multiple2;
-        my Int $denominator1 = $d1 * $multiple1;
-        my Int $denominator2 = $d2 * $multiple2;
-        say "$n1/$d1 − $n2/$d2 = $numerator1/$denominator1 − $numerator2/$denominator2;";
-        say();
-        put 'on soustrait les numérateurs et on garde le dénominateur commun :';
-        $numerator = $numerator1 - $numerator2;
-        $denominator = $p;
-        say "$numerator/$denominator.";
-        say();
-        if ($!reduce-last-one || $!reduce-last-once) {
-            say "On simplifie la dernière fraction obtenue :";
-            $pair = self.reduce-fraction($numerator, $denominator);
-        } else {
-            $pair = $numerator => $denominator;
-        }
+        my Pair $pair = self.add-up($pair1, $pair2, 1);
+        $pair = self.subtract($pair, $pair3);
         return $pair;
     }
 
@@ -555,72 +396,13 @@ pour calculer la différence des deux premières fractions
 et la somme du résultat et de la troisième fraction.
 Elle utilise les modules 'ppcm.pm6' et 'pgcd.pm6',
 ainsi que la méthode de la classe : 'reduce-fraction($numerator, $denominator'). 
-Elle renvoie une paire constituée par le numérateur et le dénominateur
+Elle renvoie une B<paire> constituée par le numérateur et le dénominateur
 de la fraction résultante.
 =end pod
 
     method subtract-add-up(Pair $pair1, Pair $pair2, Pair $pair3 --> Pair) {
-        my Pair $pair = self.subtract($pair1, $pair2);
-        my Int $n1 = $pair.key;
-        my Int $n2 = $pair3.key;
-        my Int $d1 = $pair.value;
-        my Int $d2 = $pair3.value;
-        my Int $p = 0;
-        my Int $numerator = 0;
-        my Int $denominator = 0;
-        my Int $multiple1 = 0;
-        my Int $multiple2 = 0;
-        say "On cherche le PPCM de $d1 et $d2 :";
-        my Str $ppcm-algorithm = self.which-ppcm-algorithm;
-        my Str $pgcd-algorithm = self.which-pgcd-algorithm;
-        if ($d1 == $d2) {
-            $numerator = $n1 + $n2;
-            $denominator = $d1;
-            put 'Les deux fractions ont même dénominateur donc :';
-            say "$n1/$d1 + $n2/$d2 = $n1 + $n2/$denominator;";
-            $pair = $numerator => $denominator;
-            say "$numerator/$denominator.";
-            say();
-            if ($!reduce-last-one || $!reduce-last-once) {
-                say "On simplifie la dernière fraction obtenue :";
-                $pair = self.reduce-fraction($numerator, $denominator);
-            }
-            return $pair;
-        }
-        else {
-            my $ppcm = PPCM.new(
-                integer1 => $d1,
-                integer2 => $d2,
-                which-pgcd-algorithm => $pgcd-algorithm,
-            );
-            given $ppcm-algorithm {
-                when / 'b.l.n.m.' || 'bm' || 'by-larger-number-multiples' / { $p = $ppcm.by-larger-number-multiples; }
-                when / 'b.p.f.' || 'bf' || 'by-prime-factors' / { $p = $ppcm.by-prime-factors; }
-                when / 'b.u.o.p.' || 'bp' || 'by-use-of-pgcd' / { $p = $ppcm.by-use-of-pgcd; }
-                #default { $p = $ppcm.by-use-of-pgcd; }
-            }
-            $multiple1 = $p div $d1;
-            $multiple2 = $p div $d2;
-            say "$n1/$d1 + $n2/$d2 = $n1×$multiple1/$d1×$multiple1 + $n2×$multiple2/$d2×$multiple2;";
-        }
-        say "on effectue les calculs :";
-        my Int $numerator1 = $n1 * $multiple1;
-        my Int $numerator2 = $n2 * $multiple2;
-        my Int $denominator1 = $d1 * $multiple1;
-        my Int $denominator2 = $d2 * $multiple2;
-        say "$n1/$d1 + $n2/$d2 = $numerator1/$denominator1 + $numerator2/$denominator2;";
-        say();
-        put 'on ajoute les numérateurs et on garde le dénominateur commun :';
-        $numerator = $numerator1 + $numerator2;
-        $denominator = $p;
-        say "$numerator/$denominator.";
-        say();
-        if ($!reduce-last-one || $!reduce-last-once) {
-            say "On simplifie la dernière fraction obtenue :";
-            $pair = self.reduce-fraction($numerator, $denominator);
-        } else {
-            $pair = $numerator div $denominator;
-        }
+        my Pair $pair = self.subtract($pair1, $pair2, 1);
+        $pair = self.add-up($pair, $pair3);
         return $pair;
     }
 
@@ -629,7 +411,7 @@ de la fraction résultante.
 breakdown-factors(Int @array-of-factors --> Array)
 
 Cette méthode décompose un tableau de facteurs en facteurs premiers.
-Elle utilise la méthode 'breakdown' du rôle PrimeFactors.
+Elle utilise la méthode 'breakdown' du rôle B<PrimeFactors>.
 Consultez la documentation du module 'prime-factors.pm6'
 pour plus d'informations.
 =end pod
@@ -661,7 +443,7 @@ pour plus d'informations.
 =for head2
 compute-prime-factors(Int @array1, Int @array2, Int $return-array = 1 --> Array)
 
-Cette méthode elle aussi appelle une méthode de PrimeFactors :
+Cette méthode elle aussi appelle une méthode de B<PrimeFactors> :
 'reduce-fractions-prime-factors(Int @numerators, Int @denominators, Int $return-array)'
 Elle consiste à produire les facteurs qui sont dans l'un des tableaux
 mais pas dans l'autre. Il faut passer l'argument 1 (par défaut) à $return-array
@@ -733,15 +515,17 @@ Elle retourne '+' ou '−'.
 
 =begin pod
 =for head2
-multiply(Pair $pair1, Pair $pair2, Pair $pair3? --> Pair) 
+multiply(Pair $pair1, Pair $pair2, Pair $pair3?, Int $times = 0 --> Pair) 
 
 Cette méthode est utilisée pour multiplier deux ou trois
 fractions données en arguments sous forme de paires
 numérateur => dénominateur.
-Elle renvoie une nouvelle paire en valeur de retour.
+Pour la fonction de l'attribut '$times', consultez
+ce qui est écrit pour les méthodes 'add-up' ou 'subtract'.
+Elle renvoie une nouvelle B<paire> en valeur de retour.
 =end pod
 
-    method multiply(Pair $pair1, Pair $pair2, Pair $pair3? --> Pair) {
+    method multiply(Pair $pair1, Pair $pair2, Pair $pair3?, Int $times = 0 --> Pair) {
         my Int $n1 = $pair1.key;
         my Int $n2 = $pair2.key;
         my Int $d1 = $pair1.value;
@@ -750,7 +534,6 @@ Elle renvoie une nouvelle paire en valeur de retour.
         my Int $n3;
         #my Int $d3 = 0;
         my Int $d3;
-        #if defined($pair3.key) && defined($pair3.value) {
         if defined($pair3) {
             $n3 = $pair3.key;
             $d3 = $pair3.value;
@@ -810,7 +593,7 @@ Elle renvoie une nouvelle paire en valeur de retour.
         say "Fraction résultante : $sign$numerator/$denominator.";
         say();
         my Pair $P;
-        if ($!reduce-last-one) {
+        if ($!reduce-last-once && ($times == 1) || $!reduce-last-one && ($times == 0)) {
             put 'On simplifie la dernière fraction obtenue :';
             $P = self.reduce-fraction($numerator, $denominator, $sign);
         } else {
@@ -875,7 +658,7 @@ Elle renvoie une nouvelle paire en valeur de retour.
                 when / 'add-up-subtract' || '+-' || '+−' / { $P4 = self.add-up-subtract($P1, $P2, $P3); }
                 when / 'subtractx2' || '--' || '−−' / { $P4 = self.subtractx2($P1, $P2, $P3); }
                 when / 'subtract-add-up' || '-+' || '−+' / { $P4 = self.subtract-add-up($P1, $P2, $P3); }
-                when / 'multiplyx2' || '**' || '××' / { $P4 = self.multiply($P1, $P2, $P3); }
+                when / 'multiplyx2' || '**' || '××' / { $P4 = self.multiply($P1, $P2, $P3, 1); }
                 default { say "Opération non définie pour trois opérateurs! 'add-upx2' ou '++', 'subtractx2' ou '--' ou '−−', 'multiplyx2' ou '**' ou '××', 'dividex2' ou '::' ou '÷÷' attendus." }
             }
             return $P4;
