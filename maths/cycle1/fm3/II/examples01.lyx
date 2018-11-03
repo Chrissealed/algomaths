@@ -1,0 +1,246 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass article
+\use_default_options true
+\maintain_unincluded_children false
+\language french
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize a4paper
+\use_geometry true
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\leftmargin 4cm
+\topmargin 3cm
+\rightmargin 4cm
+\bottommargin 3cm
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation 0cm
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style french
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 2
+\paperpagestyle empty
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Section*
+☉ Exemples
+\end_layout
+
+\begin_layout Subsection*
+On donne A = 
+\begin_inset Formula $\frac{3}{14}$
+\end_inset
+
++ 
+\begin_inset Formula $\frac{17}{14}$
+\end_inset
+
+ et B = 
+\begin_inset Formula $\frac{11}{15}$
+\end_inset
+
+ – 
+\begin_inset Formula $\frac{5}{6}$
+\end_inset
+
+ .
+ Calculer A et B.
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+A = 
+\begin_inset Formula $\frac{3}{14}$
+\end_inset
+
+ + 
+\begin_inset Formula $\frac{17}{14}$
+\end_inset
+
+ d'où A = 
+\begin_inset Formula $\frac{3+17}{14}$
+\end_inset
+
+ ; A = 
+\begin_inset Formula $\frac{20}{14}$
+\end_inset
+
+ d'où A = 
+\begin_inset Formula $\frac{10}{7}$
+\end_inset
+
+ .
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+► On a ajouté les numérateurs, gardé le dénominateur des fractions et simplifié.
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+B = 
+\begin_inset Formula $\frac{11}{15}$
+\end_inset
+
+ – 
+\begin_inset Formula $\frac{5}{6}$
+\end_inset
+
+ .
+ Le plus petit multiple commun non nul de 15 et 6 est 30;
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+30 = 2 × 3 × 5 = 2 × 15 = 6 × 5.
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+B = 
+\begin_inset Formula $\frac{11×2}{15×2}$
+\end_inset
+
+ – 
+\begin_inset Formula $\frac{5×5}{6×5}$
+\end_inset
+
+ ► On a réduit au même dénominateur.
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+B = 
+\begin_inset Formula $\frac{22}{30}$
+\end_inset
+
+ – 
+\begin_inset Formula $\frac{25}{30}$
+\end_inset
+
+ ► On a effectué les calculs.
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+B = 
+\begin_inset Formula $\frac{22-25}{30}$
+\end_inset
+
+ ► On a soustrait les numérateurs, gardé le dénominateur commun.
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+B = 
+\begin_inset Formula $-\frac{3}{30}$
+\end_inset
+
+ ► On a calculé le numérateur.
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+B = 
+\begin_inset Formula $-\frac{1}{10}$
+\end_inset
+
+ ► On a simplifié par 3.
+ La fraction est irréductible.
+\end_layout
+
+\end_body
+\end_document

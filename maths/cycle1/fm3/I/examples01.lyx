@@ -1,0 +1,249 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass article
+\use_default_options true
+\maintain_unincluded_children false
+\language french
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize a4paper
+\use_geometry true
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\leftmargin 4cm
+\topmargin 3cm
+\rightmargin 4cm
+\bottommargin 3cm
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation 0cm
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style swiss
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Subsection*
+☉ Exemples
+\end_layout
+
+\begin_layout Subsubsection*
+1.
+ 269 et 357 sont-ils des multiples de 17
+\begin_inset space ~
+\end_inset
+
+? Justifier.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $17×15=255$
+\end_inset
+
+ et 
+\begin_inset Formula $17×16=272$
+\end_inset
+
+ or 
+\begin_inset Formula $255<269<272$
+\end_inset
+
+ donc 
+\begin_inset Formula $17×15<269<17×16$
+\end_inset
+
+ et comme 
+\begin_inset Formula $15$
+\end_inset
+
+ et 
+\begin_inset Formula $16$
+\end_inset
+
+ sont deux entiers consécutifs, alors il n'existe pas d'entier 
+\begin_inset Formula $q$
+\end_inset
+
+ tel que 
+\begin_inset Formula $269=17q$
+\end_inset
+
+ donc 
+\begin_inset Formula $269$
+\end_inset
+
+ n'est pas un multiple de 
+\begin_inset Formula $17$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $357=17×21$
+\end_inset
+
+ donc 357 est un multiple de 17.
+\end_layout
+
+\begin_layout Subsubsection*
+2.
+ Prouver qu'il existe un seul multiple de 117 compris entre 700 et 800.
+\end_layout
+
+\begin_layout Standard
+Tout multiple de 117 s'écrit 
+\begin_inset Formula $117q$
+\end_inset
+
+ où 
+\begin_inset Formula $q$
+\end_inset
+
+ est un nombre entier.
+\end_layout
+
+\begin_layout Standard
+On a : 
+\begin_inset Formula $117×5=585$
+\end_inset
+
+ ; 
+\begin_inset Formula $117×6=702$
+\end_inset
+
+ et 
+\begin_inset Formula $117×7=819.$
+\end_inset
+
+ ▶ On a écrit dans l'ordre croissant les multiples de 117 voisins de 700
+ et 800.
+\end_layout
+
+\begin_layout Standard
+Or 
+\begin_inset Formula $585<700<702<800<819$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Il existe donc un seul multiple de 117 compris entre 700 et 800, c'est :
+ 702.
+\end_layout
+
+\begin_layout Subsubsection*
+3.
+ Démontrer que la somme de trois multiples consécutifs de 3 est un multiple
+ de 9.
+\end_layout
+
+\begin_layout Standard
+Trois multiples consécutifs de 3 s'écrivent :
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $3(n-1)$
+\end_inset
+
+ , 
+\begin_inset Formula $3n$
+\end_inset
+
+ et 
+\begin_inset Formula $3(n+1)$
+\end_inset
+
+ où 
+\begin_inset Formula $n$
+\end_inset
+
+ désigne un entier naturel différent de 0
+\end_layout
+
+\begin_layout Standard
+or 
+\begin_inset Formula $3(n-1)+3n+3(n+1)=3n-3+3n+3n+3=9n$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+La somme de trois multiples consécutifs de 3 peut donc s'écrire 
+\begin_inset Formula $9n$
+\end_inset
+
+, produit de 
+\begin_inset Formula $9$
+\end_inset
+
+ par un entier.
+\end_layout
+
+\begin_layout Standard
+La somme de trois multiples consécutifs de 3 est donc bien un multiple de
+ 9.
+\end_layout
+
+\end_body
+\end_document
