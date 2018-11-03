@@ -4,10 +4,9 @@ use v6;
 
 =begin pod
 =head1 Ce module contient une classe : 'IntegerDivisorsListingH'
-destinée à établir la liste des diviseurs d'un entier naturel non nul.
-Elle contient deux méthodes, l'une publique : 'list-divisors(Int $integer where {$integer > 0})' 
-et l'autre privée : 'display($integer, $perfectsquare, @hash)'
-destinée à l'affichage d'informations.
+destinée à établir la liste des diviseurs d'un entier relatif non nul.
+Elle contient deux méthodes, l'une publique : 'list-divisors(Int $integer where {$integer != 0})' 
+et l'autre privée destinée à l'affichage d'informations.
 Elle utilise le module 'usual-divisibility-criteria.pm6' pour calculer la divisibilité
 des nombres 2, 3, 4, 5, 9, (10, 100, 1000, etc.), 11 et 25
 en utilisant les critères de divisibilité les plus usuels (voir la doc du fichier
@@ -25,8 +24,8 @@ use usual-divisibility-criteria;
 
 class IntegerDivisorsListingH does UsualDivisibilityCriteria is export {
 
-    method list-divisors(Int $integer where {$integer > 0}) {
-        my Int $n = $integer;
+    method list-divisors(Int $integer where {$integer != 0}) {
+        my Int $n = abs($integer);
         # Compteur des diviseurs successifs
         my Int $i = 1;
         # Pour stocker le résultat de la division du nombre par i
@@ -36,11 +35,17 @@ class IntegerDivisorsListingH does UsualDivisibilityCriteria is export {
         # Hash en retour de fonction
         my %hr;
         my Bool $last = False;
+        my %h{Int};
 
         # 1 est le premier diviseur commun à tous les nombres
         #%h<$i> = $n;
-        my %h = ($i => $n);
-        if ($n == 1) {
+        if ($integer > 0) {
+            %h{$i} = $n;
+        }
+        if ($integer < 0) {
+            %h{$i} = -$n;
+        }
+        if ($n == 1 || $n == -1) {
             %hr = self!display($n, $square, %h);
             return %hr;
         }
@@ -50,8 +55,13 @@ class IntegerDivisorsListingH does UsualDivisibilityCriteria is export {
         $i += 1;
         if self.is_divisible_by_2($n) {
             $x = $n div $i;
-            %h{$i} = $x;
-            $last = True if grep { $_ == $i }, %h.values;
+            if ($integer > 0) {
+                %h{$i} = $x;
+            }
+            if ($integer < 0) {
+                %h{$i} = -$x;
+            }
+            $last = True if grep { $_ == $i || $_ == -$i }, %h.values;
             if ($i == $x) { $square = $i; $last = True; }
         }
 
@@ -67,8 +77,13 @@ class IntegerDivisorsListingH does UsualDivisibilityCriteria is export {
         $i += 1;
         if self.is_divisible_by_3($n) {
             $x = $n div $i;
-            %h{$i} = $x;
-            $last = True if grep { $_ == $i }, %h.values;
+            if ($integer > 0) {
+                %h{$i} = $x;
+            }
+            if ($integer < 0) {
+                %h{$i} = -$x;
+            }
+            $last = True if grep { $_ == $i || $_ == -$i }, %h.values;
             if ($i == $x) { $square = $i; $last = True; }
         }
 
@@ -83,8 +98,13 @@ class IntegerDivisorsListingH does UsualDivisibilityCriteria is export {
         $i += 1;
         if self.is_divisible_by_4($n) {
             $x = $n div $i;
-            %h{$i} = $x;
-            $last = True if grep { $_ == $i }, %h.values;
+            if ($integer > 0) {
+                %h{$i} = $x;
+            }
+            if ($integer < 0) {
+                %h{$i} = -$x;
+            }
+            $last = True if grep { $_ == $i || $_ == -$i }, %h.values;
             if ($i == $x) { $square = $i; $last = True; }
         }
 
@@ -99,8 +119,13 @@ class IntegerDivisorsListingH does UsualDivisibilityCriteria is export {
         $i += 1;
         if self.is_divisible_by_5($n) {
             $x = $n div $i;
-            %h{$i} = $x;
-            $last = True if grep { $_ == $i }, %h.values;
+            if ($integer > 0) {
+                %h{$i} = $x;
+            }
+            if ($integer < 0) {
+                %h{$i} = -$x;
+            }
+            $last = True if grep { $_ == $i || $_ == -$i }, %h.values;
             if ($i == $x) { $square = $i; $last = True; }
         }
 
@@ -116,8 +141,13 @@ class IntegerDivisorsListingH does UsualDivisibilityCriteria is export {
             $i += 1;
             if ($n mod $i == 0) {
                 $x = $n div $i;
-                %h{$i} = $x;
-                $last = True if grep { $_ == $i }, %h.values;
+                if ($integer > 0) {
+                    %h{$i} = $x;
+                }
+                if ($integer < 0) {
+                    %h{$i} = -$x;
+                }
+                $last = True if grep { $_ == $i || $_ == -$i }, %h.values;
                 if ($i == $x) { $square = $i; $last = True; }
             }
 
@@ -133,8 +163,13 @@ class IntegerDivisorsListingH does UsualDivisibilityCriteria is export {
         $i += 1;
         if self.is_divisible_by_9($n) {
             $x = $n div $i;
-            %h{$i} = $x;
-            $last = True if grep { $_ == $i }, %h.values;
+            if ($integer > 0) {
+                %h{$i} = $x;
+            }
+            if ($integer < 0) {
+                %h{$i} = -$x;
+            }
+            $last = True if grep { $_ == $i || $_ == -$i }, %h.values;
             if ($i == $x) { $square = $i; $last = True; }
         }
 
@@ -149,8 +184,13 @@ class IntegerDivisorsListingH does UsualDivisibilityCriteria is export {
         $i += 1;
         if self.is_divisible_by_0_queue($n) {
             $x = $n div $i;
-            %h{$i} = $x;
-            $last = True if grep { $_ == $i }, %h.values;
+            if ($integer > 0) {
+                %h{$i} = $x;
+            }
+            if ($integer < 0) {
+                %h{$i} = -$x;
+            }
+            $last = True if grep { $_ == $i || $_ == -$i }, %h.values;
             if ($i == $x) { $square = $i; $last = True; }
         }
 
@@ -165,8 +205,13 @@ class IntegerDivisorsListingH does UsualDivisibilityCriteria is export {
         $i += 1;
         if self.is_divisible_by_11($n) {
             $x = $n div $i;
-            %h{$i} = $x;
-            $last = True if grep { $_ == $i }, %h.values;
+            if ($integer > 0) {
+                %h{$i} = $x;
+            }
+            if ($integer < 0) {
+                %h{$i} = -$x;
+            }
+            $last = True if grep { $_ == $i || $_ == -$i }, %h.values;
             if ($i == $x) { $square = $i; $last = True; }
         }
 
@@ -182,8 +227,13 @@ class IntegerDivisorsListingH does UsualDivisibilityCriteria is export {
             $i += 1;
             if ($n mod $i == 0) {
                 $x = $n div $i;
-                %h{$i} = $x;
-                $last = True if grep { $_ == $i }, %h.values;
+                if ($integer > 0) {
+                    %h{$i} = $x;
+                }
+                if ($integer < 0) {
+                    %h{$i} = -$x;
+                }
+                $last = True if grep { $_ == $i || $_ == -$i }, %h.values;
                 if ($i == $x) { $square = $i; $last = True; }
             }
 
@@ -198,8 +248,13 @@ class IntegerDivisorsListingH does UsualDivisibilityCriteria is export {
         $i += 1;
         if self.is_divisible_by_25($n) {
             $x = $n div $i;
-            %h{$i} = $x;
-            $last = True if grep { $_ == $i }, %h.values;
+            if ($integer > 0) {
+                %h{$i} = $x;
+            }
+            if ($integer < 0) {
+                %h{$i} = -$x;
+            }
+            $last = True if grep { $_ == $i || $_ == -$i }, %h.values;
             if ($i == $x) { $square = $i; $last = True; }
         }
 
@@ -215,8 +270,13 @@ class IntegerDivisorsListingH does UsualDivisibilityCriteria is export {
             $i += 1;
             if ($n mod $i == 0) {
                 $x = $n div $i;
-                %h{$i} = $x;
-                $last = True if grep { $_ == $i }, %h.values;
+                if ($integer > 0) {
+                    %h{$i} = $x;
+                }
+                if ($integer < 0) {
+                    %h{$i} = -$x;
+                }
+                $last = True if grep { $_ == $i || $_ == -$i }, %h.values;
                 if ($i == $x) { $square = $i; $last = True; }
             }
         

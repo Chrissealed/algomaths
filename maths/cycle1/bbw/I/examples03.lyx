@@ -1,0 +1,190 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass article
+\use_default_options true
+\maintain_unincluded_children false
+\language french
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize a4paper
+\use_geometry true
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\leftmargin 4cm
+\topmargin 3cm
+\rightmargin 4cm
+\bottommargin 3cm
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation 0cm
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style french
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 2
+\paperpagestyle empty
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Subsection*
+☉ Exemples – Comment multiplier rapidement
+\begin_inset space ~
+\end_inset
+
+?
+\end_layout
+
+\begin_layout Subsubsection*
+A.
+ En connaissant parfaitement ses tables.
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection*
+B.
+ En décomposant par additions.
+\end_layout
+
+\begin_layout Subsubsection*
+➣ Exemple : Calculer 17 × 3.
+\end_layout
+
+\begin_layout Standard
+On a : 17 × 3 = (10 + 7) × 3 = 10 × 3 + 7 × 3 = 30 + 21 = 51.
+ Ramenez vous toujours à des nombres faciles comme 10, 100, 1000...
+ les dizaines sont simples et très maniables.
+ 
+\end_layout
+
+\begin_layout Subsubsection*
+➣ Exemple : Calculer 27 × 16.
+\end_layout
+
+\begin_layout Standard
+On a : 27 × 16 = (20 + 7) × 16 = 20 × 16 + 7 × 16 = 320 + 7 × (10 + 6) =
+ 320 + 7 × 10 + 7 × 6 = 320 + 70 + 42 = 390 + 42 = 432.
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection*
+C.
+ En décomposant par soustractions.
+\end_layout
+
+\begin_layout Subsubsection*
+➣ Exemple : Calculer 19 × 7.
+\end_layout
+
+\begin_layout Standard
+On a 19 × 7 = (20 – 1) × 17 = 20 × 17 – 1 × 17 = 340 – 17 = 323.
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection*
+D.
+ En décomposant par plusieurs petites multiplications.
+\end_layout
+
+\begin_layout Subsubsection*
+➣ Exemple: Calculer 153 × 6.
+\end_layout
+
+\begin_layout Standard
+On a : 153 × 6 = 153 × 2 × 3 = 306 × 3 = 918 #(car 306 × 3 = (300 + 6) ×
+ 3 = 300 × 3 + 6 × 3 = 900 + 18).
+\end_layout
+
+\begin_layout Subsubsection*
+➣ Exemple: Calculer 38 × 15.
+\end_layout
+
+\begin_layout Standard
+On a : 38 × 15 = 38 × 3 × 5 = 114 × 5 = 570 # (car 114 × 5 = (100 + 14)
+ × 5 = 100 × 5 + 14 × 5 = 500 + 70 = 570).
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection*
+E.
+ En utilisant la division.
+\end_layout
+
+\begin_layout Subsubsection*
+➣ Exemple: Calculer 12 × 25.
+\end_layout
+
+\begin_layout Standard
+On a 12 × 25 = 12 × 100 ÷ 4 = 1200 ÷ 4 = 300 (sinon on pouvait utiliser
+ la méthode 3 et obtenir 12 × 25 = (10 + 2) × 25 = 10 × 25 + 2 × 25 = 250
+ + 50 = 300).
+\end_layout
+
+\end_body
+\end_document

@@ -1,30 +1,29 @@
 unit module pgcd;
 
 use v6;
-use integer-divisors-listing;
-use common-arrays-elements;
-use prime-factors;
 
 =begin pod
 Ce module contient la classe PGCD qui a le rôle 'PrimeFactors'.
 Il est destiné à déterminer le PGCD (plus grand commun diviseur) de deux entiers,
-integer1 et integer2 de type Int qui sont des attributs de la classe
-devant être supérieur ou égal à 0 pour le premier,
-supérieur à 0 pour le deuxième.
+integer1 et integer2 de type Int non nuls qui sont des attributs de la classe.
 Il utilise pour cela quatre méthodes distinctes au choix :
-l'algorithme consistant à établir la liste des diviseurs de
+=item l'algorithme consistant à établir la liste des diviseurs de
 chacun des nombres et de prendre le plus grand nombre commun :
 'divisors-listing_algorithm()';
-l'algorithme des soustractions : 'subtraction_algorithm()';
-l'algorithme d'Euclide (par divisions euclidiennes) : 'euclide_algorithm()';
-enfin l'algorithme consistant à décomposer les nombres
+=item l'algorithme des soustractions : 'subtraction_algorithm()';
+=item l'algorithme d'Euclide (par divisions euclidiennes) : 'euclide_algorithm()';
+=item enfin l'algorithme consistant à décomposer les nombres
 en facteurs premiers et extraire leurs facteurs communs : 'factorization_algorithm()'.
 Les quatre méthodes renvoient un Int qui est le PGCD trouvé.
 =end pod
 
+use integer-divisors-listing;
+use common-arrays-elements;
+use prime-factors;
+
 class PGCD does PrimeFactors is export {
-    has Int $.integer1 is required is rw where {$_ >= 0 or die "Valeur de champ invalide: entier >= 0 requis !"};
-    has Int $.integer2 is required is rw where {$_ > 0 or die "Valeur de champ invalide: entier > 0 requis !"};
+    has Int $.integer1 is required is rw where { ($_ != 0) or die "Valeur de champ invalide! Entier relatif différent de 0 requis." };
+    has Int $.integer2 is required is rw where { ($_ != 0) or die "Valeur de champ invalide! Entier relatif différent de 0 requis." };
 
 =begin pod
 ###################################################################################
@@ -39,20 +38,22 @@ l'ensemble des diviseurs de chacun des deux nombres :
     method divisors-listing_algorithm(--> Int) {
         my (@a, @b, @c) = ();
 
+        say "− Utilisation de l'algorithme de comparaison des listes de tous les diviseurs −";
         my $divisors-listing = IntegerDivisorsListing.new(
             array-or-hash => '@',
         );
         say "Diviseurs de $!integer1 :";
-        @a = $divisors-listing.list-divisors(self.integer1);
+        # Palier les effets de bord des nombres négatifs
+        @a = $divisors-listing.list-divisors(abs($!integer1));
 
         say "Diviseurs de $!integer2 :";
-        @b = $divisors-listing.list-divisors(self.integer2);
+        @b = $divisors-listing.list-divisors(abs($!integer2));
 
         @c = common-arrays-elements(@a, @b);
         say "Les diviseurs communs à $!integer1 et $!integer2 sont :";
         say @c;
         say "Le PGCD de $!integer1 et $!integer2 est ", @c[@c.end], ".";
-        return @c.end;
+        return @c[@c.end];
     }
 
 =begin pod
@@ -80,12 +81,14 @@ deux nombres, par conséquent seul 2 l'est; d'ou PGCD(4352 ; 4342) = 2.
 =end pod
 
     method factorization_algorithm(--> Int) {
+        # Palier les effets de bord des nombres négatifs
         my Int $int1 = $!integer1;
         my Int $int2 = $!integer2;
         my %factors1{Int};
         my %factors2{Int};
         my Int @values1 = ();
         my Int @values2 = ();
+        say "− Utilisation de l'algorithme de factorisation en facteurs premiers −";
         say "Facteurs premiers de $int1 :";
         # Méthode de prime-factors.
         %factors1 = self.breakdown($int1);
@@ -210,8 +213,10 @@ si a = b, alors PGCD(a;b) = a = b et si a > b, PGCD(a;b) = PGCD(b;a-b).
 =end pod
 
     method subtraction_algorithm(--> Int) {
-        my Int $x = self.integer1;
-        my Int $y = self.integer2;
+        # Parer les nombres négatifs avec leurs effets de bord
+        my Int $x = abs(self.integer1);
+        my Int $y = abs(self.integer2);
+        say "− Utilisation de l'algorithme des soustractions −";
         if ($x < $y) {
             # Intervertir $x et $y
             ($x, $y) = ($y, $x);
@@ -258,8 +263,10 @@ a par b
 =end pod
 
     method euclide_algorithm(--> Int) {
-        my Int $dividend = self.integer1;
-        my Int $divisor = self.integer2;
+        # Palier les effets de bord des nombres négatifs
+        my Int $dividend = abs(self.integer1);
+        my Int $divisor = abs(self.integer2);
+        say "− Utilisation de l'algorithme d'Euclide −";
         if ($dividend < $divisor) {
             # Intervertir $x et $y
             ($dividend, $divisor) = ($divisor, $dividend);
@@ -312,7 +319,6 @@ a par b
             }
         } until ($rest == 0);
 
-        say "PGCD($dividend ; $divisor) = $divisor.";
         say "Le reste de la division de $dividend par $divisor est nul,";
         say "donc PGCD($!integer1 ; $!integer2) = $pgcd.";
         return $pgcd;

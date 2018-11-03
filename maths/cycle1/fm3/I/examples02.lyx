@@ -1,0 +1,246 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass article
+\use_default_options true
+\maintain_unincluded_children false
+\language french
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize a4paper
+\use_geometry true
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\leftmargin 4cm
+\topmargin 3cm
+\rightmargin 4cm
+\bottommargin 3cm
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation 0cm
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style french
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 2
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Subsection*
+☉ Exemples
+\end_layout
+
+\begin_layout Subsubsection*
+1.
+ On effectue la division euclidienne d'un entier a par 6, on trouve 13 comme
+ quotient.
+\end_layout
+
+\begin_layout Paragraph*
+a.
+ Quels sont les restes possibles ? b.
+ Trouver toutes les valeurs de a.
+\end_layout
+
+\begin_layout Standard
+-
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+a.
+ D'après la définition on a : 
+\begin_inset Formula $a=6×13+r$
+\end_inset
+
+ et 
+\begin_inset Formula $r<6$
+\end_inset
+
+.
+ Le reste est strictement inférieur au diviseur 6 donc les restes possibles
+ sont 0, 1, 2, 3, 4 et 5.
+\end_layout
+
+\begin_layout Standard
+b.
+ On calcule le dividende 
+\begin_inset Formula $a$
+\end_inset
+
+ pour les six restes possibles.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $r=0$
+\end_inset
+
+, alors 
+\begin_inset Formula $a=6×13$
+\end_inset
+
+ d'où 
+\begin_inset Formula $a=78$
+\end_inset
+
+ ;
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $r=1$
+\end_inset
+
+, alors 
+\begin_inset Formula $a=6×13+1$
+\end_inset
+
+ d'où 
+\begin_inset Formula $a=79$
+\end_inset
+
+ ;
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $r=2$
+\end_inset
+
+, alors 
+\begin_inset Formula $a=6×13+2$
+\end_inset
+
+ d'où 
+\begin_inset Formula $a=80$
+\end_inset
+
+ ;
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $r=3$
+\end_inset
+
+, alors 
+\begin_inset Formula $a=6×13+3$
+\end_inset
+
+ d'où 
+\begin_inset Formula $a=81$
+\end_inset
+
+ ;
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $r=4$
+\end_inset
+
+, alors 
+\begin_inset Formula $a=6×13+4$
+\end_inset
+
+ d'où 
+\begin_inset Formula $a=82$
+\end_inset
+
+ ;
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $r=5$
+\end_inset
+
+, alors 
+\begin_inset Formula $a=6×13+5$
+\end_inset
+
+ d'où 
+\begin_inset Formula $a=83$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Les valeurs de 
+\begin_inset Formula $a$
+\end_inset
+
+ sont 78, 79, 80, 81, 82 et 83.
+\end_layout
+
+\begin_layout Subsubsection*
+2.
+ Un fleuriste a acheté un lot de 200 roses.
+ Combien de bouquets de 11 roses peut-il réaliser ?
+\end_layout
+
+\begin_layout Standard
+On a : 
+\begin_inset Formula $200=11×18+2$
+\end_inset
+
+ ; on en déduit que le fleuriste peut réaliser 18 bouquets de 11 roses,
+ il lui restera 2 roses.
+\end_layout
+
+\end_body
+\end_document

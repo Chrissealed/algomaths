@@ -3,7 +3,7 @@ unit module Common-arrays-elements;
 use v6;
 
 =begin pod
-Ce module contient une seule méthode : 'common-divisors-array(@array1, @array2)'
+Ce module contient une seule méthode : 'common-arrays-elements(@array1, @array2)'
 qui prend 2 tableaux quelconques en arguments et délivre un troisième tableau
 en valeur de retour contenant les éléments communs des deux tableaux précédents.
 =end pod

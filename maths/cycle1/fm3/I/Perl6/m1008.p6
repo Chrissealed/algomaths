@@ -6,23 +6,22 @@ use method10 :methodwording, :exe08, :examples;
 use are-prime;
 
 sub answering {
+    my Int $n1 = 121;
+    my Int $n2 = 450;
     my $are-prime = ArePrime.new(
-        integer1 => 121,
-        integer2 => 450,
-        # Pour construire la classe 'CommonDivisorsListing'
-        # pour utiliser la méthode 'list-divisors'
-        array-or-hash => '@',
+        integer1 => $n1,
+        integer2 => $n2,
     );
     my Bool $have-common-divisors = $are-prime.have-common-divisors();
     if !$have-common-divisors {
-        say "Les nombres 121 et 450 sont donc premiers entre eux";
+        say "Les nombres $n1 et $n2 sont donc premiers entre eux";
         say "car ils n'ont pas de diviseurs communs autre que 1.";
-        say "On peut dire aussi que les diviseurs de 121 sont 1, 11 et 121";
-        say "qui ne sont pas diviseurs de 450, donc 1 est leur seul diviseur";
-        say "commun donc PGCD(121 ; 450) = 1 donc 121 et 450 sont des";
+        say "On peut dire aussi que les diviseurs de $n1 sont 1, 11 et 121";
+        say "qui ne sont pas diviseurs de $n2, donc 1 est leur seul diviseur";
+        say "commun donc PGCD($n1 ; $n2) = 1 donc $n1 et $n2 sont des";
         say "nombres premiers entre eux.";
     } else {
-        say "Les nombres 121 et 450 ne sont donc pas premiers entre eux.";
+        say "Les nombres $n1 et $n2 ne sont donc pas premiers entre eux.";
     }
 }
 
