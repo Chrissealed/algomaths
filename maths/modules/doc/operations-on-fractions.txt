@@ -9,73 +9,121 @@ VERSION
 
 Ce module est destiné à faire des opérations sur des fractions.
 
-Il utilise les modules 'ppcm.pm6' et 'irreducible-fraction.pm6' et hérite
-du rôle PrimeFactors. La méthode principale de la classe
-OperationsOnFractions est calculate-fractions(Str $operation) ou le
+Il utilise les modules ppcm.pm6, irreducible-fraction.pm6 et
+prime-factors.pm6 et hérite du rôle PrimeFactors. La méthode principale de
+la classe OperationsOnFractions est calculate-fractions(Str $operation) ou
+le
 
-  * paramètre '$operation' est soit 'add-up' ou '+' soit 'subtract' ou '-' ou
+  * paramètre $operation est soit 'add-up' ou '+' soit 'subtract' ou '-' ou
   '−', soit 'multiply' ou '*' ou '×' soit 'divide' ou ':' ou '÷', dans le cas
   ou il n'y a que deux fractions.
 
 Elle renvoie une paire (Pair) comme valeur de retour. Les champs
-obligatoires à renseigner sont 'numerator1', 'denominator1', 'numerator2'
-et 'denominator2' correspondant aux numérateur et dénominateur de chaque
+obligatoires à renseigner sont numerator1, denominator1, numerator2 et
+denominator2 correspondant aux numérateur et dénominateur de chaque
 fraction sur laquelle pratiquer l'opération choisie.
 
 Les deux champs suivants sont facultatifs :
 
-  * 'numerator3' et 'denominator3', pour lesquels d'autres opérateurs sont
-  disponibles, c'est-à-dire :
+  * numerator3 et denominator3, pour lesquels d'autres opérateurs sont
+  disponibles pour l'addition et la soustraction uniquement, c'est-à-dire :
 
   * 'add-upx2' ou '++', 'subtractx2' ou '--' ou '−−', 'add-up-subtract' ou '+-'
   ou '+−', et enfin 'subtract-add-up' ou '-+' ou '−+'.
 
 Ensuite, trois champs booléens facultatifs associés aux champs
-'numerator/denominator' servent à préciser si l'on effectue la réduction de
+numerator/denominator servent à préciser si l'on effectue la réduction de
 la fraction en question avant le traitement des données,
 
-  * ce sont 'reduce-fraction1', 'reduce-fraction2' et 'reduce-fraction3';
+  * ce sont reduce-fraction1, reduce-fraction2 et reduce-fraction3;
 
 ces champs par défaut sont à False, autrement dit on ne tente pas d'opérer
 une réduction de chaque fraction avant d'effectuer l'opération. Noter que
 la dernière fraction résultante de l'opération est toujours donnée
 irréductible, mais qu'on peut jouer sur deux autres attributs Booléens :
 
-  * 'reduce-last-once' (False par défaut), et 'reduce-last-one' (True par
-  défaut);
+  * reduce-last-once (False par défaut), et reduce-last-one (True par défaut);
 
-le premier visant à réduire une seule fois la première fraction calculée
-dans une liste chaînée d'opérations (par exemple : +−), et le deuxième à
-réduire systématiquement la dernière fraction obtenue à tous les niveaux de
-cette liste ou bien lors d'une opération simple suivie éventuellement d'une
-autre. Ces attributs visent à modifier les opérations de calcul de manière
-à produire plusieurs options pour générer un même résultat. Viennent
-ensuite deux autres champs facultatifs :
+le premier visant dans le cadre de l'addition ou de la soustraction à
+réduire une seule fois la première fraction au terme du calcul dans une
+liste chaînée d'opérations (par exemple : +−), et le deuxième à réduire
+systématiquement la dernière fraction obtenue à tous les niveaux de cette
+liste ou bien lors d'une opération simple (+ ou −). Ces attributs visent à
+modifier les opérations de calcul de manière à produire plusieurs options
+pour générer un même résultat.
 
-  * 'breakdown'factors' et 'compute'prime'factors'
+Trois autres attributs, complétant les deux précédants peuvent être
+utilisés lors d'une opération de multiplication ou de division, ce sont :
+
+  * breakdown-factors1, réduire les facteurs de la première fraction,
+
+  * breakdown-factors2, réduire les facteurs de la deuxième fraction,
+
+  * breakdown-factors3, réduire les facteurs de la troisième fraction
+  facultative.
+
+Ces trois attributs ont par défaut la valeur True.
+
+Viennent ensuite deux autres champs facultatifs utilisables pour la
+multiplication ou la division de fractions uniquement et qui jouent avec
+les trois attributs décrits précédemment :
+
+  * breakdown'factors et compute'prime'factors
 
 (remarquez les séparateurs ' qui sont parfaitement valides); le premier de
 ces champs est destiné à établir la liste des facteurs premiers d'un entier
-différent de 0; le deuxième permet de supprimer les facteurs en double dans
-le numérateur et le dénominateur pour opérer la réduction de la fraction.
-Ces deux champs sont à True par défaut.
+différent de 0; il a par défaut la valeur True et si un ou plus des trois
+attributs précédents se voit donné la valeur False, la réduction de la
+fraction concernée n'aura pas lieu. Autrement dit pour que cette réduction
+se produise, il faut à la fois que ces deux attributs aient la valeur True
+ce qui est le cas par défaut. Si vous passez la valeur False a
+breakdown'factors, la réduction de toutes les fractions sera inhibée toutes
+ensemble.
+
+Le deuxième attribut compute'prime'factors permet de supprimer les facteurs
+en double dans le numérateur et le dénominateur pour opérer la réduction de
+la fraction. Ces deux champs sont à True par défaut.
 
 Les autres champs, facultatifs, sont destinés à choisir parmi les diverses
-méthodes utilisées pour le calcul en interne :
+méthodes utilisées pour le calcul des méthodes de classes appelées en
+interne :
 
-  * 'which-ppcm-algorithm' peut prendre l'une des valeurs suivantes :
-  'by-larger-number-multiples' ou 'b.l.n.m.' ou 'bm'; 'by-prime-factors' ou
-  'b.p.f.' ou 'bf'; 'by-use-of-pgcd' ou 'b.u.o.p.' ou 'bp' (utilisé par
-  défaut).
+  * which-ppcm-algorithm, peut prendre l'une des valeurs suivantes :
 
-  * 'which-irreducible-fraction-algorithm' peut prendre les valeurs : 'euclide'
-  ou 'e' ou ':' ou '÷' (utilisé par défaut); 'subtraction' ou 's' ou '-' ou
-  '−'; 'factorization' ou 'f' ou '*' ou '×'.
+  * 'by-larger-number-multiples' ou 'b.l.n.m.' ou 'bm';
 
-  * 'which-pgcd-algorithm' peut prendre l'une des valeurs : 'euclide' ou 'e' ou
-  ':' ou '÷' (utilisé par défaut); 'subtraction' ou 's' ou '-' ou '−';
-  'factorization' ou 'f' ou '*' ou '×'; 'divisors-listing' ou 'd' ou '#' ou
-  '/'.
+  * 'by-prime-factors' ou 'b.p.f.' ou 'bf';
+
+  * 'by-use-of-pgcd' ou 'b.u.o.p.' ou 'bp' (utilisé par défaut).
+
+Ce dernier attribut n'est pas utilisé pour la multiplication ou la
+division, mais uniquement pour l'addition ou la soustraction afin de
+choisir l'algorithme qui sera utilisé pour le calcul par la classe PPCM.
+
+  * which-irreducible-fraction-algorithm peut prendre les valeurs :
+
+  * 'euclide' ou 'e' ou ':' ou '÷' (utilisé par défaut);
+
+  * 'subtraction' ou 's' ou '-' ou '−';
+
+  * 'factorization' ou 'f' ou '*' ou '×'.
+
+Cet attribut est destiné à choisir la méthode qui sera utilisée par la
+classe IrreducibleFraction pour la réduction d'une fraction à sa plus
+simple expression.
+
+  * which-pgcd-algorithm peut prendre l'une des valeurs :
+
+  * 'euclide' ou 'e' ou ':' ou '÷' (utilisé par défaut);
+
+  * 'subtraction' ou 's' ou '-' ou '−';
+
+  * 'factorization' ou 'f' ou '*' ou '×';
+
+  * 'divisors-listing' ou 'd' ou '#' ou '/'.
+
+Cet attribut peut être employé pour toutes les opérations; il détermine
+l'algorithme utilisé par la classe PGCD pour le calcul du PPCM :
 
 Voici la liste des méthodes de la classe OperationsOnFractions :
 
@@ -90,21 +138,31 @@ accessibles isolément − en employant un seul argument, le type d'opération
 
 Cette méthode destinée à obtenir la fraction irréductible à partir du
 numérateur et du dénominateur passés en argument utilise la classe
-IrreducibleFraction du module 'irreducible-fraction.pm6' et utilse deux
-attributs de la classe, soit 'which-irreducible-fraction-algorithm' et
-'which-pgcd-algorithm' qui déterminent le choix pour le premier de
+IrreducibleFraction du module irreducible-fraction.pm6 et utilise deux
+attributs de la classe, soit which-irreducible-fraction-algorithm et
+which-pgcd-algorithm qui déterminent le choix pour le premier de
 l'algorithme de la méthode utilisée en interne par IrreducibleFraction pour
-effectuer les calculs, et pour le deuxième l'algorithme du module
-'pgdc.pm6' dont IrreducibleFraction se servira en interne.
+effectuer les calculs, et pour le deuxième l'algorithme du module pgdc.pm6
+dont IrreducibleFraction se servira en interne. Pour gérer correctement les
+nombres négatifs avec l'opération multiply uniquement, il faut mettre le
+troisième argument $sign à '-' afin d'appeler l'une des méthodes
+
+  * $irreducible.reduce-fraction-with-euclide-algorithm($sign);
+
+  * $irreducible.reduce-fraction-with-subtraction-algorithm($sign)
+
+  * $irreducible.reduce-fraction-with-factorization-algorithm($sign); Le signe
+  + n'est pas écrit, il est géré par la valeur par défaut de $sign, une
+  chaîne vide.
 
   add-up(Pair $pair1, Pair $pair2, Int $times = 0 --> Pair)
 
 Cette méthode renvoie l'addition des numérateurs et dénominateurs passés
-aux attributs de la classe, c'est-à-dire, 'numerator1', 'denominator1' et
-'numerator2' et 'denominator2'. Elle utilise les modules 'ppcm.pm6' et
-'pgcd.pm6', ainsi que la méthode de la classe 'reduce-fraction($numerator,
-$denominator'). Le paramètre '$times' s'il est mis à 1 et que l'attribut de
-la classe 'reduce-last-once' est passé à True, la méthode ne réduira pas la
+aux attributs de la classe, c'est-à-dire, numerator1, denominator1 et
+numerator2 et denominator2. Elle utilise les modules ppcm.pm6 et pgcd.pm6,
+ainsi que la méthode de la classe reduce-fraction($numerator,
+$denominator). Le paramètre $times s'il est mis à 1 et que l'attribut de la
+classe reduce-last-once est passé à True, la méthode ne réduira pas la
 fraction résultante lors d'un premier appel, mais la réduira lors d'un
 appel subséquent. Elle renvoie une paire constituée du numérateur et du
 dénominateur de la fraction résultante.
@@ -112,73 +170,72 @@ dénominateur de la fraction résultante.
   add-upx2(Pair $pair1, Pair $pair2, Pair $pair3 --> Pair)
 
 Cette méthode renvoie l'addition des numérateurs et dénominateurs passés
-aux attributs de la classe, c'est-à-dire, 'numerator1', 'denominator1',
-'numerator2', 'denominator2' et 'numerator3' et 'denominator3' pour
-calculer la somme de trois fractions. Elle utilise les modules 'ppcm.pm6'
-et 'pgcd.pm6', ainsi que la méthode de la classe :
-'reduce-fraction($numerator, $denominator'). Elle renvoie une paire
-constituée par le numérateur et le dénominateur de la fraction résultante.
+aux attributs de la classe, c'est-à-dire, numerator1, denominator1,
+numerator2, denominator2 et numerator3 et denominator3 pour calculer la
+somme de trois fractions. Elle utilise les modules ppcm.pm6 et pgcd.pm6,
+ainsi que la méthode de la classe : reduce-fraction($numerator,
+$denominator). Elle renvoie une paire constituée par le numérateur et le
+dénominateur de la fraction résultante.
 
   subtract(Pair $pair1, Pair $pair2, Int $times = 0 --> Pair)
 
 Cette méthode renvoie la soustraction des numérateurs et dénominateurs
-passés aux attributs de la classe, c'est-à-dire, 'numerator1',
-'denominator1' et 'numerator2' et 'denominator2'. Elle utilise les modules
-'ppcm.pm6' et 'pgcd.pm6', ainsi que la méthode de la classe
-'reduce-fraction($numerator, $denominator'). Le paramètre '$times' a le
-même effet que pour l'opération 'add-up' (voir plus haut). Elle renvoie une
-paire constituée du numérateur et du dénominateur de la fraction
-résultante.
+passés aux attributs de la classe, c'est-à-dire, numerator1, denominator1
+et numerator2 et denominator2. Elle utilise les modules ppcm.pm6 et
+pgcd.pm6, ainsi que la méthode de la classe reduce-fraction($numerator,
+$denominator). Le paramètre $times a le même effet que pour l'opération
+add-up (voir plus haut). Elle renvoie une paire constituée du numérateur et
+du dénominateur de la fraction résultante.
 
   subtractx2(Pair $pair1, Pair $pair2, Pair $pair3 --> Pair)
 
 Cette méthode renvoie la soustraction des numérateurs et dénominateurs
-passés aux attributs de la classe, c'est-à-dire, 'numerator1',
-'denominator1', 'numerator2', 'denominator2' et 'numerator3' et
-'denominator3' pour calculer la différence de trois fractions. Elle utilise
-les modules 'ppcm.pm6' et 'pgcd.pm6', ainsi que la méthode de la classe :
-'reduce-fraction($numerator, $denominator'). Elle renvoie une paire
-constituée par le numérateur et le dénominateur de la fraction résultante.
+passés aux attributs de la classe, c'est-à-dire, numerator1, denominator1,
+numerator2, denominator2 et numerator3 et denominator3 pour calculer la
+différence de trois fractions. Elle utilise les modules ppcm.pm6 et
+pgcd.pm6, ainsi que la méthode de la classe : reduce-fraction($numerator,
+$denominator). Elle renvoie une paire constituée par le numérateur et le
+dénominateur de la fraction résultante.
 
   add-up-subtract(Pair $pair1, Pair $pair2, Pair $pair3 --> Pair)
 
 Cette méthode renvoie l'addition des numérateurs et dénominateurs passés
-aux attributs de la classe, c'est-à-dire, 'numerator1', 'denominator1',
-'numerator2', 'denominator2' et la soustraction des 'numerator3' et
-'denominator3' pour calculer la somme des deux premières fractions et la
-différence du résultat et de la troisième fraction. Elle utilise les
-modules 'ppcm.pm6' et 'pgcd.pm6', ainsi que la méthode de la classe :
-'reduce-fraction($numerator, $denominator'). Elle renvoie une paire
-constituée par le numérateur et le dénominateur de la fraction résultante.
+aux attributs de la classe, c'est-à-dire, numerator1, denominator1,
+numerator2, denominator2 et la soustraction des numerator3 et denominator3
+pour calculer la somme des deux premières fractions et la différence du
+résultat et de la troisième fraction. Elle utilise les modules ppcm.pm6 et
+pgcd.pm6, ainsi que la méthode de la classe : reduce-fraction($numerator,
+$denominator). Elle renvoie une paire constituée par le numérateur et le
+dénominateur de la fraction résultante.
 
   subtract-add-up(Pair $pair1, Pair $pair2, Pair $pair3 --> Pair)
 
 Cette méthode est l'inverse de la précédente, c'est-à-dire qu'elle renvoie
 la soustraction des numérateurs et dénominateurs passés aux attributs de la
-classe, c'est-à-dire, 'numerator1', 'denominator1', 'numerator2',
-'denominator2' pour calculer la différence des deux premières fractions et
-la somme du résultat et de la troisième fraction. Elle utilise les modules
-'ppcm.pm6' et 'pgcd.pm6', ainsi que la méthode de la classe :
-'reduce-fraction($numerator, $denominator'). Elle renvoie une paire
-constituée par le numérateur et le dénominateur de la fraction résultante.
+classe, c'est-à-dire, numerator1, denominator1, numerator2, denominator2
+pour calculer la différence des deux premières fractions et la somme du
+résultat et de la troisième fraction. Elle utilise les modules ppcm.pm6 et
+pgcd.pm6, ainsi que la méthode de la classe : reduce-fraction($numerator,
+$denominator). Elle renvoie une paire constituée par le numérateur et le
+dénominateur de la fraction résultante.
 
   breakdown-factors(Int @array-of-factors --> Array)
 
 Cette méthode décompose un tableau de facteurs en facteurs premiers. Elle
-utilise la méthode 'breakdown' du rôle PrimeFactors. Consultez la
-documentation du module 'prime-factors.pm6' pour plus d'informations.
+utilise la méthode breakdown du rôle PrimeFactors. Consultez la
+documentation du module prime-factors.pm6 pour plus d'informations.
 
   compute-prime-factors(Int @array1, Int @array2, Int $return-array = 1 -->
 Array)
 
 Cette méthode elle aussi appelle une méthode de PrimeFactors :
-'reduce-fractions-prime-factors(Int @numerators, Int @denominators, Int
-$return-array)' Elle consiste à produire les facteurs qui sont dans l'un
-des tableaux mais pas dans l'autre. Il faut passer l'argument 1 (par
-défaut) à $return-array pour retourner le premier tableau, c'est-à-dire les
+reduce-fractions-prime-factors(Int @numerators, Int @denominators, Int
+$return-array) Elle consiste à produire les facteurs qui sont dans l'un des
+tableaux mais pas dans l'autre. Il faut passer l'argument 1 (par défaut) à
+$return-array pour retourner le premier tableau, c'est-à-dire les
 numérateurs ou 2 pour retourner le deuxième tableau, celui des
 dénominateurs. Consultez aussi la documentation du module
-'prime-factors.pm6'.
+prime-factors.pm6.
 
   fractions-product-sign(Pair $p1, Pair $p2, Pair $p3? --> Str)
 
@@ -186,10 +243,8 @@ Cette méthode est utilisée pour déduire le signe du résultat du produit des
 fractions passées en arguments avant d'effectuer les calculs. Elle retourne
 '+' ou '−'.
 
-  multiply(Pair $pair1, Pair $pair2, Pair $pair3?, Int $times = 0 --> Pair) 
+  multiply(Pair $pair1, Pair $pair2, Pair $pair3? --> Pair) 
 
 Cette méthode est utilisée pour multiplier deux ou trois fractions données
-en arguments sous forme de paires numérateur => dénominateur. Pour la
-fonction de l'attribut '$times', consultez ce qui est écrit pour les
-méthodes 'add-up' ou 'subtract'. Elle renvoie une nouvelle paire en valeur
-de retour.
+en arguments sous forme de paires numérateur => dénominateur. Elle renvoie
+une nouvelle paire en valeur de retour.

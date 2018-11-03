@@ -3,16 +3,24 @@ unit module Prime-factors;
 use v6;
 
 =begin pod
-Ce module contient un rôle : PrimeFactors destiné à
+=NAME PrimeFactors.
+=AUTHOR Christian Béloscar.
+=VERSION 0.1.
+=for head1
+Ce module contient un rôle : B<PrimeFactors> destiné à
 établir la liste des facteurs premiers d'un entier 
 différent de 0, c'est-à-dire de le décomposer en
 facteurs premiers.
-Il a deux méthodes, la première : breakdown(Int $integer)
-avec $integer différent de 0 qui
-renvoie un Hash comprenant le mappage des nombres avec
+
+Il a deux méthodes, la première :
+=for head2
+breakdown(Int $integer is copy where { ($integer != 0) or die "Argument invalide! Nombre entier différent de 0 requis." } --> Hash) {
+
+avec '$integer' différent de 0 qui
+renvoie un B<Hash> comprenant le mappage des nombres avec
 leurs facteurs.
 Il affiche ce mappage sous plusieurs formes :
-en tableau clé => valeur, en facteurs successifs
+en tableau associatif (Hash) clé => valeur, en facteurs successifs
 puis en facteurs élevés à la puissance requise.
 =end pod
 
@@ -110,15 +118,17 @@ role PrimeFactors is export {
     }
 
 =begin pod
+=for head2
 La deuxième méthode :
-=item 'reduce-fractions-prime-factors(Int @numerators, Int @denominators, Int $returned-array)'
+reduce-fractions-prime-factors(Int @numerators is copy, Int @denominators is copy, Int $return-array --> Array) {
+
 qui prend 2 tableaux de Int en arguments et délivre pour chacun des 2 tableaux
 un troisième et quatrième tableau contenant les valeurs qui se trouvent dans l'un des tableaux
 et pas dans l'autre.
-Selon la valeur de l'argument $returned-array (1 ou 2),
+Selon la valeur de l'argument '$returned-array' (1 ou 2),
 le premier tableau ou le deuxième tableau sera retourné,
 pour disposer des valeurs contenues dans les 2 tableaux,
-il faudra faire deux appels avec une valeur différente de $returned-array
+il faudra faire deux appels avec une valeur différente de '$returned-array'
 pour chacun d'eux.
 =end pod
 
@@ -157,10 +167,11 @@ pour chacun d'eux.
         }
 
         for @numerators -> $elem {
-            push @a, $elem if ($elem != 0);
+            # Pallier aux effets de bord des nombres négatifs
+            push @a, abs($elem) if ($elem != 0);
         }
         for @denominators -> $elem {
-            push @b, $elem if ($elem != 0);
+            push @b, abs($elem) if ($elem != 0);
         }
 
         if ($return-array == 1) {

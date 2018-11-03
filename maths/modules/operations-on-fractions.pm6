@@ -9,34 +9,36 @@ use v6;
 =for head1
 Ce module est destiné à faire des opérations sur des fractions.
 
-Il utilise les modules 'ppcm.pm6' et 'irreducible-fraction.pm6'
+Il utilise les modules B<ppcm.pm6>, B<irreducible-fraction.pm6>
+et B<prime-factors.pm6>
 et hérite du rôle B<PrimeFactors>.
 La méthode principale de la classe B<OperationsOnFractions>
 est B<calculate-fractions(Str $operation)> ou le
-=item paramètre '$operation' est soit 'add-up' ou '+'
+=item paramètre B<$operation> est soit 'add-up' ou '+'
 soit 'subtract' ou '-' ou '−', soit 'multiply' ou '*' ou '×'
 soit 'divide' ou ':' ou '÷',
 dans le cas ou il n'y a que deux fractions.
 
-Elle renvoie une paire (Pair) comme valeur de retour.
-Les champs obligatoires à renseigner sont 'numerator1',
-'denominator1', 'numerator2' et 'denominator2'
+Elle renvoie une B<paire> (Pair) comme valeur de retour.
+Les champs obligatoires à renseigner sont B<numerator1>,
+B<denominator1>, B<numerator2> et B<denominator2>
 correspondant aux numérateur et dénominateur de chaque
 fraction sur laquelle pratiquer l'opération choisie.
 
 Les deux champs suivants sont facultatifs :
-=item 'numerator3' et 'denominator3', pour lesquels
-d'autres opérateurs sont disponibles, c'est-à-dire :
+=item B<numerator3> et B<denominator3>, pour lesquels
+d'autres opérateurs sont disponibles pour l'B<addition>
+et la B<soustraction> uniquement, c'est-à-dire :
 =item 'add-upx2' ou '++', 'subtractx2' ou '--' ou '−−',
 'add-up-subtract' ou '+-' ou '+−', et enfin
 'subtract-add-up' ou '-+' ou '−+'.
 
 Ensuite, trois champs booléens facultatifs associés aux champs
-'numerator/denominator' servent à préciser si l'on
+B<numerator/denominator> servent à préciser si l'on
 effectue la réduction de la fraction en question
 avant le traitement des données,
-=item ce sont 'reduce-fraction1', 'reduce-fraction2'
-et 'reduce-fraction3';
+=item ce sont B<reduce-fraction1>, B<reduce-fraction2>
+et B<reduce-fraction3>;
 
 ces champs par défaut sont à B<False>,
 autrement dit on ne tente pas d'opérer une réduction de chaque fraction
@@ -44,49 +46,84 @@ avant d'effectuer l'opération.
 Noter que la dernière fraction résultante de l'opération
 est toujours donnée irréductible, mais qu'on peut jouer
 sur deux autres attributs Booléens :
-=item 'reduce-last-once' (B<False> par défaut), et
-'reduce-last-one' (B<True> par défaut);
+=item B<reduce-last-once> (B<False> par défaut), et
+B<reduce-last-one> (B<True> par défaut);
 
-le premier visant à réduire une seule fois
-la première fraction calculée dans une liste chaînée
+le premier visant dans le cadre de l'addition ou de la soustraction
+à réduire une seule fois
+la première fraction au terme du calcul dans une liste chaînée
 d'opérations (par exemple : +−),
 et le deuxième à réduire systématiquement la dernière
 fraction obtenue à tous les niveaux de cette liste
-ou bien lors d'une opération simple suivie
-éventuellement d'une autre.
+ou bien lors d'une opération simple (+ ou −).
 Ces attributs visent à modifier les opérations de calcul
 de manière à produire plusieurs options pour générer
 un même résultat.
-Viennent ensuite deux autres champs facultatifs :
-=item 'breakdown'factors' et 'compute'prime'factors'
+
+Trois autres attributs, complétant les deux précédants
+peuvent être utilisés lors d'une opération de multiplication
+ou de division, ce sont :
+=item B<breakdown-factors1>, réduire les facteurs de la première fraction,
+=item B<breakdown-factors2>, réduire les facteurs de la deuxième fraction,
+=item B<breakdown-factors3>, réduire les facteurs de la troisième fraction facultative.
+
+Ces trois attributs ont par défaut la valeur B<True>.
+
+Viennent ensuite deux autres champs facultatifs
+utilisables pour la multiplication ou la division de fractions uniquement
+et qui jouent avec les trois attributs décrits précédemment :
+=item B<breakdown'factors> et B<compute'prime'factors>
 
 (remarquez les séparateurs ' qui sont parfaitement valides);
 le premier de ces champs est destiné à établir la liste
 des facteurs premiers d'un entier différent de 0;
-le deuxième permet de supprimer les facteurs en double
+il a par défaut la valeur B<True> et si un ou plus des trois
+attributs précédents se voit donné la valeur B<False>,
+la réduction de la fraction concernée n'aura pas lieu.
+Autrement dit pour que cette réduction se produise,
+il faut à la fois que ces deux attributs aient la valeur B<True>
+ce qui est le cas par défaut.
+Si vous passez la valeur B<False> a B<breakdown'factors>,
+la réduction de toutes les fractions sera inhibée toutes ensemble.
+
+Le deuxième attribut B<compute'prime'factors>
+permet de supprimer les facteurs en double
 dans le numérateur et le dénominateur pour opérer la
 réduction de la fraction. Ces deux champs sont à B<True>
 par défaut.
 
 Les autres champs, facultatifs, sont destinés à choisir
 parmi les diverses méthodes utilisées pour le calcul
-en interne :
+des méthodes de classes appelées en interne :
 =for item
-'which-ppcm-algorithm' peut prendre l'une des valeurs suivantes :
-'by-larger-number-multiples' ou 'b.l.n.m.' ou 'bm';
-'by-prime-factors' ou 'b.p.f.' ou 'bf';
-'by-use-of-pgcd' ou 'b.u.o.p.' ou 'bp' (utilisé par défaut).
+B<which-ppcm-algorithm>, peut prendre l'une des valeurs suivantes :
+=item 'by-larger-number-multiples' ou 'b.l.n.m.' ou 'bm';
+=item 'by-prime-factors' ou 'b.p.f.' ou 'bf';
+=item 'by-use-of-pgcd' ou 'b.u.o.p.' ou 'bp' (utilisé par défaut).
+
+Ce dernier attribut n'est pas utilisé pour la multiplication ou la division,
+mais uniquement pour l'addition ou la soustraction
+afin de choisir l'algorithme qui sera utilisé pour le calcul
+par la classe PPCM.
 =for item
-'which-irreducible-fraction-algorithm' peut prendre les valeurs :
-'euclide' ou 'e' ou ':' ou '÷' (utilisé par défaut);
-'subtraction' ou 's' ou '-' ou '−';
-'factorization' ou 'f' ou '*' ou '×'.
+B<which-irreducible-fraction-algorithm> peut prendre les valeurs :
+=item 'euclide' ou 'e' ou ':' ou '÷' (utilisé par défaut);
+=item 'subtraction' ou 's' ou '-' ou '−';
+=item 'factorization' ou 'f' ou '*' ou '×'.
+
+Cet attribut est destiné à choisir la méthode qui sera utilisée
+par la classe B<IrreducibleFraction> pour la réduction
+d'une fraction à sa plus simple expression.
 =for item
-'which-pgcd-algorithm' peut prendre l'une des valeurs :
-'euclide' ou 'e' ou ':' ou '÷' (utilisé par défaut);
-'subtraction' ou 's' ou '-' ou '−';
-'factorization' ou 'f' ou '*' ou '×';
-'divisors-listing' ou 'd' ou '#' ou '/'.
+B<which-pgcd-algorithm> peut prendre l'une des valeurs :
+=item 'euclide' ou 'e' ou ':' ou '÷' (utilisé par défaut);
+=item 'subtraction' ou 's' ou '-' ou '−';
+=item 'factorization' ou 'f' ou '*' ou '×';
+=item 'divisors-listing' ou 'd' ou '#' ou '/'.
+
+Cet attribut peut être employé pour toutes les opérations;
+il détermine l'algorithme utilisé par la classe PGCD
+pour le calcul du PPCM :
 =end pod
 
 use ppcm;
@@ -97,23 +134,38 @@ class OperationsOnFractions does PrimeFactors is export {
     has Int $.numerator1 is required is rw where { $_ != 0 or die "Valeur de champ invalide! Numérateur différent de 0 requis." }
     has Int $.denominator1 is required is rw where { $_ != 0 or die "Valeur de champ invalide! Dénominateur différent de 0 requis." }
     has Bool $.reduce-fraction1 is rw = False;
+    # Pour la multiplication ou la division
+    has Bool $.breakdown-factors1 is rw = True;
+
     has Int $.numerator2 is required is rw where { $_ != 0 or die "Valeur de champ invalide! Numérateur différent de 0 requis." }
     has Int $.denominator2 is required is rw where { $_ != 0 or die "Valeur de champ invalide! Dénominateur différent de 0 requis." }
     has Bool $.reduce-fraction2 is rw = False;
+    # Pour la multiplication ou la division
+    has Bool $.breakdown-factors2 is rw = True;
+
     has Int $.numerator3 is rw where { $_ != 0 or die "Valeur de champ invalide! Numérateur différent de 0 requis." }
     has Int $.denominator3 is rw where { $_ != 0 or die "Valeur de champ invalide! Dénominateur différent de 0 requis." }
     has Bool $.reduce-fraction3 is rw = False;
-    has Bool $.reduce-last-one is rw = True;
+    # Pour la multiplication ou la division
+    has Bool $.breakdown-factors3 is rw = True;
+    
+    # Pour l'addition et la soustraction
     has Bool $.reduce-last-once is rw = False;
+    # Pour toutes les opérations
+    has Bool $.reduce-last-one is rw = True;
+    # Pour la multiplication ou la division 
     has Bool $.breakdown'factors is rw = True;
     has Bool $.compute'prime'factors is rw = True;
-    has Str $.which-ppcm-algorithm is rw where { ($_ ~~ / 'by-larger-number-multiples' || 'b.l.n.m.' || 'bm' || 'by-prime-factors' || 'b.p.f.' || 'bf' || 'by-use-of-pgcd' || 'b.u.o.p.' || 'bp' /) or
+
+    # Pour l'addition et la soustraction
+    has Str $.which-ppcm-algorithm is rw where { ($_ ~~ / ^'by-larger-number-multiples'$ || ^'b.l.n.m.'$ || ^'bm'$ || ^'by-prime-factors'$ || ^'b.p.f.'$ || ^'bf'$ || ^'by-use-of-pgcd'$ || ^'b.u.o.p.'$ || ^'bp'$ /) or
     die "Champ de classe invalide! Attendu 'by-larger-number-multiples' ou 'b.l.n.m.' ou 'bm', ou 'by-prime-factors' ou 'b.p.f.' ou 'bf', ou 'by-use-of-pgcd' ou 'b.u.o.p.' ou 'bp'."; }
     = 'b.u.o.p.'; 
-    has Str $.which-irreducible-fraction-algorithm is rw where { ($_ ~~ / 'euclide' || 'e' || ':' || '÷' || 'subtraction' || 's' || '-' || '−' || 'factorization' || 'f' || '*' || '×' /) or
+    # Aussi pour la multiplication et la division
+    has Str $.which-irreducible-fraction-algorithm is rw where { ($_ ~~ / ^'euclide'$ || ^'e'$ || ^':'$ || ^'÷'$ || ^'subtraction'$ || ^'s'$ || ^'-'$ || ^'−'$ || ^'factorization'$ || ^'f'$ || ^'*'$ || ^'×'$ /) or
     die "Champ de classe invalide! Attendu 'euclide' ou 'e' ou ':' ou '÷', ou 'subtraction' ou 's' ou '-' ou '−', ou 'factorization' ou  'f' ou '*' ou '×'."; }
     = '÷';
-    has Str $.which-pgcd-algorithm is rw where { $_ ~~ / euclide || 'e' || ':' || '÷' || subtraction || 's' || \- || '−' || factorization || 'f' || '*' || '×' || divisors\-listing || 'd' || '#' || '/' / 
+    has Str $.which-pgcd-algorithm is rw where { $_ ~~ / ^euclide$ || ^'e'$ || ^':'$ || ^'÷'$ || ^subtraction$ || ^'s'$ || ^\-$ || ^'−'$ || ^factorization$ || ^'f'$ || ^'*'$ || ^'×'$ || ^divisors\-listing$ || ^'d'$ || ^'#'$ || ^'/'$ / 
     or die "Valeur de champ invalide! Précisez 'euclide' ou 'e' ou ':' ou '÷'; 'subtraction' ou 's' ou '-' ou '−'; 'factorization' ou 'f' ou '*' ou '×'; 'divisors-listing' ou 'd' ou '#' ou '/'"; }
     = 'euclide';
     
@@ -134,13 +186,20 @@ reduce-fraction(Int $numerator, Int $denominator, Str $sign = '' --> Pair)
 
 Cette méthode destinée à obtenir la fraction irréductible
 à partir du numérateur et du dénominateur passés en argument
-utilise la classe B<IrreducibleFraction> du module 'irreducible-fraction.pm6'
-et utilse deux attributs de la classe, soit
-'which-irreducible-fraction-algorithm' et 'which-pgcd-algorithm'
+utilise la classe B<IrreducibleFraction> du module B<irreducible-fraction.pm6>
+et utilise deux attributs de la classe, soit
+B<which-irreducible-fraction-algorithm> et B<which-pgcd-algorithm>
 qui déterminent le choix pour le premier de l'algorithme
 de la méthode utilisée en interne par B<IrreducibleFraction>
 pour effectuer les calculs, et pour le deuxième l'algorithme
-du module 'pgdc.pm6' dont B<IrreducibleFraction> se servira en interne.
+du module B<pgdc.pm6> dont B<IrreducibleFraction> se servira en interne.
+Pour gérer correctement les nombres négatifs avec l'opération B<multiply> uniquement,
+il faut mettre le troisième argument B<$sign> à '-' afin d'appeler l'une des méthodes
+=item B<$irreducible.reduce-fraction-with-euclide-algorithm($sign)>;
+=item B<$irreducible.reduce-fraction-with-subtraction-algorithm($sign)>
+=item B<$irreducible.reduce-fraction-with-factorization-algorithm($sign)>;
+Le signe + n'est pas écrit, il est géré par la valeur par défaut de B<$sign>,
+une chaîne vide.
 =end pod
 
     method reduce-fraction(Int $numerator, Int $denominator, Str $sign = '' --> Pair) {
@@ -152,9 +211,9 @@ du module 'pgdc.pm6' dont B<IrreducibleFraction> se servira en interne.
             pgcd-algorithm => self.which-pgcd-algorithm,
         );
         given $irreducible-fraction-algorithm {
-            when / 'e' || ':' || '÷' || 'euclide' / { $P = $irreducible.reduce-fraction-with-euclide-algorithm(); }
-            when / 's' || '-' || '−' || 'subtraction' / { $P = $irreducible.reduce-fraction-with-subtraction-algorithm(); }
-            when / 'f' || '*' || '×' || 'factorization' / { $P = $irreducible.reduce-fraction-with-factorization-algorithm($sign); }
+            when / ^'e'$ || ^':'$ || ^'÷'$ || ^'euclide'$ / { $P = $irreducible.reduce-fraction-with-euclide-algorithm($sign); }
+            when / ^'s'$ || ^'-'$ || ^'−'$ || ^'subtraction'$ / { $P = $irreducible.reduce-fraction-with-subtraction-algorithm($sign); }
+            when / ^'f'$ || ^'*'$ || ^'×'$ || ^'factorization'$ / { $P = $irreducible.reduce-fraction-with-factorization-algorithm($sign); }
             #default { $P = $irreducible.reduce-fraction-with-euclide-algorithm(); }
         }
         $P = Int($P.key) => $P.value;
@@ -167,11 +226,11 @@ add-up(Pair $pair1, Pair $pair2, Int $times = 0 --> Pair)
 
 Cette méthode renvoie l'addition des numérateurs et dénominateurs
 passés aux attributs de la classe, c'est-à-dire,
-'numerator1', 'denominator1' et 'numerator2' et 'denominator2'.
-Elle utilise les modules 'ppcm.pm6' et 'pgcd.pm6',
-ainsi que la méthode de la classe 'reduce-fraction($numerator, $denominator'). 
-Le paramètre '$times' s'il est mis à 1
-et que l'attribut de la classe 'reduce-last-onU<c>e'
+B<numerator1>, B<denominator1> et B<numerator2> et B<denominator2>.
+Elle utilise les modules B<ppcm.pm6> et B<pgcd.pm6>,
+ainsi que la méthode de la classe B<reduce-fraction($numerator, $denominator)>. 
+Le paramètre B<$times> s'il est mis à 1
+et que l'attribut de la classe B<reduce-last-onU<c>e>
 est passé à B<True>, la méthode ne réduira pas la fraction résultante
 lors d'un premier appel, mais la réduira lors d'un appel subséquent.
 Elle renvoie une B<paire> constituée du numérateur et du dénominateur
@@ -212,9 +271,9 @@ de la fraction résultante.
                 which-pgcd-algorithm => $pgcd-algorithm,
             );
             given $ppcm-algorithm {
-                when / 'b.l.n.m.' || 'bm' || 'by-larger-number-multiples' / { $p = $ppcm.by-larger-number-multiples; }
-                when / 'b.p.f.' || 'bf' || 'by-prime-factors' / { $p = $ppcm.by-prime-factors; }
-                when / 'b.u.o.p.' || 'bp' || 'by-use-of-pgcd' / { $p = $ppcm.by-use-of-pgcd; }
+                when / ^'b.l.n.m.'$ || ^'bm'$ || ^'by-larger-number-multiples'$ / { $p = $ppcm.by-larger-number-multiples; }
+                when / ^'b.p.f.'$ || ^'bf'$ || ^'by-prime-factors'$ / { $p = $ppcm.by-prime-factors; }
+                when / ^'b.u.o.p.'$ || ^'bp'$ || ^'by-use-of-pgcd'$ / { $p = $ppcm.by-use-of-pgcd; }
                 #default { $p = $ppcm.by-use-of-pgcd; }
             }
             $multiple1 = $p div $d1;
@@ -248,11 +307,11 @@ add-upx2(Pair $pair1, Pair $pair2, Pair $pair3 --> Pair)
 
 Cette méthode renvoie l'addition des numérateurs et dénominateurs
 passés aux attributs de la classe, c'est-à-dire,
-'numerator1', 'denominator1', 'numerator2', 'denominator2'
-et 'numerator3' et 'denominator3' pour calculer la somme
+B<numerator1>, B<denominator1>, B<numerator2>, B<denominator2>
+et B<numerator3> et B<denominator3> pour calculer la somme
 de trois fractions.
-Elle utilise les modules 'ppcm.pm6' et 'pgcd.pm6',
-ainsi que la méthode de la classe : 'reduce-fraction($numerator, $denominator'). 
+Elle utilise les modules B<ppcm.pm6> et B<pgcd.pm6>,
+ainsi que la méthode de la classe : B<reduce-fraction($numerator, $denominator)>. 
 Elle renvoie une B<paire> constituée par le numérateur et le dénominateur
 de la fraction résultante.
 =end pod
@@ -269,10 +328,10 @@ subtract(Pair $pair1, Pair $pair2, Int $times = 0 --> Pair)
 
 Cette méthode renvoie la soustraction des numérateurs et dénominateurs
 passés aux attributs de la classe, c'est-à-dire,
-'numerator1', 'denominator1' et 'numerator2' et 'denominator2'.
-Elle utilise les modules 'ppcm.pm6' et 'pgcd.pm6',
-ainsi que la méthode de la classe 'reduce-fraction($numerator, $denominator'). 
-Le paramètre '$times' a le même effet que pour l'opération 'add-up' (voir plus haut).
+B<numerator1>, B<denominator1> et B<numerator2> et B<denominator2>.
+Elle utilise les modules B<ppcm.pm6> et B<pgcd.pm6>,
+ainsi que la méthode de la classe B<reduce-fraction($numerator, $denominator)>. 
+Le paramètre B<$times> a le même effet que pour l'opération B<add-up> (voir plus haut).
 Elle renvoie une paire constituée du numérateur et du dénominateur
 de la fraction résultante.
 =end pod
@@ -312,9 +371,9 @@ de la fraction résultante.
                 which-pgcd-algorithm => $pgcd-algorithm,
             );
             given $ppcm-algorithm {
-                when / 'b.l.n.m.' || 'bm' || 'by-larger-number-multiples' / { $p = $ppcm.by-larger-number-multiples; }
-                when / 'b.p.f.' || 'bf' || 'by-prime-factors' / { $p = $ppcm.by-prime-factors; }
-                when / 'b.u.o.p.' || 'bp' || 'by-use-of-pgcd' / { $p = $ppcm.by-use-of-pgcd; }
+                when / ^'b.l.n.m.'$ || ^'bm'$ || ^'by-larger-number-multiples'$ / { $p = $ppcm.by-larger-number-multiples; }
+                when / ^'b.p.f.'$ || ^'bf'$ || ^'by-prime-factors'$ / { $p = $ppcm.by-prime-factors; }
+                when / ^'b.u.o.p.'$ || ^'bp'$ || ^'by-use-of-pgcd'$ / { $p = $ppcm.by-use-of-pgcd; }
                 #default { $p = $ppcm.by-use-of-pgcd; }
             }
             $multiple1 = $p div $d1;
@@ -347,11 +406,11 @@ subtractx2(Pair $pair1, Pair $pair2, Pair $pair3 --> Pair)
 
 Cette méthode renvoie la soustraction des numérateurs et dénominateurs
 passés aux attributs de la classe, c'est-à-dire,
-'numerator1', 'denominator1', 'numerator2', 'denominator2'
-et 'numerator3' et 'denominator3' pour calculer la différence
+B<numerator1>, B<denominator1>, B<numerator2>, B<denominator2>
+et B<numerator3> et B<denominator3> pour calculer la différence
 de trois fractions.
-Elle utilise les modules 'ppcm.pm6' et 'pgcd.pm6',
-ainsi que la méthode de la classe : 'reduce-fraction($numerator, $denominator'). 
+Elle utilise les modules B<ppcm.pm6> et B<pgcd.pm6>,
+ainsi que la méthode de la classe : B<reduce-fraction($numerator, $denominator)>. 
 Elle renvoie une B<paire> constituée par le numérateur et le dénominateur
 de la fraction résultante.
 =end pod
@@ -368,12 +427,12 @@ add-up-subtract(Pair $pair1, Pair $pair2, Pair $pair3 --> Pair)
 
 Cette méthode renvoie l'addition des numérateurs et dénominateurs
 passés aux attributs de la classe, c'est-à-dire,
-'numerator1', 'denominator1', 'numerator2', 'denominator2'
-et la soustraction des 'numerator3' et 'denominator3'
+B<numerator1>, B<denominator1>, B<numerator2>, B<denominator2>
+et la soustraction des B<numerator3> et B<denominator3>
 pour calculer la somme des deux premières fractions
 et la différence du résultat et de la troisième fraction.
-Elle utilise les modules 'ppcm.pm6' et 'pgcd.pm6',
-ainsi que la méthode de la classe : 'reduce-fraction($numerator, $denominator'). 
+Elle utilise les modules B<ppcm.pm6> et B<pgcd.pm6>,
+ainsi que la méthode de la classe : B<reduce-fraction($numerator, $denominator)>. 
 Elle renvoie une B<paire> constituée par le numérateur et le dénominateur
 de la fraction résultante.
 =end pod
@@ -391,11 +450,11 @@ subtract-add-up(Pair $pair1, Pair $pair2, Pair $pair3 --> Pair)
 Cette méthode est l'inverse de la précédente, c'est-à-dire qu'elle
 renvoie la soustraction des numérateurs et dénominateurs
 passés aux attributs de la classe, c'est-à-dire,
-'numerator1', 'denominator1', 'numerator2', 'denominator2'
+B<numerator1>, B<denominator1>, B<numerator2>, B<denominator2>
 pour calculer la différence des deux premières fractions
 et la somme du résultat et de la troisième fraction.
-Elle utilise les modules 'ppcm.pm6' et 'pgcd.pm6',
-ainsi que la méthode de la classe : 'reduce-fraction($numerator, $denominator'). 
+Elle utilise les modules B<ppcm.pm6> et B<pgcd.pm6>,
+ainsi que la méthode de la classe : B<reduce-fraction($numerator, $denominator)>. 
 Elle renvoie une B<paire> constituée par le numérateur et le dénominateur
 de la fraction résultante.
 =end pod
@@ -411,8 +470,8 @@ de la fraction résultante.
 breakdown-factors(Int @array-of-factors --> Array)
 
 Cette méthode décompose un tableau de facteurs en facteurs premiers.
-Elle utilise la méthode 'breakdown' du rôle B<PrimeFactors>.
-Consultez la documentation du module 'prime-factors.pm6'
+Elle utilise la méthode B<breakdown> du rôle B<PrimeFactors>.
+Consultez la documentation du module B<prime-factors.pm6>
 pour plus d'informations.
 =end pod
 
@@ -422,16 +481,29 @@ pour plus d'informations.
         my %hash3{Int};
         my Int @array;
         # Méthode du rôle PrimeFactors
-        say "Facteurs premiers de @array-of-factors[0] :";
-        %hash1 = self.breakdown(@array-of-factors[0]);
-        push @array, |%hash1.values;
-        say "Facteurs premiers de @array-of-factors[1] :";
-        %hash2 = self.breakdown(@array-of-factors[1]);
-        push @array, |%hash2.values;
+        if ($!breakdown-factors1 && $!breakdown'factors) {
+            say "Facteurs premiers de @array-of-factors[0] :";
+            %hash1 = self.breakdown(@array-of-factors[0]);
+            push @array, |%hash1.values;
+        } else {
+            # Pallier aux effets de bord des nombres négatifs
+            push @array, abs(@array-of-factors[0]);
+        }
+        if ($!breakdown-factors2 && $!breakdown'factors) {
+            say "Facteurs premiers de @array-of-factors[1] :";
+            %hash2 = self.breakdown(@array-of-factors[1]);
+            push @array, |%hash2.values;
+        } else {
+            push @array, @array-of-factors[1];
+        }
         if defined(@array-of-factors[2]) {
-            say "Facteurs premiers de @array-of-factors[2] :";
-            %hash3 = self.breakdown(@array-of-factors[2]);
-            push @array, |%hash3.values;
+            if ($!breakdown-factors3 && $!breakdown'factors) {
+                say "Facteurs premiers de @array-of-factors[2] :";
+                %hash3 = self.breakdown(@array-of-factors[2]);
+                push @array, |%hash3.values;
+            } else {
+                push @array, @array-of-factors[2];
+            }
         }
         @array = @array.sort;
         say "Facteurs premiers obtenus pour @array-of-factors[] : @array[];";
@@ -444,12 +516,12 @@ pour plus d'informations.
 compute-prime-factors(Int @array1, Int @array2, Int $return-array = 1 --> Array)
 
 Cette méthode elle aussi appelle une méthode de B<PrimeFactors> :
-'reduce-fractions-prime-factors(Int @numerators, Int @denominators, Int $return-array)'
+B<reduce-fractions-prime-factors(Int @numerators, Int @denominators, Int $return-array)>
 Elle consiste à produire les facteurs qui sont dans l'un des tableaux
-mais pas dans l'autre. Il faut passer l'argument 1 (par défaut) à $return-array
+mais pas dans l'autre. Il faut passer l'argument 1 (par défaut) à B<$return-array>
 pour retourner le premier tableau, c'est-à-dire les numérateurs
 ou 2 pour retourner le deuxième tableau, celui des dénominateurs.
-Consultez aussi la documentation du module 'prime-factors.pm6'.
+Consultez aussi la documentation du module B<prime-factors.pm6>.
 =end pod
 
     method compute-prime-factors(Int @array1, Int @array2, Int $return-array = 1 --> Array) {
@@ -515,17 +587,15 @@ Elle retourne '+' ou '−'.
 
 =begin pod
 =for head2
-multiply(Pair $pair1, Pair $pair2, Pair $pair3?, Int $times = 0 --> Pair) 
+multiply(Pair $pair1, Pair $pair2, Pair $pair3? --> Pair) 
 
 Cette méthode est utilisée pour multiplier deux ou trois
 fractions données en arguments sous forme de paires
 numérateur => dénominateur.
-Pour la fonction de l'attribut '$times', consultez
-ce qui est écrit pour les méthodes 'add-up' ou 'subtract'.
 Elle renvoie une nouvelle B<paire> en valeur de retour.
 =end pod
 
-    method multiply(Pair $pair1, Pair $pair2, Pair $pair3?, Int $times = 0 --> Pair) {
+    method multiply(Pair $pair1, Pair $pair2, Pair $pair3? --> Pair) {
         my Int $n1 = $pair1.key;
         my Int $n2 = $pair2.key;
         my Int $d1 = $pair1.value;
@@ -545,10 +615,11 @@ Elle renvoie une nouvelle B<paire> en valeur de retour.
         if defined($pair3) {
             $P3 = $n3 => $d3;
             $sign = self.fractions-product-sign($P1, $P2, $P3);
+            print "Signe du produit de {$P1.key}/{$P1.value} par {$P2.key}/{$P2.value} et {$P3.key}/{$P3.value} : ";
         } else {
             $sign = self.fractions-product-sign($P1, $P2);
+            print "Signe du produit de {$P1.key}/{$P1.value} par {$P2.key}/{$P2.value} : ";
         }
-        print "Signe du produit de {$P1.key}/{$P1.value} par {$P2.key}/{$P2.value} : ";
         given $sign {
             when '+' {
                 say "$sign.";
@@ -587,15 +658,25 @@ Elle renvoie une nouvelle B<paire> en valeur de retour.
             if (defined($n3)) { push @a, $n3; };
             push @b, $d1, $d2;
             if (defined($d3)) { push @b, $d3; };
-            $numerator = [*] @a;
-            $denominator = [*] @b;
+            if (self.compute'prime'factors) {
+                @prime-factors1 = self.compute-prime-factors(@a, @b, 1);
+                $numerator = [*] @prime-factors1;
+                @prime-factors2 = self.compute-prime-factors(@a, @b, 2);
+                $denominator = [*] @prime-factors2;
+            } else {
+                $numerator = [*] @a;
+                $denominator = [*] @b;
+            }
         }
         say "Fraction résultante : $sign$numerator/$denominator.";
         say();
         my Pair $P;
-        if ($!reduce-last-once && ($times == 1) || $!reduce-last-one && ($times == 0)) {
+        if ($!reduce-last-one) {
             put 'On simplifie la dernière fraction obtenue :';
             $P = self.reduce-fraction($numerator, $denominator, $sign);
+            if $P.key == (1 || -1) && $P.value == (1 || -1) {
+                say "Fraction résolue : {$P.key div $P.value}.";
+            }
         } else {
             $P = Int($sign ~ $numerator) => $denominator;
         }
@@ -636,10 +717,10 @@ Elle renvoie une nouvelle B<paire> en valeur de retour.
 
         if (!defined($!numerator3) || !defined($!denominator3)) {
             given $operation {
-               when / 'add-up' || '+' / { $P3 = self.add-up($P1, $P2); }
-               when / 'subtract' || '-' || '−' / { $P3 = self.subtract($P1, $P2); }
-               when / 'multiply' || '*' || '×' / { $P3 = self.multiply($P1, $P2); }
-               when / 'divide' || ':' || '÷' / { $P3 = self.divide($P1, $P2); }
+               when / ^'add-up'$ || ^'+'$ / { $P3 = self.add-up($P1, $P2); }
+               when / ^'subtract'$ || ^'-'$ || ^'−'$ / { $P3 = self.subtract($P1, $P2); }
+               when / ^'multiply'$ || ^'*'$ || ^'×'$ / { $P3 = self.multiply($P1, $P2); }
+               when / ^'divide'$ || ^':'$ || ^'÷'$ / { $P3 = self.divide($P1, $P2); }
                default { say "Opération non définie pour deux opérateurs! 'add-up' ou '+', 'subtract' ou '-' ou '−', 'multiply' ou '*' ou '×', 'divide' ou ':' ou '÷' attendus." }
             } 
             return $P3;
@@ -654,12 +735,12 @@ Elle renvoie une nouvelle B<paire> en valeur de retour.
             }
             say();
             given $operation {
-                when / 'add-upx2' || '++' / { $P4 = self.add-upx2($P1, $P2, $P3); }
-                when / 'add-up-subtract' || '+-' || '+−' / { $P4 = self.add-up-subtract($P1, $P2, $P3); }
-                when / 'subtractx2' || '--' || '−−' / { $P4 = self.subtractx2($P1, $P2, $P3); }
-                when / 'subtract-add-up' || '-+' || '−+' / { $P4 = self.subtract-add-up($P1, $P2, $P3); }
-                when / 'multiplyx2' || '**' || '××' / { $P4 = self.multiply($P1, $P2, $P3, 1); }
-                default { say "Opération non définie pour trois opérateurs! 'add-upx2' ou '++', 'subtractx2' ou '--' ou '−−', 'multiplyx2' ou '**' ou '××', 'dividex2' ou '::' ou '÷÷' attendus." }
+                when / ^'add-upx2'$ || ^'++'$ / { $P4 = self.add-upx2($P1, $P2, $P3); }
+                when / ^'add-up-subtract'$ || ^'+-'$ || ^'+−'$ / { $P4 = self.add-up-subtract($P1, $P2, $P3); }
+                when / ^'subtractx2'$ || ^'--'$ || ^'−−'$ / { $P4 = self.subtractx2($P1, $P2, $P3); }
+                when / ^'subtract-add-up'$ || ^'-+'$ || ^'−+'$ / { $P4 = self.subtract-add-up($P1, $P2, $P3); }
+                when / ^'multiply'$ || ^'*'$ || ^'×'$ / { $P4 = self.multiply($P1, $P2, $P3); }
+                default { say "Opération non définie pour trois opérateurs! 'add-upx2' ou '++', 'subtractx2' ou '--' ou '−−', 'multiply' ou '*' ou '×', 'divide' ou ':' ou '÷' attendus." }
             }
             return $P4;
         }
