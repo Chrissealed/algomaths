@@ -5,7 +5,7 @@ AUTHOR
 Christian Béloscar.
 
 VERSION
-0.1.
+0.1.2
 
 Ce module est destiné à faire des opérations sur des fractions.
 
@@ -14,22 +14,37 @@ prime-factors.pm6 et hérite du rôle PrimeFactors. La méthode principale de
 la classe OperationsOnFractions est calculate-fractions(Str $operation) ou
 le
 
-  * paramètre $operation est soit 'add-up' ou '+' soit 'subtract' ou '-' ou
-  '−', soit 'multiply' ou '*' ou '×' soit 'divide' ou ':' ou '÷', dans le cas
-  ou il n'y a que deux fractions.
+  * paramètre $operation est soit 'add-up' ou '+' ou 'a' soit 'subtract' ou '-'
+  ou '−' ou 's', soit 'multiply' ou '*' ou '×' ou 'm' soit 'divide' ou ':' ou
+  '÷' ou 'd', dans le cas ou il n'y a que deux fractions.
 
 Elle renvoie une paire (Pair) comme valeur de retour. Les champs
 obligatoires à renseigner sont numerator1, denominator1, numerator2 et
 denominator2 correspondant aux numérateur et dénominateur de chaque
 fraction sur laquelle pratiquer l'opération choisie.
 
+On peut justement se demander pourquoi l'implémentation des fractions se
+fait par la séparation entre le numérateur et le dénominateur et que
+l'objet renvoyé par calculate-fractions(Str $operation) est une paire et
+non une fraction. Cette implémentation est en fait sujette à la
+multiplication des options pour le calcul des fractions; en effet les
+fractions littérales sont automatiquement réduites à leur plus simple
+expression ce qui oblitère la possibilité de choisir expressément la façon
+dont on veut effectuer les calculs. En fournissant les données sous cette
+forme, on a plus de contrôle sur le déroulement des calculs, par exemple on
+a le choix de réduire ou pas les fractions en entrée en fournissant une
+valeur True aux booléens reduce-fractionN (Voir ci-dessous). De même on
+pourra choisir de livrer la dernière fraction résultante sans la réduire
+systématiquement. (Voir plus bas).
+
 Les deux champs suivants sont facultatifs :
 
   * numerator3 et denominator3, pour lesquels d'autres opérateurs sont
   disponibles pour l'addition et la soustraction uniquement, c'est-à-dire :
 
-  * 'add-upx2' ou '++', 'subtractx2' ou '--' ou '−−', 'add-up-subtract' ou '+-'
-  ou '+−', et enfin 'subtract-add-up' ou '-+' ou '−+'.
+  * 'add-upx2' ou '++' ou 'aa', 'subtractx2' ou '--' ou '−−' ou 'ss',
+  'add-up-subtract' ou '+-' ou '+−' ou 'as', et enfin 'subtract-add-up' ou
+  '-+' ou '−+' ou 'sa'.
 
 Ensuite, trois champs booléens facultatifs associés aux champs
 numerator/denominator servent à préciser si l'on effectue la réduction de
@@ -90,11 +105,11 @@ interne :
 
   * which-ppcm-algorithm, peut prendre l'une des valeurs suivantes :
 
-  * 'by-larger-number-multiples' ou 'b.l.n.m.' ou 'bm';
+  * 'by-larger-number-multiples' ou 'b.l.n.m.' ou 'by-m' ou 'bm';
 
-  * 'by-prime-factors' ou 'b.p.f.' ou 'bf';
+  * 'by-prime-factors' ou 'b.p.f.' ou 'by-f' ou 'bf';
 
-  * 'by-use-of-pgcd' ou 'b.u.o.p.' ou 'bp' (utilisé par défaut).
+  * 'by-use-of-pgcd' ou 'b.u.o.p.' ou 'by-p' ou 'bp' (utilisé par défaut).
 
 Ce dernier attribut n'est pas utilisé pour la multiplication ou la
 division, mais uniquement pour l'addition ou la soustraction afin de
@@ -147,13 +162,12 @@ dont IrreducibleFraction se servira en interne. Pour gérer correctement les
 nombres négatifs avec l'opération multiply uniquement, il faut mettre le
 troisième argument $sign à '-' afin d'appeler l'une des méthodes
 
-  * $irreducible.reduce-fraction-with-euclide-algorithm($sign);
+  * reduce-fraction-with-euclide-algorithm($sign);
 
-  * $irreducible.reduce-fraction-with-subtraction-algorithm($sign)
+  * reduce-fraction-with-subtraction-algorithm($sign)
 
-  * $irreducible.reduce-fraction-with-factorization-algorithm($sign); Le signe
-  + n'est pas écrit, il est géré par la valeur par défaut de $sign, une
-  chaîne vide.
+  * reduce-fraction-with-factorization-algorithm($sign); Le signe + n'est pas
+  écrit, il est géré par la valeur par défaut de $sign, une chaîne vide.
 
   add-up(Pair $pair1, Pair $pair2, Int $times = 0 --> Pair)
 

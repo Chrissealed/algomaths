@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="fr">
 <head>
   <title></title>
   <meta charset="UTF-8" />
@@ -21,9 +21,9 @@
     aside, u { opacity: 0.7 }
     a[id^="fn-"]:target { background: #ff0 }
   </style>
-  <link rel="stylesheet" href="//design.perl6.org/perl.css">
+  <link rel="stylesheet" href="design.perl6.org/perl.css">
   <meta name="author" value="Christian Béloscar." />
-<meta name="version" value="0.1." />
+<meta name="version" value="0.1.2" />
   
 </head>
 <body class="pod">
@@ -34,7 +34,7 @@
 <table id="TOC">
 <caption><h2 id="TOC_Title">Table of Contents</h2></caption>
    <tr class="toc-level-1"><td class="toc-number">1</td><td class="toc-text"><a href="#Ce_module_est_destiné_à_faire_des_opérations_sur_des_fractions.">Ce module est destiné à faire des opérations sur des fractions.</a></td></tr>
-                                                                                                                <tr class="toc-level-1"><td class="toc-number">2</td><td class="toc-text"><a href="#Voici_la_liste_des_méthodes_de_la_classe_OperationsOnFractions_:">Voici la liste des méthodes de la classe OperationsOnFractions :</a></td></tr>
+                                                                                                                     <tr class="toc-level-1"><td class="toc-number">2</td><td class="toc-text"><a href="#Voici_la_liste_des_méthodes_de_la_classe_OperationsOnFractions_:">Voici la liste des méthodes de la classe OperationsOnFractions :</a></td></tr>
  <tr class="toc-level-2"><td class="toc-number">2.1</td><td class="toc-text"><a href="#calculate-fractions(Str_$operation_--&gt;_Pair)">calculate-fractions(Str $operation --&gt; Pair)</a></td></tr>
   <tr class="toc-level-2"><td class="toc-number">2.2</td><td class="toc-text"><a href="#reduce-fraction(Int_$numerator,_Int_$denominator,_Str_$sign_=_''_--&gt;_Pair)">reduce-fraction(Int $numerator, Int $denominator, Str $sign = &#39;&#39; --&gt; Pair)</a></td></tr>
                            <tr class="toc-level-2"><td class="toc-number">2.3</td><td class="toc-text"><a href="#add-up(Pair_$pair1,_Pair_$pair2,_Int_$times_=_0_--&gt;_Pair)">add-up(Pair $pair1, Pair $pair2, Int $times = 0 --&gt; Pair)</a></td></tr>
@@ -61,18 +61,19 @@
 <p>Christian Béloscar.</p>
 </section>
 <section><h1>VERSION</h1>
-<p>0.1.</p>
+<p>0.1.2</p>
 </section>
 <h1 id="Ce_module_est_destiné_à_faire_des_opérations_sur_des_fractions."><a class="u" href="#___top" title="go to top of document">Ce module est destiné à faire des opérations sur des fractions.</a></h1>
 <p>Il utilise les modules <strong>ppcm.pm6</strong>, <strong>irreducible-fraction.pm6</strong> et <strong>prime-factors.pm6</strong> et hérite du rôle <strong>PrimeFactors</strong>. La méthode principale de la classe <strong>OperationsOnFractions</strong> est <strong>calculate-fractions(Str $operation)</strong> ou le</p>
-<ul><li><p>paramètre <strong>$operation</strong> est soit &#39;add-up&#39; ou &#39;+&#39; soit &#39;subtract&#39; ou &#39;-&#39; ou &#39;−&#39;, soit &#39;multiply&#39; ou &#39;*&#39; ou &#39;×&#39; soit &#39;divide&#39; ou &#39;:&#39; ou &#39;÷&#39;, dans le cas ou il n&#39;y a que deux fractions.</p>
+<ul><li><p>paramètre <strong>$operation</strong> est soit &#39;add-up&#39; ou &#39;+&#39; ou &#39;a&#39; soit &#39;subtract&#39; ou &#39;-&#39; ou &#39;−&#39; ou &#39;s&#39;, soit &#39;multiply&#39; ou &#39;*&#39; ou &#39;×&#39; ou &#39;m&#39; soit &#39;divide&#39; ou &#39;:&#39; ou &#39;÷&#39; ou &#39;d&#39;, dans le cas ou il n&#39;y a que deux fractions.</p>
 </li>
 </ul>
 <p>Elle renvoie une <strong>paire</strong> (Pair) comme valeur de retour. Les champs obligatoires à renseigner sont <strong>numerator1</strong>, <strong>denominator1</strong>, <strong>numerator2</strong> et <strong>denominator2</strong> correspondant aux numérateur et dénominateur de chaque fraction sur laquelle pratiquer l&#39;opération choisie.</p>
+<p>On peut justement se demander pourquoi l&#39;implémentation des fractions se fait par la séparation entre le numérateur et le dénominateur et que l&#39;objet renvoyé par <strong>calculate-fractions(Str $operation)</strong> est une paire et non une fraction. Cette implémentation est en fait sujette à la multiplication des options pour le calcul des fractions; en effet les fractions littérales sont automatiquement réduites à leur plus simple expression ce qui oblitère la possibilité de choisir expressément la façon dont on veut effectuer les calculs. En fournissant les données sous cette forme, on a plus de contrôle sur le déroulement des calculs, par exemple on a le choix de réduire ou pas les fractions en entrée en fournissant une valeur True aux booléens <strong>reduce-fractionN</strong> (Voir ci-dessous). De même on pourra choisir de livrer la dernière fraction résultante sans la réduire systématiquement. (Voir plus bas).</p>
 <p>Les deux champs suivants sont facultatifs :</p>
 <ul><li><p><strong>numerator3</strong> et <strong>denominator3</strong>, pour lesquels d&#39;autres opérateurs sont disponibles pour l&#39;<strong>addition</strong> et la <strong>soustraction</strong> uniquement, c&#39;est-à-dire :</p>
 </li>
-<li><p>&#39;add-upx2&#39; ou &#39;++&#39;, &#39;subtractx2&#39; ou &#39;--&#39; ou &#39;−−&#39;, &#39;add-up-subtract&#39; ou &#39;+-&#39; ou &#39;+−&#39;, et enfin &#39;subtract-add-up&#39; ou &#39;-+&#39; ou &#39;−+&#39;.</p>
+<li><p>&#39;add-upx2&#39; ou &#39;++&#39; ou &#39;aa&#39;, &#39;subtractx2&#39; ou &#39;--&#39; ou &#39;−−&#39; ou &#39;ss&#39;, &#39;add-up-subtract&#39; ou &#39;+-&#39; ou &#39;+−&#39; ou &#39;as&#39;, et enfin &#39;subtract-add-up&#39; ou &#39;-+&#39; ou &#39;−+&#39; ou &#39;sa&#39;.</p>
 </li>
 </ul>
 <p>Ensuite, trois champs booléens facultatifs associés aux champs <strong>numerator/denominator</strong> servent à préciser si l&#39;on effectue la réduction de la fraction en question avant le traitement des données,</p>
@@ -102,11 +103,11 @@
 <p>Les autres champs, facultatifs, sont destinés à choisir parmi les diverses méthodes utilisées pour le calcul des méthodes de classes appelées en interne :</p>
 <ul><li><p><strong>which-ppcm-algorithm</strong>, peut prendre l&#39;une des valeurs suivantes :</p>
 </li>
-<li><p>&#39;by-larger-number-multiples&#39; ou &#39;b.l.n.m.&#39; ou &#39;bm&#39;;</p>
+<li><p>&#39;by-larger-number-multiples&#39; ou &#39;b.l.n.m.&#39; ou &#39;by-m&#39; ou &#39;bm&#39;;</p>
 </li>
-<li><p>&#39;by-prime-factors&#39; ou &#39;b.p.f.&#39; ou &#39;bf&#39;;</p>
+<li><p>&#39;by-prime-factors&#39; ou &#39;b.p.f.&#39; ou &#39;by-f&#39; ou &#39;bf&#39;;</p>
 </li>
-<li><p>&#39;by-use-of-pgcd&#39; ou &#39;b.u.o.p.&#39; ou &#39;bp&#39; (utilisé par défaut).</p>
+<li><p>&#39;by-use-of-pgcd&#39; ou &#39;b.u.o.p.&#39; ou &#39;by-p&#39; ou &#39;bp&#39; (utilisé par défaut).</p>
 </li>
 </ul>
 <p>Ce dernier attribut n&#39;est pas utilisé pour la multiplication ou la division, mais uniquement pour l&#39;addition ou la soustraction afin de choisir l&#39;algorithme qui sera utilisé pour le calcul par la classe PPCM.</p>
@@ -137,11 +138,11 @@
 <p>Cette méthode est la principale de la classe, qui donne accès à toutes les autres méthodes − bien que celles-là ne soient pas privées et sont donc accessibles isolément − en employant un seul argument, le type d&#39;opération à effectuer. (Voir plus haut)</p>
 <h2 id="reduce-fraction(Int_$numerator,_Int_$denominator,_Str_$sign_=_''_-->_Pair)"><a class="u" href="#___top" title="go to top of document">reduce-fraction(Int $numerator, Int $denominator, Str $sign = &#39;&#39; --&gt; Pair)</a></h2>
 <p>Cette méthode destinée à obtenir la fraction irréductible à partir du numérateur et du dénominateur passés en argument utilise la classe <strong>IrreducibleFraction</strong> du module <strong>irreducible-fraction.pm6</strong> et utilise deux attributs de la classe, soit <strong>which-irreducible-fraction-algorithm</strong> et <strong>which-pgcd-algorithm</strong> qui déterminent le choix pour le premier de l&#39;algorithme de la méthode utilisée en interne par <strong>IrreducibleFraction</strong> pour effectuer les calculs, et pour le deuxième l&#39;algorithme du module <strong>pgdc.pm6</strong> dont <strong>IrreducibleFraction</strong> se servira en interne. Pour gérer correctement les nombres négatifs avec l&#39;opération <strong>multiply</strong> uniquement, il faut mettre le troisième argument <strong>$sign</strong> à &#39;-&#39; afin d&#39;appeler l&#39;une des méthodes</p>
-<ul><li><p><strong>$irreducible.reduce-fraction-with-euclide-algorithm($sign)</strong>;</p>
+<ul><li><p><strong>reduce-fraction-with-euclide-algorithm($sign)</strong>;</p>
 </li>
-<li><p><strong>$irreducible.reduce-fraction-with-subtraction-algorithm($sign)</strong></p>
+<li><p><strong>reduce-fraction-with-subtraction-algorithm($sign)</strong></p>
 </li>
-<li><p><strong>$irreducible.reduce-fraction-with-factorization-algorithm($sign)</strong>; Le signe + n&#39;est pas écrit, il est géré par la valeur par défaut de <strong>$sign</strong>, une chaîne vide.</p>
+<li><p><strong>reduce-fraction-with-factorization-algorithm($sign)</strong>; Le signe + n&#39;est pas écrit, il est géré par la valeur par défaut de <strong>$sign</strong>, une chaîne vide.</p>
 </li>
 </ul>
 <h2 id="add-up(Pair_$pair1,_Pair_$pair2,_Int_$times_=_0_-->_Pair)"><a class="u" href="#___top" title="go to top of document">add-up(Pair $pair1, Pair $pair2, Int $times = 0 --&gt; Pair)</a></h2>

@@ -5,16 +5,16 @@ use v6;
 =begin pod
 =NAME PrimeFactors.
 =AUTHOR Christian Béloscar.
-=VERSION 0.1.
+=VERSION 0.1.0
 =for head1
 Ce module contient un rôle : B<PrimeFactors> destiné à
 établir la liste des facteurs premiers d'un entier 
 différent de 0, c'est-à-dire de le décomposer en
 facteurs premiers.
 
-Il a deux méthodes, la première :
+Il contient deux méthodes, la première :
 =for head2
-breakdown(Int $integer is copy where { ($integer != 0) or die "Argument invalide! Nombre entier différent de 0 requis." } --> Hash) {
+breakdown(Int $integer is copy where { ($integer != 0) or die "Argument invalide! Nombre entier différent de 0 requis." } --> Hash) {}
 
 avec '$integer' différent de 0 qui
 renvoie un B<Hash> comprenant le mappage des nombres avec
@@ -120,7 +120,7 @@ role PrimeFactors is export {
 =begin pod
 =for head2
 La deuxième méthode :
-reduce-fractions-prime-factors(Int @numerators is copy, Int @denominators is copy, Int $return-array --> Array) {
+reduce-fractions-prime-factors(Int @numerators is copy, Int @denominators is copy, Int $return-array --> Array) {}
 
 qui prend 2 tableaux de Int en arguments et délivre pour chacun des 2 tableaux
 un troisième et quatrième tableau contenant les valeurs qui se trouvent dans l'un des tableaux

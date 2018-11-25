@@ -5,16 +5,16 @@ AUTHOR
 Christian Béloscar.
 
 VERSION
-0.1.
+0.1.0
 
 Ce module contient un rôle : PrimeFactors destiné à établir la liste des
 facteurs premiers d'un entier différent de 0, c'est-à-dire de le décomposer
 en facteurs premiers.
 
-Il a deux méthodes, la première :
+Il contient deux méthodes, la première :
 
   breakdown(Int $integer is copy where { ($integer != 0) or die "Argument
-invalide! Nombre entier différent de 0 requis." } --> Hash) {
+invalide! Nombre entier différent de 0 requis." } --> Hash) {}
 
 avec '$integer' différent de 0 qui renvoie un Hash comprenant le mappage
 des nombres avec leurs facteurs. Il affiche ce mappage sous plusieurs
@@ -22,7 +22,7 @@ formes : en tableau associatif (Hash) clé => valeur, en facteurs successifs
 puis en facteurs élevés à la puissance requise.
 
   La deuxième méthode : reduce-fractions-prime-factors(Int @numerators is
-copy, Int @denominators is copy, Int $return-array --> Array) {
+copy, Int @denominators is copy, Int $return-array --> Array) {}
 
 qui prend 2 tableaux de Int en arguments et délivre pour chacun des 2
 tableaux un troisième et quatrième tableau contenant les valeurs qui se

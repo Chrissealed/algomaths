@@ -24,9 +24,9 @@ qui sera utilisée pour effectuer les calculs en interne.
 
 La classe B<IrreducibleFraction> utilise l'une des trois méthodes
 suivantes pour effectuer la réduction :
-=item B<reduce-fraction-with-euclide-algorithm>(Str $sign = ''),
-=item B<reduce-fraction-with-subtraction-algorithm>(Str $sign = '') et
-=item B<reduce-fraction-with-factorization-algorithm>(Str $sign = '').
+=item B<reduce-fraction-with-euclide-algorithm(Str $sign = '')>,
+=item B<reduce-fraction-with-subtraction-algorithm(Str $sign = '')> et
+=item B<reduce-fraction-with-factorization-algorithm(Str $sign = '')>.
 
 Elle affiche les informations selon la méthode utilisée
 et chaque méthode renvoie une B<paire> (Pair) correspondant
@@ -47,8 +47,8 @@ class IrreducibleFraction is export {
     has Int $.numerator is required is rw;
     has Int $.denominator is required is rw where { $_ != 0 or die "Valeur de champ invalide! Dénominateur différent de 0 requis." };
     # Champ utilisé par la classe ArePrime dans sa méthode 'have-common-divisor($pgcd-algorithm)'
-    has Str $.pgcd-algorithm is rw where { $_ ~~ / euclide || e || ':' || '÷' || subtraction || s || '-' || '−' || factorization || f || '*' || '×' || divisors\-listing || 'd' || '#' || '/' / 
-    or die "Valeur de champ invalide! Précisez 'euclide' ou 'e' ou ':' ou '÷'; 'subtraction' ou 's' ou '-'; 'factorization' ou 'f' ou '*' ou '×'; 'divisors-listing' ou 'd' ou '#' ou '/'"; }
+    has Str $.pgcd-algorithm is rw where { $_ ~~ / ^euclide$ || ^e$ || ^':'$ || ^'÷'$ || ^subtraction$ || ^s$ || ^'-'$ || ^'−'$ || ^factorization$ || ^f$ || ^'*'$ || ^'×'$ || ^divisors\-listing$ || ^'d'$ || ^'#'$ || ^'/'$ / 
+    or die "Valeur de champ invalide! Précisez 'euclide' ou 'e' ou ':' ou '÷'; 'subtraction' ou 's' ou '-' ou '−'; 'factorization' ou 'f' ou '*' ou '×'; 'divisors-listing' ou 'd' ou '#' ou '/'"; }
     = 'euclide';
 
     method reduce-fraction-with-euclide-algorithm(Str $sign = '' --> Pair) {

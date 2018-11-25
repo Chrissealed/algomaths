@@ -5,7 +5,7 @@ use v6;
 =begin pod
 =NAME OperationsOnFractions.
 =AUTHOR Christian Béloscar.
-=VERSION 0.1.
+=VERSION 0.1.2
 =for head1
 Ce module est destiné à faire des opérations sur des fractions.
 
@@ -14,9 +14,9 @@ et B<prime-factors.pm6>
 et hérite du rôle B<PrimeFactors>.
 La méthode principale de la classe B<OperationsOnFractions>
 est B<calculate-fractions(Str $operation)> ou le
-=item paramètre B<$operation> est soit 'add-up' ou '+'
-soit 'subtract' ou '-' ou '−', soit 'multiply' ou '*' ou '×'
-soit 'divide' ou ':' ou '÷',
+=item paramètre B<$operation> est soit 'add-up' ou '+' ou 'a'
+soit 'subtract' ou '-' ou '−' ou 's', soit 'multiply' ou '*' ou '×' ou 'm'
+soit 'divide' ou ':' ou '÷' ou 'd',
 dans le cas ou il n'y a que deux fractions.
 
 Elle renvoie une B<paire> (Pair) comme valeur de retour.
@@ -25,13 +25,30 @@ B<denominator1>, B<numerator2> et B<denominator2>
 correspondant aux numérateur et dénominateur de chaque
 fraction sur laquelle pratiquer l'opération choisie.
 
+On peut justement se demander pourquoi l'implémentation des fractions
+se fait par la séparation entre le numérateur et le dénominateur
+et que l'objet renvoyé par B<calculate-fractions(Str $operation)>
+est une paire et non une fraction.
+Cette implémentation est en fait sujette à la multiplication
+des options pour le calcul des fractions;
+en effet les fractions littérales sont automatiquement réduites
+à leur plus simple expression ce qui oblitère la possibilité
+de choisir expressément la façon dont on veut effectuer les calculs.
+En fournissant les données sous cette forme,
+on a plus de contrôle sur le déroulement des calculs,
+par exemple on a le choix de réduire ou pas les fractions
+en entrée en fournissant une valeur True aux booléens
+B<reduce-fractionN> (Voir ci-dessous).
+De même on pourra choisir de livrer la dernière fraction
+résultante sans la réduire systématiquement. (Voir plus bas).
+
 Les deux champs suivants sont facultatifs :
 =item B<numerator3> et B<denominator3>, pour lesquels
 d'autres opérateurs sont disponibles pour l'B<addition>
 et la B<soustraction> uniquement, c'est-à-dire :
-=item 'add-upx2' ou '++', 'subtractx2' ou '--' ou '−−',
-'add-up-subtract' ou '+-' ou '+−', et enfin
-'subtract-add-up' ou '-+' ou '−+'.
+=item 'add-upx2' ou '++' ou 'aa', 'subtractx2' ou '--' ou '−−' ou 'ss',
+'add-up-subtract' ou '+-' ou '+−' ou 'as', et enfin
+'subtract-add-up' ou '-+' ou '−+' ou 'sa'.
 
 Ensuite, trois champs booléens facultatifs associés aux champs
 B<numerator/denominator> servent à préciser si l'on
@@ -97,9 +114,9 @@ parmi les diverses méthodes utilisées pour le calcul
 des méthodes de classes appelées en interne :
 =for item
 B<which-ppcm-algorithm>, peut prendre l'une des valeurs suivantes :
-=item 'by-larger-number-multiples' ou 'b.l.n.m.' ou 'bm';
-=item 'by-prime-factors' ou 'b.p.f.' ou 'bf';
-=item 'by-use-of-pgcd' ou 'b.u.o.p.' ou 'bp' (utilisé par défaut).
+=item 'by-larger-number-multiples' ou 'b.l.n.m.' ou 'by-m' ou 'bm';
+=item 'by-prime-factors' ou 'b.p.f.' ou 'by-f' ou 'bf';
+=item 'by-use-of-pgcd' ou 'b.u.o.p.' ou 'by-p' ou 'bp' (utilisé par défaut).
 
 Ce dernier attribut n'est pas utilisé pour la multiplication ou la division,
 mais uniquement pour l'addition ou la soustraction
@@ -158,16 +175,36 @@ class OperationsOnFractions does PrimeFactors is export {
     has Bool $.compute'prime'factors is rw = True;
 
     # Pour l'addition et la soustraction
-    has Str $.which-ppcm-algorithm is rw where { ($_ ~~ / ^'by-larger-number-multiples'$ || ^'b.l.n.m.'$ || ^'bm'$ || ^'by-prime-factors'$ || ^'b.p.f.'$ || ^'bf'$ || ^'by-use-of-pgcd'$ || ^'b.u.o.p.'$ || ^'bp'$ /) or
-    die "Champ de classe invalide! Attendu 'by-larger-number-multiples' ou 'b.l.n.m.' ou 'bm', ou 'by-prime-factors' ou 'b.p.f.' ou 'bf', ou 'by-use-of-pgcd' ou 'b.u.o.p.' ou 'bp'."; }
-    = 'b.u.o.p.'; 
+    my $ppcm-algorithm-one-junction = 'by-larger-number-multiples' ^ 'b.l.n.m' ^ 'by-m' ^ 'bm' ^
+                                      'by-prime-factors' ^ 'b.p.f.' ^ 'by-f' ^ 'bf' ^
+                                      'by-use-of-pgcd' ^ 'b.u.o.p.' ^ 'by-p' ^ 'bp'; 
+    has Str $.which-ppcm-algorithm is rw where { $_ ~~ $ppcm-algorithm-one-junction or
+        die "Champ de classe invalide! Attendu 
+            'by-larger-number-multiples' ou 'b.l.n.m.' ou 'by-m' ou 'bm';
+            'by-prime-factors' ou 'b.p.f.' ou 'by-f' ou 'bf';
+            'by-use-of-pgcd' ou 'b.u.o.p.' ou 'by-p' ou 'bp'."; }
+        = 'b.u.o.p.';
     # Aussi pour la multiplication et la division
-    has Str $.which-irreducible-fraction-algorithm is rw where { ($_ ~~ / ^'euclide'$ || ^'e'$ || ^':'$ || ^'÷'$ || ^'subtraction'$ || ^'s'$ || ^'-'$ || ^'−'$ || ^'factorization'$ || ^'f'$ || ^'*'$ || ^'×'$ /) or
-    die "Champ de classe invalide! Attendu 'euclide' ou 'e' ou ':' ou '÷', ou 'subtraction' ou 's' ou '-' ou '−', ou 'factorization' ou  'f' ou '*' ou '×'."; }
-    = '÷';
-    has Str $.which-pgcd-algorithm is rw where { $_ ~~ / ^euclide$ || ^'e'$ || ^':'$ || ^'÷'$ || ^subtraction$ || ^'s'$ || ^\-$ || ^'−'$ || ^factorization$ || ^'f'$ || ^'*'$ || ^'×'$ || ^divisors\-listing$ || ^'d'$ || ^'#'$ || ^'/'$ / 
-    or die "Valeur de champ invalide! Précisez 'euclide' ou 'e' ou ':' ou '÷'; 'subtraction' ou 's' ou '-' ou '−'; 'factorization' ou 'f' ou '*' ou '×'; 'divisors-listing' ou 'd' ou '#' ou '/'"; }
-    = 'euclide';
+    my $irreducible-fraction-algorithm-one-junction = 'euclide' ^ 'e' ^ ':' ^ '÷' ^
+                                                      'subtraction' ^ 's' ^ '-' ^ '−' ^
+                                                      'factorization' ^ 'f' ^ '*' ^ '×';
+    has Str $.which-irreducible-fraction-algorithm is rw where { $_ ~~ $irreducible-fraction-algorithm-one-junction or
+        die "Champ de classe invalide! Attendu 
+            'euclide' ou 'e' ou ':' ou '÷';
+            'subtraction' ou 's' ou '-' ou '−';
+            'factorization' ou 'f' ou '*' ou '×'."; }
+        = '÷';
+    my $pgcd-algorithm-one-junction = 'euclide' ^ 'e' ^ ':' ^ '÷' ^
+                                      'subtraction' ^ 's' ^ '-' ^ '−' ^
+                                      'factorization' ^ 'f' ^ '*' ^ '×' ^
+                                      'divisors-listing' ^ 'd' ^ '#' ^ '/';
+    has Str $.which-pgcd-algorithm is rw where { $_ ~~ $pgcd-algorithm-one-junction or
+        die "Champ de classe invalide! Attendu 
+            'euclide' ou 'e' ou ':' ou '÷';
+            'subtraction' ou 's' ou '-' ou '−';
+            'factorization' ou 'f' ou '*' ou '×';
+            'divisors-listing' ou 'd' ou '#' ou '/'."; }
+        = '÷';
     
 =begin pod
 =for head1
@@ -195,25 +232,28 @@ pour effectuer les calculs, et pour le deuxième l'algorithme
 du module B<pgdc.pm6> dont B<IrreducibleFraction> se servira en interne.
 Pour gérer correctement les nombres négatifs avec l'opération B<multiply> uniquement,
 il faut mettre le troisième argument B<$sign> à '-' afin d'appeler l'une des méthodes
-=item B<$irreducible.reduce-fraction-with-euclide-algorithm($sign)>;
-=item B<$irreducible.reduce-fraction-with-subtraction-algorithm($sign)>
-=item B<$irreducible.reduce-fraction-with-factorization-algorithm($sign)>;
+=item B<reduce-fraction-with-euclide-algorithm($sign)>;
+=item B<reduce-fraction-with-subtraction-algorithm($sign)>
+=item B<reduce-fraction-with-factorization-algorithm($sign)>;
 Le signe + n'est pas écrit, il est géré par la valeur par défaut de B<$sign>,
 une chaîne vide.
 =end pod
 
     method reduce-fraction(Int $numerator, Int $denominator, Str $sign = '' --> Pair) {
         my Pair $P;
-        my Str $irreducible-fraction-algorithm = self.which-irreducible-fraction-algorithm;
+        my Str $irreducible-fraction-algorithm = $!which-irreducible-fraction-algorithm;
         my $irreducible = IrreducibleFraction.new(
             numerator => $numerator,
             denominator => $denominator,
-            pgcd-algorithm => self.which-pgcd-algorithm,
+            pgcd-algorithm => $!which-pgcd-algorithm,
         );
+        my $euclide-one-junction = 'e' ^ ':' ^ '÷' ^ 'euclide';
+        my $subtraction-one-junction = 's' ^ '-' ^ '−' ^ 'subtraction';
+        my $factorization-one-junction = 'f' ^ '*' ^ '×' ^ 'factorization';
         given $irreducible-fraction-algorithm {
-            when / ^'e'$ || ^':'$ || ^'÷'$ || ^'euclide'$ / { $P = $irreducible.reduce-fraction-with-euclide-algorithm($sign); }
-            when / ^'s'$ || ^'-'$ || ^'−'$ || ^'subtraction'$ / { $P = $irreducible.reduce-fraction-with-subtraction-algorithm($sign); }
-            when / ^'f'$ || ^'*'$ || ^'×'$ || ^'factorization'$ / { $P = $irreducible.reduce-fraction-with-factorization-algorithm($sign); }
+            when $euclide-one-junction { $P = $irreducible.reduce-fraction-with-euclide-algorithm($sign); }
+            when $subtraction-one-junction { $P = $irreducible.reduce-fraction-with-subtraction-algorithm($sign); }
+            when $factorization-one-junction { $P = $irreducible.reduce-fraction-with-factorization-algorithm($sign); }
             #default { $P = $irreducible.reduce-fraction-with-euclide-algorithm(); }
         }
         $P = Int($P.key) => $P.value;
@@ -242,20 +282,20 @@ de la fraction résultante.
         my Int $n2 = $pair2.key;
         my Int $d1 = $pair1.value;
         my Int $d2 = $pair2.value;
-        my Int $p = 0;
+        my Int $PPCM = 0;
         my Int $numerator = 0;
         my Int $denominator = 0;
         my Int $multiple1 = 0;
         my Int $multiple2 = 0;
         my Pair $pair;
         say "On cherche le PPCM de $d1 et $d2 :";
-        my Str $ppcm-algorithm = self.which-ppcm-algorithm;
-        my Str $pgcd-algorithm = self.which-pgcd-algorithm;
+        my Str $ppcm-algorithm = $!which-ppcm-algorithm;
+        my Str $pgcd-algorithm = $!which-pgcd-algorithm;
         if ($d1 == $d2) {
             $numerator = $n1 + $n2;
             $denominator = $d1;
             put 'Les deux fractions ont même dénominateur donc :';
-            say "$n1/$d1 + $n2/$d2 = $n1 + $n2/$denominator;";
+            say "$n1/$d1 + $n2/$d2 = $n1 + $n2/$denominator = {$n1 + $n2}/$denominator.";
             $pair = $numerator => $denominator;
             say();
             if ($!reduce-last-once && ($times == 1) || $!reduce-last-one && ($times == 0)) {
@@ -270,14 +310,17 @@ de la fraction résultante.
                 integer2 => $d2,
                 which-pgcd-algorithm => $pgcd-algorithm,
             );
+            my $by-larger-number-multiples-one-junction = 'b.l.n.m.' ^ 'by-m' ^ 'bm' ^ 'by-larger-numbers-multiples';
+            my $by-prime-factors-one-junction = 'b.p.f.' ^ 'by-f' ^ 'bf' ^ 'by-prime-factors';
+            my $by-use-of-pgcd-one-junction = 'b.u.o.p.' ^ 'by-p' ^ 'bp' ^ 'by-use-of-pgcd';
             given $ppcm-algorithm {
-                when / ^'b.l.n.m.'$ || ^'bm'$ || ^'by-larger-number-multiples'$ / { $p = $ppcm.by-larger-number-multiples; }
-                when / ^'b.p.f.'$ || ^'bf'$ || ^'by-prime-factors'$ / { $p = $ppcm.by-prime-factors; }
-                when / ^'b.u.o.p.'$ || ^'bp'$ || ^'by-use-of-pgcd'$ / { $p = $ppcm.by-use-of-pgcd; }
+                when $by-larger-number-multiples-one-junction { $PPCM = $ppcm.by-larger-number-multiples; }
+                when $by-prime-factors-one-junction { $PPCM = $ppcm.by-prime-factors; }
+                when $by-use-of-pgcd-one-junction { $PPCM = $ppcm.by-use-of-pgcd; }
                 #default { $p = $ppcm.by-use-of-pgcd; }
             }
-            $multiple1 = $p div $d1;
-            $multiple2 = $p div $d2;
+            $multiple1 = $PPCM div $d1;
+            $multiple2 = $PPCM div $d2;
             say "$n1/$d1 + $n2/$d2 = $n1×$multiple1/$d1×$multiple1 + $n2×$multiple2/$d2×$multiple2;";
         }
         say "on effectue les calculs :";
@@ -289,7 +332,7 @@ de la fraction résultante.
         say();
         put 'on ajoute les numérateurs et on garde le dénominateur commun :';
         $numerator = $numerator1 + $numerator2;
-        $denominator = $p;
+        $denominator = $PPCM;
         say "$numerator/$denominator.";
         say();
         if ($!reduce-last-once && ($times == 1) || $!reduce-last-one && ($times == 0)) {
@@ -341,22 +384,21 @@ de la fraction résultante.
         my Int $n2 = $pair2.key;
         my Int $d1 = $pair1.value;
         my Int $d2 = $pair2.value;
-        my Int $p = 0;
+        my Int $PPCM = 0;
         my Int $numerator = 0;
         my Int $denominator = 0;
         my Int $multiple1 = 0;
         my Int $multiple2 = 0;
         my Pair $pair;
         say "On cherche le PPCM de $d1 et $d2 :";
-        my Str $ppcm-algorithm = self.which-ppcm-algorithm;
-        my Str $pgcd-algorithm = self.which-pgcd-algorithm;
+        my Str $ppcm-algorithm = $!which-ppcm-algorithm;
+        my Str $pgcd-algorithm = $!which-pgcd-algorithm;
         if ($d1 == $d2) {
             $numerator = $n1 - $n2;
             $denominator = $d1;
             put 'Les deux fractions ont même dénominateur donc :';
-            say "$n1/$d1 − $n2/$d2 = $n1 − $n2/$denominator;";
+            say "$n1/$d1 − $n2/$d2 = $n1 − $n2/$denominator = {$n1-$n2}/$denominator.";
             $pair = $numerator => $denominator;
-            say "$numerator/$denominator";
             say();
             if ($!reduce-last-once && ($times == 1) || $!reduce-last-one && ($times == 0)) {
                 say "On simplifie la dernière fraction obtenue :";
@@ -370,14 +412,17 @@ de la fraction résultante.
                 integer2 => $d2,
                 which-pgcd-algorithm => $pgcd-algorithm,
             );
+            my $by-larger-number-multiples-one-junction = 'b.l.n.m.' ^ 'bm' ^ 'by-larger-numbers-multiples';
+            my $by-prime-factors-one-junction = 'b.p.f.' ^ 'bf' ^ 'by-prime-factors';
+            my $by-use-of-pgcd-one-junction = 'b.u.o.p.' ^ 'bp' ^ 'by-use-of-pgcd';
             given $ppcm-algorithm {
-                when / ^'b.l.n.m.'$ || ^'bm'$ || ^'by-larger-number-multiples'$ / { $p = $ppcm.by-larger-number-multiples; }
-                when / ^'b.p.f.'$ || ^'bf'$ || ^'by-prime-factors'$ / { $p = $ppcm.by-prime-factors; }
-                when / ^'b.u.o.p.'$ || ^'bp'$ || ^'by-use-of-pgcd'$ / { $p = $ppcm.by-use-of-pgcd; }
+                when $by-larger-number-multiples-one-junction { $PPCM = $ppcm.by-larger-number-multiples; }
+                when $by-prime-factors-one-junction { $PPCM = $ppcm.by-prime-factors; }
+                when $by-use-of-pgcd-one-junction { $PPCM = $ppcm.by-use-of-pgcd; }
                 #default { $p = $ppcm.by-use-of-pgcd; }
             }
-            $multiple1 = $p div $d1;
-            $multiple2 = $p div $d2;
+            $multiple1 = $PPCM div $d1;
+            $multiple2 = $PPCM div $d2;
             say "$n1/$d1 − $n2/$d2 = $n1×$multiple1/$d1×$multiple1 − $n2×$multiple2/$d2×$multiple2;";
         }
         say "on effectue les calculs :";
@@ -389,7 +434,7 @@ de la fraction résultante.
         say();
         put 'on soustrait les numérateurs et on garde le dénominateur commun :';
         $numerator = $numerator1 − $numerator2;
-        $denominator = $p;
+        $denominator = $PPCM;
         $pair = $numerator => $denominator;
         say "$numerator/$denominator.";
         say();
@@ -637,16 +682,16 @@ Elle renvoie une nouvelle B<paire> en valeur de retour.
         my Int $numerator = 0;
         my Int $denominator = 0;
         put 'On multiplie les numérateurs de chaque fraction puis les dénominateurs :';
-        if (self.breakdown'factors) {
+        if ($!breakdown'factors) {
             push @a, $n1, $n2;
             push @b, $d1, $d2;
             if defined($n3) && defined($d3) {
                 push @a, $n3;
                 push @b, $d3;
             }
-            @a = self.breakdown-factors(@a);
-            @b = self.breakdown-factors(@b);
-            if (self.compute'prime'factors) {
+            @a = $!breakdown'factors(@a);
+            @b = $!breakdown'factors(@b);
+            if ($!compute'prime'factors) {
                 @prime-factors1 = self.compute-prime-factors(@a, @b, 1);
                 $numerator = [*] @prime-factors1;
                 @prime-factors2 = self.compute-prime-factors(@a, @b, 2);
@@ -655,10 +700,10 @@ Elle renvoie une nouvelle B<paire> en valeur de retour.
         }
         else {
             push @a, $n1, $n2;
-            if (defined($n3)) { push @a, $n3; };
+            if defined($n3) { push @a, $n3; };
             push @b, $d1, $d2;
-            if (defined($d3)) { push @b, $d3; };
-            if (self.compute'prime'factors) {
+            if defined($d3) { push @b, $d3; };
+            if ($!compute'prime'factors) {
                 @prime-factors1 = self.compute-prime-factors(@a, @b, 1);
                 $numerator = [*] @prime-factors1;
                 @prime-factors2 = self.compute-prime-factors(@a, @b, 2);
@@ -692,8 +737,8 @@ Elle renvoie une nouvelle B<paire> en valeur de retour.
         my Int $d1 = $!denominator1;
         my Int $n2 = $!numerator2;
         my Int $d2 = $!denominator2;
-        my Int $n3 = $!numerator3 if defined(self.numerator3);
-        my Int $d3 = $!denominator3 if defined(self.denominator3);
+        my Int $n3 = $!numerator3 if defined($!numerator3);
+        my Int $d3 = $!denominator3 if defined($!denominator3);
         my Pair $P1 = $n1 => $d1;
         my Pair $P2 = $n2 => $d2;
         my Pair $P3 = $n3 => $d3 if defined($!numerator3) && defined($!denominator3);
@@ -716,12 +761,20 @@ Elle renvoie une nouvelle B<paire> en valeur de retour.
         }
 
         if (!defined($!numerator3) || !defined($!denominator3)) {
+            my $add-up-one-junction = 'add-up' ^ '+' ^ 'a';
+            my $subtract-one-junction = 'subtract' ^ '-' ^ '−' ^ 's';
+            my $multiply-one-junction = 'multiply' ^ '*' ^ '×' ^ 'm';
+            my $divide-one-junction = 'divide' ^ ':' ^ '÷' ^ 'd';
             given $operation {
-               when / ^'add-up'$ || ^'+'$ / { $P3 = self.add-up($P1, $P2); }
-               when / ^'subtract'$ || ^'-'$ || ^'−'$ / { $P3 = self.subtract($P1, $P2); }
-               when / ^'multiply'$ || ^'*'$ || ^'×'$ / { $P3 = self.multiply($P1, $P2); }
-               when / ^'divide'$ || ^':'$ || ^'÷'$ / { $P3 = self.divide($P1, $P2); }
-               default { say "Opération non définie pour deux opérateurs! 'add-up' ou '+', 'subtract' ou '-' ou '−', 'multiply' ou '*' ou '×', 'divide' ou ':' ou '÷' attendus." }
+               when $add-up-one-junction { $P3 = self.add-up($P1, $P2); }
+               when $subtract-one-junction { $P3 = self.subtract($P1, $P2); }
+               when $multiply-one-junction { $P3 = self.multiply($P1, $P2); }
+               when $divide-one-junction { $P3 = self.divide($P1, $P2); }
+               default { say "Opération non définie pour deux opérateurs!
+                             'add-up' ou '+' ou 'a';
+                             'subtract' ou '-' ou '−' ou 's';
+                             'multiply' ou '*' ou '×' ou 'm';
+                             'divide' ou ':' ou '÷' ou 'd' attendus." }
             } 
             return $P3;
         }
@@ -734,13 +787,26 @@ Elle renvoie une nouvelle B<paire> en valeur de retour.
                 say "Fraction réduite : $n3/$d3.";
             }
             say();
+            my $add-upx2-one-junction = 'add-upx2' ^ '++' ^ 'aa';
+            my $add-up-subtract-one-junction = 'add-up-subtract' ^ '+-' ^ '+−' ^ 'as';
+            my $subtractx2-one-junction = 'subtractx2' ^ '--' ^ '−−' ^ 'ss';
+            my $subtract-add-up-one-junction = 'subtract-add-up' ^ '-+' ^ '−+' ^ 'sa';
+            my $multiply-one-junction = 'multiply' ^ '*' ^ '×' ^ 'm';
+            my $divide-one-junction = 'divide' ^ ':' ^ '÷' ^ 'd';
             given $operation {
-                when / ^'add-upx2'$ || ^'++'$ / { $P4 = self.add-upx2($P1, $P2, $P3); }
-                when / ^'add-up-subtract'$ || ^'+-'$ || ^'+−'$ / { $P4 = self.add-up-subtract($P1, $P2, $P3); }
-                when / ^'subtractx2'$ || ^'--'$ || ^'−−'$ / { $P4 = self.subtractx2($P1, $P2, $P3); }
-                when / ^'subtract-add-up'$ || ^'-+'$ || ^'−+'$ / { $P4 = self.subtract-add-up($P1, $P2, $P3); }
-                when / ^'multiply'$ || ^'*'$ || ^'×'$ / { $P4 = self.multiply($P1, $P2, $P3); }
-                default { say "Opération non définie pour trois opérateurs! 'add-upx2' ou '++', 'subtractx2' ou '--' ou '−−', 'multiply' ou '*' ou '×', 'divide' ou ':' ou '÷' attendus." }
+                when $add-upx2-one-junction { $P4 = self.add-upx2($P1, $P2, $P3); }
+                when $add-up-subtract-one-junction { $P4 = self.add-up-subtract($P1, $P2, $P3); }
+                when $subtractx2-one-junction { $P4 = self.subtractx2($P1, $P2, $P3); }
+                when $subtract-add-up-one-junction { $P4 = self.subtract-add-up($P1, $P2, $P3); }
+                when $multiply-one-junction { $P4 = self.multiply($P1, $P2, $P3); }
+                when $divide-one-junction { $P4 = self.divide($P1, $P2, $P3); }
+                default { say "Opération non définie pour trois opérateurs!
+                              'add-upx2' ou '++' ou 'aa';
+                              'add-up-subtract' ou '+-' ou '+−' ou 'as';
+                              'subtractx2' ou '--' ou '−−' ou 'ss';
+                              'subtract-add-up' ou '-+' ou '−+' ou 'sa';
+                              'multiply' ou '*' ou '×' ou 'm';
+                              'divide' ou ':' ou '÷' ou 'd' attendus." }
             }
             return $P4;
         }

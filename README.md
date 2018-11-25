@@ -8,7 +8,7 @@ Pour exécuter un script *.p6, il faut posséder le compilateur de Rakudo et pas
 Si le fichier .p6 utilise des modules *.pm6 situés dans le même dossier, celui-ci devra être exécuté ainsi : perl6 -I . fichier.p6,
 ou bien en ajoutant le dossier courant (indiqué par le point) à la variable d'environnement PERL6LIB ainsi : PERL6LIB=.
 et si plusieurs chemins sont ajoutés à cette variable, ils devront être séparés par une virgule : PERL6LIB=/chemin/vers/dossier1,/chemin/vers/dossier2.
-Ici, il faut rajouter le dossier réservé aux modules : PERL6LIB=.,../../../../modules.
+Ici, il faut rajouter le dossier réservé aux modules : PERL6LIB=.,../../../../modules/pm6.
 De cette manière on peut utiliser simplement perl6 fichier.p6.
 La manière de configurer une variable d'environnement dépendant du système, reportez-vous à la documentation correspondante pour votre système d'exploitation.
 Les utilisateurs de Linux peuvent simplement exécuter un script en donnant son nom : ./script.p6 puisque les fichiers commencent par une ligne de commentaire spéciale

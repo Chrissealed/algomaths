@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="fr">
 <head>
   <title></title>
   <meta charset="UTF-8" />
@@ -21,9 +21,9 @@
     aside, u { opacity: 0.7 }
     a[id^="fn-"]:target { background: #ff0 }
   </style>
-  <link rel="stylesheet" href="//design.perl6.org/perl.css">
+  <link rel="stylesheet" href="design.perl6.org/perl.css">
   <meta name="author" value="Christian Béloscar." />
-<meta name="version" value="0.1." />
+<meta name="version" value="0.1.0" />
   
 </head>
 <body class="pod">
@@ -34,8 +34,8 @@
 <table id="TOC">
 <caption><h2 id="TOC_Title">Table of Contents</h2></caption>
    <tr class="toc-level-1"><td class="toc-number">1</td><td class="toc-text"><a href="#Ce_module_contient_un_rôle_:_PrimeFactors_destiné_à_établir_la_liste_des_facteurs_premiers_d'un_entier_différent_de_0,_c'est-à-dire_de_le_décomposer_en_facteurs_premiers.">Ce module contient un rôle : PrimeFactors destiné à établir la liste des facteurs premiers d&#39;un entier différent de 0, c&#39;est-à-dire de le décomposer en facteurs premiers.</a></td></tr>
-  <tr class="toc-level-2"><td class="toc-number">1.1</td><td class="toc-text"><a href="#breakdown(Int_$integer_is_copy_where_{_($integer_!=_0)_or_die_&quot;Argument_invalide!_Nombre_entier_différent_de_0_requis.&quot;_}_--&gt;_Hash)_{">breakdown(Int $integer is copy where { ($integer != 0) or die &quot;Argument invalide! Nombre entier différent de 0 requis.&quot; } --&gt; Hash) {</a></td></tr>
-    <tr class="toc-level-2"><td class="toc-number">1.2</td><td class="toc-text"><a href="#La_deuxième_méthode_:_reduce-fractions-prime-factors(Int_@numerators_is_copy,_Int_@denominators_is_copy,_Int_$return-array_--&gt;_Array)_{">La deuxième méthode : reduce-fractions-prime-factors(Int @numerators is copy, Int @denominators is copy, Int $return-array --&gt; Array) {</a></td></tr>
+  <tr class="toc-level-2"><td class="toc-number">1.1</td><td class="toc-text"><a href="#breakdown(Int_$integer_is_copy_where_{_($integer_!=_0)_or_die_&quot;Argument_invalide!_Nombre_entier_différent_de_0_requis.&quot;_}_--&gt;_Hash)_{}">breakdown(Int $integer is copy where { ($integer != 0) or die &quot;Argument invalide! Nombre entier différent de 0 requis.&quot; } --&gt; Hash) {}</a></td></tr>
+    <tr class="toc-level-2"><td class="toc-number">1.2</td><td class="toc-text"><a href="#La_deuxième_méthode_:_reduce-fractions-prime-factors(Int_@numerators_is_copy,_Int_@denominators_is_copy,_Int_$return-array_--&gt;_Array)_{}">La deuxième méthode : reduce-fractions-prime-factors(Int @numerators is copy, Int @denominators is copy, Int $return-array --&gt; Array) {}</a></td></tr>
  
 </table>
 </nav>
@@ -50,13 +50,13 @@
 <p>Christian Béloscar.</p>
 </section>
 <section><h1>VERSION</h1>
-<p>0.1.</p>
+<p>0.1.0</p>
 </section>
 <h1 id="Ce_module_contient_un_rôle_:_PrimeFactors_destiné_à_établir_la_liste_des_facteurs_premiers_d'un_entier_différent_de_0,_c'est-à-dire_de_le_décomposer_en_facteurs_premiers."><a class="u" href="#___top" title="go to top of document">Ce module contient un rôle : <strong>PrimeFactors</strong> destiné à établir la liste des facteurs premiers d&#39;un entier différent de 0, c&#39;est-à-dire de le décomposer en facteurs premiers.</a></h1>
-<p>Il a deux méthodes, la première :</p>
-<h2 id="breakdown(Int_$integer_is_copy_where_{_($integer_!=_0)_or_die_&quot;Argument_invalide!_Nombre_entier_différent_de_0_requis.&quot;_}_-->_Hash)_{"><a class="u" href="#___top" title="go to top of document">breakdown(Int $integer is copy where { ($integer != 0) or die &quot;Argument invalide! Nombre entier différent de 0 requis.&quot; } --&gt; Hash) {</a></h2>
+<p>Il contient deux méthodes, la première :</p>
+<h2 id="breakdown(Int_$integer_is_copy_where_{_($integer_!=_0)_or_die_&quot;Argument_invalide!_Nombre_entier_différent_de_0_requis.&quot;_}_-->_Hash)_{}"><a class="u" href="#___top" title="go to top of document">breakdown(Int $integer is copy where { ($integer != 0) or die &quot;Argument invalide! Nombre entier différent de 0 requis.&quot; } --&gt; Hash) {}</a></h2>
 <p>avec &#39;$integer&#39; différent de 0 qui renvoie un <strong>Hash</strong> comprenant le mappage des nombres avec leurs facteurs. Il affiche ce mappage sous plusieurs formes : en tableau associatif (Hash) clé =&gt; valeur, en facteurs successifs puis en facteurs élevés à la puissance requise.</p>
-<h2 id="La_deuxième_méthode_:_reduce-fractions-prime-factors(Int_@numerators_is_copy,_Int_@denominators_is_copy,_Int_$return-array_-->_Array)_{"><a class="u" href="#___top" title="go to top of document">La deuxième méthode : reduce-fractions-prime-factors(Int @numerators is copy, Int @denominators is copy, Int $return-array --&gt; Array) {</a></h2>
+<h2 id="La_deuxième_méthode_:_reduce-fractions-prime-factors(Int_@numerators_is_copy,_Int_@denominators_is_copy,_Int_$return-array_-->_Array)_{}"><a class="u" href="#___top" title="go to top of document">La deuxième méthode : reduce-fractions-prime-factors(Int @numerators is copy, Int @denominators is copy, Int $return-array --&gt; Array) {}</a></h2>
 <p>qui prend 2 tableaux de Int en arguments et délivre pour chacun des 2 tableaux un troisième et quatrième tableau contenant les valeurs qui se trouvent dans l&#39;un des tableaux et pas dans l&#39;autre. Selon la valeur de l&#39;argument &#39;$returned-array&#39; (1 ou 2), le premier tableau ou le deuxième tableau sera retourné, pour disposer des valeurs contenues dans les 2 tableaux, il faudra faire deux appels avec une valeur différente de &#39;$returned-array&#39; pour chacun d&#39;eux.</p>
 
 </div>
