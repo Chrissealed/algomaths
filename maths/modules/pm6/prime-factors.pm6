@@ -3,11 +3,11 @@ unit module Prime-factors;
 use v6;
 
 =begin pod
-=NAME PrimeFactors.
-=AUTHOR Christian Béloscar.
-=VERSION 0.1.0
+=NAME class B<PrimeFactors>
+=AUTHOR Christian Béloscar
+=VERSION 0.1
 =for head1
-Ce module contient un rôle : B<PrimeFactors> destiné à
+Ce module contient un rôle : 'PrimeFactors' destiné à
 établir la liste des facteurs premiers d'un entier 
 différent de 0, c'est-à-dire de le décomposer en
 facteurs premiers.
@@ -16,7 +16,7 @@ Il contient deux méthodes, la première :
 =for head2
 breakdown(Int $integer is copy where { ($integer != 0) or die "Argument invalide! Nombre entier différent de 0 requis." } --> Hash) {}
 
-avec '$integer' différent de 0 qui
+avec B<$integer> différent de 0 qui
 renvoie un B<Hash> comprenant le mappage des nombres avec
 leurs facteurs.
 Il affiche ce mappage sous plusieurs formes :
@@ -122,13 +122,13 @@ role PrimeFactors is export {
 La deuxième méthode :
 reduce-fractions-prime-factors(Int @numerators is copy, Int @denominators is copy, Int $return-array --> Array) {}
 
-qui prend 2 tableaux de Int en arguments et délivre pour chacun des 2 tableaux
+qui prend 2 tableaux de B<Int> en arguments et délivre pour chacun des 2 tableaux
 un troisième et quatrième tableau contenant les valeurs qui se trouvent dans l'un des tableaux
 et pas dans l'autre.
-Selon la valeur de l'argument '$returned-array' (1 ou 2),
+Selon la valeur de l'argument B<$returned-array> (1 ou 2),
 le premier tableau ou le deuxième tableau sera retourné,
 pour disposer des valeurs contenues dans les 2 tableaux,
-il faudra faire deux appels avec une valeur différente de '$returned-array'
+il faudra faire deux appels avec une valeur différente de B<$returned-array>
 pour chacun d'eux.
 =end pod
 

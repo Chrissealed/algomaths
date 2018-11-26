@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <title></title>
+  <meta charset="UTF-8" />
+  <style>
+    /* code gets the browser-default font
+     * kbd gets a slightly less common monospace font
+     * samp gets the hard pixelly fonts
+     */
+    kbd { font-family: "Droid Sans Mono", "Luxi Mono", "Inconsolata", monospace }
+    samp { font-family: "Terminus", "Courier", "Lucida Console", monospace }
+    /* WHATWG HTML frowns on the use of <u> because it looks like a link,
+     * so we make it not look like one.
+     */
+    u { text-decoration: none }
+    .nested {
+        margin-left: 3em;
+    }
+    // footnote things:
+    aside, u { opacity: 0.7 }
+    a[id^="fn-"]:target { background: #ff0 }
+  </style>
+  <link rel="stylesheet" href="design.perl6.org/perl.css">
+  <meta name="author" value="Christian Béloscar" />
+<meta name="version" value="0.1" />
+  
+</head>
+<body class="pod">
+<div id="___top"></div>
+
+
+<nav class="indexgroup">
+<table id="TOC">
+<caption><h2 id="TOC_Title">Table of Contents</h2></caption>
+   <tr class="toc-level-1"><td class="toc-number">1</td><td class="toc-text"><a href="#Ce_module_contient_la_classe_PGCD_qui_a_le_rôle_'PrimeFactors'.">Ce module contient la classe PGCD qui a le rôle &#39;PrimeFactors&#39;.</a></td></tr>
+                      <tr class="toc-level-2"><td class="toc-number">1.1</td><td class="toc-text"><a href="#Méthode_divisors-listing-algorithm(--&gt;_Int)_{}">Méthode divisors-listing-algorithm(--&gt; Int) {}</a></td></tr>
+ <tr class="toc-level-3"><td class="toc-number">1.1.1</td><td class="toc-text"><a href="#Comment_déterminer_le_PGCD_de_deux_nombres_entiers_connaissant_l'ensemble_des_diviseurs_de_chacun_des_deux_nombres_:">Comment déterminer le PGCD de deux nombres entiers connaissant l&#39;ensemble des diviseurs de chacun des deux nombres :</a></td></tr>
+  <tr class="toc-level-2"><td class="toc-number">1.2</td><td class="toc-text"><a href="#Méthode_factorization_algorithm(--&gt;_Int)_{}">Méthode factorization_algorithm(--&gt; Int) {}</a></td></tr>
+ <tr class="toc-level-3"><td class="toc-number">1.2.1</td><td class="toc-text"><a href="#Comment_déterminer_le_PGCD_de_deux_nombres_à_l'aide_de_leur_décomposi-_tion_en_facteurs_premiers_:">Comment déterminer le PGCD de deux nombres à l&#39;aide de leur décomposi- tion en facteurs premiers :</a></td></tr>
+     <tr class="toc-level-2"><td class="toc-number">1.3</td><td class="toc-text"><a href="#Méthode_subtraction_algorithm(--&gt;_Int)_{}">Méthode subtraction_algorithm(--&gt; Int) {}</a></td></tr>
+ <tr class="toc-level-3"><td class="toc-number">1.3.1</td><td class="toc-text"><a href="#Pour_déterminer_le_PGCD_de_deux_nombres_entiers_par_l'algorithme_des_soustractions_:">Pour déterminer le PGCD de deux nombres entiers par l&#39;algorithme des soustractions :</a></td></tr>
+    <tr class="toc-level-2"><td class="toc-number">1.4</td><td class="toc-text"><a href="#Méthode_euclide_algorithm(--&gt;_Int)_{}">Méthode euclide_algorithm(--&gt; Int) {}</a></td></tr>
+ <tr class="toc-level-3"><td class="toc-number">1.4.1</td><td class="toc-text"><a href="#Comment_déterminer_le_PGCD_de_deux_nombres_entiers_par_l'algorithme_d'Euclide_?">Comment déterminer le PGCD de deux nombres entiers par l&#39;algorithme d&#39;Euclide ?</a></td></tr>
+   
+</table>
+</nav>
+
+<div class="pod-body
+
+">
+<section><h1>NAME</h1>
+<p>class PGCD</p>
+</section>
+<section><h1>AUTHOR</h1>
+<p>Christian Béloscar</p>
+</section>
+<section><h1>VERSION</h1>
+<p>0.1</p>
+</section>
+<h1 id="Ce_module_contient_la_classe_PGCD_qui_a_le_rôle_'PrimeFactors'."><a class="u" href="#___top" title="go to top of document">Ce module contient la classe PGCD qui a le rôle &#39;PrimeFactors&#39;.</a></h1>
+<p>Il est destiné à déterminer le PGCD (plus grand commun diviseur) de deux entiers, <strong>integer1</strong> et <strong>integer2</strong> de type <strong>Int</strong> non nuls qui sont des attributs de la classe. Il utilise pour cela quatre méthodes distinctes au choix :</p>
+<ul><li><p>l&#39;algorithme consistant à établir la liste des diviseurs de chacun des nombres et de prendre le plus grand nombre commun : <strong>divisors-listing_algorithm(--\</strong>Int)&gt;;</p>
+</li>
+<li><p>l&#39;algorithme des soustractions : <strong>subtraction_algorithm(--\</strong> Int)&gt;;</p>
+</li>
+<li><p>l&#39;algorithme d&#39;Euclide (par divisions euclidiennes) : <strong>euclide_algorithm(--\</strong> Int)&gt;;</p>
+</li>
+<li><p>enfin l&#39;algorithme consistant à décomposer les nombres en facteurs premiers et extraire leurs facteurs communs : <strong>factorization_algorithm(--\</strong> Int)&gt;. Les quatre méthodes renvoient un <strong>Int</strong> qui est le PGCD trouvé.</p>
+</li>
+</ul>
+<h2 id="Méthode_divisors-listing-algorithm(-->_Int)_{}"><a class="u" href="#___top" title="go to top of document">Méthode divisors-listing-algorithm(--&gt; Int) {}</a></h2>
+<h3 id="Comment_déterminer_le_PGCD_de_deux_nombres_entiers_connaissant_l'ensemble_des_diviseurs_de_chacun_des_deux_nombres_:"><a class="u" href="#___top" title="go to top of document">Comment déterminer le PGCD de deux nombres entiers connaissant l&#39;ensemble des diviseurs de chacun des deux nombres :</a></h3>
+<p>▲ on établit la liste des diviseurs communs des deux nombres; ▲ on repère dans cette liste le plus grand nombre, c&#39;est le PGCD cherché.</p>
+<h2 id="Méthode_factorization_algorithm(-->_Int)_{}"><a class="u" href="#___top" title="go to top of document">Méthode factorization_algorithm(--&gt; Int) {}</a></h2>
+<h3 id="Comment_déterminer_le_PGCD_de_deux_nombres_à_l'aide_de_leur_décomposi-_tion_en_facteurs_premiers_:"><a class="u" href="#___top" title="go to top of document">Comment déterminer le PGCD de deux nombres à l&#39;aide de leur décomposi- tion en facteurs premiers :</a></h3>
+<p>▲ Deux nombres peuvent avoir des facteurs en commun. Le plus grand commun diviseur (PGCD) est, comme son nom l&#39;indique, leur plus grand facteur commun. Le PGCD se déduit directement des décompositions en facteurs premiers des deux nombres. Nous avons effectué les décompositions en facteurs premiers des nombres : 180 = 2² × 3² × 5; 585 = 3² × 5 × 13; 3003 = 3 × 7 × 11 × 13.</p>
+<p>▲ De là, nous obtenons : PGCD(180;585) = PGCD(2² × 3² 5;3² × 5 × 13) = 3² × 5 = 45 PGCD(180;3003) = PGCD(2² × 3² × 5;3 × 7 × 11 × 13) = 3 PGCD(585;3003) = PGCD(3² × 5 × 13;3 × 7 × 11 × 13) = 3 × 13 = 39.</p>
+<p>▲ UNE BONNE IDEE! : il existe une méthode pour déterminer le PGCD de deux nombres qui ne requiert pas leurs décompositions en facteurs premiers et qui souvent s&#39;avère plus rapide. L&#39;idée de base est que le PGCD de deux nombres est aussi forcément un diviseur de leur différence. Voyez-vous pourquoi il en est ainsi ?</p>
+<p>▲ Le PGCD(4352 ; 4342) doit aussi être un facteur de 4352 – 4342 = 10. Or 10 n&#39;a que deux facteurs premiers, 2 et 5. Il est clair que 5 n&#39;est pas un facteur des deux nombres, par conséquent seul 2 l&#39;est; d&#39;ou PGCD(4352 ; 4342) = 2.</p>
+<h2 id="Méthode_subtraction_algorithm(-->_Int)_{}"><a class="u" href="#___top" title="go to top of document">Méthode subtraction_algorithm(--&gt; Int) {}</a></h2>
+<h3 id="Pour_déterminer_le_PGCD_de_deux_nombres_entiers_par_l'algorithme_des_soustractions_:"><a class="u" href="#___top" title="go to top of document">Pour déterminer le PGCD de deux nombres entiers par l&#39;algorithme des soustractions :</a></h3>
+<p>▲ on calcule la différence des deux nombres;</p>
+<p>▲ on garde le plus petit des deux nombres et la différence trouvée et on écrit que le PGCD cherché est leur PGCD;</p>
+<p>▲ on recommence le même procédé avec les deux nouveaux nombres jusqu&#39;à l&#39;obtention de deux nombres égaux, le PGCD est égal à leur valeur. La méthode s&#39;appuie sur les propriétés suivantes : a et b désignant deux entiers, si a = b, alors PGCD(a;b) = a = b et si a &gt; b, PGCD(a;b) = PGCD(b;a-b).</p>
+<h2 id="Méthode_euclide_algorithm(-->_Int)_{}"><a class="u" href="#___top" title="go to top of document">Méthode euclide_algorithm(--&gt; Int) {}</a></h2>
+<h3 id="Comment_déterminer_le_PGCD_de_deux_nombres_entiers_par_l'algorithme_d'Euclide_?"><a class="u" href="#___top" title="go to top of document">Comment déterminer le PGCD de deux nombres entiers par l&#39;algorithme d&#39;Euclide ?</a></h3>
+<p>▲ on effectue la division euclidienne du plus grand nombre par le plus petit;</p>
+<p>▲ on conserve le plus petit des deux nombres et le reste trouvé et on écrit que le PGCD cherché est leur PGCD;</p>
+<p>▲ on continue ainsi jusqu&#39;à l&#39;obtention d&#39;un reste nul, le PGCD est le dernier reste non nul. La méthode s&#39;appuie sur la propriété suivante : a et b désignant deux entiers, si a &gt; b, PGCD(a;b) = PGCD(b;r) où r est le reste de la division euclidienne de a par b.</p>
+
+</div>
+
+
+</body>
+</html>
+

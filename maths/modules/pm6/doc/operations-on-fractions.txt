@@ -1,11 +1,11 @@
 NAME
-OperationsOnFractions.
+OperationsOnFractions
 
 AUTHOR
-Christian Béloscar.
+Christian Béloscar
 
 VERSION
-0.1.2
+0.1
 
 Ce module est destiné à faire des opérations sur des fractions.
 
@@ -19,14 +19,14 @@ le
   '÷' ou 'd', dans le cas ou il n'y a que deux fractions.
 
 Elle renvoie une paire (Pair) comme valeur de retour. Les champs
-obligatoires à renseigner sont numerator1, denominator1, numerator2 et
-denominator2 correspondant aux numérateur et dénominateur de chaque
-fraction sur laquelle pratiquer l'opération choisie.
+obligatoires à renseigner sont nudepair1, et nudepair2, correspondant aux
+numérateur et dénominateur de chaque fraction sur laquelle pratiquer
+l'opération choisie.
 
 On peut justement se demander pourquoi l'implémentation des fractions se
-fait par la séparation entre le numérateur et le dénominateur et que
-l'objet renvoyé par calculate-fractions(Str $operation) est une paire et
-non une fraction. Cette implémentation est en fait sujette à la
+fait par l'emploi du type Pair plutôt que du type Rat (nombre rationnel) et
+que l'objet renvoyé par calculate-fractions(Str $operation) est une paire
+et non une fraction. Cette implémentation est en fait sujette à la
 multiplication des options pour le calcul des fractions; en effet les
 fractions littérales sont automatiquement réduites à leur plus simple
 expression ce qui oblitère la possibilité de choisir expressément la façon
@@ -37,17 +37,17 @@ valeur True aux booléens reduce-fractionN (Voir ci-dessous). De même on
 pourra choisir de livrer la dernière fraction résultante sans la réduire
 systématiquement. (Voir plus bas).
 
-Les deux champs suivants sont facultatifs :
+Le champ suivant est facultatif :
 
-  * numerator3 et denominator3, pour lesquels d'autres opérateurs sont
-  disponibles pour l'addition et la soustraction uniquement, c'est-à-dire :
+  * nudepair3, pour lequel d'autres opérateurs sont disponibles pour l'addition
+  et la soustraction uniquement, c'est-à-dire :
 
   * 'add-upx2' ou '++' ou 'aa', 'subtractx2' ou '--' ou '−−' ou 'ss',
   'add-up-subtract' ou '+-' ou '+−' ou 'as', et enfin 'subtract-add-up' ou
   '-+' ou '−+' ou 'sa'.
 
-Ensuite, trois champs booléens facultatifs associés aux champs
-numerator/denominator servent à préciser si l'on effectue la réduction de
+Ensuite, trois champs booléens facultatifs associés aux champs nudepair1,
+nudepair2 et nudepair3 servent à préciser si l'on effectue la réduction de
 la fraction en question avant le traitement des données,
 
   * ce sont reduce-fraction1, reduce-fraction2 et reduce-fraction3;
@@ -85,13 +85,14 @@ les trois attributs décrits précédemment :
 
   * breakdown'factors et compute'prime'factors
 
-(remarquez les séparateurs ' qui sont parfaitement valides); le premier de
-ces champs est destiné à établir la liste des facteurs premiers d'un entier
-différent de 0; il a par défaut la valeur True et si un ou plus des trois
-attributs précédents se voit donné la valeur False, la réduction de la
-fraction concernée n'aura pas lieu. Autrement dit pour que cette réduction
-se produise, il faut à la fois que ces deux attributs aient la valeur True
-ce qui est le cas par défaut. Si vous passez la valeur False a
+(remarquez les séparateurs ' qui sont parfaitement valides et utilisés pour
+les distinguer des méthodes du même nom); le premier de ces champs est
+destiné à établir la liste des facteurs premiers d'un entier différent de
+0; il a par défaut la valeur True et si un ou plus des trois attributs
+précédents se voit donné la valeur False, la réduction de la fraction
+concernée n'aura pas lieu. Autrement dit pour que cette réduction se
+produise, il faut à la fois que ces deux attributs aient la valeur True ce
+qui est le cas par défaut. Si vous passez la valeur False a
 breakdown'factors, la réduction de toutes les fractions sera inhibée toutes
 ensemble.
 
@@ -142,7 +143,7 @@ l'algorithme utilisé par la classe PGCD pour le calcul du PPCM :
 
 Voici la liste des méthodes de la classe OperationsOnFractions :
 
-  calculate-fractions(Str $operation --> Pair)
+  calculate-fractions(Str $operation --> Pair) {}
 
 Cette méthode est la principale de la classe, qui donne accès à toutes les
 autres méthodes − bien que celles-là ne soient pas privées et sont donc
@@ -150,6 +151,7 @@ accessibles isolément − en employant un seul argument, le type d'opération
 à effectuer. (Voir plus haut)
 
   reduce-fraction(Int $numerator, Int $denominator, Str $sign = '' --> Pair)
+{}
 
 Cette méthode destinée à obtenir la fraction irréductible à partir du
 numérateur et du dénominateur passés en argument utilise la classe
@@ -169,78 +171,75 @@ troisième argument $sign à '-' afin d'appeler l'une des méthodes
   * reduce-fraction-with-factorization-algorithm($sign); Le signe + n'est pas
   écrit, il est géré par la valeur par défaut de $sign, une chaîne vide.
 
-  add-up(Pair $pair1, Pair $pair2, Int $times = 0 --> Pair)
+  add-up(Pair $pair1, Pair $pair2, Int $times = 0 --> Pair) {}
 
 Cette méthode renvoie l'addition des numérateurs et dénominateurs passés
-aux attributs de la classe, c'est-à-dire, numerator1, denominator1 et
-numerator2 et denominator2. Elle utilise les modules ppcm.pm6 et pgcd.pm6,
-ainsi que la méthode de la classe reduce-fraction($numerator,
-$denominator). Le paramètre $times s'il est mis à 1 et que l'attribut de la
-classe reduce-last-once est passé à True, la méthode ne réduira pas la
-fraction résultante lors d'un premier appel, mais la réduira lors d'un
-appel subséquent. Elle renvoie une paire constituée du numérateur et du
-dénominateur de la fraction résultante.
+aux attributs de la classe, c'est-à-dire, nudepair1 et nudepair2. Elle
+utilise les modules ppcm.pm6 et pgcd.pm6, ainsi que la méthode de la classe
+reduce-fraction($numerator, $denominator). Le paramètre $times s'il est mis
+à 1 et que l'attribut de la classe reduce-last-once est passé à True, la
+méthode ne réduira pas la fraction résultante lors d'un premier appel, mais
+la réduira lors d'un appel subséquent. Elle renvoie une paire constituée du
+numérateur et du dénominateur de la fraction résultante.
 
-  add-upx2(Pair $pair1, Pair $pair2, Pair $pair3 --> Pair)
+  add-upx2(Pair $pair1, Pair $pair2, Pair $pair3 --> Pair) {}
 
 Cette méthode renvoie l'addition des numérateurs et dénominateurs passés
-aux attributs de la classe, c'est-à-dire, numerator1, denominator1,
-numerator2, denominator2 et numerator3 et denominator3 pour calculer la
-somme de trois fractions. Elle utilise les modules ppcm.pm6 et pgcd.pm6,
-ainsi que la méthode de la classe : reduce-fraction($numerator,
-$denominator). Elle renvoie une paire constituée par le numérateur et le
-dénominateur de la fraction résultante.
+aux attributs de la classe, c'est-à-dire, nudepair1, nudepair2 et
+nudepair3, pour calculer la somme de trois fractions. Elle utilise les
+modules ppcm.pm6 et pgcd.pm6, ainsi que la méthode de la classe :
+reduce-fraction($numerator, $denominator). Elle renvoie une paire
+constituée par le numérateur et le dénominateur de la fraction résultante.
 
-  subtract(Pair $pair1, Pair $pair2, Int $times = 0 --> Pair)
-
-Cette méthode renvoie la soustraction des numérateurs et dénominateurs
-passés aux attributs de la classe, c'est-à-dire, numerator1, denominator1
-et numerator2 et denominator2. Elle utilise les modules ppcm.pm6 et
-pgcd.pm6, ainsi que la méthode de la classe reduce-fraction($numerator,
-$denominator). Le paramètre $times a le même effet que pour l'opération
-add-up (voir plus haut). Elle renvoie une paire constituée du numérateur et
-du dénominateur de la fraction résultante.
-
-  subtractx2(Pair $pair1, Pair $pair2, Pair $pair3 --> Pair)
+  subtract(Pair $pair1, Pair $pair2, Int $times = 0 --> Pair) {}
 
 Cette méthode renvoie la soustraction des numérateurs et dénominateurs
-passés aux attributs de la classe, c'est-à-dire, numerator1, denominator1,
-numerator2, denominator2 et numerator3 et denominator3 pour calculer la
-différence de trois fractions. Elle utilise les modules ppcm.pm6 et
-pgcd.pm6, ainsi que la méthode de la classe : reduce-fraction($numerator,
-$denominator). Elle renvoie une paire constituée par le numérateur et le
-dénominateur de la fraction résultante.
+passés aux attributs de la classe, c'est-à-dire, nudepair1 et nudepair2.
+Elle utilise les modules ppcm.pm6 et pgcd.pm6, ainsi que la méthode de la
+classe reduce-fraction($numerator, $denominator). Le paramètre $times a le
+même effet que pour l'opération add-up (voir plus haut). Elle renvoie une
+paire constituée du numérateur et du dénominateur de la fraction
+résultante.
+
+  subtractx2(Pair $pair1, Pair $pair2, Pair $pair3 --> Pair) {}
+
+Cette méthode renvoie la soustraction des numérateurs et dénominateurs
+passés aux attributs de la classe, c'est-à-dire, nudepair1, nudepair2 et
+nudepair3 pour calculer la différence de trois fractions. Elle utilise les
+modules ppcm.pm6 et pgcd.pm6, ainsi que la méthode de la classe :
+reduce-fraction($numerator, $denominator). Elle renvoie une paire
+constituée par le numérateur et le dénominateur de la fraction résultante.
 
   add-up-subtract(Pair $pair1, Pair $pair2, Pair $pair3 --> Pair)
 
 Cette méthode renvoie l'addition des numérateurs et dénominateurs passés
-aux attributs de la classe, c'est-à-dire, numerator1, denominator1,
-numerator2, denominator2 et la soustraction des numerator3 et denominator3
+aux attributs de la classe, c'est-à-dire, nudepair1 et nudepair2, et la
+soustraction des numérateurs et dénominateurs passés à l'argument nudepair3
 pour calculer la somme des deux premières fractions et la différence du
 résultat et de la troisième fraction. Elle utilise les modules ppcm.pm6 et
 pgcd.pm6, ainsi que la méthode de la classe : reduce-fraction($numerator,
 $denominator). Elle renvoie une paire constituée par le numérateur et le
 dénominateur de la fraction résultante.
 
-  subtract-add-up(Pair $pair1, Pair $pair2, Pair $pair3 --> Pair)
+  subtract-add-up(Pair $pair1, Pair $pair2, Pair $pair3 --> Pair) {}
 
 Cette méthode est l'inverse de la précédente, c'est-à-dire qu'elle renvoie
 la soustraction des numérateurs et dénominateurs passés aux attributs de la
-classe, c'est-à-dire, numerator1, denominator1, numerator2, denominator2
-pour calculer la différence des deux premières fractions et la somme du
-résultat et de la troisième fraction. Elle utilise les modules ppcm.pm6 et
-pgcd.pm6, ainsi que la méthode de la classe : reduce-fraction($numerator,
-$denominator). Elle renvoie une paire constituée par le numérateur et le
-dénominateur de la fraction résultante.
+classe, c'est-à-dire, nudepair1, nudepair2 pour calculer la différence des
+deux premières fractions et la somme du résultat et de la troisième
+fraction dont l'attribut de classe est nudepair3. Elle utilise les modules
+ppcm.pm6 et pgcd.pm6, ainsi que la méthode de la classe :
+reduce-fraction($numerator, $denominator). Elle renvoie une paire
+constituée par le numérateur et le dénominateur de la fraction résultante.
 
-  breakdown-factors(Int @array-of-factors --> Array)
+  breakdown-factors(Int @array-of-factors --> Array) {}
 
 Cette méthode décompose un tableau de facteurs en facteurs premiers. Elle
 utilise la méthode breakdown du rôle PrimeFactors. Consultez la
 documentation du module prime-factors.pm6 pour plus d'informations.
 
   compute-prime-factors(Int @array1, Int @array2, Int $return-array = 1 -->
-Array)
+Array) {}
 
 Cette méthode elle aussi appelle une méthode de PrimeFactors :
 reduce-fractions-prime-factors(Int @numerators, Int @denominators, Int
@@ -251,14 +250,16 @@ numérateurs ou 2 pour retourner le deuxième tableau, celui des
 dénominateurs. Consultez aussi la documentation du module
 prime-factors.pm6.
 
-  fractions-product-sign(Pair $p1, Pair $p2, Pair $p3? --> Str)
+  fractions-product-sign(Pair $p1, Pair $p2, Pair $p3? --> Str) {}
 
 Cette méthode est utilisée pour déduire le signe du résultat du produit des
-fractions passées en arguments avant d'effectuer les calculs. Elle retourne
-'+' ou '−'.
+fractions passées en arguments aux attributs de la classe que sont
+nudepair1, nudepair2 et facultativement nudepair3 avant d'effectuer les
+calculs. Elle retourne '+' ou '−'.
 
-  multiply(Pair $pair1, Pair $pair2, Pair $pair3? --> Pair) 
+  multiply(Pair $pair1, Pair $pair2, Pair $pair3? --> Pair) {}
 
 Cette méthode est utilisée pour multiplier deux ou trois fractions données
-en arguments sous forme de paires numérateur => dénominateur. Elle renvoie
-une nouvelle paire en valeur de retour.
+en arguments sous forme de paires numérateur => dénominateur passées aux
+attributs de classe nudepair1, nudepair2 et facultativement nudepair3. Elle
+renvoie une nouvelle paire en valeur de retour.

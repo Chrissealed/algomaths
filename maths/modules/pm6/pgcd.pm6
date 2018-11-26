@@ -3,18 +3,24 @@ unit module pgcd;
 use v6;
 
 =begin pod
+=NAME class PGCD
+=AUTHOR Christian Béloscar
+=VERSION 0.1
+
+=for head1
 Ce module contient la classe PGCD qui a le rôle 'PrimeFactors'.
+
 Il est destiné à déterminer le PGCD (plus grand commun diviseur) de deux entiers,
-integer1 et integer2 de type Int non nuls qui sont des attributs de la classe.
+B<integer1> et B<integer2> de type B<Int> non nuls qui sont des attributs de la classe.
 Il utilise pour cela quatre méthodes distinctes au choix :
 =item l'algorithme consistant à établir la liste des diviseurs de
 chacun des nombres et de prendre le plus grand nombre commun :
-'divisors-listing_algorithm()';
-=item l'algorithme des soustractions : 'subtraction_algorithm()';
-=item l'algorithme d'Euclide (par divisions euclidiennes) : 'euclide_algorithm()';
+B<divisors-listing_algorithm>(-->Int);
+=item l'algorithme des soustractions : B<subtraction_algorithm>(--> Int);
+=item l'algorithme d'Euclide (par divisions euclidiennes) : B<euclide_algorithm>(--> Int);
 =item enfin l'algorithme consistant à décomposer les nombres
-en facteurs premiers et extraire leurs facteurs communs : 'factorization_algorithm()'.
-Les quatre méthodes renvoient un Int qui est le PGCD trouvé.
+en facteurs premiers et extraire leurs facteurs communs : B<factorization_algorithm>(--> Int).
+Les quatre méthodes renvoient un B<Int> qui est le PGCD trouvé.
 =end pod
 
 use integer-divisors-listing;
@@ -26,13 +32,14 @@ class PGCD does PrimeFactors is export {
     has Int $.integer2 is required is rw where { ($_ != 0) or die "Valeur de champ invalide! Entier relatif différent de 0 requis." };
 
 =begin pod
-###################################################################################
+=for head2
+Méthode divisors-listing-algorithm(--> Int) {}
+=for head3
 Comment déterminer le PGCD de deux nombres entiers connaissant
 l'ensemble des diviseurs de chacun des deux nombres :
-###################################################################################
+
 ▲ on établit la liste des diviseurs communs des deux nombres;
 ▲ on repère dans cette liste le plus grand nombre, c'est le PGCD cherché.
-###################################################################################
 =end pod
 
     method divisors-listing_algorithm(--> Int) {
@@ -57,24 +64,28 @@ l'ensemble des diviseurs de chacun des deux nombres :
     }
 
 =begin pod
-###################################################################################
+=for head2
+Méthode factorization_algorithm(--> Int) {}
+=for head3
 Comment déterminer le PGCD de deux nombres à l'aide de leur décomposi-
 tion en facteurs premiers :
-###################################################################################
+
 ▲ Deux nombres peuvent avoir des facteurs en commun. Le plus grand commun diviseur
 (PGCD) est, comme son nom l'indique, leur plus grand facteur commun.
 Le PGCD se déduit directement des décompositions en facteurs premiers des deux
 nombres. Nous avons effectué les décompositions en facteurs premiers des nombres :
 180 = 2² × 3² × 5; 585 = 3² × 5 × 13; 3003 = 3 × 7 × 11 × 13.
+
 ▲ De là, nous obtenons :
 PGCD(180;585) = PGCD(2² × 3²  5;3² × 5 × 13) = 3² × 5 = 45
 PGCD(180;3003) = PGCD(2² × 3² × 5;3 × 7 × 11 × 13) = 3
 PGCD(585;3003) = PGCD(3² × 5 × 13;3 × 7 × 11 × 13) = 3 × 13 = 39.
-###################################################################################
+
 ▲ UNE BONNE IDEE! : il existe une méthode pour déterminer le PGCD de deux nombres
 qui ne requiert pas leurs décompositions en facteurs premiers et qui souvent
 s'avère plus rapide. L'idée de base est que le PGCD de deux nombres est aussi
 forcément un diviseur de leur différence. Voyez-vous pourquoi il en est ainsi ?
+
 ▲ Le PGCD(4352 ; 4342) doit aussi être un facteur de 4352 – 4342 = 10. Or 10 n'a
 que deux facteurs premiers, 2 et 5. Il est clair que 5 n'est pas un facteur des
 deux nombres, par conséquent seul 2 l'est; d'ou PGCD(4352 ; 4342) = 2.
@@ -172,14 +183,14 @@ deux nombres, par conséquent seul 2 l'est; d'ou PGCD(4352 ; 4342) = 2.
         
         say "Facteurs communs à $int1 et $int2 :";
         say @factors;
-        say "PGCD($int1 ; $int2) :" if (@factors.elems > 0);
+        print "PGCD($int1 ; $int2)" if (@factors.elems > 0);
         $i = 0;
         while $i < @factors.elems - 1 {
             print @factors[$i], " × ";
             $i++;
         }
         if (@factors.elems == 1) {
-            print "@factors[$i] × 1";
+            ;
         }
         elsif (@factors.elems == 0) {
             say "pas de facteurs communs.";
@@ -198,18 +209,21 @@ deux nombres, par conséquent seul 2 l'est; d'ou PGCD(4352 ; 4342) = 2.
     }
 
 =begin pod    
-###################################################################################
+=for head2
+Méthode subtraction_algorithm(--> Int) {}
+=for head3
 Pour déterminer le PGCD de deux nombres entiers par l'algorithme
 des soustractions :
-###################################################################################
+
 ▲ on calcule la différence des deux nombres;
+
 ▲ on garde le plus petit des deux nombres et la différence trouvée et on écrit
 que le PGCD cherché est leur PGCD;
+
 ▲ on recommence le même procédé avec les deux nouveaux nombres jusqu'à l'obtention
 de deux nombres égaux, le PGCD est égal à leur valeur.
 La méthode s'appuie sur les propriétés suivantes : a et b désignant deux entiers,
 si a = b, alors PGCD(a;b) = a = b et si a > b, PGCD(a;b) = PGCD(b;a-b).
-###################################################################################
 =end pod
 
     method subtraction_algorithm(--> Int) {
@@ -247,19 +261,22 @@ si a = b, alors PGCD(a;b) = a = b et si a > b, PGCD(a;b) = PGCD(b;a-b).
     }
 
 =begin pod
-###################################################################################
+=for head2
+Méthode euclide_algorithm(--> Int) {}
+=for head3
 Comment déterminer le PGCD de deux nombres entiers par l'algorithme
 d'Euclide ?
-###################################################################################
+
 ▲ on effectue la division euclidienne du plus grand nombre par le plus petit;
+
 ▲ on conserve le plus petit des deux nombres et le reste trouvé et on écrit que
 le PGCD cherché est leur PGCD;
+
 ▲ on continue ainsi jusqu'à l'obtention d'un reste nul, le PGCD est le dernier
 reste non nul.
 La méthode s'appuie sur la propriété suivante : a et b désignant deux entiers,
 si a > b, PGCD(a;b) = PGCD(b;r) où r est le reste de la division euclidienne de
-a par b
-###################################################################################
+a par b.
 =end pod
 
     method euclide_algorithm(--> Int) {

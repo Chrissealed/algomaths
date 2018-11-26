@@ -1,13 +1,13 @@
 NAME
-PrimeFactors.
+class PrimeFactors
 
 AUTHOR
-Christian Béloscar.
+Christian Béloscar
 
 VERSION
-0.1.0
+0.1
 
-Ce module contient un rôle : PrimeFactors destiné à établir la liste des
+Ce module contient un rôle : 'PrimeFactors' destiné à établir la liste des
 facteurs premiers d'un entier différent de 0, c'est-à-dire de le décomposer
 en facteurs premiers.
 
@@ -16,10 +16,10 @@ Il contient deux méthodes, la première :
   breakdown(Int $integer is copy where { ($integer != 0) or die "Argument
 invalide! Nombre entier différent de 0 requis." } --> Hash) {}
 
-avec '$integer' différent de 0 qui renvoie un Hash comprenant le mappage
-des nombres avec leurs facteurs. Il affiche ce mappage sous plusieurs
-formes : en tableau associatif (Hash) clé => valeur, en facteurs successifs
-puis en facteurs élevés à la puissance requise.
+avec $integer différent de 0 qui renvoie un Hash comprenant le mappage des
+nombres avec leurs facteurs. Il affiche ce mappage sous plusieurs formes :
+en tableau associatif (Hash) clé => valeur, en facteurs successifs puis en
+facteurs élevés à la puissance requise.
 
   La deuxième méthode : reduce-fractions-prime-factors(Int @numerators is
 copy, Int @denominators is copy, Int $return-array --> Array) {}
@@ -27,7 +27,7 @@ copy, Int @denominators is copy, Int $return-array --> Array) {}
 qui prend 2 tableaux de Int en arguments et délivre pour chacun des 2
 tableaux un troisième et quatrième tableau contenant les valeurs qui se
 trouvent dans l'un des tableaux et pas dans l'autre. Selon la valeur de
-l'argument '$returned-array' (1 ou 2), le premier tableau ou le deuxième
+l'argument $returned-array (1 ou 2), le premier tableau ou le deuxième
 tableau sera retourné, pour disposer des valeurs contenues dans les 2
 tableaux, il faudra faire deux appels avec une valeur différente de
-'$returned-array' pour chacun d'eux.
+$returned-array pour chacun d'eux.
