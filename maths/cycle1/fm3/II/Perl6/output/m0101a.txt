@@ -1,0 +1,24 @@
+# Exercice 1. Calculer.
+# --------------------
+# a. 9/5 + 4/5.
+-----------------------------------------------------------------------------------
+Les fractions 9/5 et 4/5 sont irréductibles.
+On cherche le PPCM de 5 et 5 :
+Les deux fractions ont même dénominateur donc :
+9/5 + 4/5 = 9 + 4/5 = 13/5.
+
+On simplifie la dernière fraction obtenue :
+13	=>	1
+13 est un nombre premier!
+Il n'admet que 1 et lui-même comme diviseurs.
+1 × 13.
+5	=>	1
+5 est un nombre premier!
+Il n'admet que 1 et lui-même comme diviseurs.
+1 × 5.
+13 et 5 n'ont pas de diviseurs communs autre que 1.
+13 et 5 sont premiers entre eux!
+La fraction 13/5 est irréductible.
+
+
+

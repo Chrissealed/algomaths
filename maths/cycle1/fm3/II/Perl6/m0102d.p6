@@ -2,21 +2,33 @@
 
 use v6;
 use corrective;
+use teeput;
 use method01 :methodwording, :exe02d, :examples;
 use operations-on-fractions;
 
 sub answering {
+    class T does Tput {}
+    my $t = T.new(
+        filepath => 'output/m0102d.txt',
+        filemode => ':a',
+        writefile => True,
+        closefile => False,
+    );
+    $t.tput: 'Les fractions 5/6 et 3/4 sont irréductibles.';
+
     my $fraction = OperationsOnFractions.new(
-        numerator1 => 5,
-        denominator1 => 6,
-        numerator2 => 3,
-        denominator2 => 4,
+        t => $t,
+        nudepair1 => 5 => 6,
+        nudepair2 => 3 => 4,
         which-ppcm-algorithm => 'by-larger-number-multiples',
         which-irreducible-fraction-algorithm => 'subtraction',
         which-pgcd-algorithm => 'subtraction',
     );
     my Pair $P;
     $P = $fraction.calculate-fractions('subtract');
+
+    $t.closefile = True;
+    $t.tput: '';
 }
 
 exercise_02d();

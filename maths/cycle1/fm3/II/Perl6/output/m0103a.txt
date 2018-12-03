@@ -1,0 +1,50 @@
+# Exercice 3. Calculer.
+# --------------------
+# a. 19/46 – 17/69.
+-----------------------------------------------------------------------------------
+On simplifie si possible la première fraction :
+− Utilisation de l'algorithme d'Euclide −
+PGCD(46 ; 19) = PGCD(19 ; 8)
+PGCD(19 ; 8) = PGCD(8 ; 3)
+PGCD(8 ; 3) = PGCD(3 ; 2)
+PGCD(3 ; 2) = PGCD(2 ; 1)
+Le reste de la division de 2 par 1 est nul,
+donc PGCD(19 ; 46) = 1.
+19 et 46 n'ont pas de diviseurs communs autre que 1.
+19 et 46 sont premiers entre eux!
+La fraction 19/46 est irréductible.
+Fraction réduite : 19/46.
+
+On simplifie si possible la deuxième fraction :
+− Utilisation de l'algorithme d'Euclide −
+PGCD(69 ; 17) = PGCD(17 ; 1)
+Le reste de la division de 17 par 1 est nul,
+donc PGCD(17 ; 69) = 1.
+17 et 69 n'ont pas de diviseurs communs autre que 1.
+17 et 69 sont premiers entre eux!
+La fraction 17/69 est irréductible.
+Fraction réduite : 17/69.
+
+On cherche le PPCM de 46 et 69 :
+− Utilisation de l'algorithme d'Euclide −
+PGCD(69 ; 46) = PGCD(46 ; 23)
+Le reste de la division de 46 par 23 est nul,
+donc PGCD(69 ; 46) = 23.
+Produit de 69 par 46 = 3174;
+PPCM(69 ; 46) = 3174 div 23 = 138.
+19/46 − 17/69 = 19×3/46×3 − 17×2/69×2;
+on effectue les calculs :
+19/46 − 17/69 = 57/138 − 34/138;
+
+on soustrait les numérateurs et on garde le dénominateur commun :
+23/138.
+
+On simplifie la dernière fraction obtenue :
+23 et 138 ont un diviseur commun autre que 1 : 23.
+− Utilisation de l'algorithme d'Euclide −
+Le reste de la division de 138 par 23 est nul,
+donc PGCD(23 ; 138) = 23.
+On simplifie avec le PGCD trouvé :
+23/138 = 23 × 1 / 23 × 6
+23/138 = 1/6
+

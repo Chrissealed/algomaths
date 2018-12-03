@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <title></title>
+  <meta charset="UTF-8" />
+  <style>
+    /* code gets the browser-default font
+     * kbd gets a slightly less common monospace font
+     * samp gets the hard pixelly fonts
+     */
+    kbd { font-family: "Droid Sans Mono", "Luxi Mono", "Inconsolata", monospace }
+    samp { font-family: "Terminus", "Courier", "Lucida Console", monospace }
+    /* WHATWG HTML frowns on the use of <u> because it looks like a link,
+     * so we make it not look like one.
+     */
+    u { text-decoration: none }
+    .nested {
+        margin-left: 3em;
+    }
+    // footnote things:
+    aside, u { opacity: 0.7 }
+    a[id^="fn-"]:target { background: #ff0 }
+  </style>
+  <link rel="stylesheet" href="//design.perl6.org/perl.css">
+  <meta name="author" value="Christian Béloscar" />
+<meta name="version" value="1.0" />
+  
+</head>
+<body class="pod">
+<div id="___top"></div>
+
+
+<nav class="indexgroup">
+<table id="TOC">
+<caption><h2 id="TOC_Title">Table of Contents</h2></caption>
+                                                             <tr class="toc-level-2"><td class="toc-number">0.1</td><td class="toc-text"><a href="#tput(Str:D_$string_--&gt;_Bool:D)_{}_tprint(Str:D_$string_--&gt;_Bool:D)_{}">tput(Str:D $string --&gt; Bool:D) {} tprint(Str:D $string --&gt; Bool:D) {}</a></td></tr>
+
+</table>
+</nav>
+
+<div class="pod-body
+
+">
+<section><h1>NAME</h1>
+<p>rôle Teeput::Tput</p>
+</section>
+<section><h1>AUTHOR</h1>
+<p>Christian Béloscar</p>
+</section>
+<section><h1>VERSION</h1>
+<p>1.0</p>
+</section>
+<section><h1>header1</h1>
+<p>Le rôle Teeput::Tput est utilisé afin d&#39;écrire les informations affichées sur la sortie standard, répliquées dans un fichier correspondant situé dans le dossier &#39;output/&#39; sous-dossier de chaque dossier comportant les fichiers p6 à l&#39;instar de la commande &#39;tee&#39; des systèmes Unix.</p>
+</section>
+<p>Il est utilisé dans tous les modules pm6 et les fichiers p6 dans lesquels il est implémenté par composition plutôt que par la directive <strong>does Tput</strong>. Il est requis pour chacun de ces fichiers et en mode <strong>rw</strong>.</p>
+<p>Il contient quatre attributs, deux de type <strong>Str</strong> et deux de type <strong>Bool</strong>. Chacun de ces attributs possède une valeur par défaut et sont en lecture/écriture (rw) :</p>
+<ul><li><p><strong>filepath</strong> contient le chemin d&#39;accès au fichier texte qui répliquera les informations, c&#39;est à dire par défaut filepath =&gt; output/out.txt.</p>
+</li>
+</ul>
+<p><strong>filemode</strong> précise le mode d&#39;ouverture des fichiers :</p>
+<ul><li><p>:mode&lt;wo&gt;, :create, :exclusive qui s&#39;écrit simplement <strong>:x</strong>;</p>
+</li>
+<li><p>:mode&lt;wo&gt;, :create, :truncate qui s&#39;écrit simplement <strong>:w</strong>;</p>
+</li>
+<li><p>:mode&lt;wo&gt;, :create, :append qui s&#39;écrit simplement <strong>:a</strong>.</p>
+</li>
+</ul>
+<p>Pour ce qui est des autres champs leur valeur par défaut est <strong>False</strong> pour <strong>writefile</strong> et <strong>True</strong> pour <strong>closefile</strong>. Pour effectivement permettre l&#39;écriture dans un fichier, il faut passer <strong>True</strong> à l&#39;attribut <strong>writefile</strong>; l&#39;attribut <strong>closefile</strong> peut être passé à <strong>False</strong> pour éviter de refermer le fichier dans lequel on écrit à chaque instruction d&#39;écriture et ainsi d&#39;accélérer le processus, mais cet attribut n&#39;a d&#39;effet qu&#39;en mode <strong>:a</strong>, les autres modes <strong>:x</strong> et <strong>:w</strong> fermant le fichier d&#39;écriture automatiquement après chaque instruction. </p>
+<p>Il faudra penser à lui passer la valeur <strong>True</strong> avant la dernière exécution d&#39;écriture afin que le fichier soit bien fermé. Notez que le mode <strong>:x</strong> n&#39;écrit qu&#39;une fois dans un fichier de sorte que si vous voulez le mettre à jour, il faudra d&#39;abord supprimer ce fichier pour qu&#39;il soit recréé.</p>
+<p>Le rôle possède deux méthodes qui correspondent pour l&#39;une à la méthode <strong>put</strong> et pour l&#39;autre à méthode <strong>print</strong>, la différence entre les deux étant que la première ajoute un caractère de fin de ligne, tandis que la deuxième demeure sur la ligne attendant l&#39;instruction d&#39;écriture suivante.</p>
+<p>Ce sont :</p>
+<h2 id="tput(Str:D_$string_-->_Bool:D)_{}_tprint(Str:D_$string_-->_Bool:D)_{}"><a class="u" href="#___top" title="go to top of document">tput(Str:D $string --&gt; Bool:D) {} tprint(Str:D $string --&gt; Bool:D) {}</a></h2>
+
+</div>
+
+
+</body>
+</html>
+

@@ -1,0 +1,107 @@
+# Exercice 5. Calculer.
+# --------------------
+# a. 1/2 + 2/3 + 3/4 + 4/5 + 5/6.
+-----------------------------------------------------------------------------------
+Les fractions 1/2, 2/3 et 3/4 sont irréductibles.
+On cherche le PPCM de 2 et 3 :
+− Utilisation de l'algorithme d'Euclide −
+PGCD(3 ; 2) = PGCD(2 ; 1)
+Le reste de la division de 2 par 1 est nul,
+donc PGCD(2 ; 3) = 1.
+2 et 3 n'ont pas de diviseurs communs autre que 1.
+Le PGCD de 2 et 3 est égal à 1;
+le PPCM de 2 et 3 est donc leur produit : 6.
+1/2 + 2/3 = 1×3/2×3 + 2×2/3×2;
+on effectue les calculs :
+1/2 + 2/3 = 3/6 + 4/6;
+
+on ajoute les numérateurs et on garde le dénominateur commun :
+7/6.
+
+On cherche le PPCM de 6 et 4 :
+6 et 4 ont un diviseur commun autre que 1 : 2.
+6	=>	2
+3	=>	3
+2 × 3
+4	=>	2
+2	=>	2
+2 × 2
+2^2
+En prenant les plus grands facteurs de chaque liste, 
+le PPCM de 6 et 4 équivaut donc à : 4 × 3.
+7/6 + 3/4 = 7×2/6×2 + 3×3/4×3;
+on effectue les calculs :
+7/6 + 3/4 = 14/12 + 9/12;
+
+on ajoute les numérateurs et on garde le dénominateur commun :
+23/12.
+
+On simplifie la dernière fraction obtenue :
+− Utilisation de l'algorithme d'Euclide −
+PGCD(23 ; 12) = PGCD(12 ; 11)
+PGCD(12 ; 11) = PGCD(11 ; 1)
+Le reste de la division de 11 par 1 est nul,
+donc PGCD(23 ; 12) = 1.
+23 et 12 n'ont pas de diviseurs communs autre que 1.
+23 et 12 sont premiers entre eux!
+La fraction 23/12 est irréductible.
+
+Les fractions 23/12, 4/5 et 5/6 sont irréductibles.
+On cherche le PPCM de 12 et 5 :
+− Utilisation de l'algorithme d'Euclide −
+PGCD(12 ; 5) = PGCD(5 ; 2)
+PGCD(5 ; 2) = PGCD(2 ; 1)
+Le reste de la division de 2 par 1 est nul,
+donc PGCD(12 ; 5) = 1.
+12 et 5 n'ont pas de diviseurs communs autre que 1.
+Le PGCD de 12 et 5 est égal à 1;
+le PPCM de 12 et 5 est donc leur produit : 60.
+23/12 + 4/5 = 23×5/12×5 + 4×12/5×12;
+on effectue les calculs :
+23/12 + 4/5 = 115/60 + 48/60;
+
+on ajoute les numérateurs et on garde le dénominateur commun :
+163/60.
+
+On cherche le PPCM de 60 et 6 :
+60 et 6 ont un diviseur commun autre que 1 : 2.
+60	=>	2
+30	=>	2
+15	=>	3
+5	=>	5
+2 × 2 × 3 × 5
+2^2 × 3 × 5
+6	=>	2
+3	=>	3
+2 × 3
+En prenant les plus grands facteurs de chaque liste, 
+le PPCM de 60 et 6 équivaut donc à : 4 × 3 × 5.
+163/60 + 5/6 = 163×1/60×1 + 5×10/6×10;
+on effectue les calculs :
+163/60 + 5/6 = 163/60 + 50/60;
+
+on ajoute les numérateurs et on garde le dénominateur commun :
+213/60.
+
+On simplifie la dernière fraction obtenue :
+213 et 60 ont un diviseur commun autre que 1 : 3.
+− Utilisation de l'algorithme d'Euclide −
+PGCD(213 ; 60) = PGCD(60 ; 33)
+PGCD(60 ; 33) = PGCD(33 ; 27)
+PGCD(33 ; 27) = PGCD(27 ; 6)
+PGCD(27 ; 6) = PGCD(6 ; 3)
+Le reste de la division de 6 par 3 est nul,
+donc PGCD(213 ; 60) = 3.
+On simplifie avec le PGCD trouvé :
+213/60 = 3 × 71 / 3 × 20
+213/60 = 71/20
+− Utilisation de l'algorithme d'Euclide −
+PGCD(71 ; 20) = PGCD(20 ; 11)
+PGCD(20 ; 11) = PGCD(11 ; 9)
+PGCD(11 ; 9) = PGCD(9 ; 2)
+PGCD(9 ; 2) = PGCD(2 ; 1)
+Le reste de la division de 2 par 1 est nul,
+donc PGCD(71 ; 20) = 1.
+71 et 20 n'ont pas de diviseurs communs autre que 1.
+71 et 20 sont premiers entre eux!
+La fraction 71/20 est irréductible.

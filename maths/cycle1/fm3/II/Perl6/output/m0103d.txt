@@ -1,0 +1,46 @@
+# Exercice 3. Calculer.
+# --------------------
+# d. − 7/20 – 11/15.
+-----------------------------------------------------------------------------------
+Les fractions − 7/20 et 11/15 sont irréductibles.
+On cherche le PPCM de 20 et 15 :
+20 et 15 ont un diviseur commun autre que 1 : 5.
+Reste de la division de 20 par 15 : 5
+20 + 20 = 40
+Reste de la division de 40 par 15 : 10
+40 + 20 = 60
+Reste de la division de 60 par 15 : 0
+-7/20 − 11/15 = -7×3/20×3 − 11×4/15×4;
+on effectue les calculs :
+-7/20 − 11/15 = -21/60 − 44/60;
+
+on soustrait les numérateurs et on garde le dénominateur commun :
+-65/60.
+
+On simplifie la dernière fraction obtenue :
+-65 et 60 ont un diviseur commun autre que 1 : 5.
+− Utilisation de l'algorithme de factorisation en facteurs premiers −
+Facteurs premiers de -65 :
+-13	=>	13
+-65	=>	5
+13 × 5
+Facteurs premiers de 60 :
+60	=>	2
+30	=>	2
+15	=>	3
+5	=>	5
+2 × 2 × 3 × 5
+2^2 × 3 × 5
+Facteurs communs à -65 et 60 : 5
+PGCD(-65 ; 60) = 5.
+On simplifie avec le PGCD trouvé :
+-65/60 = 5 × -13 / 5 × 12
+-65/60 = -13/12
+− Utilisation de l'algorithme d'Euclide −
+PGCD(13 ; 12) = PGCD(12 ; 1)
+Le reste de la division de 12 par 1 est nul,
+donc PGCD(-13 ; 12) = 1.
+-13 et 12 n'ont pas de diviseurs communs autre que 1.
+-13 et 12 sont premiers entre eux!
+La fraction -13/12 est irréductible.
+

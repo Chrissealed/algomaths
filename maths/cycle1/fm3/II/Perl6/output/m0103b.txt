@@ -1,0 +1,54 @@
+# Exercice 3. Calculer.
+# --------------------
+# b. 4/3 + 5/7 – 3/21.
+-----------------------------------------------------------------------------------
+Les fractions 4/3 et 5/7 sont irréductibles.
+On réorganise l'ordre des opérations : 4/3 − 3/21 + 5/7.
+On ne réduit pas la fraction − 3/21 pour conserver le dénominateur 21.
+On cherche le PPCM de 3 et 21 :
+3 et 21 ont un diviseur commun autre que 1 : 3.
+3	=>	1
+3 est un nombre premier!
+Il n'admet que 1 et lui-même comme diviseurs.
+1 × 3.
+21	=>	3
+7	=>	7
+3 × 7
+En prenant les plus grands facteurs de chaque liste, 
+le PPCM de 3 et 21 équivaut donc à : 3 × 7.
+4/3 − 3/21 = 4×7/3×7 − 3×1/21×1;
+on effectue les calculs :
+4/3 − 3/21 = 28/21 − 3/21;
+
+on soustrait les numérateurs et on garde le dénominateur commun :
+25/21.
+
+On cherche le PPCM de 21 et 7 :
+21 et 7 ont un diviseur commun autre que 1 : 7.
+21	=>	3
+7	=>	7
+3 × 7
+7	=>	1
+7 est un nombre premier!
+Il n'admet que 1 et lui-même comme diviseurs.
+1 × 7.
+En prenant les plus grands facteurs de chaque liste, 
+le PPCM de 21 et 7 équivaut donc à : 3 × 7.
+25/21 + 5/7 = 25×1/21×1 + 5×3/7×3;
+on effectue les calculs :
+25/21 + 5/7 = 25/21 + 15/21;
+
+on ajoute les numérateurs et on garde le dénominateur commun :
+40/21.
+
+On simplifie la dernière fraction obtenue :
+− Utilisation de l'algorithme d'Euclide −
+PGCD(40 ; 21) = PGCD(21 ; 19)
+PGCD(21 ; 19) = PGCD(19 ; 2)
+PGCD(19 ; 2) = PGCD(2 ; 1)
+Le reste de la division de 2 par 1 est nul,
+donc PGCD(40 ; 21) = 1.
+40 et 21 n'ont pas de diviseurs communs autre que 1.
+40 et 21 sont premiers entre eux!
+La fraction 40/21 est irréductible.
+

@@ -5,13 +5,13 @@ use v6;
 =begin pod
 =NAME class PGCD
 =AUTHOR Christian Béloscar
-=VERSION 0.1
+=VERSION 1.0
 
 =for head1
-Ce module contient la classe PGCD qui a le rôle 'PrimeFactors'.
+Ce module contient la classe PGCD qui dispose du rôle 'PrimeFactors'.
 
 Il est destiné à déterminer le PGCD (plus grand commun diviseur) de deux entiers,
-B<integer1> et B<integer2> de type B<Int> non nuls qui sont des attributs de la classe.
+B<integer1> et B<integer2> de type B<Int> non nuls qui sont des attributs requis de la classe.
 Il utilise pour cela quatre méthodes distinctes au choix :
 =item l'algorithme consistant à établir la liste des diviseurs de
 chacun des nombres et de prendre le plus grand nombre commun :
@@ -21,6 +21,14 @@ B<divisors-listing_algorithm>(-->Int);
 =item enfin l'algorithme consistant à décomposer les nombres
 en facteurs premiers et extraire leurs facteurs communs : B<factorization_algorithm>(--> Int).
 Les quatre méthodes renvoient un B<Int> qui est le PGCD trouvé.
+
+La classe possède en outre un attribut requis destiné à écrire
+dans un fichier les informations qui apparaissent à l'écran
+et qui décrivent les différentes étapes des opérations.
+Il s'agit de B<Teeput::Tput $t is required is rw> :
+il faut lui passer un objet de type B<Teeput::Tput> du module
+B<teeput.pm6>. Référez-vous à la doc de ce module
+pour plus d'informations.
 =end pod
 
 use integer-divisors-listing;
@@ -28,6 +36,9 @@ use common-arrays-elements;
 use prime-factors;
 
 class PGCD does PrimeFactors is export {
+    # Défini dans le rôle PrimeFactors
+    #has Teeput::Tput $.t is required is rw;
+
     has Int $.integer1 is required is rw where { ($_ != 0) or die "Valeur de champ invalide! Entier relatif différent de 0 requis." };
     has Int $.integer2 is required is rw where { ($_ != 0) or die "Valeur de champ invalide! Entier relatif différent de 0 requis." };
 
@@ -45,21 +56,23 @@ l'ensemble des diviseurs de chacun des deux nombres :
     method divisors-listing_algorithm(--> Int) {
         my (@a, @b, @c) = ();
 
-        say "− Utilisation de l'algorithme de comparaison des listes de tous les diviseurs −";
+        $!t.tput: "− Utilisation de l'algorithme de comparaison des listes de tous les diviseurs −";
         my $divisors-listing = IntegerDivisorsListing.new(
+            t => $!t,
             array-or-hash => '@',
         );
-        say "Diviseurs de $!integer1 :";
+        $!t.tput: "Diviseurs de $!integer1 :";
         # Palier les effets de bord des nombres négatifs
         @a = $divisors-listing.list-divisors(abs($!integer1));
 
-        say "Diviseurs de $!integer2 :";
+        $!t.tput: "Diviseurs de $!integer2 :";
         @b = $divisors-listing.list-divisors(abs($!integer2));
 
         @c = common-arrays-elements(@a, @b);
-        say "Les diviseurs communs à $!integer1 et $!integer2 sont :";
-        say @c;
-        say "Le PGCD de $!integer1 et $!integer2 est ", @c[@c.end], ".";
+        $!t.tprint: "Les diviseurs communs à $!integer1 et $!integer2 sont : ";
+        $!t.tput: "@c[]";
+        $!t.tprint: "\n";
+        $!t.tput: "Le PGCD de $!integer1 et $!integer2 est @c[@c.end].";
         return @c[@c.end];
     }
 
@@ -99,13 +112,13 @@ deux nombres, par conséquent seul 2 l'est; d'ou PGCD(4352 ; 4342) = 2.
         my %factors2{Int};
         my Int @values1 = ();
         my Int @values2 = ();
-        say "− Utilisation de l'algorithme de factorisation en facteurs premiers −";
-        say "Facteurs premiers de $int1 :";
+        $!t.tput: "− Utilisation de l'algorithme de factorisation en facteurs premiers −";
+        $!t.tput: "Facteurs premiers de $int1 :";
         # Méthode de prime-factors.
-        %factors1 = self.breakdown($int1);
+        %factors1 = $.breakdown($int1);
         @values1 = %factors1.values.sort;
-        say "Facteurs premiers de $int2 :";
-        %factors2 = self.breakdown($int2);
+        $!t.tput: "Facteurs premiers de $int2 :";
+        %factors2 = $.breakdown($int2);
         @values2 = %factors2.values.sort;
         my Int @factors = ();
         my Int $i = 0;
@@ -181,22 +194,22 @@ deux nombres, par conséquent seul 2 l'est; d'ou PGCD(4352 ; 4342) = 2.
             } until ($count >= @values1.elems);
         }
         
-        say "Facteurs communs à $int1 et $int2 :";
-        say @factors;
-        print "PGCD($int1 ; $int2)" if (@factors.elems > 0);
+        $!t.tprint: "Facteurs communs à $int1 et $int2 : ";
+        $!t.tput: "@factors[]";
+        $!t.tprint: "PGCD($int1 ; $int2)" if (@factors.elems > 0);
         $i = 0;
         while $i < @factors.elems - 1 {
-            print @factors[$i], " × ";
+            $!t.tprint: "@factors[$i] × ";
             $i++;
         }
         if (@factors.elems == 1) {
             ;
         }
         elsif (@factors.elems == 0) {
-            say "pas de facteurs communs.";
+            $!t.tput: "pas de facteurs communs.";
         }
         else {
-            print @factors[$i];
+            $!t.tprint: "@factors[$i]";
         }
         $i = 0;
         my Int $factor = 1;
@@ -204,7 +217,7 @@ deux nombres, par conséquent seul 2 l'est; d'ou PGCD(4352 ; 4342) = 2.
             $factor *= @factors[$i];
             $i++;
         }
-        say " = $factor." if ($factor > 1);
+        $!t.tput: " = $factor." if ($factor > 1);
         return $factor;
     }
 
@@ -228,9 +241,9 @@ si a = b, alors PGCD(a;b) = a = b et si a > b, PGCD(a;b) = PGCD(b;a-b).
 
     method subtraction_algorithm(--> Int) {
         # Parer les nombres négatifs avec leurs effets de bord
-        my Int $x = abs(self.integer1);
-        my Int $y = abs(self.integer2);
-        say "− Utilisation de l'algorithme des soustractions −";
+        my Int $x = abs($!integer1);
+        my Int $y = abs($!integer2);
+        $!t.tput: "− Utilisation de l'algorithme des soustractions −";
         if ($x < $y) {
             # Intervertir $x et $y
             ($x, $y) = ($y, $x);
@@ -238,22 +251,22 @@ si a = b, alors PGCD(a;b) = a = b et si a > b, PGCD(a;b) = PGCD(b;a-b).
         my Int $z = $x - $y;
         # Si le dividende et le diviseur sont égaux
         if ($x == $y) {
-            say "PGCD($x ; $y) = $x.";
+            $!t.tput: "PGCD($x ; $y) = $x.";
             return $x;
         }
         loop {
             if ($y > $z) {
-                say "$x - $y = $z d'où PGCD($x ; $y) = PGCD($y ; $z)";
+                $!t.tput: "$x - $y = $z d'où PGCD($x ; $y) = PGCD($y ; $z)";
                 $x = $y; $y = $z;
             }
             elsif ($y < $z) {
-                say "$x - $y = $z d'où PGCD($x ; $y) = PGCD($z ; $y)";
+                $!t.tput: "$x - $y = $z d'où PGCD($x ; $y) = PGCD($z ; $y)";
                 $x = $z;
             }
             elsif ($y == $z) {
-                say "$x - $y = $z d'où PGCD($x ; $y) = PGCD($y ; $z)";
-                say "or PGCD($y ; $z) = $z";
-                say "On est arrivé à deux nombres égaux, donc PGCD($.integer1 ; $.integer2) = $z.";
+                $!t.tput: "$x - $y = $z d'où PGCD($x ; $y) = PGCD($y ; $z)";
+                $!t.tput: "or PGCD($y ; $z) = $z";
+                $!t.tput: "On est arrivé à deux nombres égaux, donc PGCD($.integer1 ; $.integer2) = $z.";
                 return $z;
             }
             $z = $x - $y;
@@ -281,9 +294,9 @@ a par b.
 
     method euclide_algorithm(--> Int) {
         # Palier les effets de bord des nombres négatifs
-        my Int $dividend = abs(self.integer1);
-        my Int $divisor = abs(self.integer2);
-        say "− Utilisation de l'algorithme d'Euclide −";
+        my Int $dividend = abs($!integer1);
+        my Int $divisor = abs($!integer2);
+        $!t.tput: "− Utilisation de l'algorithme d'Euclide −";
         if ($dividend < $divisor) {
             # Intervertir $x et $y
             ($dividend, $divisor) = ($divisor, $dividend);
@@ -295,7 +308,7 @@ a par b.
         my Int $pgcd;
         # Si le dividende et le diviseur sont égaux
         if $dividend == $divisor {
-            say "PGCD($dividend ; $divisor) = $dividend.";
+            $!t.tput: "PGCD($dividend ; $divisor) = $dividend.";
             return $dividend;
         }
         repeat {
@@ -312,7 +325,7 @@ a par b.
                 } else {
                     $pgcd = $r;
                 }
-                say "PGCD($dividend ; $divisor) = PGCD($div ; $r)";
+                $!t.tput: "PGCD($dividend ; $divisor) = PGCD($div ; $r)";
                 $dividend = $div;
                 $divisor = $r;
             }
@@ -326,7 +339,7 @@ a par b.
                 } else {
                     $pgcd = $div;
                 }
-                say "PGCD($dividend ; $divisor) = PGCD($div ; $r)";
+                $!t.tput: "PGCD($dividend ; $divisor) = PGCD($div ; $r)";
                 $dividend = $r;
                 $divisor = $div;
             }
@@ -336,8 +349,8 @@ a par b.
             }
         } until ($rest == 0);
 
-        say "Le reste de la division de $dividend par $divisor est nul,";
-        say "donc PGCD($!integer1 ; $!integer2) = $pgcd.";
+        $!t.tput: "Le reste de la division de $dividend par $divisor est nul,";
+        $!t.tput: "donc PGCD($!integer1 ; $!integer2) = $pgcd.";
         return $pgcd;
     }
 }

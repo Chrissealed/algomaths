@@ -1,0 +1,56 @@
+# Exercice 4. Calculer.
+# --------------------
+# d. 1/2 – 1/3 + 1/4.
+-----------------------------------------------------------------------------------
+Les fractions 1/2 et 1/4 et 1/3 sont irréductibles.
+On cherche le PPCM de 2 et 4 :
+4 et 2 ont un diviseur commun autre que 1 : 2.
+Reste de la division de 4 par 2 : 0
+1/2 + 1/4 = 1×2/2×2 + 1×1/4×1;
+on effectue les calculs :
+1/2 + 1/4 = 2/4 + 1/4;
+
+on ajoute les numérateurs et on garde le dénominateur commun :
+3/4.
+
+On cherche le PPCM de 4 et 3 :
+− Utilisation de l'algorithme de comparaison des listes de tous les diviseurs −
+Diviseurs de 4 :
+1	<=>	4
+2	<=>	2
+4 est un carré parfait! : 2 × 2
+Diviseurs de 3 :
+1	<=>	3
+3 est un nombre premier!
+Les diviseurs communs à 4 et 3 sont : 1
+
+Le PGCD de 4 et 3 est 1.
+4 et 3 n'ont pas de diviseurs communs autre que 1.
+Le PGCD de 4 et 3 est égal à 1;
+le PPCM de 4 et 3 est donc leur produit : 12.
+3/4 − 1/3 = 3×3/4×3 − 1×4/3×4;
+on effectue les calculs :
+3/4 − 1/3 = 9/12 − 4/12;
+
+on soustrait les numérateurs et on garde le dénominateur commun :
+5/12.
+
+On simplifie la dernière fraction obtenue :
+− Utilisation de l'algorithme de comparaison des listes de tous les diviseurs −
+Diviseurs de 5 :
+1	<=>	5
+5 est un nombre premier!
+Diviseurs de 12 :
+1	<=>	12
+2	<=>	6
+3	<=>	4
+Les diviseurs communs à 5 et 12 sont : 1
+
+Le PGCD de 5 et 12 est 1.
+5 et 12 n'ont pas de diviseurs communs autre que 1.
+5 et 12 sont premiers entre eux!
+La fraction 5/12 est irréductible.
+
+Pour faire les calculs en une passe, on peut écrire :
+1/2 − 1/3 + 1/4 = 6/12 − 4/12 + 3/12 = 6−4+3/12 = 5/12.
+

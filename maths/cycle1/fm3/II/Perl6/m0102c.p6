@@ -2,21 +2,33 @@
 
 use v6;
 use corrective;
+use teeput;
 use method01 :methodwording, :exe02c, :examples;
 use operations-on-fractions;
 
 sub answering {
+    class T does Tput {}
+    my $t = T.new(
+        filepath => 'output/m0102c.txt',
+        filemode => ':a',
+        writefile => True,
+        closefile => False,
+    );
+    $t.tput: 'Les fractions 3/14 et 7/10 sont irréductibles.';
+
     my $fraction = OperationsOnFractions.new(
-        numerator1 => 3,
-        denominator1 => 14,
-        numerator2 => 7,
-        denominator2 => 10,
+        t => $t,
+        nudepair1 => 3 => 14,
+        nudepair2 => 7 => 10,
         which-ppcm-algorithm => 'by-prime-factors',
         which-irreducible-fraction-algorithm => 'subtraction',
         which-pgcd-algorithm => 'factorization', 
     );
     my Pair $P;
     $P = $fraction.calculate-fractions('add-up');
+
+    $t.closefile = True;
+    $t.tput: '';
 }
 
 exercise_02c();

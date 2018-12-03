@@ -1,0 +1,47 @@
+# Exercice 2. Calculer.
+# --------------------
+# b. 5/6 – 6/5.
+-----------------------------------------------------------------------------------
+Les fractions 5/6 et 6/5 sont irréductibles.
+On cherche le PPCM de 6 et 5 :
+− Utilisation de l'algorithme de factorisation en facteurs premiers −
+Facteurs premiers de 6 :
+6	=>	2
+3	=>	3
+2 × 3
+Facteurs premiers de 5 :
+5	=>	1
+5 est un nombre premier!
+Il n'admet que 1 et lui-même comme diviseurs.
+1 × 5.
+Facteurs communs à 6 et 5 :
+
+pas de facteurs communs.
+Le PGCD de 6 et 5 est égal à 1;
+le PPCM de 6 et 5 est donc leur produit : 30.
+5/6 − 6/5 = 5×5/6×5 − 6×6/5×6;
+on effectue les calculs :
+5/6 − 6/5 = 25/30 − 36/30;
+
+on soustrait les numérateurs et on garde le dénominateur commun :
+-11/30.
+
+On simplifie la dernière fraction obtenue :
+− Utilisation de l'algorithme de factorisation en facteurs premiers −
+Facteurs premiers de -11 :
+-11	=>	1
+-11 est un nombre premier!
+Il n'admet que 1 et lui-même comme diviseurs.
+1 × -11.
+Facteurs premiers de 30 :
+30	=>	2
+15	=>	3
+5	=>	5
+2 × 3 × 5
+Facteurs communs à -11 et 30 :
+
+pas de facteurs communs.
+-11 et 30 n'ont pas de diviseurs communs autre que 1.
+-11 et 30 sont premiers entre eux!
+La fraction -11/30 est irréductible.
+

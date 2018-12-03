@@ -1,0 +1,13 @@
+# Chapitre II : NOMBRES RELATIFS EN ÉCRITURE FRACTIONNAIRE : OPÉRATIONS.
+###################################################################################
+# Méthode 1.
+# Comment additionner ou soustraire des nombres relatifs en écriture fractionnaire ?
+###################################################################################
+# Pour additionner ou soustraire des nombres relatifs en écriture fractionnaire :
+# ▲ on les réduit au même dénominateur s'ils n'ont pas le même;
+# ▲ on ajoute ou on soustrait les numérateurs;
+# ▲ on garde le dénominateur commun;
+# ▲ on simplifie si c'est possible.
+###################################################################################
+
+

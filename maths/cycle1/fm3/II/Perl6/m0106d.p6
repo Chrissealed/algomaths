@@ -2,17 +2,30 @@
 
 use v6;
 use corrective;
+use teeput;
 use method01 :methodwording, :exe06d, :examples;
 use operations-on-fractions;
 
 sub answering {
+    class T does Tput {}
+    my $t = T.new(
+        filepath => 'output/m0106d.txt',
+        filemode => ':a',
+        writefile => True,
+        closefile => False,
+    );
+
     my $fraction = OperationsOnFractions.new(
-        numerator1 => 21,
-        denominator1 => 2121,
-        numerator2 => 55,
-        denominator2 => 44,
+        t => $t,
+        nudepair1 => 21 => 2121,
+        reduce-fraction1 => True,
+        nudepair2 => 55 => 44,
+        reduce-fraction2 => True,
     );
     my Pair $P = $fraction.calculate-fractions('subtract');
+
+    $t.closefile = True;
+    $t.tput: '';
 }
 
 exercise_06d();

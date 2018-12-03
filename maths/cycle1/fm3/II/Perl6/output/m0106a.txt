@@ -1,0 +1,31 @@
+# Exercice 6. Calculer.
+# --------------------
+# a. 5/18 – 4/12.
+-----------------------------------------------------------------------------------
+La fraction 5/18 est irréductible.
+On simplifie si possible la deuxième fraction :
+4 et 12 ont un diviseur commun autre que 1 : 2.
+− Utilisation de l'algorithme d'Euclide −
+Le reste de la division de 12 par 4 est nul,
+donc PGCD(4 ; 12) = 4.
+On simplifie avec le PGCD trouvé :
+4/12 = 4 × 1 / 4 × 3
+4/12 = 1/3
+Fraction réduite : 1/3.
+
+On cherche le PPCM de 18 et 3 :
+− Utilisation de l'algorithme d'Euclide −
+Le reste de la division de 18 par 3 est nul,
+donc PGCD(18 ; 3) = 3.
+Produit de 18 par 3 = 54;
+PPCM(18 ; 3) = 54 div 3 = 18.
+5/18 − 1/3 = 5×1/18×1 − 1×6/3×6;
+on effectue les calculs :
+5/18 − 1/3 = 5/18 − 6/18;
+
+on soustrait les numérateurs et on garde le dénominateur commun :
+-1/18.
+
+On simplifie la dernière fraction obtenue :
+La fraction -1/18 est irréductible.
+

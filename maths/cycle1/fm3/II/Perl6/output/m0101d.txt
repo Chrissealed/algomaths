@@ -1,0 +1,51 @@
+# Exercice 1. Calculer.
+# --------------------
+# d. 5/8 – 3/11.
+-----------------------------------------------------------------------------------
+Les fractions 5/8 et 3/11 sont irréductibles.
+On cherche le PPCM de 8 et 11 :
+− Utilisation de l'algorithme de factorisation en facteurs premiers −
+Facteurs premiers de 11 :
+11	=>	1
+11 est un nombre premier!
+Il n'admet que 1 et lui-même comme diviseurs.
+1 × 11.
+Facteurs premiers de 8 :
+8	=>	2
+4	=>	2
+2	=>	2
+2 × 2 × 2
+2^3
+Facteurs communs à 11 et 8 :
+
+pas de facteurs communs.
+Le PGCD de 11 et 8 est égal à 1;
+le PPCM de 11 et 8 est donc leur produit : 88.
+5/8 − 3/11 = 5×11/8×11 − 3×8/11×8;
+on effectue les calculs :
+5/8 − 3/11 = 55/88 − 24/88;
+
+on soustrait les numérateurs et on garde le dénominateur commun :
+31/88.
+
+On simplifie la dernière fraction obtenue :
+− Utilisation de l'algorithme de factorisation en facteurs premiers −
+Facteurs premiers de 31 :
+31	=>	1
+31 est un nombre premier!
+Il n'admet que 1 et lui-même comme diviseurs.
+1 × 31.
+Facteurs premiers de 88 :
+88	=>	2
+44	=>	2
+22	=>	2
+11	=>	11
+2 × 2 × 2 × 11
+2^3 × 11
+Facteurs communs à 31 et 88 :
+
+pas de facteurs communs.
+31 et 88 n'ont pas de diviseurs communs autre que 1.
+31 et 88 sont premiers entre eux!
+La fraction 31/88 est irréductible.
+

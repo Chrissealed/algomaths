@@ -3,29 +3,44 @@ unit module Integer-divisors-listing;
 use v6;
 
 =begin pod
+=NAME class B<IntegerDivisorsListing>
+=AUTHOR Christian Béloscar
+=VERSION 1.0
+
+for=head1
 Cette classe est destinée à établir la liste des diviseurs d'un entier relatif non nul.
-Elle contient une méthode publique : 'list-divisors(Int $integer where {$integer != 0})' 
+
+Elle contient une méthode publique : B<list-divisors(Int $integer where {$integer != 0})> 
 et une méthode privée destinée à l'affichage d'informations.
-Elle a le rôle 'UsualDivisibilityCriteria' pour calculer la divisibilité
+Elle dispose du rôle B<UsualDivisibilityCriteria> pour calculer la divisibilité
 des nombres 2, 3, 4, 5, 9, (10, 100, 1000, etc.), 11 et 25
 en utilisant les critères de divisibilité les plus usuels (voir la doc du module
-'usual-divisibility-criteria.pm6').
-Pour les autres nombres, elle utilise l'opérateur modulo (mod) ou %% (critère de divisibilité).
-Contrairement au module 'integer-divisors-listing-array.pm6'
+B<usual-divisibility-criteria.pm6>).
+Pour les autres nombres, elle utilise l'opérateur B<modulo> (mod) ou %% (critère de divisibilité).
+
+Contrairement au module B<integer-divisors-listing-array.pm6>
 implémenté par l'emploi de tableaux, et qui renvoie systématiquement un tableau,
 celui-ci est implémenté par l'emploi de hash et renvoie soit un hash, soit un tableau de Int,
-selon la valeur de l'argument du champ 'Str $array-or-hash' qui peut prendre
+selon la valeur de l'attribut B<Str $array-or-hash> qui peut prendre
 l'une des valeurs suivantes : '@' ou 'array' pour renvoyer un tableau de Int
 ou bien '%' ou 'hash' pour renvoyer un hash de Int (%h.keys : Int et %h.values : Int).
 Par défaut un array est retourné. 
-Remarque : il existe aussi un module 'integer-divisors-listing-hash.pm6' qui est
+
+I<Remarque> : il existe aussi un module B<integer-divisors-listing-hash.pm6> qui est
 implémenté par l'emploi de hash et qui renvoie systématiquement un hash.
+
+L'autre attribut requis cette fois et en lecture écriture est un objet
+de type B<Teeput::Tput>.
+Consultez la doc du module B<teeput.pm6> pour plus de détails.
 =end pod
 
 use usual-divisibility-criteria;
+use teeput;
 
 class IntegerDivisorsListing does UsualDivisibilityCriteria is export {
-    has Str $.array-or-hash is rw where {($_ ~~ / array || hash || <[@%]> /) or
+    has Teeput::Tput $.t is required is rw;
+
+    has Str $.array-or-hash is rw where {($_ ~~ / ^'array'$ || ^'hash'$ || ^<[@%]>$ /) or
     die "Champ de classe invalide! Attendu : 'array', '@', 'hash' ou '%'."} = 'array';
 
     method list-divisors(Int $integer where {$integer != 0}) {
@@ -56,12 +71,12 @@ class IntegerDivisorsListing does UsualDivisibilityCriteria is export {
             # Utilise | (the any junction operator) pour éviter une clause when multiple
             # dans un bloc given ... when
             my $return1 = 'array' | '@';
-            if (self.array-or-hash eq $return1) {
+            if ($!array-or-hash eq $return1) {
                 @ar = self!display($n, $square, %h);
                 return @ar;
             }
             my $return2 = 'hash' | '%';
-            if (self.array-or-hash eq $return2) {
+            if ($!array-or-hash eq $return2) {
                 %hr = self!display($n, $square, %h);
                 return %hr;
             }
@@ -70,7 +85,7 @@ class IntegerDivisorsListing does UsualDivisibilityCriteria is export {
         # Critère de divisibilité par 2, le chiffre des unités
         # est : 0, 2, 4, 6 ou 8
         $i += 1;
-        if self.is_divisible_by_2($n) {
+        if $.is_divisible_by_2($n) {
             $x = $n div $i;
             if ($integer > 0) {
                 %h{$i} = $x;
@@ -86,12 +101,12 @@ class IntegerDivisorsListing does UsualDivisibilityCriteria is export {
             # Ôte le doublon sauf s'il s'agit d'un carré parfait
             %h{$i}:delete unless $square > 0;
             my $return1 = 'array' | '@';
-            if (self.array-or-hash eq $return1) {
+            if ($!array-or-hash eq $return1) {
                 @ar = self!display($n, $square, %h);
                 return @ar;
             }
             my $return2 = 'hash' | '%';
-            if (self.array-or-hash eq $return2) {
+            if ($!array-or-hash eq $return2) {
                 %hr = self!display($n, $square, %h);
                 return %hr;
             }
@@ -100,7 +115,7 @@ class IntegerDivisorsListing does UsualDivisibilityCriteria is export {
         # Critère de divisibilité par 3 :
         # la somme des chiffres est divisible par 3
         $i += 1;
-        if self.is_divisible_by_3($n) {
+        if $.is_divisible_by_3($n) {
             $x = $n div $i;
             if ($integer > 0) {
                 %h{$i} = $x;
@@ -115,12 +130,12 @@ class IntegerDivisorsListing does UsualDivisibilityCriteria is export {
         if ($last) {
             %h{$i}:delete unless $square > 0;
             my $return1 = 'array' | '@';
-            if (self.array-or-hash eq $return1) {
+            if ($!array-or-hash eq $return1) {
                 @ar = self!display($n, $square, %h);
                 return @ar;
             }
             my $return2 = 'hash' | '%';
-            if (self.array-or-hash eq $return2) {
+            if ($!array-or-hash eq $return2) {
                 %hr = self!display($n, $square, %h);
                 return %hr;
             }
@@ -129,7 +144,7 @@ class IntegerDivisorsListing does UsualDivisibilityCriteria is export {
         # Critère de divisibilité par 4 :
         # le nombre formé par les deux chiffres de droite est divisible par 4
         $i += 1;
-        if self.is_divisible_by_4($n) {
+        if $.is_divisible_by_4($n) {
             $x = $n div $i;
             if ($integer > 0) {
                 %h{$i} = $x;
@@ -144,12 +159,12 @@ class IntegerDivisorsListing does UsualDivisibilityCriteria is export {
         if ($last) {
             %h{$i}:delete unless $square > 0;
             my $return1 = 'array' | '@';
-            if (self.array-or-hash eq $return1) {
+            if ($!array-or-hash eq $return1) {
                 @ar = self!display($n, $square, %h);
                 return @ar;
             }
             my $return2 = 'hash' | '%';
-            if (self.array-or-hash eq $return2) {
+            if ($!array-or-hash eq $return2) {
                 %hr = self!display($n, $square, %h);
                 return %hr;
             }
@@ -158,7 +173,7 @@ class IntegerDivisorsListing does UsualDivisibilityCriteria is export {
         # Critère de divisibilité par 5 :
         # le chiffre des unités est 0 ou 5
         $i += 1;
-        if self.is_divisible_by_5($n) {
+        if $.is_divisible_by_5($n) {
             $x = $n div $i;
             if ($integer > 0) {
                 %h{$i} = $x;
@@ -173,12 +188,12 @@ class IntegerDivisorsListing does UsualDivisibilityCriteria is export {
         if ($last) {
             %h{$i}:delete unless $square > 0;
             my $return1 = 'array' | '@';
-            if (self.array-or-hash eq $return1) {
+            if ($!array-or-hash eq $return1) {
                 @ar = self!display($n, $square, %h);
                 return @ar;
             }
             my $return2 = 'hash' | '%';
-            if (self.array-or-hash eq $return2) {
+            if ($!array-or-hash eq $return2) {
                 %hr = self!display($n, $square, %h);
                 return %hr;
             }
@@ -203,12 +218,12 @@ class IntegerDivisorsListing does UsualDivisibilityCriteria is export {
             if ($last) {
                 %h{$i}:delete unless $square > 0;
                 my $return1 = 'array' | '@';
-                if (self.array-or-hash) eq $return1 {
+                if ($!array-or-hash) eq $return1 {
                     @ar = self!display($n, $square, %h);
                     return @ar;
                 }
                 my $return2 = 'hash' | '%';
-                if (self.array-or-hash) eq $return2 {
+                if ($!array-or-hash) eq $return2 {
                     %hr = self!display($n, $square, %h);
                     return %hr;
                 }
@@ -218,7 +233,7 @@ class IntegerDivisorsListing does UsualDivisibilityCriteria is export {
         # Critère de divisibilité par 9 :
         # la somme des chiffres est divisible par 9
         $i += 1;
-        if self.is_divisible_by_9($n) {
+        if $.is_divisible_by_9($n) {
             $x = $n div $i;
             if ($integer > 0) {
                 %h{$i} = $x;
@@ -233,12 +248,12 @@ class IntegerDivisorsListing does UsualDivisibilityCriteria is export {
         if ($last) {
             %h{$i}:delete unless $square > 0;
             my $return1 = 'array' | '@';
-            if (self.array-or-hash eq $return1) {
+            if ($!array-or-hash eq $return1) {
                 @ar = self!display($n, $square, %h);
                 return @ar;
             }
             my $return2 = 'hash' | '%';
-            if (self.array-or-hash eq $return2) {
+            if ($!array-or-hash eq $return2) {
                 %hr = self!display($n, $square, %h);
                 return %hr;
             }
@@ -247,7 +262,7 @@ class IntegerDivisorsListing does UsualDivisibilityCriteria is export {
         # Critère de divisibilité par 10, 100, 1000, etc. :
         # le nombre se termine respectivement par 0, 00, 000, etc.
         $i += 1;
-        if self.is_divisible_by_0_queue($n) {
+        if $.is_divisible_by_0_queue($n) {
             $x = $n div $i;
             if ($integer > 0) {
                 %h{$i} = $x;
@@ -262,12 +277,12 @@ class IntegerDivisorsListing does UsualDivisibilityCriteria is export {
         if ($last) {
             %h{$i}:delete unless $square > 0;
             my $return1 = 'array' | '@';
-            if (self.array-or-hash eq $return1) {
+            if ($!array-or-hash eq $return1) {
                 @ar = self!display($n, $square, %h);
                 return @ar;
             }
             my $return2 = 'hash' | '%';
-            if (self.array-or-hash eq $return2) {
+            if ($!array-or-hash eq $return2) {
                 %hr = self!display($n, $square, %h);
                 return %hr;
             }
@@ -276,7 +291,7 @@ class IntegerDivisorsListing does UsualDivisibilityCriteria is export {
         # Critère de divisibilité par 11 : la différence entre la somme des chiffres
         # de rang pair et celle des chiffres de rang impair est divisible par 11.
         $i += 1;
-        if self.is_divisible_by_11($n) {
+        if $.is_divisible_by_11($n) {
             $x = $n div $i;
             if ($integer > 0) {
                 %h{$i} = $x;
@@ -291,12 +306,12 @@ class IntegerDivisorsListing does UsualDivisibilityCriteria is export {
         if ($last) {
             %h{$i}:delete unless $square > 0;
             my $return1 = 'array' | '@';
-            if (self.array-or-hash eq $return1) {
+            if ($!array-or-hash eq $return1) {
                 @ar = self!display($n, $square, %h);
                 return @ar;
             }
             my $return2 = 'hash' | '%';
-            if (self.array-or-hash eq $return2) {
+            if ($!array-or-hash eq $return2) {
                 %hr = self!display($n, $square, %h);
                 return %hr;
             }
@@ -321,12 +336,12 @@ class IntegerDivisorsListing does UsualDivisibilityCriteria is export {
             if ($last) {
                 %h{$i}:delete unless $square > 0;
                 my $return1 = 'array' | '@';
-                if (self.array-or-hash eq $return1) {
+                if ($!array-or-hash eq $return1) {
                     @ar = self!display($n, $square, %h);
                     return @ar;
                 }
                 my $return2 = 'hash' | '%';
-                if (self.array-or-hash eq $return2) {
+                if ($!array-or-hash eq $return2) {
                     %hr = self!display($n, $square, %h);
                     return %hr;
                 }
@@ -335,7 +350,7 @@ class IntegerDivisorsListing does UsualDivisibilityCriteria is export {
 
         # Critère de divisibilité par 25
         $i += 1;
-        if self.is_divisible_by_25($n) {
+        if $.is_divisible_by_25($n) {
             $x = $n div $i;
             if ($integer > 0) {
                 %h{$i} = $x;
@@ -350,12 +365,12 @@ class IntegerDivisorsListing does UsualDivisibilityCriteria is export {
         if ($last) {
             %h{$i}:delete unless $square > 0;
             my $return1 = 'array' | '@';
-            if (self.array-or-hash eq $return1) {
+            if ($!array-or-hash eq $return1) {
                 @ar = self!display($n, $square, %h);
                 return @ar;
             }
             my $return2 = 'hash' | '%';
-            if (self.array-or-hash eq $return2) {
+            if ($!array-or-hash eq $return2) {
                 %hr = self!display($n, $square, %h);
                 return %hr;
             }
@@ -380,12 +395,12 @@ class IntegerDivisorsListing does UsualDivisibilityCriteria is export {
             if ($last) {
                 %h{$i}:delete unless $square > 0;
                 my $return1 = 'array' | '@';
-                if (self.array-or-hash eq $return1) {
+                if ($!array-or-hash eq $return1) {
                     @ar = self!display($n, $square, %h);
                     return @ar;
                 }
                 my $return2 = 'hash' | '%';
-                if (self.array-or-hash eq $return2) {
+                if ($!array-or-hash eq $return2) {
                     %hr = self!display($n, $square, %h);
                     return %hr;
                 }
@@ -418,18 +433,18 @@ class IntegerDivisorsListing does UsualDivisibilityCriteria is export {
         # Hyper method call operator. Will call a method on all elements of a List out of order
         # and return the list of return values in order
         for %hash.sort(*.key.Int)>>.kv -> ($k, $v) {
-            "$k\t<=>\t$v".say;
+            $!t.tput: "$k\t<=>\t$v";
         }
         # Le nombre de diviseurs d'un entier non nul est pair
         # sauf si ce nombre est un carré parfait
         #if (@array.elems mod 2 != 0) {
         if $perfectsquare > 0 {
-            say "$integer est un carré parfait! : $perfectsquare × $perfectsquare";
+            $!t.tput: "$integer est un carré parfait! : $perfectsquare × $perfectsquare";
         }
         # Un nombre premier est divisible par 1 et par lui même
         #if (@my-array.elems == 2) {
         if @a.elems == 2 {
-            say "$integer est un nombre premier!";
+            $!t.tput: "$integer est un nombre premier!";
         }
         push %hash, %reverse-hash;
         for %hash -> $pair {
@@ -439,7 +454,7 @@ class IntegerDivisorsListing does UsualDivisibilityCriteria is export {
             push %my-hash, ($pair.key => $pair.value.squish(:with(&[==])));
         }
         # Retourner un tableau ou un hash ?
-        given (self.array-or-hash) {
+        given ($!array-or-hash) {
             when 'array' { return @array; }
             when '@'     { return @array; }
             when 'hash'  { return %my-hash; }

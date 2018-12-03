@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <title></title>
+  <meta charset="UTF-8" />
+  <style>
+    /* code gets the browser-default font
+     * kbd gets a slightly less common monospace font
+     * samp gets the hard pixelly fonts
+     */
+    kbd { font-family: "Droid Sans Mono", "Luxi Mono", "Inconsolata", monospace }
+    samp { font-family: "Terminus", "Courier", "Lucida Console", monospace }
+    /* WHATWG HTML frowns on the use of <u> because it looks like a link,
+     * so we make it not look like one.
+     */
+    u { text-decoration: none }
+    .nested {
+        margin-left: 3em;
+    }
+    // footnote things:
+    aside, u { opacity: 0.7 }
+    a[id^="fn-"]:target { background: #ff0 }
+  </style>
+  <link rel="stylesheet" href="//design.perl6.org/perl.css">
+  
+  
+</head>
+<body class="pod">
+<div id="___top"></div>
+
+
+<nav class="indexgroup">
+<table id="TOC">
+<caption><h2 id="TOC_Title">Table of Contents</h2></caption>
+<tr class="toc-level-1"><td class="toc-number">1</td><td class="toc-text"><a href="#Ce_module_contient_une_classe_:_'IntegerDivisorsListingH'_destinée_à_établir_la_liste_des_diviseurs_d'un_entier_relatif_non_nul._Elle_contient_deux_méthodes,_l'une_publique_:_'list-divisors(Int_$integer_where_{$integer_!=_0})'_et_l'autre_privée_destinée_à_l'affichage_d'informations._Elle_utilise_le_module_'usual-divisibility-criteria.pm6'_pour_calculer_la_divisibilité_des_nombres_2,_3,_4,_5,_9,_(10,_100,_1000,_etc.),_11_et_25_en_utilisant_les_critères_de_divisibilité_les_plus_usuels_(voir_la_doc_du_fichier_'usual-divisibility-criteria.pm6')._Pour_les_autres_nombres,_elle_utilise_l'opérateur_modulo_(mod)_ou_%%._Contrairement_au_module_du_fichier_'integer-divisors-listing-array.pm6'_implémenté_par_l'emploi_de_tableau,_et_qui_renvoie_un_tableau,_celui-ci_est_implémenté_par_l'emploi_de_hash_et_renvoie_un_hash._Le_module_'integer-divisors-listing.pm6'_permet_quant_à_lui_de_renvoyer_au_choix_un_tableau_ou_un_hash_selon_l'argument_donné_au_constructeur_(cf._doc_du_fichier_'integer-divisors-listing.pm6').">Ce module contient une classe : &#39;IntegerDivisorsListingH&#39; destinée à établir la liste des diviseurs d&#39;un entier relatif non nul. Elle contient deux méthodes, l&#39;une publique : &#39;list-divisors(Int $integer where {$integer != 0})&#39; et l&#39;autre privée destinée à l&#39;affichage d&#39;informations. Elle utilise le module &#39;usual-divisibility-criteria.pm6&#39; pour calculer la divisibilité des nombres 2, 3, 4, 5, 9, (10, 100, 1000, etc.), 11 et 25 en utilisant les critères de divisibilité les plus usuels (voir la doc du fichier &#39;usual-divisibility-criteria.pm6&#39;). Pour les autres nombres, elle utilise l&#39;opérateur modulo (mod) ou %%. Contrairement au module du fichier &#39;integer-divisors-listing-array.pm6&#39; implémenté par l&#39;emploi de tableau, et qui renvoie un tableau, celui-ci est implémenté par l&#39;emploi de hash et renvoie un hash. Le module &#39;integer-divisors-listing.pm6&#39; permet quant à lui de renvoyer au choix un tableau ou un hash selon l&#39;argument donné au constructeur (cf. doc du fichier &#39;integer-divisors-listing.pm6&#39;).</a></td></tr>
+
+</table>
+</nav>
+
+<div class="pod-body
+
+">
+<h1 id="Ce_module_contient_une_classe_:_'IntegerDivisorsListingH'_destinée_à_établir_la_liste_des_diviseurs_d'un_entier_relatif_non_nul._Elle_contient_deux_méthodes,_l'une_publique_:_'list-divisors(Int_$integer_where_{$integer_!=_0})'_et_l'autre_privée_destinée_à_l'affichage_d'informations._Elle_utilise_le_module_'usual-divisibility-criteria.pm6'_pour_calculer_la_divisibilité_des_nombres_2,_3,_4,_5,_9,_(10,_100,_1000,_etc.),_11_et_25_en_utilisant_les_critères_de_divisibilité_les_plus_usuels_(voir_la_doc_du_fichier_'usual-divisibility-criteria.pm6')._Pour_les_autres_nombres,_elle_utilise_l'opérateur_modulo_(mod)_ou_%%._Contrairement_au_module_du_fichier_'integer-divisors-listing-array.pm6'_implémenté_par_l'emploi_de_tableau,_et_qui_renvoie_un_tableau,_celui-ci_est_implémenté_par_l'emploi_de_hash_et_renvoie_un_hash._Le_module_'integer-divisors-listing.pm6'_permet_quant_à_lui_de_renvoyer_au_choix_un_tableau_ou_un_hash_selon_l'argument_donné_au_constructeur_(cf._doc_du_fichier_'integer-divisors-listing.pm6')."><a class="u" href="#___top" title="go to top of document">Ce module contient une classe : &#39;IntegerDivisorsListingH&#39; destinée à établir la liste des diviseurs d&#39;un entier relatif non nul. Elle contient deux méthodes, l&#39;une publique : &#39;list-divisors(Int $integer where {$integer != 0})&#39; et l&#39;autre privée destinée à l&#39;affichage d&#39;informations. Elle utilise le module &#39;usual-divisibility-criteria.pm6&#39; pour calculer la divisibilité des nombres 2, 3, 4, 5, 9, (10, 100, 1000, etc.), 11 et 25 en utilisant les critères de divisibilité les plus usuels (voir la doc du fichier &#39;usual-divisibility-criteria.pm6&#39;). Pour les autres nombres, elle utilise l&#39;opérateur modulo (mod) ou %%. Contrairement au module du fichier &#39;integer-divisors-listing-array.pm6&#39; implémenté par l&#39;emploi de tableau, et qui renvoie un tableau, celui-ci est implémenté par l&#39;emploi de hash et renvoie un hash. Le module &#39;integer-divisors-listing.pm6&#39; permet quant à lui de renvoyer au choix un tableau ou un hash selon l&#39;argument donné au constructeur (cf. doc du fichier &#39;integer-divisors-listing.pm6&#39;).</a></h1>
+
+</div>
+
+
+</body>
+</html>
+

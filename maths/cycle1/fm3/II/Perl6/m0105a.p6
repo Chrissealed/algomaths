@@ -2,17 +2,25 @@
 
 use v6;
 use corrective;
+use teeput;
 use method01 :methodwording, :exe05a, :examples;
 use operations-on-fractions;
 
 sub answering {
+    class T does Tput {}
+    my $t = T.new(
+        filepath => 'output/m0105a.txt',
+        filemode => ':a',
+        writefile => True,
+        closefile => False,
+    );
+    $t.tput: 'Les fractions 1/2, 2/3 et 3/4 sont irréductibles.';
+
     my $fraction = OperationsOnFractions.new(
-        numerator1 => 1,
-        denominator1 => 2,
-        numerator2 => 2,
-        denominator2 => 3,
-        numerator3 => 3,
-        denominator3 => 4,
+        t => $t,
+        nudepair1 => 1 => 2,
+        nudepair2 => 2 => 3,
+        nudepair3 => 3 => 4,
         which-ppcm-algorithm => 'by-prime-factors',
         which-irreducible-fraction-algorithm => '÷', # euclide,
         which-pgcd-algorithm => '÷', # euclide,
@@ -20,13 +28,11 @@ sub answering {
     my Pair $P;
     $P = $fraction.calculate-fractions('++');
 
-    say();
-    $fraction.numerator1 = $P.key;
-    $fraction.denominator1 = $P.value;
-    $fraction.numerator2 = 4;
-    $fraction.denominator2 = 5;
-    $fraction.numerator3 = 5;
-    $fraction.denominator3 = 6;
+    $t.tprint: "\n";
+    $t.tput: "Les fractions {$P.key}/{$P.value}, 4/5 et 5/6 sont irréductibles.";
+    $fraction.nudepair1 = $P.key => $P.value;
+    $fraction.nudepair2 = 4 => 5;
+    $fraction.nudepair3 = 5 => 6;
     $P = $fraction.calculate-fractions('add-upx2');
 }
 

@@ -1,0 +1,53 @@
+# Exercice 2. Calculer.
+# --------------------
+# c. 3/14 + 7/10.
+-----------------------------------------------------------------------------------
+Les fractions 3/14 et 7/10 sont irréductibles.
+On cherche le PPCM de 14 et 10 :
+14 et 10 ont un diviseur commun autre que 1 : 2.
+14	=>	2
+7	=>	7
+2 × 7
+10	=>	2
+5	=>	5
+2 × 5
+En prenant les plus grands facteurs de chaque liste, 
+le PPCM de 14 et 10 équivaut donc à : 2 × 5 × 7.
+3/14 + 7/10 = 3×5/14×5 + 7×7/10×7;
+on effectue les calculs :
+3/14 + 7/10 = 15/70 + 49/70;
+
+on ajoute les numérateurs et on garde le dénominateur commun :
+64/70.
+
+On simplifie la dernière fraction obtenue :
+64 et 70 ont un diviseur commun autre que 1 : 2.
+− Utilisation de l'algorithme des soustractions −
+70 - 64 = 6 d'où PGCD(70 ; 64) = PGCD(64 ; 6)
+64 - 6 = 58 d'où PGCD(64 ; 6) = PGCD(58 ; 6)
+58 - 6 = 52 d'où PGCD(58 ; 6) = PGCD(52 ; 6)
+52 - 6 = 46 d'où PGCD(52 ; 6) = PGCD(46 ; 6)
+46 - 6 = 40 d'où PGCD(46 ; 6) = PGCD(40 ; 6)
+40 - 6 = 34 d'où PGCD(40 ; 6) = PGCD(34 ; 6)
+34 - 6 = 28 d'où PGCD(34 ; 6) = PGCD(28 ; 6)
+28 - 6 = 22 d'où PGCD(28 ; 6) = PGCD(22 ; 6)
+22 - 6 = 16 d'où PGCD(22 ; 6) = PGCD(16 ; 6)
+16 - 6 = 10 d'où PGCD(16 ; 6) = PGCD(10 ; 6)
+10 - 6 = 4 d'où PGCD(10 ; 6) = PGCD(6 ; 4)
+6 - 4 = 2 d'où PGCD(6 ; 4) = PGCD(4 ; 2)
+4 - 2 = 2 d'où PGCD(4 ; 2) = PGCD(2 ; 2)
+or PGCD(2 ; 2) = 2
+On est arrivé à deux nombres égaux, donc PGCD(64 ; 70) = 2.
+On simplifie avec le PGCD trouvé :
+64/70 = 2 × 32 / 2 × 35
+64/70 = 32/35
+− Utilisation de l'algorithme d'Euclide −
+PGCD(35 ; 32) = PGCD(32 ; 3)
+PGCD(32 ; 3) = PGCD(3 ; 2)
+PGCD(3 ; 2) = PGCD(2 ; 1)
+Le reste de la division de 2 par 1 est nul,
+donc PGCD(32 ; 35) = 1.
+32 et 35 n'ont pas de diviseurs communs autre que 1.
+32 et 35 sont premiers entre eux!
+La fraction 32/35 est irréductible.
+

@@ -1,0 +1,57 @@
+# Exercice 6. Calculer.
+# --------------------
+# d. 21/2121 – 55/44.
+-----------------------------------------------------------------------------------
+On simplifie si possible la première fraction :
+21 et 2121 ont un diviseur commun autre que 1 : 3.
+− Utilisation de l'algorithme d'Euclide −
+Le reste de la division de 2121 par 21 est nul,
+donc PGCD(21 ; 2121) = 21.
+On simplifie avec le PGCD trouvé :
+21/2121 = 21 × 1 / 21 × 101
+21/2121 = 1/101
+Fraction réduite : 1/101.
+
+On simplifie si possible la deuxième fraction :
+55 et 44 ont un diviseur commun autre que 1 : 11.
+− Utilisation de l'algorithme d'Euclide −
+PGCD(55 ; 44) = PGCD(44 ; 11)
+Le reste de la division de 44 par 11 est nul,
+donc PGCD(55 ; 44) = 11.
+On simplifie avec le PGCD trouvé :
+55/44 = 11 × 5 / 11 × 4
+55/44 = 5/4
+− Utilisation de l'algorithme d'Euclide −
+PGCD(5 ; 4) = PGCD(4 ; 1)
+Le reste de la division de 4 par 1 est nul,
+donc PGCD(5 ; 4) = 1.
+5 et 4 n'ont pas de diviseurs communs autre que 1.
+5 et 4 sont premiers entre eux!
+La fraction 5/4 est irréductible.
+Fraction réduite : 5/4.
+
+On cherche le PPCM de 101 et 4 :
+− Utilisation de l'algorithme d'Euclide −
+PGCD(101 ; 4) = PGCD(4 ; 1)
+Le reste de la division de 4 par 1 est nul,
+donc PGCD(101 ; 4) = 1.
+Le PGCD de 101 et 4 est égal à 1;
+le PPCM de 101 et 4 est donc leur produit : 404.
+1/101 − 5/4 = 1×4/101×4 − 5×101/4×101;
+on effectue les calculs :
+1/101 − 5/4 = 4/404 − 505/404;
+
+on soustrait les numérateurs et on garde le dénominateur commun :
+-501/404.
+
+On simplifie la dernière fraction obtenue :
+− Utilisation de l'algorithme d'Euclide −
+PGCD(501 ; 404) = PGCD(404 ; 97)
+PGCD(404 ; 97) = PGCD(97 ; 16)
+PGCD(97 ; 16) = PGCD(16 ; 1)
+Le reste de la division de 16 par 1 est nul,
+donc PGCD(-501 ; 404) = 1.
+-501 et 404 n'ont pas de diviseurs communs autre que 1.
+-501 et 404 sont premiers entre eux!
+La fraction -501/404 est irréductible.
+

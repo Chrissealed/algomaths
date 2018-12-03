@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <title></title>
+  <meta charset="UTF-8" />
+  <style>
+    /* code gets the browser-default font
+     * kbd gets a slightly less common monospace font
+     * samp gets the hard pixelly fonts
+     */
+    kbd { font-family: "Droid Sans Mono", "Luxi Mono", "Inconsolata", monospace }
+    samp { font-family: "Terminus", "Courier", "Lucida Console", monospace }
+    /* WHATWG HTML frowns on the use of <u> because it looks like a link,
+     * so we make it not look like one.
+     */
+    u { text-decoration: none }
+    .nested {
+        margin-left: 3em;
+    }
+    // footnote things:
+    aside, u { opacity: 0.7 }
+    a[id^="fn-"]:target { background: #ff0 }
+  </style>
+  <link rel="stylesheet" href="//design.perl6.org/perl.css">
+  
+  
+</head>
+<body class="pod">
+<div id="___top"></div>
+
+
+
+<div class="pod-body
+ no-toc
+">
+<p>Ce module est utilisé dans chacun des fichiers *.p6 pour demander s&#39;il faut afficher la méthode de l&#39;exercice avec &#39;do-put-up-method&#39;, des exemples avec &#39;do-put-up-examples&#39; et s&#39;il faut afficher son corrigé avec &#39;do-put-up-correct-version&#39;. Les méthodes renvoient une valeur booléenne. Par défaut la méthode de l&#39;exercice est affichée, les examples non. La dernière méthode ne renvoie rien, elle termine simplement le programme si la réponse à la question &#39;Afficher le corrigé ?&#39; est non. Si la réponse est oui alors elle affiche une ligne vide qui séparera le corrigé de la question. Le corrigé est affiché par défaut, autrement dit si on tape &lt;Return&gt; par exemple, le corrigé est affiché.</p>
+
+</div>
+
+
+</body>
+</html>
+

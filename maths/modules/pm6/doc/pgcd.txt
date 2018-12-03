@@ -5,26 +5,33 @@ AUTHOR
 Christian Béloscar
 
 VERSION
-0.1
+1.0
 
-Ce module contient la classe PGCD qui a le rôle 'PrimeFactors'.
+Ce module contient la classe PGCD qui dispose du rôle 'PrimeFactors'.
 
 Il est destiné à déterminer le PGCD (plus grand commun diviseur) de deux
 entiers, integer1 et integer2 de type Int non nuls qui sont des attributs
-de la classe. Il utilise pour cela quatre méthodes distinctes au choix :
+requis de la classe. Il utilise pour cela quatre méthodes distinctes au
+choix :
 
   * l'algorithme consistant à établir la liste des diviseurs de chacun des
   nombres et de prendre le plus grand nombre commun :
-  divisors-listing_algorithm(--\Int)>;
+  divisors-listing_algorithm(-->Int);
 
-  * l'algorithme des soustractions : subtraction_algorithm(--\ Int)>;
+  * l'algorithme des soustractions : subtraction_algorithm(--> Int);
 
-  * l'algorithme d'Euclide (par divisions euclidiennes) : euclide_algorithm(--\
-  Int)>;
+  * l'algorithme d'Euclide (par divisions euclidiennes) : euclide_algorithm(-->
+  Int);
 
   * enfin l'algorithme consistant à décomposer les nombres en facteurs premiers
-  et extraire leurs facteurs communs : factorization_algorithm(--\ Int)>. Les
+  et extraire leurs facteurs communs : factorization_algorithm(--> Int). Les
   quatre méthodes renvoient un Int qui est le PGCD trouvé.
+
+La classe possède en outre un attribut requis destiné à écrire dans un
+fichier les informations qui apparaissent à l'écran et qui décrivent les
+différentes étapes des opérations. Il s'agit de Teeput::Tput $t is required
+is rw : il faut lui passer un objet de type Teeput::Tput du module
+teeput.pm6. Référez-vous à la doc de ce module pour plus d'informations.
 
   Méthode divisors-listing-algorithm(--> Int) {}
 

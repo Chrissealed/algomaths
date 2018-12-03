@@ -1,0 +1,53 @@
+# Exercice 3. Calculer.
+# --------------------
+# c. − 5/22 + 7/6.
+-----------------------------------------------------------------------------------
+Les fractions -5/22 et 7/6 sont irréductibles
+On cherche le PPCM de 22 et 6 :
+22 et 6 ont un diviseur commun autre que 1 : 2.
+Reste de la division de 22 par 6 : 4
+22 + 22 = 44
+Reste de la division de 44 par 6 : 2
+44 + 22 = 66
+Reste de la division de 66 par 6 : 0
+-5/22 + 7/6 = -5×3/22×3 + 7×11/6×11;
+on effectue les calculs :
+-5/22 + 7/6 = -15/66 + 77/66;
+
+on ajoute les numérateurs et on garde le dénominateur commun :
+62/66.
+
+On simplifie la dernière fraction obtenue :
+62 et 66 ont un diviseur commun autre que 1 : 2.
+− Utilisation de l'algorithme des soustractions −
+66 - 62 = 4 d'où PGCD(66 ; 62) = PGCD(62 ; 4)
+62 - 4 = 58 d'où PGCD(62 ; 4) = PGCD(58 ; 4)
+58 - 4 = 54 d'où PGCD(58 ; 4) = PGCD(54 ; 4)
+54 - 4 = 50 d'où PGCD(54 ; 4) = PGCD(50 ; 4)
+50 - 4 = 46 d'où PGCD(50 ; 4) = PGCD(46 ; 4)
+46 - 4 = 42 d'où PGCD(46 ; 4) = PGCD(42 ; 4)
+42 - 4 = 38 d'où PGCD(42 ; 4) = PGCD(38 ; 4)
+38 - 4 = 34 d'où PGCD(38 ; 4) = PGCD(34 ; 4)
+34 - 4 = 30 d'où PGCD(34 ; 4) = PGCD(30 ; 4)
+30 - 4 = 26 d'où PGCD(30 ; 4) = PGCD(26 ; 4)
+26 - 4 = 22 d'où PGCD(26 ; 4) = PGCD(22 ; 4)
+22 - 4 = 18 d'où PGCD(22 ; 4) = PGCD(18 ; 4)
+18 - 4 = 14 d'où PGCD(18 ; 4) = PGCD(14 ; 4)
+14 - 4 = 10 d'où PGCD(14 ; 4) = PGCD(10 ; 4)
+10 - 4 = 6 d'où PGCD(10 ; 4) = PGCD(6 ; 4)
+6 - 4 = 2 d'où PGCD(6 ; 4) = PGCD(4 ; 2)
+4 - 2 = 2 d'où PGCD(4 ; 2) = PGCD(2 ; 2)
+or PGCD(2 ; 2) = 2
+On est arrivé à deux nombres égaux, donc PGCD(62 ; 66) = 2.
+On simplifie avec le PGCD trouvé :
+62/66 = 2 × 31 / 2 × 33
+62/66 = 31/33
+− Utilisation de l'algorithme d'Euclide −
+PGCD(33 ; 31) = PGCD(31 ; 2)
+PGCD(31 ; 2) = PGCD(2 ; 1)
+Le reste de la division de 2 par 1 est nul,
+donc PGCD(31 ; 33) = 1.
+31 et 33 n'ont pas de diviseurs communs autre que 1.
+31 et 33 sont premiers entre eux!
+La fraction 31/33 est irréductible.
+

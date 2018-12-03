@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="fr">
+<html lang="en">
 <head>
   <title></title>
   <meta charset="UTF-8" />
@@ -21,9 +21,9 @@
     aside, u { opacity: 0.7 }
     a[id^="fn-"]:target { background: #ff0 }
   </style>
-  <link rel="stylesheet" href="design.perl6.org/perl.css">
+  <link rel="stylesheet" href="//design.perl6.org/perl.css">
   <meta name="author" value="Christian Béloscar" />
-<meta name="version" value="0.1" />
+<meta name="version" value="1.0" />
   
 </head>
 <body class="pod">
@@ -33,8 +33,8 @@
 <nav class="indexgroup">
 <table id="TOC">
 <caption><h2 id="TOC_Title">Table of Contents</h2></caption>
-   <tr class="toc-level-1"><td class="toc-number">1</td><td class="toc-text"><a href="#Ce_module_contient_la_classe_PGCD_qui_a_le_rôle_'PrimeFactors'.">Ce module contient la classe PGCD qui a le rôle &#39;PrimeFactors&#39;.</a></td></tr>
-                      <tr class="toc-level-2"><td class="toc-number">1.1</td><td class="toc-text"><a href="#Méthode_divisors-listing-algorithm(--&gt;_Int)_{}">Méthode divisors-listing-algorithm(--&gt; Int) {}</a></td></tr>
+   <tr class="toc-level-1"><td class="toc-number">1</td><td class="toc-text"><a href="#Ce_module_contient_la_classe_PGCD_qui_dispose_du_rôle_'PrimeFactors'.">Ce module contient la classe PGCD qui dispose du rôle &#39;PrimeFactors&#39;.</a></td></tr>
+                             <tr class="toc-level-2"><td class="toc-number">1.1</td><td class="toc-text"><a href="#Méthode_divisors-listing-algorithm(--&gt;_Int)_{}">Méthode divisors-listing-algorithm(--&gt; Int) {}</a></td></tr>
  <tr class="toc-level-3"><td class="toc-number">1.1.1</td><td class="toc-text"><a href="#Comment_déterminer_le_PGCD_de_deux_nombres_entiers_connaissant_l'ensemble_des_diviseurs_de_chacun_des_deux_nombres_:">Comment déterminer le PGCD de deux nombres entiers connaissant l&#39;ensemble des diviseurs de chacun des deux nombres :</a></td></tr>
   <tr class="toc-level-2"><td class="toc-number">1.2</td><td class="toc-text"><a href="#Méthode_factorization_algorithm(--&gt;_Int)_{}">Méthode factorization_algorithm(--&gt; Int) {}</a></td></tr>
  <tr class="toc-level-3"><td class="toc-number">1.2.1</td><td class="toc-text"><a href="#Comment_déterminer_le_PGCD_de_deux_nombres_à_l'aide_de_leur_décomposi-_tion_en_facteurs_premiers_:">Comment déterminer le PGCD de deux nombres à l&#39;aide de leur décomposi- tion en facteurs premiers :</a></td></tr>
@@ -56,19 +56,20 @@
 <p>Christian Béloscar</p>
 </section>
 <section><h1>VERSION</h1>
-<p>0.1</p>
+<p>1.0</p>
 </section>
-<h1 id="Ce_module_contient_la_classe_PGCD_qui_a_le_rôle_'PrimeFactors'."><a class="u" href="#___top" title="go to top of document">Ce module contient la classe PGCD qui a le rôle &#39;PrimeFactors&#39;.</a></h1>
-<p>Il est destiné à déterminer le PGCD (plus grand commun diviseur) de deux entiers, <strong>integer1</strong> et <strong>integer2</strong> de type <strong>Int</strong> non nuls qui sont des attributs de la classe. Il utilise pour cela quatre méthodes distinctes au choix :</p>
-<ul><li><p>l&#39;algorithme consistant à établir la liste des diviseurs de chacun des nombres et de prendre le plus grand nombre commun : <strong>divisors-listing_algorithm(--\</strong>Int)&gt;;</p>
+<h1 id="Ce_module_contient_la_classe_PGCD_qui_dispose_du_rôle_'PrimeFactors'."><a class="u" href="#___top" title="go to top of document">Ce module contient la classe PGCD qui dispose du rôle &#39;PrimeFactors&#39;.</a></h1>
+<p>Il est destiné à déterminer le PGCD (plus grand commun diviseur) de deux entiers, <strong>integer1</strong> et <strong>integer2</strong> de type <strong>Int</strong> non nuls qui sont des attributs requis de la classe. Il utilise pour cela quatre méthodes distinctes au choix :</p>
+<ul><li><p>l&#39;algorithme consistant à établir la liste des diviseurs de chacun des nombres et de prendre le plus grand nombre commun : <strong>divisors-listing_algorithm</strong>(--&gt;Int);</p>
 </li>
-<li><p>l&#39;algorithme des soustractions : <strong>subtraction_algorithm(--\</strong> Int)&gt;;</p>
+<li><p>l&#39;algorithme des soustractions : <strong>subtraction_algorithm</strong>(--&gt; Int);</p>
 </li>
-<li><p>l&#39;algorithme d&#39;Euclide (par divisions euclidiennes) : <strong>euclide_algorithm(--\</strong> Int)&gt;;</p>
+<li><p>l&#39;algorithme d&#39;Euclide (par divisions euclidiennes) : <strong>euclide_algorithm</strong>(--&gt; Int);</p>
 </li>
-<li><p>enfin l&#39;algorithme consistant à décomposer les nombres en facteurs premiers et extraire leurs facteurs communs : <strong>factorization_algorithm(--\</strong> Int)&gt;. Les quatre méthodes renvoient un <strong>Int</strong> qui est le PGCD trouvé.</p>
+<li><p>enfin l&#39;algorithme consistant à décomposer les nombres en facteurs premiers et extraire leurs facteurs communs : <strong>factorization_algorithm</strong>(--&gt; Int). Les quatre méthodes renvoient un <strong>Int</strong> qui est le PGCD trouvé.</p>
 </li>
 </ul>
+<p>La classe possède en outre un attribut requis destiné à écrire dans un fichier les informations qui apparaissent à l&#39;écran et qui décrivent les différentes étapes des opérations. Il s&#39;agit de <strong>Teeput::Tput $t is required is rw</strong> : il faut lui passer un objet de type <strong>Teeput::Tput</strong> du module <strong>teeput.pm6</strong>. Référez-vous à la doc de ce module pour plus d&#39;informations.</p>
 <h2 id="Méthode_divisors-listing-algorithm(-->_Int)_{}"><a class="u" href="#___top" title="go to top of document">Méthode divisors-listing-algorithm(--&gt; Int) {}</a></h2>
 <h3 id="Comment_déterminer_le_PGCD_de_deux_nombres_entiers_connaissant_l'ensemble_des_diviseurs_de_chacun_des_deux_nombres_:"><a class="u" href="#___top" title="go to top of document">Comment déterminer le PGCD de deux nombres entiers connaissant l&#39;ensemble des diviseurs de chacun des deux nombres :</a></h3>
 <p>▲ on établit la liste des diviseurs communs des deux nombres; ▲ on repère dans cette liste le plus grand nombre, c&#39;est le PGCD cherché.</p>

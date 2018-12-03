@@ -1,0 +1,18 @@
+# Exercice 4. Calculer.
+# --------------------
+# b. –6/11 + –6/–11.
+-----------------------------------------------------------------------------------
+Les fractions −6/11 et −6/−11 sont irréductibles.
+On cherche le PPCM de 11 et -11 :
+11 et -11 ont un diviseur commun autre que 1 : 11.
+Reste de la division de 11 par -11 : 0
+-6/11 + -6/-11 = -6×1/11×1 + -6×-1/-11×-1;
+on effectue les calculs :
+-6/11 + -6/-11 = -6/11 + 6/11;
+
+on ajoute les numérateurs et on garde le dénominateur commun :
+0/11.
+
+On simplifie la dernière fraction obtenue :
+0
+

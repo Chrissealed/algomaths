@@ -1,0 +1,56 @@
+NAME
+rôle Teeput::Tput
+
+AUTHOR
+Christian Béloscar
+
+VERSION
+1.0
+
+header1
+Le rôle Teeput::Tput est utilisé afin d'écrire les informations affichées
+sur la sortie standard, répliquées dans un fichier correspondant situé dans
+le dossier 'output/' sous-dossier de chaque dossier comportant les fichiers
+p6 à l'instar de la commande 'tee' des systèmes Unix.
+
+Il est utilisé dans tous les modules pm6 et les fichiers p6 dans lesquels
+il est implémenté par composition plutôt que par la directive does Tput. Il
+est requis pour chacun de ces fichiers et en mode rw.
+
+Il contient quatre attributs, deux de type Str et deux de type Bool. Chacun
+de ces attributs possède une valeur par défaut et sont en lecture/écriture
+(rw) :
+
+  * filepath contient le chemin d'accès au fichier texte qui répliquera les
+  informations, c'est à dire par défaut filepath => output/out.txt.
+
+filemode précise le mode d'ouverture des fichiers :
+
+  * :mode<wo>, :create, :exclusive qui s'écrit simplement :x;
+
+  * :mode<wo>, :create, :truncate qui s'écrit simplement :w;
+
+  * :mode<wo>, :create, :append qui s'écrit simplement :a.
+
+Pour ce qui est des autres champs leur valeur par défaut est False pour
+writefile et True pour closefile. Pour effectivement permettre l'écriture
+dans un fichier, il faut passer True à l'attribut writefile; l'attribut
+closefile peut être passé à False pour éviter de refermer le fichier dans
+lequel on écrit à chaque instruction d'écriture et ainsi d'accélérer le
+processus, mais cet attribut n'a d'effet qu'en mode :a, les autres modes :x
+et :w fermant le fichier d'écriture automatiquement après chaque
+instruction. 
+
+Il faudra penser à lui passer la valeur True avant la dernière exécution
+d'écriture afin que le fichier soit bien fermé. Notez que le mode :x
+n'écrit qu'une fois dans un fichier de sorte que si vous voulez le mettre à
+jour, il faudra d'abord supprimer ce fichier pour qu'il soit recréé.
+
+Le rôle possède deux méthodes qui correspondent pour l'une à la méthode put
+et pour l'autre à méthode print, la différence entre les deux étant que la
+première ajoute un caractère de fin de ligne, tandis que la deuxième
+demeure sur la ligne attendant l'instruction d'écriture suivante.
+
+Ce sont :
+
+  tput(Str:D $string --> Bool:D) {} tprint(Str:D $string --> Bool:D) {}

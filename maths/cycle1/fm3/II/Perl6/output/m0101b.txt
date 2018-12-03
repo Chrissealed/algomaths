@@ -1,0 +1,15 @@
+# Exercice 1. Calculer.
+# --------------------
+# b. 2/21 – 5/21
+-----------------------------------------------------------------------------------
+Les fractions 2/21 et 5/21 sont irréductibles.
+On cherche le PPCM de 21 et 21 :
+Les deux fractions ont même dénominateur donc :
+2/21 − 5/21 = 2 − 5/21 = -3/21.
+
+On simplifie la dernière fraction obtenue :
+-3 et 21 ont un diviseur commun autre que 1 : 3.
+On simplifie avec le PGCD trouvé :
+-3/21 = 3 × -1 / 3 × 7
+-3/21 = -1/7
+

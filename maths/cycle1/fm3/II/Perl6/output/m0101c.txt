@@ -1,0 +1,29 @@
+# Exercice 1. Calculer.
+# --------------------
+# c. 4/5 – 7/25.
+-----------------------------------------------------------------------------------
+Les fractions 4/5 et 7/25 sont irréductibles.
+On cherche le PPCM de 5 et 25 :
+5 et 25 ont un diviseur commun autre que 1 : 5.
+5	=>	1
+5 est un nombre premier!
+Il n'admet que 1 et lui-même comme diviseurs.
+1 × 5.
+25	=>	5
+5	=>	5
+5 × 5
+5^2
+En prenant les plus grands facteurs de chaque liste, 
+le PPCM de 5 et 25 équivaut donc à : 25.
+4/5 − 7/25 = 4×5/5×5 − 7×1/25×1;
+on effectue les calculs :
+4/5 − 7/25 = 20/25 − 7/25;
+
+on soustrait les numérateurs et on garde le dénominateur commun :
+13/25.
+
+On simplifie la dernière fraction obtenue :
+13 et 25 n'ont pas de diviseurs communs autre que 1.
+13 et 25 sont premiers entre eux!
+La fraction 13/25 est irréductible.
+

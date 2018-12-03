@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <title></title>
+  <meta charset="UTF-8" />
+  <style>
+    /* code gets the browser-default font
+     * kbd gets a slightly less common monospace font
+     * samp gets the hard pixelly fonts
+     */
+    kbd { font-family: "Droid Sans Mono", "Luxi Mono", "Inconsolata", monospace }
+    samp { font-family: "Terminus", "Courier", "Lucida Console", monospace }
+    /* WHATWG HTML frowns on the use of <u> because it looks like a link,
+     * so we make it not look like one.
+     */
+    u { text-decoration: none }
+    .nested {
+        margin-left: 3em;
+    }
+    // footnote things:
+    aside, u { opacity: 0.7 }
+    a[id^="fn-"]:target { background: #ff0 }
+  </style>
+  <link rel="stylesheet" href="//design.perl6.org/perl.css">
+  <meta name="author" value="Christian Béloscar" />
+<meta name="version" value="1.0" />
+  
+</head>
+<body class="pod">
+<div id="___top"></div>
+
+
+
+<div class="pod-body
+ no-toc
+">
+<section><h1>NAME</h1>
+<p>class <strong>IntegerDivisorsListing</strong></p>
+</section>
+<section><h1>AUTHOR</h1>
+<p>Christian Béloscar</p>
+</section>
+<section><h1>VERSION</h1>
+<p>1.0</p>
+</section>
+<p>for=head1 Cette classe est destinée à établir la liste des diviseurs d&#39;un entier relatif non nul.</p>
+<p>Elle contient une méthode publique : <strong>list-divisors(Int $integer where {$integer != 0})</strong> et une méthode privée destinée à l&#39;affichage d&#39;informations. Elle dispose du rôle <strong>UsualDivisibilityCriteria</strong> pour calculer la divisibilité des nombres 2, 3, 4, 5, 9, (10, 100, 1000, etc.), 11 et 25 en utilisant les critères de divisibilité les plus usuels (voir la doc du module <strong>usual-divisibility-criteria.pm6</strong>). Pour les autres nombres, elle utilise l&#39;opérateur <strong>modulo</strong> (mod) ou %% (critère de divisibilité).</p>
+<p>Contrairement au module <strong>integer-divisors-listing-array.pm6</strong> implémenté par l&#39;emploi de tableaux, et qui renvoie systématiquement un tableau, celui-ci est implémenté par l&#39;emploi de hash et renvoie soit un hash, soit un tableau de Int, selon la valeur de l&#39;attribut <strong>Str $array-or-hash</strong> qui peut prendre l&#39;une des valeurs suivantes : &#39;@&#39; ou &#39;array&#39; pour renvoyer un tableau de Int ou bien &#39;%&#39; ou &#39;hash&#39; pour renvoyer un hash de Int (%h.keys : Int et %h.values : Int). Par défaut un array est retourné. </p>
+<p><em>Remarque</em> : il existe aussi un module <strong>integer-divisors-listing-hash.pm6</strong> qui est implémenté par l&#39;emploi de hash et qui renvoie systématiquement un hash.</p>
+<p>L&#39;autre attribut requis cette fois et en lecture écriture est un objet de type <strong>Teeput::Tput</strong>. Consultez la doc du module <strong>teeput.pm6</strong> pour plus de détails.</p>
+
+</div>
+
+
+</body>
+</html>
+

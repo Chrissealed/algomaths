@@ -2,16 +2,25 @@
 
 use v6;
 use corrective;
+use teeput;
 use method01 :methodwording, :exe01a, :examples;
 use operations-on-fractions;
 
 sub answering {
+    class T does Tput {}
+    my $t = T.new(
+        filepath => 'output/m0101a.txt',
+        filemode => ':a',
+        writefile => True,
+        closefile => False,
+    );
+    $t.tput: 'Les fractions 9/5 et 4/5 sont irréductibles.';
+
     my $fraction = OperationsOnFractions.new(
-        numerator1 => 9,
-        denominator1 => 5,
+        t => $t,
+        nudepair1 => 9 => 5,
         reduce-fraction1 => False, # Valeur par défaut
-        numerator2 => 4,
-        denominator2 => 5,
+        nudepair2 => 4 => 5,
         reduce-fraction2 => False, # Valeur par défaut
         which-ppcm-algorithm => 'by-prime-factors',
         which-irreducible-fraction-algorithm => 'factorization',
@@ -19,6 +28,9 @@ sub answering {
     );
     my Pair $P;
     $P = $fraction.calculate-fractions('add-up');
+
+    $t.closefile = True;
+    $t.tput: '';
 }
 
 exercise_01a();

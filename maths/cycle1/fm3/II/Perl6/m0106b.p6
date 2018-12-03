@@ -2,22 +2,33 @@
 
 use v6;
 use corrective;
+use teeput;
 use method01 :methodwording, :exe06b, :examples;
 use operations-on-fractions;
 
 sub answering {
+    class T does Tput {}
+    my $t = T.new(
+        filepath => 'output/m0106b.txt',
+        filemode => ':a',
+        writefile => True,
+        closefile => False,
+    );
+
     my $fraction = OperationsOnFractions.new(
-        numerator1 => 15,
-        denominator1 => 30,
+        t => $t,
+        nudepair1 => 15 => 30,
         reduce-fraction1 => True,
-        numerator2 => 3,
-        denominator2 => 12,
+        nudepair2 => 3 => 12,
         reduce-fraction2 => True,
         which-ppcm-algorithm => 'b.p.f.', # by-prime-factors,
         which-irreducible-fraction-algorithm => '*', # factorization,
         which-pgcd-algorithm => '*', # factorization,
     );
     my Pair $P = $fraction.calculate-fractions('−');
+
+    $t.closefile = True;
+    $t.tput: '';
 }
 
 exercise_06b();

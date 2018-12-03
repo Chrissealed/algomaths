@@ -1,0 +1,20 @@
+# Exercice 2. Calculer.
+# --------------------
+# d. 5/6 – 3/4.
+-----------------------------------------------------------------------------------
+Les fractions 5/6 et 3/4 sont irréductibles.
+On cherche le PPCM de 6 et 4 :
+6 et 4 ont un diviseur commun autre que 1 : 2.
+Reste de la division de 6 par 4 : 2
+6 + 6 = 12
+Reste de la division de 12 par 4 : 0
+5/6 − 3/4 = 5×2/6×2 − 3×3/4×3;
+on effectue les calculs :
+5/6 − 3/4 = 10/12 − 9/12;
+
+on soustrait les numérateurs et on garde le dénominateur commun :
+1/12.
+
+On simplifie la dernière fraction obtenue :
+La fraction 1/12 est irréductible.
+

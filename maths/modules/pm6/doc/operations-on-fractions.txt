@@ -1,11 +1,11 @@
 NAME
-OperationsOnFractions
+class OperationsOnFractions
 
 AUTHOR
 Christian Béloscar
 
 VERSION
-0.1
+1.0
 
 Ce module est destiné à faire des opérations sur des fractions.
 
@@ -139,19 +139,26 @@ simple expression.
   * 'divisors-listing' ou 'd' ou '#' ou '/'.
 
 Cet attribut peut être employé pour toutes les opérations; il détermine
-l'algorithme utilisé par la classe PGCD pour le calcul du PPCM :
+l'algorithme utilisé par la classe PGCD pour le calcul du PPCM.
+
+La classe possède en outre un attribut requis destiné à écrire dans un
+fichier les informations qui apparaissent à l'écran et qui décrivent les
+différentes étapes des opérations. Il s'agit de Teeput::Tput $t is required
+is rw : il faut lui passer un objet de type Teeput::Tput du module
+teeput.pm6. Référez-vous à la doc de ce module pour plus d'informations.
+Celui-ci est dérivé du rôle PrimeFactors.
 
 Voici la liste des méthodes de la classe OperationsOnFractions :
 
-  calculate-fractions(Str $operation --> Pair) {}
+  calculate-fractions(Str:D $operation --> Pair:D) {}
 
 Cette méthode est la principale de la classe, qui donne accès à toutes les
 autres méthodes − bien que celles-là ne soient pas privées et sont donc
 accessibles isolément − en employant un seul argument, le type d'opération
 à effectuer. (Voir plus haut)
 
-  reduce-fraction(Int $numerator, Int $denominator, Str $sign = '' --> Pair)
-{}
+  reduce-fraction(Int $numerator:D, Int $denominator:D, Str $sign = '' -->
+Pair:D) {}
 
 Cette méthode destinée à obtenir la fraction irréductible à partir du
 numérateur et du dénominateur passés en argument utilise la classe
@@ -182,7 +189,7 @@ méthode ne réduira pas la fraction résultante lors d'un premier appel, mais
 la réduira lors d'un appel subséquent. Elle renvoie une paire constituée du
 numérateur et du dénominateur de la fraction résultante.
 
-  add-upx2(Pair $pair1, Pair $pair2, Pair $pair3 --> Pair) {}
+  add-upx2(Pair:D $pair1, Pair:D $pair2, Pair:D $pair3 --> Pair:D) {}
 
 Cette méthode renvoie l'addition des numérateurs et dénominateurs passés
 aux attributs de la classe, c'est-à-dire, nudepair1, nudepair2 et
@@ -201,7 +208,7 @@ même effet que pour l'opération add-up (voir plus haut). Elle renvoie une
 paire constituée du numérateur et du dénominateur de la fraction
 résultante.
 
-  subtractx2(Pair $pair1, Pair $pair2, Pair $pair3 --> Pair) {}
+  subtractx2(Pair:D $pair1, Pair:D $pair2, Pair:D $pair3 --> Pair:D) {}
 
 Cette méthode renvoie la soustraction des numérateurs et dénominateurs
 passés aux attributs de la classe, c'est-à-dire, nudepair1, nudepair2 et
@@ -210,7 +217,7 @@ modules ppcm.pm6 et pgcd.pm6, ainsi que la méthode de la classe :
 reduce-fraction($numerator, $denominator). Elle renvoie une paire
 constituée par le numérateur et le dénominateur de la fraction résultante.
 
-  add-up-subtract(Pair $pair1, Pair $pair2, Pair $pair3 --> Pair)
+  add-up-subtract(Pair:D $pair1, Pair:D $pair2, Pair:D $pair3 --> Pair:D)
 
 Cette méthode renvoie l'addition des numérateurs et dénominateurs passés
 aux attributs de la classe, c'est-à-dire, nudepair1 et nudepair2, et la
@@ -221,7 +228,7 @@ pgcd.pm6, ainsi que la méthode de la classe : reduce-fraction($numerator,
 $denominator). Elle renvoie une paire constituée par le numérateur et le
 dénominateur de la fraction résultante.
 
-  subtract-add-up(Pair $pair1, Pair $pair2, Pair $pair3 --> Pair) {}
+  subtract-add-up(Pair:D $pair1, Pair:D $pair2, Pair $pair3:D --> Pair:D) {}
 
 Cette méthode est l'inverse de la précédente, c'est-à-dire qu'elle renvoie
 la soustraction des numérateurs et dénominateurs passés aux attributs de la
@@ -232,14 +239,14 @@ ppcm.pm6 et pgcd.pm6, ainsi que la méthode de la classe :
 reduce-fraction($numerator, $denominator). Elle renvoie une paire
 constituée par le numérateur et le dénominateur de la fraction résultante.
 
-  breakdown-factors(Int @array-of-factors --> Array) {}
+  breakdown-factors(Int:D @array-of-factors --> Array:D) {}
 
 Cette méthode décompose un tableau de facteurs en facteurs premiers. Elle
 utilise la méthode breakdown du rôle PrimeFactors. Consultez la
 documentation du module prime-factors.pm6 pour plus d'informations.
 
-  compute-prime-factors(Int @array1, Int @array2, Int $return-array = 1 -->
-Array) {}
+  compute-prime-factors(Int:D @array1, Int:D @array2, Int $return-array = 1
+--> Array:D) {}
 
 Cette méthode elle aussi appelle une méthode de PrimeFactors :
 reduce-fractions-prime-factors(Int @numerators, Int @denominators, Int
@@ -257,7 +264,7 @@ fractions passées en arguments aux attributs de la classe que sont
 nudepair1, nudepair2 et facultativement nudepair3 avant d'effectuer les
 calculs. Elle retourne '+' ou '−'.
 
-  multiply(Pair $pair1, Pair $pair2, Pair $pair3? --> Pair) {}
+  multiply(Pair:D $pair1, Pair:D $pair2, Pair:D $pair3? --> Pair:D) {}
 
 Cette méthode est utilisée pour multiplier deux ou trois fractions données
 en arguments sous forme de paires numérateur => dénominateur passées aux

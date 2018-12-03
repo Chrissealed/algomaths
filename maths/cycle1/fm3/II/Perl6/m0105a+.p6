@@ -2,51 +2,66 @@
 
 use v6;
 use corrective;
-use method01 :methodwording, :exe05a, :examples;
+use teeput;
+use method01 :methodwording, :exe05a2, :examples;
 use ppcm;
 use irreducible-fraction;
 
 sub answering {
+    class T does Tput {}
+    my $t = T.new(
+        filepath => 'output/m0105a+.txt',
+        filemode => ':a',
+        writefile => True,
+        closefile => False,
+    );
+    $t.tput: 'Les fractions 1/2, 2/3 et 3/4 sont irréductibles.';
+
     my $ppcm = PPCM.new(
+        t => $t,
         integer1 => 2,
         integer2 => 3,
     );
-    my Int $p = $ppcm.by-prime-factors();
-    my Int $lastp = $p;
-    say "PPCM de 2 et 3 = $p";
-    $ppcm.integer1 = $p;
+    my Int $PPCM = $ppcm.by-prime-factors();
+    my Int $lastp = $PPCM;
+    $t.tput: "PPCM de 2 et 3 = $PPCM";
+    $ppcm.integer1 = $PPCM;
     $ppcm.integer2 = 4;
-    $p = $ppcm.by-prime-factors();
-    say "PPCM de $lastp et 4 = $p";
-    $lastp = $p;
-    $ppcm.integer1 = $p;
+    $PPCM = $ppcm.by-prime-factors();
+    $t.tput: "PPCM de $lastp et 4 = $PPCM";
+    $lastp = $PPCM;
+    $ppcm.integer1 = $PPCM;
     $ppcm.integer2 = 5;
-    $p = $ppcm.by-prime-factors();
-    say "PPCM de $lastp et 5 = $p";
-    $lastp = $p;
-    $ppcm.integer1 = $p;
+    $PPCM = $ppcm.by-prime-factors();
+    $t.tput: "PPCM de $lastp et 5 = $PPCM";
+    $lastp = $PPCM;
+    $ppcm.integer1 = $PPCM;
     $ppcm.integer2 = 6;
-    $p = $ppcm.by-prime-factors();
-    say "PPCM de $lastp et 6 = $p";
-    say "PPCM de 2, 3, 4, 5, 6 = $p";
+    $PPCM = $ppcm.by-prime-factors();
+    $t.tput: "PPCM de $lastp et 6 = $PPCM";
+    $t.tput: "PPCM de 2, 3, 4, 5, 6 = $PPCM";
 
-    my Int $a = 1 * $p div 2;
-    my Int $b = 2 * $p div 3;
-    my Int $c = 3 * $p div 4;
-    my Int $d = 4 * $p div 5;
-    my Int $e = 5 * $p div 6;
-    my $f = $a+$b+$c+$d+$e;
-    say "Simplification :";
-    say "$f/$p";
+    my Int $a = 1 * $PPCM div 2;
+    my Int $b = 2 * $PPCM div 3;
+    my Int $c = 3 * $PPCM div 4;
+    my Int $d = 4 * $PPCM div 5;
+    my Int $e = 5 * $PPCM div 6;
+    my $numerator = $a+$b+$c+$d+$e;
+    $t.tprint: "Simplification : ";
+    $t.tput: "$numerator/$PPCM.";
 
     my $irreducible = IrreducibleFraction.new(
-        numerator => $f,
-        denominator => $p,
+        t => $t,
+        numerator => $numerator,
+        denominator => $PPCM,
     );
     my Pair $P = $irreducible.reduce-fraction-with-euclide-algorithm();
+
+    $t.closefile = True;
+    $t.tput: '';
 }
 
-exercise_05a();
+exercise_05a2();
 my Bool $boolean = do-put-up-method();
 if $boolean {
     put-up-method();
