@@ -2,10 +2,21 @@
 
 use v6;
 use corrective;
+use teeput;
 use method02 :methodwording, :exe-q, :examples;
 
 sub answering {
-    say "π/1 + π/7 = 7π/7 + π/7 = 8π/7."
+    class T does Tput {}
+    my $t = T.new(
+        filepath => 'output/m02q.txt',
+        filemode => ':a',
+        writefile => True,
+        closefile => False,
+    );
+    $t.tput: 'π/1 + π/7 = 7π/7 + π/7 = 8π/7.';
+
+    $t.closefile = True;
+    $t.tput: '';
 }
 
 exercise_q();

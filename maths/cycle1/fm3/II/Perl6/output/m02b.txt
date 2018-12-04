@@ -1,0 +1,33 @@
+# Exercice. Calculer.
+# --------------------
+# B = 1 – 5/7.
+-----------------------------------------------------------------------------------
+Les fractions 1/1 et 5/7 sont irréductibles.
+On cherche le PPCM de 1 et 7 :
+1 et 7 n'ont pas de diviseurs communs autre que 1;
+le PPCM de 1 et 7 est donc leur produit : 7.
+1/1 − 5/7 = 1×7/1×7 − 5×1/7×1;
+on effectue les calculs :
+1/1 − 5/7 = 7/7 − 5/7;
+
+on soustrait les numérateurs et on garde le dénominateur commun :
+2/7.
+
+On simplifie la dernière fraction obtenue :
+− Utilisation de l'algorithme de factorisation en facteurs premiers −
+Facteurs premiers de 2 :
+2	=>	1
+2 est un nombre premier!
+Il n'admet que 1 et lui-même comme diviseurs.
+1 × 2.
+Facteurs premiers de 7 :
+7	=>	1
+7 est un nombre premier!
+Il n'admet que 1 et lui-même comme diviseurs.
+1 × 7.
+Facteurs communs à 2 et 7 : 
+pas de facteurs communs.
+2 et 7 n'ont pas de diviseurs communs autre que 1.
+2 et 7 sont premiers entre eux!
+La fraction 2/7 est irréductible.
+

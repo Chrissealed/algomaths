@@ -1,0 +1,33 @@
+# Exercice. Calculer.
+# --------------------
+# A = 7 + 3/4.
+-----------------------------------------------------------------------------------
+Les fractions 7/1 et 3/4 sont irréductibles.
+On cherche le PPCM de 1 et 4 :
+1 et 4 n'ont pas de diviseurs communs autre que 1;
+le PPCM de 1 et 4 est donc leur produit : 4.
+7/1 + 3/4 = 7×4/1×4 + 3×1/4×1;
+on effectue les calculs :
+7/1 + 3/4 = 28/4 + 3/4;
+
+on ajoute les numérateurs et on garde le dénominateur commun :
+31/4.
+
+On simplifie la dernière fraction obtenue :
+− Utilisation de l'algorithme de factorisation en facteurs premiers −
+Facteurs premiers de 31 :
+31	=>	1
+31 est un nombre premier!
+Il n'admet que 1 et lui-même comme diviseurs.
+1 × 31.
+Facteurs premiers de 4 :
+4	=>	2
+2	=>	2
+2 × 2
+2^2
+Facteurs communs à 31 et 4 : 
+pas de facteurs communs.
+31 et 4 n'ont pas de diviseurs communs autre que 1.
+31 et 4 sont premiers entre eux!
+La fraction 31/4 est irréductible.
+

@@ -2,24 +2,34 @@
 
 use v6;
 use corrective;
+use teeput;
 use method02 :methodwording, :exe-j, :examples;
 use operations-on-fractions;
 
 sub answering {
-    say "Le nombre 10 est équivalent à la fraction 10/1.";
+    class T does Tput {}
+    my $t = T.new(
+        filepath => 'output/m02j.txt',
+        filemode => ':a',
+        writefile => True,
+        closefile => False,
+    );
+    $t.tput: 'Le nombre 10 est équivalent à la fraction 10/1.';
+
     my $fraction = OperationsOnFractions.new(
-        numerator1 => 10,
-        denominator1 => 1,
-        numerator2 => 5,
-        denominator2 => 15,
+        t => $t,
+        nudepair1 => 10 => 1,
+        nudepair2 => 5 => 15,
         reduce-fraction2 => True,
-        numerator3 => 3,
-        denominator3 => 10,
+        nudepair3 => 3 => 10,
         which-ppcm-algorithm => 'bf', # by-prime-factors,
         which-irreducible-fraction-algorithm => 'f', # factorization,
         which-pgcd-algorithm => 'f', # factorization,
     );
     my Pair $P = $fraction.calculate-fractions('+−');
+
+    $t.closefile = True;
+    $t.tput: '';
 }
 
 exercise_j();

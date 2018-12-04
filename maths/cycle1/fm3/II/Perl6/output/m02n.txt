@@ -1,0 +1,50 @@
+# Exercice. Calculer.
+# ------------------
+# N = 1 − 5/21 – 5/14.
+-----------------------------------------------------------------------------------
+Le nombre 1 est équivalent à la fraction 1/1.
+On cherche le PPCM de 1 et 21 :
+1 et 21 n'ont pas de diviseurs communs autre que 1;
+le PPCM de 1 et 21 est donc leur produit : 21.
+1/1 − 5/21 = 1×21/1×21 − 5×1/21×1;
+on effectue les calculs :
+1/1 − 5/21 = 21/21 − 5/21;
+
+on soustrait les numérateurs et on garde le dénominateur commun :
+16/21.
+
+On cherche le PPCM de 21 et 14 :
+21 et 14 ont un diviseur commun autre que 1 : 7.
+21	=>	3
+7	=>	7
+3 × 7
+14	=>	2
+7	=>	7
+2 × 7
+En prenant les plus grands facteurs de chaque liste, 
+le PPCM de 21 et 14 équivaut donc à : 2 × 3 × 7.
+16/21 − 5/14 = 16×2/21×2 − 5×3/14×3;
+on effectue les calculs :
+16/21 − 5/14 = 32/42 − 15/42;
+
+on soustrait les numérateurs et on garde le dénominateur commun :
+17/42.
+
+On simplifie la dernière fraction obtenue :
+− Utilisation de l'algorithme de factorisation en facteurs premiers −
+Facteurs premiers de 17 :
+17	=>	1
+17 est un nombre premier!
+Il n'admet que 1 et lui-même comme diviseurs.
+1 × 17.
+Facteurs premiers de 42 :
+42	=>	2
+21	=>	3
+7	=>	7
+2 × 3 × 7
+Facteurs communs à 17 et 42 : 
+pas de facteurs communs.
+17 et 42 n'ont pas de diviseurs communs autre que 1.
+17 et 42 sont premiers entre eux!
+La fraction 17/42 est irréductible.
+

@@ -1,0 +1,88 @@
+# Exercice. Calculer.
+# ------------------
+# K = 3 + 4/9 – 1/3 + 4/27.
+-----------------------------------------------------------------------------------
+Le nombre 3 est équivalent à la fraction 3/1.
+On cherche le PPCM de 1 et 27 :
+1 et 27 n'ont pas de diviseurs communs autre que 1;
+le PPCM de 1 et 27 est donc leur produit : 27.
+3/1 + 4/27 = 3×27/1×27 + 4×1/27×1;
+on effectue les calculs :
+3/1 + 4/27 = 81/27 + 4/27;
+
+on ajoute les numérateurs et on garde le dénominateur commun :
+85/27.
+
+On cherche le PPCM de 27 et 9 :
+27 et 9 ont un diviseur commun autre que 1 : 3.
+27	=>	3
+9	=>	3
+3	=>	3
+3 × 3 × 3
+3^3
+9	=>	3
+3	=>	3
+3 × 3
+3^2
+En prenant les plus grands facteurs de chaque liste, 
+le PPCM de 27 et 9 équivaut donc à : 27.
+85/27 + 4/9 = 85×1/27×1 + 4×3/9×3;
+on effectue les calculs :
+85/27 + 4/9 = 85/27 + 12/27;
+
+on ajoute les numérateurs et on garde le dénominateur commun :
+97/27.
+
+On simplifie la dernière fraction obtenue :
+− Utilisation de l'algorithme de factorisation en facteurs premiers −
+Facteurs premiers de 97 :
+97	=>	1
+97 est un nombre premier!
+Il n'admet que 1 et lui-même comme diviseurs.
+1 × 97.
+Facteurs premiers de 27 :
+27	=>	3
+9	=>	3
+3	=>	3
+3 × 3 × 3
+3^3
+Facteurs communs à 97 et 27 : 
+pas de facteurs communs.
+97 et 27 n'ont pas de diviseurs communs autre que 1.
+97 et 27 sont premiers entre eux!
+La fraction 97/27 est irréductible.
+
+On cherche le PPCM de 27 et 3 :
+27 et 3 ont un diviseur commun autre que 1 : 3.
+27	=>	3
+9	=>	3
+3	=>	3
+3 × 3 × 3
+3^3
+3	=>	1
+3 est un nombre premier!
+Il n'admet que 1 et lui-même comme diviseurs.
+1 × 3.
+En prenant les plus grands facteurs de chaque liste, 
+le PPCM de 27 et 3 équivaut donc à : 27.
+97/27 − 1/3 = 97×1/27×1 − 1×9/3×9;
+on effectue les calculs :
+97/27 − 1/3 = 97/27 − 9/27;
+
+on soustrait les numérateurs et on garde le dénominateur commun :
+88/27.
+
+On simplifie la dernière fraction obtenue :
+− Utilisation de l'algorithme d'Euclide −
+PGCD(88 ; 27) = PGCD(27 ; 7)
+PGCD(27 ; 7) = PGCD(7 ; 6)
+PGCD(7 ; 6) = PGCD(6 ; 1)
+Le reste de la division de 6 par 1 est nul,
+donc PGCD(88 ; 27) = 1.
+88 et 27 n'ont pas de diviseurs communs autre que 1.
+88 et 27 sont premiers entre eux!
+La fraction 88/27 est irréductible.
+
+Equivalent de ces calculs en une seule passe :
+3 + 4/9 − 1/3 + 4/27 = 81/27 + 12/27 − 9/27 + 4/27 = 88/27.
+

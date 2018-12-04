@@ -1,0 +1,16 @@
+# Chapitre II : NOMBRES RELATIFS EN ÉCRITURE FRACTIONNAIRE : OPÉRATIONS.
+###################################################################################
+# Méthode 2.
+# Comment additionner ou soustraire des nombres relatifs l'un en écriture
+# décimale, les autres en écriture fractionnaire ?
+###################################################################################
+# Pour additionner ou soustraire des nombres relatifs l'un en écriture décimale,
+# les autres en écriture fractionnaire :
+# ▲ on considère le nombre en écriture décimale comme un nombre en écriture
+#   fractionnaire de dénominateur 1;
+# ▲ on se ramène à des calculs avec des nombres en écriture fractionnaire
+#   dont l'un a pour dénominateur 1;
+# ▲ on calcule en utilisant la méthode 1 de ce chapitre.
+###################################################################################
+
+

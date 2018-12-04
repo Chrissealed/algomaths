@@ -2,18 +2,25 @@
 
 use v6;
 use corrective;
+use teeput;
 use method02 :methodwording, :exe-o, :examples;
 use operations-on-fractions;
 
 sub answering {
-    say "Le nombre 1 est équivalent à la fraction 1/1.";
+    class T does Tput {}
+    my $t = T.new(
+        filepath => 'output/m02o.txt',
+        filemode => ':a',
+        writefile => True,
+        closefile => False,
+    );
+    $t.tput: 'Le nombre 1 est équivalent à la fraction 1/1.';
+    
     my $fraction = OperationsOnFractions.new(
-        numerator1 => 5,
-        denominator1 => 12,
-        numerator2 => 4,
-        denominator2 => 21,
-        numerator3 => 3,
-        denominator3 => 7,
+        t => $t,
+        nudepair1 => 5 => 12,
+        nudepair2 => 4 => 21,
+        nudepair3 => 3 => 7,
         # On joue sur les options de réduction dans une liste
         # chaînée d'opérations
         reduce-last-one => False,
@@ -23,20 +30,20 @@ sub answering {
         which-pgcd-algorithm => 'e',
     );
     my Pair $P = $fraction.calculate-fractions('+−');
-    say();
-    $fraction.numerator1 = $P.key;
-    $fraction.denominator1 = $P.value;
-    $fraction.numerator2 = 1;
-    $fraction.denominator2 = 1;
+    $t.tprint: "\n";
+    $fraction.nudepair1 = $P.key => $P.value;
+    $fraction.nudepair2 = 1 => 1;
     # Ne pas oublier de mettre à Nil les attributs inemployés
-    $fraction.numerator3 = Nil;
-    $fraction.denominator3 = Nil;
+    $fraction.nudepair3 = Nil;
     # On réduit cette fois la dernière fraction
     $fraction.reduce-last-one = True;
     $P = $fraction.calculate-fractions('+');
-    say();
-    put q/Pour faire les calculs en une seule passe/;
-    put q|84/84 − 36/84 + 35/84 + 16/84 = 99/84 = 33/28.|;
+    $t.tprint: "\n";
+    $t.tput: q/Pour faire les calculs en une seule passe :/;
+    $t.tput: q|84/84 − 36/84 + 35/84 + 16/84 = 99/84 = 33/28.|;
+
+    $t.closefile = True;
+    $t.tput: '';
 }
 
 exercise_o();

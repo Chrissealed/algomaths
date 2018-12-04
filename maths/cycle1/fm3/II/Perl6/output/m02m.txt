@@ -1,0 +1,35 @@
+# Exercice. Calculer.
+# ------------------
+# M = 5 − 1/5.
+-----------------------------------------------------------------------------------
+Les fractions 5/1 et 1/5 sont irréductibles.
+On cherche le PPCM de 1 et 5 :
+1 et 5 n'ont pas de diviseurs communs autre que 1;
+le PPCM de 1 et 5 est donc leur produit : 5.
+5/1 − 1/5 = 5×5/1×5 − 1×1/5×1;
+on effectue les calculs :
+5/1 − 1/5 = 25/5 − 1/5;
+
+on soustrait les numérateurs et on garde le dénominateur commun :
+24/5.
+
+On simplifie la dernière fraction obtenue :
+− Utilisation de l'algorithme de factorisation en facteurs premiers −
+Facteurs premiers de 24 :
+24	=>	2
+12	=>	2
+6	=>	2
+3	=>	3
+2 × 2 × 2 × 3
+2^3 × 3
+Facteurs premiers de 5 :
+5	=>	1
+5 est un nombre premier!
+Il n'admet que 1 et lui-même comme diviseurs.
+1 × 5.
+Facteurs communs à 24 et 5 : 
+pas de facteurs communs.
+24 et 5 n'ont pas de diviseurs communs autre que 1.
+24 et 5 sont premiers entre eux!
+La fraction 24/5 est irréductible.
+

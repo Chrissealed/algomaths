@@ -1,0 +1,92 @@
+# Exercice. Calculer.
+# ------------------
+# I = 1 + 1/2 + 3/4 + 5/6.
+-----------------------------------------------------------------------------------
+Le nombre 1 est équivalent à la fraction 1/1.
+On cherche le PPCM de 1 et 6 :
+1 et 6 n'ont pas de diviseurs communs autre que 1;
+le PPCM de 1 et 6 est donc leur produit : 6.
+1/1 + 5/6 = 1×6/1×6 + 5×1/6×1;
+on effectue les calculs :
+1/1 + 5/6 = 6/6 + 5/6;
+
+on ajoute les numérateurs et on garde le dénominateur commun :
+11/6.
+
+On cherche le PPCM de 6 et 4 :
+6 et 4 ont un diviseur commun autre que 1 : 2.
+6	=>	2
+3	=>	3
+2 × 3
+4	=>	2
+2	=>	2
+2 × 2
+2^2
+En prenant les plus grands facteurs de chaque liste, 
+le PPCM de 6 et 4 équivaut donc à : 4 × 3.
+11/6 + 3/4 = 11×2/6×2 + 3×3/4×3;
+on effectue les calculs :
+11/6 + 3/4 = 22/12 + 9/12;
+
+on ajoute les numérateurs et on garde le dénominateur commun :
+31/12.
+
+On simplifie la dernière fraction obtenue :
+− Utilisation de l'algorithme de factorisation en facteurs premiers −
+Facteurs premiers de 31 :
+31	=>	1
+31 est un nombre premier!
+Il n'admet que 1 et lui-même comme diviseurs.
+1 × 31.
+Facteurs premiers de 12 :
+12	=>	2
+6	=>	2
+3	=>	3
+2 × 2 × 3
+2^2 × 3
+Facteurs communs à 31 et 12 : 
+pas de facteurs communs.
+31 et 12 n'ont pas de diviseurs communs autre que 1.
+31 et 12 sont premiers entre eux!
+La fraction 31/12 est irréductible.
+
+On cherche le PPCM de 12 et 2 :
+12 et 2 ont un diviseur commun autre que 1 : 2.
+12	=>	2
+6	=>	2
+3	=>	3
+2 × 2 × 3
+2^2 × 3
+2	=>	1
+2 est un nombre premier!
+Il n'admet que 1 et lui-même comme diviseurs.
+1 × 2.
+En prenant les plus grands facteurs de chaque liste, 
+le PPCM de 12 et 2 équivaut donc à : 4 × 3.
+31/12 + 1/2 = 31×1/12×1 + 1×6/2×6;
+on effectue les calculs :
+31/12 + 1/2 = 31/12 + 6/12;
+
+on ajoute les numérateurs et on garde le dénominateur commun :
+37/12.
+
+On simplifie la dernière fraction obtenue :
+− Utilisation de l'algorithme de factorisation en facteurs premiers −
+Facteurs premiers de 37 :
+37	=>	1
+37 est un nombre premier!
+Il n'admet que 1 et lui-même comme diviseurs.
+1 × 37.
+Facteurs premiers de 12 :
+12	=>	2
+6	=>	2
+3	=>	3
+2 × 2 × 3
+2^2 × 3
+Facteurs communs à 37 et 12 : 
+pas de facteurs communs.
+37 et 12 n'ont pas de diviseurs communs autre que 1.
+37 et 12 sont premiers entre eux!
+La fraction 37/12 est irréductible.
+
+Equivalent de ces calculs en une seule passe :1 + 1/2 + 3/4 + 5/6 = 12/12 + 6/12 + 9/12 + 10/12 = 37/12.

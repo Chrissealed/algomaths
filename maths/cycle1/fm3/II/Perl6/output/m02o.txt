@@ -1,0 +1,70 @@
+# Exercice. Calculer.
+# ------------------
+# O = 1 − 3/7 + 5/12 + 4/21.
+-----------------------------------------------------------------------------------
+Le nombre 1 est équivalent à la fraction 1/1.
+On cherche le PPCM de 12 et 21 :
+− Utilisation de l'algorithme d'Euclide −
+PGCD(21 ; 12) = PGCD(12 ; 9)
+PGCD(12 ; 9) = PGCD(9 ; 3)
+Le reste de la division de 9 par 3 est nul,
+donc PGCD(21 ; 12) = 3.
+Produit de 21 par 12 = 252;
+PPCM(21 ; 12) = 252 div 3 = 84.
+5/12 + 4/21 = 5×7/12×7 + 4×4/21×4;
+on effectue les calculs :
+5/12 + 4/21 = 35/84 + 16/84;
+
+on ajoute les numérateurs et on garde le dénominateur commun :
+51/84.
+
+On cherche le PPCM de 84 et 7 :
+− Utilisation de l'algorithme d'Euclide −
+Le reste de la division de 84 par 7 est nul,
+donc PGCD(84 ; 7) = 7.
+Produit de 84 par 7 = 588;
+PPCM(84 ; 7) = 588 div 7 = 84.
+51/84 − 3/7 = 51×1/84×1 − 3×12/7×12;
+on effectue les calculs :
+51/84 − 3/7 = 51/84 − 36/84;
+
+on soustrait les numérateurs et on garde le dénominateur commun :
+15/84.
+
+
+On cherche le PPCM de 84 et 1 :
+84 et 1 n'ont pas de diviseurs communs autre que 1;
+le PPCM de 84 et 1 est donc leur produit : 84.
+15/84 + 1/1 = 15×1/84×1 + 1×84/1×84;
+on effectue les calculs :
+15/84 + 1/1 = 15/84 + 84/84;
+
+on ajoute les numérateurs et on garde le dénominateur commun :
+99/84.
+
+On simplifie la dernière fraction obtenue :
+99 et 84 ont un diviseur commun autre que 1 : 3.
+− Utilisation de l'algorithme d'Euclide −
+PGCD(99 ; 84) = PGCD(84 ; 15)
+PGCD(84 ; 15) = PGCD(15 ; 9)
+PGCD(15 ; 9) = PGCD(9 ; 6)
+PGCD(9 ; 6) = PGCD(6 ; 3)
+Le reste de la division de 6 par 3 est nul,
+donc PGCD(99 ; 84) = 3.
+On simplifie avec le PGCD trouvé :
+99/84 = 3 × 33 / 3 × 28
+99/84 = 33/28
+− Utilisation de l'algorithme d'Euclide −
+PGCD(33 ; 28) = PGCD(28 ; 5)
+PGCD(28 ; 5) = PGCD(5 ; 3)
+PGCD(5 ; 3) = PGCD(3 ; 2)
+PGCD(3 ; 2) = PGCD(2 ; 1)
+Le reste de la division de 2 par 1 est nul,
+donc PGCD(33 ; 28) = 1.
+33 et 28 n'ont pas de diviseurs communs autre que 1.
+33 et 28 sont premiers entre eux!
+La fraction 33/28 est irréductible.
+
+Pour faire les calculs en une seule passe :
+84/84 − 36/84 + 35/84 + 16/84 = 99/84 = 33/28.
+

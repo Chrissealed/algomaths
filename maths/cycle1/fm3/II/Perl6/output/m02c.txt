@@ -1,0 +1,33 @@
+# Exercice. Calculer.
+# ------------------
+# C = 7/9 – 2.
+-----------------------------------------------------------------------------------
+Les fractions 7/9 et 2/1 sont irréductibles.
+On cherche le PPCM de 9 et 1 :
+9 et 1 n'ont pas de diviseurs communs autre que 1;
+le PPCM de 9 et 1 est donc leur produit : 9.
+7/9 − 2/1 = 7×1/9×1 − 2×9/1×9;
+on effectue les calculs :
+7/9 − 2/1 = 7/9 − 18/9;
+
+on soustrait les numérateurs et on garde le dénominateur commun :
+-11/9.
+
+On simplifie la dernière fraction obtenue :
+− Utilisation de l'algorithme de factorisation en facteurs premiers −
+Facteurs premiers de -11 :
+-11	=>	1
+-11 est un nombre premier!
+Il n'admet que 1 et lui-même comme diviseurs.
+1 × -11.
+Facteurs premiers de 9 :
+9	=>	3
+3	=>	3
+3 × 3
+3^2
+Facteurs communs à -11 et 9 : 
+pas de facteurs communs.
+-11 et 9 n'ont pas de diviseurs communs autre que 1.
+-11 et 9 sont premiers entre eux!
+La fraction -11/9 est irréductible.
+

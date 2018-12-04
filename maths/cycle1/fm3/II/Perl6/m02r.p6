@@ -2,10 +2,21 @@
 
 use v6;
 use corrective;
+use teeput;
 use method02 :methodwording, :exe-r, :examples;
 
 sub answering {
-    say "π/1 − π/2 − π3 = 6π/6 − 3π/6 − 2π/6 = π/6."
+    class T does Tput {}
+    my $t = T.new(
+        filepath => 'output/m02r.txt',
+        filemode => ':a',
+        writefile => True,
+        closefile => False,
+    );
+    $t.tput: 'π/1 − π/2 − π3 = 6π/6 − 3π/6 − 2π/6 = π/6.';
+
+    $t.closefile = True;
+    $t.tput: '';
 }
 
 exercise_r();

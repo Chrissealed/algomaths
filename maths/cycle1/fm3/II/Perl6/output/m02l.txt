@@ -1,0 +1,57 @@
+# Exercice. Calculer.
+# ------------------
+# L = 4/11 – 3/7 − 2.
+-----------------------------------------------------------------------------------
+On cherche le PPCM de 11 et 7 :
+− Utilisation de l'algorithme de factorisation en facteurs premiers −
+Facteurs premiers de 11 :
+11	=>	1
+11 est un nombre premier!
+Il n'admet que 1 et lui-même comme diviseurs.
+1 × 11.
+Facteurs premiers de 7 :
+7	=>	1
+7 est un nombre premier!
+Il n'admet que 1 et lui-même comme diviseurs.
+1 × 7.
+Facteurs communs à 11 et 7 : 
+pas de facteurs communs.
+11 et 7 n'ont pas de diviseurs communs autre que 1.
+Le PGCD de 11 et 7 est égal à 1;
+le PPCM de 11 et 7 est donc leur produit : 77.
+4/11 − 3/7 = 4×7/11×7 − 3×11/7×11;
+on effectue les calculs :
+4/11 − 3/7 = 28/77 − 33/77;
+
+on soustrait les numérateurs et on garde le dénominateur commun :
+-5/77.
+
+On cherche le PPCM de 77 et 1 :
+77 et 1 n'ont pas de diviseurs communs autre que 1;
+le PPCM de 77 et 1 est donc leur produit : 77.
+-5/77 − 2/1 = -5×1/77×1 − 2×77/1×77;
+on effectue les calculs :
+-5/77 − 2/1 = -5/77 − 154/77;
+
+on soustrait les numérateurs et on garde le dénominateur commun :
+-159/77.
+
+On simplifie la dernière fraction obtenue :
+− Utilisation de l'algorithme de factorisation en facteurs premiers −
+Facteurs premiers de -159 :
+-53	=>	53
+-159	=>	3
+53 × 3
+Facteurs premiers de 77 :
+77	=>	7
+11	=>	11
+7 × 11
+Facteurs communs à -159 et 77 : 
+pas de facteurs communs.
+-159 et 77 n'ont pas de diviseurs communs autre que 1.
+-159 et 77 sont premiers entre eux!
+La fraction -159/77 est irréductible.
+
+Equivalent de ces calculs en une seule passe :
+4/11 − 3/7 − 2 = 28/77 − 33/77 − 154/77 = −159/77.
+

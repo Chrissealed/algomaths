@@ -1,0 +1,46 @@
+# Exercice. Calculer.
+# ------------------
+# H = 30,125 – 3/8.
+-----------------------------------------------------------------------------------
+30,125 exprimé sous forme de fraction = 30125/1000.
+On simplifie si possible la première fraction :
+30125 et 1000 ont un diviseur commun autre que 1 : 5.
+− Utilisation de l'algorithme d'Euclide −
+PGCD(30125 ; 1000) = PGCD(1000 ; 125)
+Le reste de la division de 1000 par 125 est nul,
+donc PGCD(30125 ; 1000) = 125.
+On simplifie avec le PGCD trouvé :
+30125/1000 = 125 × 241 / 125 × 8
+30125/1000 = 241/8
+− Utilisation de l'algorithme d'Euclide −
+PGCD(241 ; 8) = PGCD(8 ; 1)
+Le reste de la division de 8 par 1 est nul,
+donc PGCD(241 ; 8) = 1.
+241 et 8 n'ont pas de diviseurs communs autre que 1.
+241 et 8 sont premiers entre eux!
+La fraction 241/8 est irréductible.
+Fraction réduite : 241/8.
+
+On cherche le PPCM de 8 et 8 :
+Les deux fractions ont même dénominateur donc :
+241/8 − 3/8 = 241 − 3/8 = 238/8.
+
+On simplifie la dernière fraction obtenue :
+238 et 8 ont un diviseur commun autre que 1 : 2.
+− Utilisation de l'algorithme d'Euclide −
+PGCD(238 ; 8) = PGCD(8 ; 6)
+PGCD(8 ; 6) = PGCD(6 ; 2)
+Le reste de la division de 6 par 2 est nul,
+donc PGCD(238 ; 8) = 2.
+On simplifie avec le PGCD trouvé :
+238/8 = 2 × 119 / 2 × 4
+238/8 = 119/4
+− Utilisation de l'algorithme d'Euclide −
+PGCD(119 ; 4) = PGCD(4 ; 3)
+PGCD(4 ; 3) = PGCD(3 ; 1)
+Le reste de la division de 3 par 1 est nul,
+donc PGCD(119 ; 4) = 1.
+119 et 4 n'ont pas de diviseurs communs autre que 1.
+119 et 4 sont premiers entre eux!
+La fraction 119/4 est irréductible.
+

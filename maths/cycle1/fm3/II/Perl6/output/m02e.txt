@@ -1,0 +1,40 @@
+# Exercice. Calculer.
+# ------------------
+# E = 5/3 + 4 + 2/7.
+-----------------------------------------------------------------------------------
+Les fractions 5/3, 2/7 et 4/1 sont irréductibles.
+On cherche le PPCM de 3 et 7 :
+− Utilisation de l'algorithme d'Euclide −
+PGCD(7 ; 3) = PGCD(3 ; 1)
+Le reste de la division de 3 par 1 est nul,
+donc PGCD(7 ; 3) = 1.
+7 et 3 n'ont pas de diviseurs communs autre que 1.
+Le PGCD de 7 et 3 est égal à 1;
+le PPCM de 7 et 3 est donc leur produit : 21.
+5/3 + 2/7 = 5×7/3×7 + 2×3/7×3;
+on effectue les calculs :
+5/3 + 2/7 = 35/21 + 6/21;
+
+on ajoute les numérateurs et on garde le dénominateur commun :
+41/21.
+
+On cherche le PPCM de 21 et 1 :
+21 et 1 n'ont pas de diviseurs communs autre que 1;
+le PPCM de 21 et 1 est donc leur produit : 21.
+41/21 + 4/1 = 41×1/21×1 + 4×21/1×21;
+on effectue les calculs :
+41/21 + 4/1 = 41/21 + 84/21;
+
+on ajoute les numérateurs et on garde le dénominateur commun :
+125/21.
+
+On simplifie la dernière fraction obtenue :
+− Utilisation de l'algorithme d'Euclide −
+PGCD(125 ; 21) = PGCD(21 ; 20)
+PGCD(21 ; 20) = PGCD(20 ; 1)
+Le reste de la division de 20 par 1 est nul,
+donc PGCD(125 ; 21) = 1.
+125 et 21 n'ont pas de diviseurs communs autre que 1.
+125 et 21 sont premiers entre eux!
+La fraction 125/21 est irréductible.
+
