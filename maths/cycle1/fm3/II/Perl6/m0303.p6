@@ -2,34 +2,43 @@
 
 use v6;
 use corrective;
+use teeput;
 use method03 :methodwording, :exe03, :examples;
 use operations-on-fractions;
 
 sub answering {
+    class T does Tput {}
+    my $t = T.new(
+        filepath => 'output/m0303.txt',
+        filemode => ':a',
+        writefile => True,
+        closefile => False,
+    );
+    $t.tput: 'Les fractions 1/6, 1/4 et 1/3 sont irréductibles.';
+    
     my $fraction = OperationsOnFractions.new(
-        numerator1 => 1,
-        denominator1 => 6,
-        numerator2 => 1,
-        denominator2 => 4,
-        numerator3 => 1,
-        denominator3 => 3,
+        t => $t,
+        nudepair1 => 1 => 6,
+        nudepair2 => 1 => 4,
+        nudepair3 => 1 => 3,
         which-ppcm-algorithm => 'bm',
         which-irreducible-fraction-algorithm => 's',
         which-pgcd-algorithm => 'f',
     );
     my Pair $P = $fraction.calculate-fractions('++');
-    say();
-    $fraction.numerator1 = 1;
-    $fraction.denominator1 = 1;
-    $fraction.numerator2 = $P.key;
-    $fraction.denominator2 = $P.value;
-    $fraction.numerator3 = Nil;
-    $fraction.denominator3 = Nil;
+    $t.tprint: "\n";
+
+    $fraction.nudepair1 = 1 => 1;
+    $fraction.nudepair2 = $P.key => $P.value;
+    $fraction.nudepair3 = Nil;
     $fraction.which-ppcm-algorithm = 'b.u.o.p.';
     $fraction.which-pgcd-algorithm = '#';
     $P = $fraction.calculate-fractions('−');
     
-    say "Il reste {$P.key}/{$P.value} de la pizza pour Jules.";
+    $t.tput: "Il reste {$P.key}/{$P.value} de la pizza pour Jules.";
+
+    $t.closefile = True;
+    $t.tput: '';
 }
 
 exercise_03();

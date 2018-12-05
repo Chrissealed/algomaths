@@ -1,0 +1,75 @@
+# Exercice 1.
+# ----------
+# Dans un cocktail avec trois agrumes les sept douzièmes sont de l'orange,
+# un quart du pamplemousse et le reste du citron.
+# Quelle est la proportion de citron ?
+-----------------------------------------------------------------------------------
+Les fractions 7/12 et 1/4 sont irréductibles
+On cherche le PPCM de 12 et 4 :
+12 et 4 ont un diviseur commun autre que 1 : 2.
+12	=>	2
+6	=>	2
+3	=>	3
+2 × 2 × 3
+2^2 × 3
+4	=>	2
+2	=>	2
+2 × 2
+2^2
+En prenant les plus grands facteurs de chaque liste, 
+le PPCM de 12 et 4 équivaut donc à : 4 × 3.
+7/12 + 1/4 = 7×1/12×1 + 1×3/4×3;
+on effectue les calculs :
+7/12 + 1/4 = 7/12 + 3/12;
+
+on ajoute les numérateurs et on garde le dénominateur commun :
+10/12.
+
+On simplifie la dernière fraction obtenue :
+10 et 12 ont un diviseur commun autre que 1 : 2.
+− Utilisation de l'algorithme de factorisation en facteurs premiers −
+Facteurs premiers de 10 :
+10	=>	2
+5	=>	5
+2 × 5
+Facteurs premiers de 12 :
+12	=>	2
+6	=>	2
+3	=>	3
+2 × 2 × 3
+2^2 × 3
+Facteurs communs à 10 et 12 : 2
+PGCD(10 ; 12) = 2.
+On simplifie avec le PGCD trouvé :
+10/12 = 2 × 5 / 2 × 6
+10/12 = 5/6
+− Utilisation de l'algorithme de factorisation en facteurs premiers −
+Facteurs premiers de 5 :
+5	=>	1
+5 est un nombre premier!
+Il n'admet que 1 et lui-même comme diviseurs.
+1 × 5.
+Facteurs premiers de 6 :
+6	=>	2
+3	=>	3
+2 × 3
+Facteurs communs à 5 et 6 : 
+pas de facteurs communs.
+5 et 6 n'ont pas de diviseurs communs autre que 1.
+5 et 6 sont premiers entre eux!
+La fraction 5/6 est irréductible.
+Les 5/6 du cocktail d'agrumes sont de l'orange ou du pamplemousse.
+
+On cherche le PPCM de 1 et 6 :
+1 et 6 n'ont pas de diviseurs communs autre que 1;
+le PPCM de 1 et 6 est donc leur produit : 6.
+1/1 − 5/6 = 1×6/1×6 − 5×1/6×1;
+on effectue les calculs :
+1/1 − 5/6 = 6/6 − 5/6;
+
+on soustrait les numérateurs et on garde le dénominateur commun :
+1/6.
+
+On simplifie la dernière fraction obtenue :
+La fraction 1/6 est irréductible.
+

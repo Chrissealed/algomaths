@@ -1,0 +1,60 @@
+# Exercice 4.
+# ----------
+# Un cultivateur a utilisé un tiers de la surface de son champ pour planter du blé
+# et la moitié pour planter du maïs.
+# Quelle fraction de la surface de son champ lui reste-t-il à planter ?
+-----------------------------------------------------------------------------------
+Les fractions 1/3 et 1/2 sont irréductibles.
+On cherche le PPCM de 3 et 2 :
+− Utilisation de l'algorithme de factorisation en facteurs premiers −
+Facteurs premiers de 3 :
+3	=>	1
+3 est un nombre premier!
+Il n'admet que 1 et lui-même comme diviseurs.
+1 × 3.
+Facteurs premiers de 2 :
+2	=>	1
+2 est un nombre premier!
+Il n'admet que 1 et lui-même comme diviseurs.
+1 × 2.
+Facteurs communs à 3 et 2 : 
+pas de facteurs communs.
+3 et 2 n'ont pas de diviseurs communs autre que 1.
+Le PGCD de 3 et 2 est égal à 1;
+le PPCM de 3 et 2 est donc leur produit : 6.
+1/3 + 1/2 = 1×2/3×2 + 1×3/2×3;
+on effectue les calculs :
+1/3 + 1/2 = 2/6 + 3/6;
+
+on ajoute les numérateurs et on garde le dénominateur commun :
+5/6.
+
+On simplifie la dernière fraction obtenue :
+− Utilisation de l'algorithme de factorisation en facteurs premiers −
+Facteurs premiers de 5 :
+5	=>	1
+5 est un nombre premier!
+Il n'admet que 1 et lui-même comme diviseurs.
+1 × 5.
+Facteurs premiers de 6 :
+6	=>	2
+3	=>	3
+2 × 3
+Facteurs communs à 5 et 6 : 
+pas de facteurs communs.
+5 et 6 n'ont pas de diviseurs communs autre que 1.
+5 et 6 sont premiers entre eux!
+La fraction 5/6 est irréductible.
+
+On cherche le PPCM de 1 et 6 :
+1 et 6 n'ont pas de diviseurs communs autre que 1;
+le PPCM de 1 et 6 est donc leur produit : 6.
+1/1 − 5/6 = 1×6/1×6 − 5×1/6×1;
+on effectue les calculs :
+1/1 − 5/6 = 6/6 − 5/6;
+
+on soustrait les numérateurs et on garde le dénominateur commun :
+1/6.
+
+On simplifie la dernière fraction obtenue :
+La fraction 1/6 est irréductible.

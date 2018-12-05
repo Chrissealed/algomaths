@@ -15,6 +15,7 @@ sub answering {
         closefile => False,
     );
     $t.tput: 'Le nombre 1 est équivalent à la fraction 1/1.';
+    $t.tput: 'Les fractions 5/12, 4/21 et 3/7 sont irréductibles.';
     
     my $fraction = OperationsOnFractions.new(
         t => $t,
@@ -30,7 +31,7 @@ sub answering {
         which-pgcd-algorithm => 'e',
     );
     my Pair $P = $fraction.calculate-fractions('+−');
-    $t.tprint: "\n";
+    
     $fraction.nudepair1 = $P.key => $P.value;
     $fraction.nudepair2 = 1 => 1;
     # Ne pas oublier de mettre à Nil les attributs inemployés
@@ -38,6 +39,7 @@ sub answering {
     # On réduit cette fois la dernière fraction
     $fraction.reduce-last-one = True;
     $P = $fraction.calculate-fractions('+');
+
     $t.tprint: "\n";
     $t.tput: q/Pour faire les calculs en une seule passe :/;
     $t.tput: q|84/84 − 36/84 + 35/84 + 16/84 = 99/84 = 33/28.|;

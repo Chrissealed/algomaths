@@ -2,8 +2,15 @@ unit module Method03;
 
 use v6;
 
+use teeput;
+
+class T does Teeput::Tput {}
+my $t = T.new(
+    writefile => True,
+);
+    
 sub put-up-method is export(:methodwording) {
-    say qq:to/EOM/;
+    my Str $message = qq:to/EOM/;
 # Chapitre II : NOMBRES RELATIFS EN ÉCRITURE FRACTIONNAIRE : OPÉRATIONS.
 ###################################################################################
 # Méthode 3.
@@ -17,6 +24,9 @@ sub put-up-method is export(:methodwording) {
 ###################################################################################
 
 EOM
+    $t.filepath = 'output/method3.txt';
+    $t.filemode = ':x'; # :mode<wo>, :create, :exclusive
+    $t.tput($message);
 }
 
 sub show-examples is export(:examples) {
@@ -24,53 +34,77 @@ sub show-examples is export(:examples) {
 }
 
 sub exercise_01 is export(:exe01) {
-    say '# Exercice 1.';
-    say '# ----------';
-    say '# Dans un cocktail avec trois agrumes les sept douzièmes sont de l\'orange,';
-    say '# un quart du pamplemousse et le reste du citron.';
-    say '# Quelle est la proportion de citron ?';
-    say '-----------------------------------------------------------------------------------'
+    $t.filepath = 'output/m0301.txt';
+    $t.filemode = ':w'; # :mode<wo>, :create, :truncate
+    $t.tput: '# Exercice 1.';
+    $t.filemode = ':a'; # :mode<wo>, :create, :append
+    $t.closefile = False;
+    $t.tput: '# ----------';
+    $t.tput: '# Dans un cocktail avec trois agrumes les sept douzièmes sont de l\'orange,';
+    $t.tput: '# un quart du pamplemousse et le reste du citron.';
+    $t.tput: '# Quelle est la proportion de citron ?';
+    $t.tput: '-----------------------------------------------------------------------------------';
 }
 
 sub exercise_02 is export(:exe02) {
-    say '# Exercice 2.';
-    say '# ----------';
-    say '# Antoine doit payer sa voiture en trois versements : un septième du prix au départ,';
-    say '# les deux cinquièmes trois mois plus tard et le reste au bout de six mois.';
-    say '# Quelle fraction du prix total représente le dernier versement ?';
-    say '-----------------------------------------------------------------------------------'
+    $t.filepath = 'output/m0302.txt';
+    $t.filemode = ':w'; # :mode<wo>, :create, :truncate
+    $t.tput: '# Exercice 2.';
+    $t.filemode = ':a'; # :mode<wo>, :create, :append
+    $t.closefile = False;
+    $t.tput: '# ----------';
+    $t.tput: '# Antoine doit payer sa voiture en trois versements : un septième du prix au départ,';
+    $t.tput: '# les deux cinquièmes trois mois plus tard et le reste au bout de six mois.';
+    $t.tput: '# Quelle fraction du prix total représente le dernier versement ?';
+    $t.tput: '-----------------------------------------------------------------------------------';
 }
 
 sub exercise_03 is export(:exe03) {
-    say '# Exercice 3.';
-    say '# ----------';
-    say '# Pierre a mangé un tiers de pizza, Paul un sixième et Louis un quart.';
-    say '# Quelle fraction reste-t-il pour Jules ?';
-    say '-----------------------------------------------------------------------------------'
+    $t.filepath = 'output/m0303.txt';
+    $t.filemode = ':w'; # :mode<wo>, :create, :truncate
+    $t.tput: '# Exercice 3.';
+    $t.filemode = ':a'; # :mode<wo>, :create, :append
+    $t.closefile = False;
+    $t.tput: '# ----------';
+    $t.tput: '# Pierre a mangé un tiers de pizza, Paul un sixième et Louis un quart.';
+    $t.tput: '# Quelle fraction reste-t-il pour Jules ?';
+    $t.tput: '-----------------------------------------------------------------------------------';
 }
 
 sub exercise_04 is export(:exe04) {
-    say '# Exercice 4.';
-    say '# ----------';
-    say '# Un cultivateur a utilisé un tiers de la surface de son champ pour planter du blé';
-    say '# et la moitié pour planter du maïs.';
-    say '# Quelle fraction de la surface de son champ lui reste-t-il à planter ?';
-    say '-----------------------------------------------------------------------------------'
+    $t.filepath = 'output/m0304.txt';
+    $t.filemode = ':w'; # :mode<wo>, :create, :truncate
+    $t.tput: '# Exercice 4.';
+    $t.filemode = ':a'; # :mode<wo>, :create, :append
+    $t.closefile = False;
+    $t.tput: '# ----------';
+    $t.tput: '# Un cultivateur a utilisé un tiers de la surface de son champ pour planter du blé';
+    $t.tput: '# et la moitié pour planter du maïs.';
+    $t.tput: '# Quelle fraction de la surface de son champ lui reste-t-il à planter ?';
+    $t.tput: '-----------------------------------------------------------------------------------';
 }
 
 sub exercise_05 is export(:exe05) {
-    say '# Exercice 5.';
-    say '# ----------';
-    say '# Sophie a ramassé des cerises. Elle a pris les deux tiers de la récolte pour faire';
-    say '# des confitures et un cinquième pour faire une tarte.';
-    say '# Quelle fraction de sa récolte lui reste-t-il pour manger en dessert ?';
-    say '-----------------------------------------------------------------------------------'
+    $t.filepath = 'output/m0305.txt';
+    $t.filemode = ':w'; # :mode<wo>, :create, :truncate
+    $t.tput: '# Exercice 5.';
+    $t.filemode = ':a'; # :mode<wo>, :create, :append
+    $t.closefile = False;
+    $t.tput: '# ----------';
+    $t.tput: '# Sophie a ramassé des cerises. Elle a pris les deux tiers de la récolte pour faire';
+    $t.tput: '# des confitures et un cinquième pour faire une tarte.';
+    $t.tput: '# Quelle fraction de sa récolte lui reste-t-il pour manger en dessert ?';
+    $t.tput: '-----------------------------------------------------------------------------------';
 }
 
 sub exercise_06 is export(:exe06) {
-    say '# Exercice 6.';
-    say '# ----------';
-    say '# Zoé et Léo achètent un gâteau. Zoé en mange les quatre quinzièmes et Léo le tiers.';
-    say '# Quelle fraction du gâteau reste-t-il ?';
-    say '-----------------------------------------------------------------------------------'
+    $t.filepath = 'output/m0306.txt';
+    $t.filemode = ':w'; # :mode<wo>, :create, :truncate
+    $t.tput: '# Exercice 6.';
+    $t.filemode = ':a'; # :mode<wo>, :create, :append
+    $t.closefile = False;
+    $t.tput: '# ----------';
+    $t.tput: '# Zoé et Léo achètent un gâteau. Zoé en mange les quatre quinzièmes et Léo le tiers.';
+    $t.tput: '# Quelle fraction du gâteau reste-t-il ?';
+    $t.tput: '-----------------------------------------------------------------------------------';
 }

@@ -3,6 +3,7 @@
 # O = 1 − 3/7 + 5/12 + 4/21.
 -----------------------------------------------------------------------------------
 Le nombre 1 est équivalent à la fraction 1/1.
+Les fractions 5/12, 4/21 et 3/7 sont irréductibles.
 On cherche le PPCM de 12 et 21 :
 − Utilisation de l'algorithme d'Euclide −
 PGCD(21 ; 12) = PGCD(12 ; 9)
@@ -30,7 +31,6 @@ on effectue les calculs :
 
 on soustrait les numérateurs et on garde le dénominateur commun :
 15/84.
-
 
 On cherche le PPCM de 84 et 1 :
 84 et 1 n'ont pas de diviseurs communs autre que 1;

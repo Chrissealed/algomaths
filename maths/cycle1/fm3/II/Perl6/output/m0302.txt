@@ -1,0 +1,79 @@
+# Exercice 2.
+# ----------
+# Antoine doit payer sa voiture en trois versements : un septième du prix au départ,
+# les deux cinquièmes trois mois plus tard et le reste au bout de six mois.
+# Quelle fraction du prix total représente le dernier versement ?
+-----------------------------------------------------------------------------------
+Les fractions 1/7 et 2/5 sont irréductibles.
+On cherche le PPCM de 7 et 5 :
+− Utilisation de l'algorithme de factorisation en facteurs premiers −
+Facteurs premiers de 7 :
+7	=>	1
+7 est un nombre premier!
+Il n'admet que 1 et lui-même comme diviseurs.
+1 × 7.
+Facteurs premiers de 5 :
+5	=>	1
+5 est un nombre premier!
+Il n'admet que 1 et lui-même comme diviseurs.
+1 × 5.
+Facteurs communs à 7 et 5 : 
+pas de facteurs communs.
+7 et 5 n'ont pas de diviseurs communs autre que 1.
+Le PGCD de 7 et 5 est égal à 1;
+le PPCM de 7 et 5 est donc leur produit : 35.
+1/7 + 2/5 = 1×5/7×5 + 2×7/5×7;
+on effectue les calculs :
+1/7 + 2/5 = 5/35 + 14/35;
+
+on ajoute les numérateurs et on garde le dénominateur commun :
+19/35.
+
+On simplifie la dernière fraction obtenue :
+− Utilisation de l'algorithme de factorisation en facteurs premiers −
+Facteurs premiers de 19 :
+19	=>	1
+19 est un nombre premier!
+Il n'admet que 1 et lui-même comme diviseurs.
+1 × 19.
+Facteurs premiers de 35 :
+35	=>	5
+7	=>	7
+5 × 7
+Facteurs communs à 19 et 35 : 
+pas de facteurs communs.
+19 et 35 n'ont pas de diviseurs communs autre que 1.
+19 et 35 sont premiers entre eux!
+La fraction 19/35 est irréductible.
+Antoine a payé 19/35 du prix total de l'automobile avant le dernier versement.
+
+On cherche le PPCM de 1 et 35 :
+1 et 35 n'ont pas de diviseurs communs autre que 1;
+le PPCM de 1 et 35 est donc leur produit : 35.
+1/1 − 19/35 = 1×35/1×35 − 19×1/35×1;
+on effectue les calculs :
+1/1 − 19/35 = 35/35 − 19/35;
+
+on soustrait les numérateurs et on garde le dénominateur commun :
+16/35.
+
+On simplifie la dernière fraction obtenue :
+− Utilisation de l'algorithme de factorisation en facteurs premiers −
+Facteurs premiers de 16 :
+16	=>	2
+8	=>	2
+4	=>	2
+2	=>	2
+2 × 2 × 2 × 2
+2^4
+Facteurs premiers de 35 :
+35	=>	5
+7	=>	7
+5 × 7
+Facteurs communs à 16 et 35 : 
+pas de facteurs communs.
+16 et 35 n'ont pas de diviseurs communs autre que 1.
+16 et 35 sont premiers entre eux!
+La fraction 16/35 est irréductible.
+Le dernier versement représente 16/35 du prix total.
+

@@ -3,6 +3,9 @@ unit module ppcm;
 use v6;
 
 =begin pod
+=NAME class PPCM
+=AUTHOR Christian Béloscar
+=VERSION 1.0
 =for head1
 Ce module contient une classe : PPCM qui dispose du rôle 'PrimeFactors'
 et qui utilise les classes ArePrime et PGCD.

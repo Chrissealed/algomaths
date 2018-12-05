@@ -2,26 +2,33 @@
 
 use v6;
 use corrective;
+use teeput;
 use method03 :methodwording, :exe04, :examples;
 use operations-on-fractions;
 
 sub answering {
+    class T does Tput {}
+    my $t = T.new(
+        filepath => 'output/m0304.txt',
+        filemode => ':a',
+        writefile => True,
+        closefile => False,
+    );
+    $t.tput: 'Les fractions 1/3 et 1/2 sont irréductibles.';
+    
     my $fraction = OperationsOnFractions.new(
-        numerator1 => 1,
-        denominator1 => 3,
-        numerator2 => 1,
-        denominator2 => 2,
-        reduce-fraction2 => False,
+        t => $t,
+        nudepair1 => 1 => 3,
+        nudepair2 => 1 => 2,
         which-ppcm-algorithm => 'bm',
         which-irreducible-fraction-algorithm => 'f',
         which-pgcd-algorithm => '×',
     );
     my Pair $P = $fraction.calculate-fractions('+');
-    say();
-    $fraction.numerator1 = 1;
-    $fraction.denominator1 = 1;
-    $fraction.numerator2 = $P.key;
-    $fraction.denominator2 = $P.value;
+
+    $t.tprint: "\n";
+    $fraction.nudepair1 = 1 => 1;
+    $fraction.nudepair2 = $P.key => $P.value;
     $P = $fraction.calculate-fractions('−');
     say "Il reste au cultivateur {$P.key}/{$P.value} de la surface de son champ à planter.";
 }
