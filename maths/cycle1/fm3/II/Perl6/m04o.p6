@@ -2,19 +2,27 @@
 
 use v6;
 use corrective;
+use teeput;
 use method04 :methodwording, :exe-o, :examples;
 use operations-on-fractions;
 
 sub answering {
+    class T does Tput {}
+    my $t = T.new(
+        filepath => 'output/m04o.txt',
+        filemode => ':a',
+        writefile => True,
+        closefile => False,
+    );
+    $t.tput: 'Les fractions 1/10, 1/20 et 1/30 sont irréductibles.';
+    
     my $fraction = OperationsOnFractions.new(
-        numerator1 => 1,
-        denominator1 => 10,
+        t => $t,
+        nudepair1 => 1 => 10,
         #breakdown-factors1 => True,
-        numerator2 => 1,
-        denominator2 => 20,
+        nudepair2 => 1 => 20,
         #breakdown-factors2 => True,
-        numerator3 => 1,
-        denominator3 => 30,
+        nudepair3 => 1 => 30,
         #breakdown-factors3 => True,
         breakdown'factors => True,
         reduce-last-one => False,
@@ -22,6 +30,9 @@ sub answering {
         which-pgcd-algorithm => '#',
     );
     my Pair $P = $fraction.calculate-fractions('×');
+
+    $t.closefile = True;
+    $t.tput: '';
 }
 
 exercise_o();

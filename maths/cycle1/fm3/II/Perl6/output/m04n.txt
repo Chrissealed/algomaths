@@ -1,0 +1,27 @@
+# Exercice. Calculer.
+# ------------------
+# N = −5/7 × 2/3 × 7/−10.
+-----------------------------------------------------------------------------------
+Les fractions −5/7, 2/3 et 7/−10 sont irréductibles.
+Signe du produit de -5/7 par 2/3 et 7/-10 : +.
+On multiplie les numérateurs de chaque fraction puis les dénominateurs :
+Facteurs premiers de 7 :
+7	=>	1
+7 est un nombre premier!
+Il n'admet que 1 et lui-même comme diviseurs.
+1 × 7.
+Facteurs premiers obtenus pour -5 2 7 : 2 5 7;
+
+Facteurs premiers de -10 :
+-5	=>	5
+-10	=>	2
+5 × 2
+Facteurs premiers obtenus pour 7 3 -10 : 2 3 5 7;
+
+Réduction des facteurs du numérateur :
+facteurs réduits résultants de 2 5 7 : .
+Réduction des facteurs du dénominateur :
+facteurs réduits résultants de 2 3 5 7 : 3.
+Fraction résultante : 1/3.
+
+

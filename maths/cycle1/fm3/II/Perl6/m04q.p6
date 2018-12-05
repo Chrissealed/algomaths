@@ -2,23 +2,36 @@
 
 use v6;
 use corrective;
+use teeput;
 use method04 :methodwording, :exe-q, :examples;
 use operations-on-fractions;
 
 sub answering {
+    class T does Tput {}
+    my $t = T.new(
+        filepath => 'output/m04q.txt',
+        filemode => ':a',
+        writefile => True,
+        closefile => False,
+    );
+    $t.tput: 'La fraction 2/3 est irréductible.';
+    
     my $fraction = OperationsOnFractions.new(
-        numerator1 => -5,
-        denominator1 => 7,
+        t => $t,
+        nudepair1 => 2 => 3,
         #breakdown-factors1 => True,
-        numerator2 => -5,
-        denominator2 => 7,
+        nudepair2 => 2 => 3,
         #breakdown-factors2 => True,
+        nudepair3 => 2 => 3,
         breakdown'factors => False,
         reduce-last-one => False,
         which-irreducible-fraction-algorithm => '−',
         which-pgcd-algorithm => '#',
     );
     my Pair $P = $fraction.calculate-fractions('×');
+
+    $t.closefile = True;
+    $t.tput: '';
 }
 
 exercise_q();

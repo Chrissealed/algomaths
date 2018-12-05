@@ -1,0 +1,27 @@
+# Exercice. Calculer.
+# ------------------
+# M = 13/−7 × 2/91.
+-----------------------------------------------------------------------------------
+Les fractions 13/−7 et 2/91 sont irréductibles.
+Signe du produit de 13/-7 par 2/91 : −.
+On multiplie les numérateurs de chaque fraction puis les dénominateurs :
+Facteurs premiers de 2 :
+2	=>	1
+2 est un nombre premier!
+Il n'admet que 1 et lui-même comme diviseurs.
+1 × 2.
+Facteurs premiers obtenus pour 13 2 : 2 13;
+
+Facteurs premiers de 91 :
+91	=>	7
+13	=>	13
+7 × 13
+Facteurs premiers obtenus pour -7 91 : 7 7 13;
+
+Réduction des facteurs du numérateur :
+facteurs réduits résultants de 2 13 : 2.
+Réduction des facteurs du dénominateur :
+facteurs réduits résultants de 7 7 13 : 7 7.
+Fraction résultante : -2/49.
+
+

@@ -590,13 +590,13 @@ Consultez aussi la documentation du module B<prime-factors.pm6>.
             when 1 {
                 $!t.tput: "Réduction des facteurs du numérateur :";
                 # Méthode du rôle PrimeFactors
-                my Int @n = $.reduce-fractions-prime-factors(@array1, @array2, 1);
+                my Int @n = |$.reduce-fractions-prime-factors(@array1, @array2, 1);
                 $!t.tput: "facteurs réduits résultants de @array1[] : @n[].";
                 return @n;
             }
             when 2 {
                 $!t.tput: "Réduction des facteurs du dénominateur :";
-                my Int @d = $.reduce-fractions-prime-factors(@array1, @array2, 2);
+                my Int @d = |$.reduce-fractions-prime-factors(@array1, @array2, 2);
                 $!t.tput: "facteurs réduits résultants de @array2[] : @d[].";
                 return @d;
             }
@@ -605,7 +605,7 @@ Consultez aussi la documentation du module B<prime-factors.pm6>.
 
 =begin pod
 =for head2
-fractions-product-sign(Pair $p1, Pair $p2, Pair $p3? --> Str) {}
+fractions-product-sign(Pair:D $p1, Pair $p2:D, Pair $p3? --> Str:D) {}
 
 Cette méthode est utilisée pour déduire le signe du résultat
 du produit des fractions passées en arguments aux attributs
@@ -614,7 +614,7 @@ facultativement B<nudepair3> avant d'effectuer les calculs.
 Elle retourne '+' ou '−'.
 =end pod
 
-    method fractions-product-sign(Pair:D $p1, Pair:D $p2, Pair:D $p3? --> Str:D) {
+    method fractions-product-sign(Pair:D $p1, Pair:D $p2, Pair $p3? --> Str:D) {
         my Int $n1 = $p1.key;
         my Int $n2 = $p2.key;
         my Int $d1 = $p1.value;
@@ -649,7 +649,7 @@ Elle retourne '+' ou '−'.
 
 =begin pod
 =for head2
-multiply(Pair:D $pair1, Pair:D $pair2, Pair:D $pair3? --> Pair:D) {}
+multiply(Pair:D $pair1, Pair:D $pair2, Pair $pair3? --> Pair:D) {}
 
 Cette méthode est utilisée pour multiplier deux ou trois
 fractions données en arguments sous forme de paires
@@ -658,7 +658,7 @@ B<nudepair1>, B<nudepair2> et facultativement B<nudepair3>.
 Elle renvoie une nouvelle B<paire> en valeur de retour.
 =end pod
 
-    method multiply(Pair:D $pair1, Pair:D $pair2, Pair:D $pair3? --> Pair:D) {
+    method multiply(Pair:D $pair1, Pair:D $pair2, Pair $pair3? --> Pair:D) {
         my Int $n1 = $pair1.key;
         my Int $n2 = $pair2.key;
         my Int $d1 = $pair1.value;
@@ -707,12 +707,12 @@ Elle renvoie une nouvelle B<paire> en valeur de retour.
                 push @a, $n3;
                 push @b, $d3;
             }
-            @a = $!breakdown'factors(@a);
-            @b = $!breakdown'factors(@b);
+            @a = |$.breakdown-factors(@a);
+            @b = |$.breakdown-factors(@b);
             if ($!compute'prime'factors) {
-                @prime-factors1 = $.compute-prime-factors(@a, @b, 1);
+                @prime-factors1 = |$.compute-prime-factors(@a, @b, 1);
                 $numerator = [*] @prime-factors1;
-                @prime-factors2 = $.compute-prime-factors(@a, @b, 2);
+                @prime-factors2 = |$.compute-prime-factors(@a, @b, 2);
                 $denominator = [*] @prime-factors2;
             }
         }
@@ -722,9 +722,9 @@ Elle renvoie une nouvelle B<paire> en valeur de retour.
             push @b, $d1, $d2;
             if defined($pair3) { push @b, $d3; };
             if ($!compute'prime'factors) {
-                @prime-factors1 = $.compute-prime-factors(@a, @b, 1);
+                @prime-factors1 = |$.compute-prime-factors(@a, @b, 1);
                 $numerator = [*] @prime-factors1;
-                @prime-factors2 = $.compute-prime-factors(@a, @b, 2);
+                @prime-factors2 = |$.compute-prime-factors(@a, @b, 2);
                 $denominator = [*] @prime-factors2;
             } else {
                 $numerator = [*] @a;
@@ -736,10 +736,11 @@ Elle renvoie une nouvelle B<paire> en valeur de retour.
         my Pair $P;
         if ($!reduce-last-one) {
             $!t.tput: 'On simplifie la dernière fraction obtenue :';
-            $P = self.reduce-fraction($numerator, $denominator, $sign);
-            if $P.key == (1 || -1) && $P.value == (1 || -1) {
-                $!t.tput: "Fraction résolue : {$P.key div $P.value}.";
-            }
+            $P = $.reduce-fraction($numerator, $denominator, $sign);
+            # Ceci est dans le module irreducible-fraction :
+            #if $P.key == (1 || -1) && $P.value == (1 || -1) {
+            #    $!t.tput: "Fraction résolue : {$P.key div $P.value}.";
+            #}
         } else {
             $P = Int($sign ~ $numerator) => $denominator;
         }

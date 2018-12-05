@@ -2,19 +2,31 @@
 
 use v6;
 use corrective;
+use teeput;
 use method04 :methodwording, :exe-i, :examples;
 use operations-on-fractions;
 
 sub answering {
+    class T does Tput {}
+    my $t = T.new(
+        filepath => 'output/m04i.txt',
+        filemode => ':a',
+        writefile => True,
+        closefile => False,
+    );
+    $t.tput: 'Les fractions −16/33 et −9/20 sont irréductibles.';
+    
     my $fraction = OperationsOnFractions.new(
-        numerator1 => -16,
-        denominator1 => 33,
-        numerator2 => -9,
-        denominator2 => 20,
+        t => $t,
+        nudepair1 => -16 => 33,
+        nudepair2 => -9 => 20,
         which-irreducible-fraction-algorithm => '*',
         which-pgcd-algorithm => ':',
     );
     my Pair $P = $fraction.calculate-fractions('*');
+
+    $t.closefile = True;
+    $t.tput: '';
 }
 
 exercise_i();

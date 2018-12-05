@@ -2,21 +2,31 @@
 
 use v6;
 use corrective;
+use teeput;
 use method04 :methodwording, :exe-k, :examples;
 use operations-on-fractions;
 
 sub answering {
+    class T does Tput {}
+    my $t = T.new(
+        filepath => 'output/m04k.txt',
+        filemode => ':a',
+        writefile => True,
+        closefile => False,
+    );
+    $t.tput: 'Les fractions −35/44 et −22/15 sont irréductibles.';
+    
     my $fraction = OperationsOnFractions.new(
-        numerator1 => -35,
-        denominator1 => 44,
-        reduce-fraction1 => True,
-        numerator2 => -22,
-        denominator2 => 15,
-        reduce-fraction2 => True,
+        t => $t,
+        nudepair1 => -35 => 44,
+        nudepair2 => -22 => 15,
         which-irreducible-fraction-algorithm => '÷',
         which-pgcd-algorithm => ':',
     );
     my Pair $P = $fraction.calculate-fractions('*');
+
+    $t.closefile = True;
+    $t.tput: '';
 }
 
 exercise_k();

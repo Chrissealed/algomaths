@@ -1,0 +1,14 @@
+# Exercice. Calculer.
+# ------------------
+# Q = 2/3 × 2/3 × 2/3.
+-----------------------------------------------------------------------------------
+La fraction 2/3 est irréductible.
+Signe du produit de 2/3 par 2/3 et 2/3 : +.
+On multiplie les numérateurs de chaque fraction puis les dénominateurs :
+Réduction des facteurs du numérateur :
+facteurs réduits résultants de 2 2 2 : 2 2 2.
+Réduction des facteurs du dénominateur :
+facteurs réduits résultants de 3 3 3 : 3 3 3.
+Fraction résultante : 8/27.
+
+

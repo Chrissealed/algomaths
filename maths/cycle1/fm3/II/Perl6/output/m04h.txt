@@ -1,0 +1,29 @@
+# Exercice. Calculer.
+# ------------------
+# H = – −5/7 × 2/−13 × 7/−3.
+-----------------------------------------------------------------------------------
+Les fractions 5/7, 2/−13 et 7/−3 sont irréductibles.
+Signe du produit de 5/7 par 2/-13 et 7/-3 : +.
+On multiplie les numérateurs de chaque fraction puis les dénominateurs :
+Réduction des facteurs du numérateur :
+facteurs réduits résultants de 5 2 7 : 5 2.
+Réduction des facteurs du dénominateur :
+facteurs réduits résultants de 7 -13 -3 : 13 3.
+Fraction résultante : 10/39.
+
+On simplifie la dernière fraction obtenue :
+− Utilisation de l'algorithme de factorisation en facteurs premiers −
+Facteurs premiers de 10 :
+10	=>	2
+5	=>	5
+2 × 5
+Facteurs premiers de 39 :
+39	=>	3
+13	=>	13
+3 × 13
+Facteurs communs à 10 et 39 : 
+pas de facteurs communs.
+10 et 39 n'ont pas de diviseurs communs autre que 1.
+10 et 39 sont premiers entre eux!
+La fraction 10/39 est irréductible.
+

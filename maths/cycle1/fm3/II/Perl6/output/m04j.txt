@@ -1,0 +1,52 @@
+# Exercice. Calculer.
+# ------------------
+# J = 121/−120 × 210/22.
+-----------------------------------------------------------------------------------
+Les fractions 121/−120 et 210/22 sont irréductibles.
+Signe du produit de 121/-120 par 210/22 : −.
+On multiplie les numérateurs de chaque fraction puis les dénominateurs :
+Facteurs premiers de 121 :
+121	=>	11
+11	=>	11
+11 × 11
+11^2
+Facteurs premiers de 210 :
+210	=>	2
+105	=>	3
+35	=>	5
+7	=>	7
+2 × 3 × 5 × 7
+Facteurs premiers obtenus pour 121 210 : 2 3 5 7 11 11;
+
+Facteurs premiers de -120 :
+-5	=>	5
+-15	=>	3
+-30	=>	2
+-60	=>	2
+-120	=>	2
+5 × 3 × 2 × 2 × 2
+2^3 × 3 × 5
+Facteurs premiers de 22 :
+22	=>	2
+11	=>	11
+2 × 11
+Facteurs premiers obtenus pour -120 22 : 2 2 2 2 3 5 11;
+
+Réduction des facteurs du numérateur :
+facteurs réduits résultants de 2 3 5 7 11 11 : 7 11.
+Réduction des facteurs du dénominateur :
+facteurs réduits résultants de 2 2 2 2 3 5 11 : 2 2 2.
+Fraction résultante : -77/8.
+
+On simplifie la dernière fraction obtenue :
+− Utilisation de l'algorithme d'Euclide −
+PGCD(77 ; 8) = PGCD(8 ; 5)
+PGCD(8 ; 5) = PGCD(5 ; 3)
+PGCD(5 ; 3) = PGCD(3 ; 2)
+PGCD(3 ; 2) = PGCD(2 ; 1)
+Le reste de la division de 2 par 1 est nul,
+donc PGCD(77 ; 8) = 1.
+77 et 8 n'ont pas de diviseurs communs autre que 1.
+-77 et 8 sont premiers entre eux!
+La fraction -77/8 est irréductible.
+

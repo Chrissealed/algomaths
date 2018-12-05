@@ -2,13 +2,24 @@
 
 use v6;
 use corrective;
-use method04 :methodwording, :exe-t, :examples;
+use teeput;
+use method04 :methodwording, :exe-s, :examples;
 
 sub answering {
-    put '7/12 × 4π/5 = 7×4π/3×4×5 = 7π/15.';
+    class T does Tput {}
+    my $t = T.new(
+        filepath => 'output/m04s.txt',
+        filemode => ':a',
+        writefile => True,
+        closefile => False,
+    );
+    $t.tput: '1/3 × π/4 = π/12.';
+
+    $t.closefile = True;
+    $t.tput: '';
 }
 
-exercise_t();
+exercise_s();
 my Bool $boolean = do-put-up-method();
 if $boolean {
     put-up-method();

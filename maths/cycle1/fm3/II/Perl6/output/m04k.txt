@@ -1,0 +1,44 @@
+# Exercice. Calculer.
+# ------------------
+# K = (− 35/44) × (− 22/15).
+-----------------------------------------------------------------------------------
+Les fractions −35/44 et −22/15 sont irréductibles.
+Signe du produit de -35/44 par -22/15 : +.
+On multiplie les numérateurs de chaque fraction puis les dénominateurs :
+Facteurs premiers de -35 :
+-7	=>	7
+-35	=>	5
+7 × 5
+Facteurs premiers de -22 :
+-11	=>	11
+-22	=>	2
+11 × 2
+Facteurs premiers obtenus pour -35 -22 : 2 5 7 11;
+
+Facteurs premiers de 44 :
+44	=>	2
+22	=>	2
+11	=>	11
+2 × 2 × 11
+2^2 × 11
+Facteurs premiers de 15 :
+15	=>	3
+5	=>	5
+3 × 5
+Facteurs premiers obtenus pour 44 15 : 2 2 3 5 11;
+
+Réduction des facteurs du numérateur :
+facteurs réduits résultants de 2 5 7 11 : 7.
+Réduction des facteurs du dénominateur :
+facteurs réduits résultants de 2 2 3 5 11 : 2 3.
+Fraction résultante : 7/6.
+
+On simplifie la dernière fraction obtenue :
+− Utilisation de l'algorithme d'Euclide −
+PGCD(7 ; 6) = PGCD(6 ; 1)
+Le reste de la division de 6 par 1 est nul,
+donc PGCD(7 ; 6) = 1.
+7 et 6 n'ont pas de diviseurs communs autre que 1.
+7 et 6 sont premiers entre eux!
+La fraction 7/6 est irréductible.
+

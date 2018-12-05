@@ -1,0 +1,45 @@
+# Exercice. Calculer.
+# ------------------
+# O = 1/10 × 1/20 × 1/30.
+-----------------------------------------------------------------------------------
+Les fractions 1/10, 1/20 et 1/30 sont irréductibles.
+Signe du produit de 1/10 par 1/20 et 1/30 : +.
+On multiplie les numérateurs de chaque fraction puis les dénominateurs :
+Facteurs premiers de 1 :
+1	=>	1
+1 est un nombre premier!
+Il n'admet que 1 et lui-même comme diviseurs.
+Facteurs premiers de 1 :
+1	=>	1
+1 est un nombre premier!
+Il n'admet que 1 et lui-même comme diviseurs.
+Facteurs premiers de 1 :
+1	=>	1
+1 est un nombre premier!
+Il n'admet que 1 et lui-même comme diviseurs.
+Facteurs premiers obtenus pour 1 1 1 : 1 1 1;
+
+Facteurs premiers de 10 :
+10	=>	2
+5	=>	5
+2 × 5
+Facteurs premiers de 20 :
+20	=>	2
+10	=>	2
+5	=>	5
+2 × 2 × 5
+2^2 × 5
+Facteurs premiers de 30 :
+30	=>	2
+15	=>	3
+5	=>	5
+2 × 3 × 5
+Facteurs premiers obtenus pour 10 20 30 : 2 2 2 2 3 5 5 5;
+
+Réduction des facteurs du numérateur :
+facteurs réduits résultants de 1 1 1 : 1 1 1.
+Réduction des facteurs du dénominateur :
+facteurs réduits résultants de 2 2 2 2 3 5 5 5 : 2 2 2 2 3 5 5 5.
+Fraction résultante : 1/6000.
+
+

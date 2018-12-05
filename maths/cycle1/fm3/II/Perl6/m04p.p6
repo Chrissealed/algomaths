@@ -2,19 +2,27 @@
 
 use v6;
 use corrective;
+use teeput;
 use method04 :methodwording, :exe-p, :examples;
 use operations-on-fractions;
 
 sub answering {
+    class T does Tput {}
+    my $t = T.new(
+        filepath => 'output/m04p.txt',
+        filemode => ':a',
+        writefile => True,
+        closefile => False,
+    );
+    $t.tput: 'Les fractions 1/2, −1/4 et 1/8 sont irréductibles.';
+    
     my $fraction = OperationsOnFractions.new(
-        numerator1 => 2,
-        denominator1 => 3,
+        t => $t,
+        nudepair1 => 1 => 2,
         #breakdown-factors1 => True,
-        numerator2 => 2,
-        denominator2 => 3,
+        nudepair2 => -1 => 4,
         #breakdown-factors2 => True,
-        numerator3 => 2,
-        denominator3 => 3,
+        nudepair3 => 1 => 8,
         #breakdown-factors3 => True,
         breakdown'factors => False,
         reduce-last-one => True,
@@ -22,6 +30,9 @@ sub answering {
         which-pgcd-algorithm => '#',
     );
     my Pair $P = $fraction.calculate-fractions('×');
+
+    $t.closefile = True;
+    $t.tput: '';
 }
 
 exercise_p();

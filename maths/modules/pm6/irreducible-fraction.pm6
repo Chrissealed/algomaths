@@ -5,12 +5,12 @@ use v6;
 =begin pod
 =NAME class B<IrreducibleFraction>
 =AUTHOR Christian Béloscar
-=VERSION 1.0
+=VERSION 1.0.0
 =for head1
 L'objectif de ce module est de renvoyer la fraction irréductible
 de la fraction initiale dont on passe le numérateur et le dénominateur
 aux attributs I<numerator> et I<denominator>, le numérateur étant
-un entier quelconque et le dénominateur un entier différent de 0.
+un entier relatif quelconque et le dénominateur un entier différent de 0.
 
 Il y a un 3e champ facultatif B<pgcd-algorithm> du type string (Str)
 qui permet de préciser l'argument de la méthode du module B<are-prime.pm6>
@@ -74,6 +74,12 @@ class IrreducibleFraction is export {
         my Int $d = $!denominator;
         my Pair $pair;
         if ($n == 0) { $!t.tput: '0'; $pair = $n => $d; return $pair; }
+        if $n == (1 || -1) && $d == (1 || -1) {
+            $pair = $sign ~ $n => $d;
+            $!t.tput: "La fraction $sign$n/$d est irréductible.";
+            $!t.tput: "Fraction résolue : {$pair.key.Int div $pair.value}.";
+            return $pair;
+        }
         if ($n == 1 || $n == -1) {
             $pair = $sign ~ $n => $d;
             $!t.tput: "La fraction $sign$n/$d est irréductible.";
@@ -153,6 +159,12 @@ class IrreducibleFraction is export {
         my Int $d = $!denominator;
         my Pair $pair;
         if ($n == 0) { $!t.tput: '0'; $pair = $n => $d; return $pair; }
+        if $n == (1 || -1) && $d == (1 || -1) {
+            $pair = $sign ~ $n => $d;
+            $!t.tput: "La fraction $sign$n/$d est irréductible.";
+            $!t.tput: "Fraction résolue : {$pair.key.Int div $pair.value}.";
+            return $pair;
+        }
         if ($n == 1 || $n == -1) {
             $pair = $sign ~ $n => $d;
             $!t.tput: "La fraction $sign$n/$d est irréductible.";
@@ -237,6 +249,12 @@ class IrreducibleFraction is export {
         my Int $d = $!denominator;
         my Pair $pair;
         if ($n == 0) { $!t.tput: '0'; $pair = $n => $d; return $pair; }
+        if $n == (1 || -1) && $d == (1 || -1) {
+            $pair = $sign ~ $n => $d;
+            $!t.tput: "La fraction $sign$n/$d est irréductible.";
+            $!t.tput: "Fraction résolue : {$pair.key.Int div $pair.value}.";
+            return $pair;
+        }
         if ($n == 1 || $n == -1) {
             $pair = $sign ~ $n => $d;
             $!t.tput: "La fraction $sign$n/$d est irréductible.";
