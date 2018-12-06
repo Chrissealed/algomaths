@@ -1,0 +1,14 @@
+# Exercice 2.
+# ----------
+# Dans un collège en rénovation, on a décidé de changer les tables de la cantine.
+# Il y a deux cent soixante demi-pensionnaires et un seul service.
+# Combien doit-on acheter de nouvelles tables de 8 ?
+-----------------------------------------------------------------------------------
+Celà revient à se demander combien de fois y-a-t-il 8 dans 260 ?
+Soit diviser 260 par 8 :
+260 ÷ 8 = 32.
+Le reste de la division est : 260 modulo 8 = 4.
+Il faudra donc 32 tables pour servir 260 ― 4 étudiants
+plus une table pour servir 4 étudiants
+soit 33 tables afin de servir les 260 étudiants.
+

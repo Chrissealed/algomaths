@@ -1,0 +1,17 @@
+# Exercice 1.
+# ----------
+# 180 et 260 sont-ils des multiples de 15 ?
+-----------------------------------------------------------------------------------
+Existe-t-il un entier q tel que 180 = 15q ?
+180 est divisible par 15 :
+il existe un entier q tel que 15 × q = 180 : 12.
+
+Existe-t-il un entier q tel que 260 = 15q ?
+260 n'est pas le produit de 15 par un entier q :
+260 ÷ 15 = 17
+15 × 17 = 255
+15 × 17 + 1 = 270
+or 255 < 260 < 270
+et comme 17 et 17+1 sont deux entiers consécutifs,
+alors il n'existe pas d'entier q tel que 260 = 15 × q.
+

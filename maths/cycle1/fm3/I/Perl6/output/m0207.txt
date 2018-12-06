@@ -1,0 +1,9 @@
+# Exercice 7.
+# ----------
+# Une fermière a récolté 59 œufs. Pour les transporter au marché et les vendre,
+# elle les range dans des boîtes de 12. Combien lui faudra-t-il de boîtes ?
+-----------------------------------------------------------------------------------
+59 = 12 × 4 + 11.
+Il faudra 5 boîtes à la fermière pour ranger ses œufs.
+La dernière boîte contiendra 11 œufs.
+

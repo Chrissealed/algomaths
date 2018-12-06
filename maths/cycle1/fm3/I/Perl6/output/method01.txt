@@ -1,0 +1,11 @@
+# Chapitre I : ARITHMÉTIQUE.
+###################################################################################
+# Méthode 1. Comment utiliser la notion de multiple d'un entier naturel ?
+###################################################################################
+# Pour utiliser la notion de multiple d'un entier naturel:
+# ▲ on s'appuie sur la définition : a et b étant deux entiers naturels et b non nul
+# on dit que a est un multiple de b s'il existe un entier q tel que a = bq.
+# Remarque : 0 est multiple de tous les nombres.
+###################################################################################
+
+

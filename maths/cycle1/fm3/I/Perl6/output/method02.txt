@@ -1,0 +1,12 @@
+# Chapitre I : ARITHMÉTIQUE.
+###################################################################################
+# Méthode 2. Comment utiliser la division euclidienne ?
+###################################################################################
+# Pour utiliser la division euclidienne :
+# ▲ on s'appuie sur sa définition : a et b étant deux entiers naturels et b non nul,
+# effectuer la division euclidienne de a par b, c'est trouver deux entiers naturels
+# q et r tels que a = bq + r et r < b.
+# a est le dividende, b le diviseur, q le quotient et r le reste.
+###################################################################################
+
+

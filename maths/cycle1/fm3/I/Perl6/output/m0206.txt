@@ -1,0 +1,10 @@
+# Exercice 6.
+# ----------
+# Lors d'un voyage scolaire à Millau, on doit répartir 22 garçons dans des chambres
+# à 4 lits. Combien faudra-t-il au minimum de chambres pour que chacun dispose d'un
+# lit ?
+-----------------------------------------------------------------------------------
+22 = 4 × 5 + 2.
+Il faudra au minimum 6 chambres pour que chacun dispose d'un lit.
+Il restera 2 lits inoccupés dans l'une des chambres.
+

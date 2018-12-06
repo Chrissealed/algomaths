@@ -1,0 +1,9 @@
+# Exercice 8.
+# ----------
+# Un confiseur a pu réaliser 346 chocolats. Il veut les présenter pour la vente
+# dans des coffrets de 16. Combien pourra-t-il remplir de coffrets ?
+-----------------------------------------------------------------------------------
+346 = 16 × 21 + 10.
+Le confiseur pourra remplir 21 coffrets.
+Il lui restera 10 chocolats.
+

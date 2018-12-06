@@ -1,0 +1,7 @@
+# Exercice 4.
+# ----------
+# On donne un entier n. Donner deux multiples consécutifs de n.
+-----------------------------------------------------------------------------------
+4 × n et 5 × n sont deux multiples consécutifs de l'entier n.
+Plus généralement, étant donné deux entiers non nuls q1 et q2
+tels que q2 = q1 + 1, q1 × n et q2 × n sont deux multiples consécutifs de n.

@@ -1,0 +1,29 @@
+# Exercice 4.
+# ----------
+# Quelles sont, parmi les égalités suivantes, celles qui traduisent une division
+# euclidienne ? Si l'égalité convient, donner le dividende, le diviseur, le quotient
+# et le reste. Sinon expliquer pourquoi l'égalité ne convient pas.
+# a. 291 = 18 x 15 + 21; b. 102 = 6 x 16 + 6; c. 142 = 8 x 17 + 6
+-----------------------------------------------------------------------------------
+a.
+La première égalité ne traduit aucune division euclidienne
+parce que le reste est supérieur au diviseur,
+soit 21 > 18 et 21 > 15 mais cependant 18 × 15 + 21 = 741.
+b.
+Cette égalité ne traduit pas la division euclidienne de 102 par 6
+car 6 est égal au diviseur et ne peut donc pas être le reste
+d'une division euclidienne par 6.
+Cependant cette égalité traduit la division euclidienne de 102 par 16 car
+6 est inférieur à 16;
+le dividende est 102, le diviseur 16, le quotient 6 et le reste 6,
+on vérifie que 16 × 6 + 6 = 102.
+c.
+Cette égalité traduit la division euclidienne de 142 par 8 car
+6 est inférieur à 8;
+le dividende est 142, le diviseur 17, le quotient 8 et le reste 6,
+on vérifie que 8 × 17 + 6 = 142.
+Cette égalité traduit aussi la division euclidienne de 142 par 17 car
+6 est inférieur à 17;
+le dividende est 142, le diviseur 8, le quotient 17 et le reste 6,
+on vérifie que 17 × 8 + 6 = 142.
+

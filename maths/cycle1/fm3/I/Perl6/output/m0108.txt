@@ -1,0 +1,9 @@
+# Exercice 8.
+# ----------
+# 393 et 793 sont-ils des multiples de 13 ?
+-----------------------------------------------------------------------------------
+13 × 30 = 390 et 13 × 31 = 403 donc 13 × 30 < 393 < 13 × 31
+donc on ne peut pas trouver un entier q tel que 393 = 13q donc 393 n'est pas un
+multiple de 13.
+793 = 13 × 61 donc 793 est un multiple de 13.
+

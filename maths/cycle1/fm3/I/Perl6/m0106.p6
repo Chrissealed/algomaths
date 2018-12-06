@@ -2,9 +2,17 @@
 
 use v6;
 use corrective;
+use teeput;
 use method01 :methodwording, :exe06, :examples;
 
 sub answering {
+    class T does Tput {}
+    my $t = T.new(
+        filepath => 'output/m0106.txt',
+        filemode => ':a',
+        writefile => True,
+        closefile => False,
+    );
     my Int $n1 = Int(500 / 11);
     my Int $n2 = Int(500 / 17);
     my Int $m = 0;
@@ -17,12 +25,12 @@ sub answering {
             $n = $n2 * 17;
             if ($n == $m) {
                 if ($n >= 500) && ($n <= 800) {
-                    say "Le nombre $n est multiple à la fois de 11 et de 17";
-                    say "et est compris entre 500 et 800;";
+                    $t.tput: "Le nombre $n est multiple à la fois de 11 et de 17";
+                    $t.tput: "et est compris entre 500 et 800;";
                     if ($n % 2 == 0) {
-                        say "de plus $n est un nombre pair.";
+                        $t.tput: "de plus $n est un nombre pair.";
                     } else {
-                        say "mais $n est un nombre impair.";
+                        $t.tput: "mais $n est un nombre impair.";
                     }
                     # Quand un match est trouvé, continuer à la première boucle
                     # au cas où plusieurs matchs seraient possibles
@@ -35,6 +43,9 @@ sub answering {
         # Réinitialisation de n2 pour la boucle suivante
         $n2 = Int(500 / 17);
     }
+
+    $t.closefile = True;
+    $t.tput: '';
 }
 
 exercise_06();

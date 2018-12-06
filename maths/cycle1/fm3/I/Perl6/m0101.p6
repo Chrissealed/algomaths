@@ -2,38 +2,48 @@
 
 use v6;
 use corrective;
+use teeput;
 use method01 :methodwording, :exe01, :examples;
 
 sub answering {
-    say "Existe-t-il un entier q tel que 180 = 15q ?";
+    class T does Tput {}
+    my $t = T.new(
+        filepath => 'output/m0101.txt',
+        filemode => ':a',
+        writefile => True,
+        closefile => False,
+    );
+    $t.tput: "Existe-t-il un entier q tel que 180 = 15q ?";
     my Int $integer = 180;
     my Int $divisor = 15;
     my Int $q = $integer div $divisor;
     if ($integer mod $divisor == 0) {
-        say "$integer est divisible par $divisor :";
-        say "il existe un entier q tel que $divisor × q = $integer : $q.";
+        $t.tput: "$integer est divisible par $divisor :";
+        $t.tput: "il existe un entier q tel que $divisor × q = $integer : $q.";
     } else {
-        say "$integer n'est pas le produit de $divisor par un entier q.";
+        $t.tput: "$integer n'est pas le produit de $divisor par un entier q.";
     }
 
-    say "";
-    say "Existe-t-il un entier q tel que 260 = 15q ?";
+    $t.tprint: "\n";
+    $t.tput: "Existe-t-il un entier q tel que 260 = 15q ?";
     $integer = 260;
     $q = $integer div $divisor;
     my Int $m = $divisor * $q;
     my Int $n = $divisor * ($q + 1);
     if ($integer mod $divisor == 0) {
-        say "$integer est divisible par $divisor :";
-        say "il existe un entier q tel que $divisor × $q = $integer : $q.";
+        $t.tput: "$integer est divisible par $divisor :";
+        $t.tput: "il existe un entier q tel que $divisor × $q = $integer : $q.";
     } else {
-        say "$integer n'est pas le produit de $divisor par un entier q :";
-        say "$integer ÷ $divisor = $q";
-        say "$divisor × $q = $m";
-        say "$divisor × ", $q + 1, " = $n";
-        say "or $m < $integer < $n";
-        say "et comme $q et ", $q+1, " sont deux entiers consécutifs,";
-        say "alors il n'existe pas d'entier q tel que $integer = $divisor × q.";
+        $t.tput: "$integer n'est pas le produit de $divisor par un entier q :";
+        $t.tput: "$integer ÷ $divisor = $q";
+        $t.tput: "$divisor × $q = $m";
+        $t.tput: "$divisor × $q + 1 = $n";
+        $t.tput: "or $m < $integer < $n";
+        $t.tput: "et comme $q et $q+1 sont deux entiers consécutifs,";
+        $t.tput: "alors il n'existe pas d'entier q tel que $integer = $divisor × q.";
     }
+    $t.closefile = True;
+    $t.tput: '';
 }  
 
 exercise_01();

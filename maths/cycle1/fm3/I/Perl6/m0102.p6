@@ -2,19 +2,30 @@
 
 use v6;
 use corrective;
+use teeput;
 use method01 :methodwording, :exe02, :examples;
 
 sub answering {
-    my Int $q = Int(300 / 53);
+    class T does Tput {}
+    my $t = T.new(
+        filepath => 'output/m0102.txt',
+        filemode => ':a',
+        writefile => True,
+        closefile => False,
+    );
+    my Int $q = Int(300 div 53);
     my Int $m = $q * 53;
-    say "Le produit de $q par 53 = $m";
-    say "Les multiples de 53 compris entre 300 et 500 sont :";
+    $t.tput: "Le produit de $q par 53 = $m";
+    $t.tput: "Les multiples de 53 compris entre 300 et 500 sont :";
     loop {
         $q += 1;
         $m = $q * 53;
         last if $m >= 500;
-        say "$q × 53 = $m";
+        $t.tput: "$q × 53 = $m";
     }
+
+    $t.closefile = True;
+    $t.tput: '';
 }
 
 exercise_02();

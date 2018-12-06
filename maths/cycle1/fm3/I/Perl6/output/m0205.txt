@@ -1,0 +1,10 @@
+# Exercice 5.
+# ----------
+# On distribue 52 cartes à jouer à trois personnes qui reçoivent chacune le même
+# nombre de cartes. Combien de cartes recevra au maximum chaque personne ?
+# Combien de cartes restera-t-il ?
+-----------------------------------------------------------------------------------
+52 = 3 × 17 + 1.
+Chaque joueur se verra attribuer au maximum 17 cartes.
+Il restera 1 carte.
+

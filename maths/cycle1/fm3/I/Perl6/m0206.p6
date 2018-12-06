@@ -2,24 +2,35 @@
 
 use v6;
 use corrective;
+use teeput;
 use method02 :methodwording, :exe06, :examples;
 
 sub answering {
+    class T does Tput {}
+    my $t = T.new(
+        filepath => 'output/m0206.txt',
+        filemode => ':a',
+        writefile => True,
+        closefile => False,
+    );
     my Int $boys = 22;
     my Int $beds = 4;
     my Int $bedrooms = Int($boys / $beds);
     my Int $remainder = $boys % $beds;
     my Int $empty_beds = $beds - $remainder;
-    say "$boys = $beds × $bedrooms + $remainder.";
+    $t.tput: "$boys = $beds × $bedrooms + $remainder.";
     if ($remainder > 0) {
-        say "Il faudra au minimum ", $bedrooms + 1, " chambres pour que chacun dispose d'un lit.";
-        print "Il restera $empty_beds ";
-        print ($empty_beds > 1) ?? 'lits inoccupés' !! 'lit inoccupé';
-        say " dans l'une des chambres.";
+        $t.tput: "Il faudra au minimum {$bedrooms + 1} chambres pour que chacun dispose d'un lit.";
+        $t.tprint: "Il restera $empty_beds ";
+        $t.tprint: ($empty_beds > 1) ?? 'lits inoccupés' !! 'lit inoccupé';
+        $t.tput: " dans l'une des chambres.";
     }
     else {
-        say "Il faudra exactement $bedrooms chambres pour répartir les $boys garçons.";
+        $t.tput: "Il faudra exactement $bedrooms chambres pour répartir les $boys garçons.";
     }
+
+    $t.closefile = True;
+    $t.tput: '';
 }
 
 exercise_06();

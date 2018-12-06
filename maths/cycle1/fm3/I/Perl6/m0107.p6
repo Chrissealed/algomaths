@@ -2,10 +2,18 @@
 
 use v6;
 use corrective;
+use teeput;
 use method01 :methodwording, :exe07, :examples;
 
 sub answering {
-    say 'a.';
+    class T does Tput {}
+    my $t = T.new(
+        filepath => 'output/m0107.txt',
+        filemode => ':a',
+        writefile => True,
+        closefile => False,
+    );
+    $t.tput: 'a.';
     my Int $i = 2;
     my Int $j = 2;
     my Bool $flag = False;
@@ -16,7 +24,7 @@ sub answering {
         while (13 * $j < 150) {
             $n = 13 * $j;
             if $n == $m {
-                say "Le nombre $n > 0 et < 150  est à la fois multiple de 11 et de 13 : $n = 11 × $i et 13 × $j.";
+                $t.tput: "Le nombre $n > 0 et < 150  est à la fois multiple de 11 et de 13 : $n = 11 × $i et 13 × $j.";
                 $flag = True;
                 $j += 1;
                 last;
@@ -27,9 +35,9 @@ sub answering {
         # Réinitialisation de j pour la boucle suivante;
         $j = 2;
     }
-    say "Pas de multiple commun à 11 et 13 compris entre 0 et 150!" if !$flag;
+    $t.tput: "Pas de multiple commun à 11 et 13 compris entre 0 et 150!" if !$flag;
 ;
-    say 'b.';
+    $t.tput: 'b.';
     $i = 2;
     $j = 2;
     $flag = False;
@@ -40,7 +48,7 @@ sub answering {
         while (15 * $j < 150) {
             $n = 15 * $j;
             if ($n == $m) {
-                say "Le nombre $n > 0 et < 150  est à la fois multiple de 11 et de 15 : $n = 11 × $i et 15 × $j";
+                $t.tput: "Le nombre $n > 0 et < 150  est à la fois multiple de 11 et de 15 : $n = 11 × $i et 15 × $j";
                 $flag = True;
                 $j += 1;
                 last;
@@ -51,7 +59,10 @@ sub answering {
         # Réinitialisation de j pour la boucle suivante;
         $j = 2;
     }
-    say "Pas de multiple commun à 11 et 15 compris entre 0 et 150!" if !$flag;
+    $t.tput: "Pas de multiple commun à 11 et 15 compris entre 0 et 150!" if !$flag;
+
+    $t.closefile = True;
+    $t.tput: '';
 }
 
 exercise_07();

@@ -1,0 +1,19 @@
+# Exercice 6.
+# ----------
+# Trouver un nombre pair compris entre 500 et 800 qui soit multiple à la fois de
+# 11 et de 17.
+-----------------------------------------------------------------------------------
+Si un nombre est multiple à la fois de 11 et de 17 qui n'ont pas de diviseur
+commun autre que 1, alors il est nécessairement multiple de leur produit 187
+(11 × 17 = 187).
+On a :
+187 × 2 = 374
+On a :
+187 × 3 = 561
+561 est un multiple à la fois de 11 et de 17 compris entre 500 et 800;
+mais 561 est un nombre impair.
+On a :
+187 × 4 = 748
+748 est un multiple à la fois de 11 et de 17 compris entre 500 et 800;
+et 748 est un nombre pair.
+

@@ -1,0 +1,11 @@
+# Exercice 2.
+# ----------
+# Trouver les multiples de 53 compris entre 300 et 500.
+-----------------------------------------------------------------------------------
+Le produit de 5 par 53 = 265
+Les multiples de 53 compris entre 300 et 500 sont :
+6 × 53 = 318
+7 × 53 = 371
+8 × 53 = 424
+9 × 53 = 477
+

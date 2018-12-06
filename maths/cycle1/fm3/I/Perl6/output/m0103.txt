@@ -1,0 +1,18 @@
+# Exercice 3.
+# ----------
+# a. 36 et 42 sont-ils des multiples consécutifs de 6 ?
+# b. 42 et 56 sont-ils des multiples consécutifs de 7 ?
+-----------------------------------------------------------------------------------
+a.
+36 et 42 sont des multiples consécutifs de 6 :
+36 = 6 × 6
+42 = 6 × 7
+b.
+42 et 56 ne sont pas des multiples consécutifs de 7 :
+en effet 6 × 7 = 42
+et 8 × 7 = 56
+or la différence entre 8 et 6 est 2
+il existe donc un entier intermédiaire multiple de 7 :
+7 × 7 = 49
+et donc 42 < 49 < 56.
+

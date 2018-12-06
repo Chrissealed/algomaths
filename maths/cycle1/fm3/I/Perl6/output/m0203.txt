@@ -1,0 +1,7 @@
+# Exercice 3.
+# ----------
+# Dans une division euclidienne, le quotient est 19, le reste est 4 et le
+# diviseur 6. Quel est le dividende ?
+-----------------------------------------------------------------------------------
+Le dividende est donc 6 × 19 + 4 = 118.
+

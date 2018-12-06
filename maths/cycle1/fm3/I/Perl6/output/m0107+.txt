@@ -1,0 +1,11 @@
+a.
+Si un nombre est multiple à la fois de 11 et de 13 qui n'ont pas de diviseur commun
+autre que 1, alors il est nécessairement multiple de leur produit 143 (11 × 13 = 143),
+or 143 est inférieur à 150 il répond à la question. On peut trouver un nombre non nul
+inférieur à 150 multiple à la fois de 11 et de 13, c'est 143.
+b.
+Si un nombre est multiple à la fois de 11 et de 15 qui n'ont pas de diviseur commun
+autre que 1, alors il est nécessairement multiple de leur produit 165 (11 × 15 = 165),
+or 165 est supérieur à 150, on ne peut donc pas trouver un nombre non nul inférieur à 150
+multiple à la fois de 11 et de 15.
+

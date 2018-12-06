@@ -1,0 +1,13 @@
+D'après la définition de la division euclidienne on a :
+a ÷ 7 = 23 + r et r < 7. Le reste est strictement inférieur au diviseur 7
+donc les restes possibles sont r = 0, 1, 2, 3, 4, 5 ou 6.
+
+On calcule le dividende a pour tous les restes possibles :
+r = 0, alors a = 23 × 7 + 0 d'où a = 161
+r = 1, alors a = 23 × 7 + 1 d'où a = 162
+r = 2, alors a = 23 × 7 + 2 d'où a = 163
+r = 3, alors a = 23 × 7 + 3 d'où a = 164
+r = 4, alors a = 23 × 7 + 4 d'où a = 165
+r = 5, alors a = 23 × 7 + 5 d'où a = 166
+r = 6, alors a = 23 × 7 + 6 d'où a = 167
+

@@ -2,23 +2,34 @@
 
 use v6;
 use corrective;
+use teeput;
 use method02 :methodwording, :exe07, :examples;
 
 sub answering {
+    class T does Tput {}
+    my $t = T.new(
+        filepath => 'output/m0207.txt',
+        filemode => ':a',
+        writefile => True,
+        closefile => False,
+    );
     my Int $eggs = 59;
     my Int $capacity = 12;
     my Int $boxes = Int($eggs / $capacity);
     my Int $remainder = $eggs % $capacity;
 
-    say "$eggs = $capacity × $boxes + $remainder.";
+    $t.tput: "$eggs = $capacity × $boxes + $remainder.";
     if ($remainder > 0) {
-        say "Il faudra ", $boxes + 1, " boîtes à la fermière pour ranger ses œufs.";
-        print "La dernière boîte contiendra $remainder ";
-        say ($remainder > 1) ?? 'œufs.' !! 'œuf.';
+        $t.tput: "Il faudra {$boxes + 1} boîtes à la fermière pour ranger ses œufs.";
+        $t.tprint: "La dernière boîte contiendra $remainder ";
+        $t.tput: ($remainder > 1) ?? 'œufs.' !! 'œuf.';
     }
     else {
-        say "Les œufs seront contenus exactement dans $boxes boîtes.";
+        $t.tput: "Les œufs seront contenus exactement dans $boxes boîtes.";
     }
+
+    $t.closefile = True;
+    $t.tput: '';
 }
 
 exercise_07();

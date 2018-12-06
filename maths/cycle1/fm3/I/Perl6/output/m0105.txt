@@ -1,0 +1,14 @@
+# Exercice 5.
+# ----------
+# Démontrer que la somme de trois multiples consécutifs de 5 est un multiple de 15.
+-----------------------------------------------------------------------------------
+Trois multiples consécutifs de 5 s'écrivent :
+5(n-1), 5n et 5(n+1) où n est un entier différent de 0
+or 5(n-1) + 5n + 5(n+1) = 5n - 5 + 5n + 5n + 5 = 15n.
+La somme de trois multiples consécutifs  de 5 peut donc s'écrire 15n,
+produit de 15 par un entier.
+La somme de trois multiples consécutifs de 5 est donc bien un multiple de 15.
+Prenons un exemple :
+5 × 3 + 5 × 4 + 5 × 5 = 60
+et 4 × 15 = 60
+
