@@ -1,0 +1,18 @@
+# Exercice 2.
+# ----------
+# Donner la liste des diviseurs de 36.
+# Quelle est la parité du nombre de diviseurs ? Pourquoi ?
+-----------------------------------------------------------------------------------
+1 est un diviseur de 36 : 36 = 1 × 36
+2 est un diviseur de 36 : 36 = 2 × 18
+3 est un diviseur de 36 : 36 = 3 × 12
+4 est un diviseur de 36 : 36 = 4 × 9
+6 est un diviseur de 36 : 36 = 6 × 6
+9 est un diviseur de 36 : 36 = 9 × 4
+12 est un diviseur de 36 : 36 = 12 × 3
+18 est un diviseur de 36 : 36 = 18 × 2
+36 est un diviseur de 36 : 36 = 36 × 1
+36 est un carré parfait! : 6 × 6
+1 2 3 4 6 9 12 18 36
+On remarque que le nombre de diviseurs est impair puisque nous avons un carré parfait.
+

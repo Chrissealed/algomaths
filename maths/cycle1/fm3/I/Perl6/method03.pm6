@@ -2,9 +2,21 @@ unit module Method03;
 
 use v6;
 
+=begin pod
+=NAME module B<Method03>
+=AUTHOR Christian Béloscar
+=VERSION 0.1.119
+=end pod
+
+use teeput;
+
+class T does Teeput::Tput {}
+my $t = T.new(
+    writefile => True,
+);
+    
 sub put-up-method is export(:methodwording) {
-    say q:to/EOM/;
-###################################################################################
+    my Str $message = q:to/EOM/;
 # Chapitre I : ARITHMÉTIQUE.
 ###################################################################################
 # Méthode 3. Comment établir la liste des diviseurs d'un entier non nul ?
@@ -24,6 +36,9 @@ sub put-up-method is export(:methodwording) {
 ###################################################################################
 
 EOM
+    $t.filepath = 'output/method03.txt';
+    $t.filemode = ':x'; # :mode<wo>, :create, :exclusive
+    $t.tput($message);
 }
 
 sub show-examples is export(:examples) {
@@ -31,74 +46,171 @@ sub show-examples is export(:examples) {
 }
 
 sub exercise_01 is export(:exe01) {
-    say '# Exercice 1.';
-    say '# ----------';
-    say '# Donner la liste des diviseurs de 108.';
-    say '-----------------------------------------------------------------------------------';
+    $t.filepath = 'output/m0301.txt';
+    $t.filemode = ':w'; # :mode<wo>, :create, :truncate
+    $t.tput: '# Exercice 1.';
+    $t.filemode = ':a'; # :mode<wo>, :create, :append
+    $t.closefile = False;
+    $t.tput: '# ----------';
+    $t.tput: '# Donner la liste des diviseurs de 108.';
+    $t.tput: '-----------------------------------------------------------------------------------';
+}
+
+sub exercise_01b is export(:exe01b) {
+    $t.filepath = 'output/m0301+.txt';
+    $t.filemode = ':w'; # :mode<wo>, :create, :truncate
+    $t.tput: '# Exercice 1+.';
+    $t.filemode = ':a'; # :mode<wo>, :create, :append
+    $t.closefile = False;
+    $t.tput: '# ----------';
+    $t.tput: '# Donner la liste des diviseurs de 108.';
+    $t.tput: '-----------------------------------------------------------------------------------';
 }
 
 sub exercise_02 is export(:exe02) {
-    say '# Exercice 2.';
-    say '# ----------';
-    say '# Donner la liste des diviseurs de 36.';
-    say '# Quelle est la parité du nombre de diviseurs ? Pourquoi ?';
-    say '-----------------------------------------------------------------------------------';
+    $t.filepath = 'output/m0302.txt';
+    $t.filemode = ':w'; # :mode<wo>, :create, :truncate
+    $t.tput: '# Exercice 2.';
+    $t.filemode = ':a'; # :mode<wo>, :create, :append
+    $t.closefile = False;
+    $t.tput: '# ----------';
+    $t.tput: '# Donner la liste des diviseurs de 36.';
+    $t.tput: '# Quelle est la parité du nombre de diviseurs ? Pourquoi ?';
+    $t.tput: '-----------------------------------------------------------------------------------';
+}
+
+sub exercise_02b is export(:exe02b) {
+    $t.filepath = 'output/m0302+.txt';
+    $t.filemode = ':w'; # :mode<wo>, :create, :truncate
+    $t.tput: '# Exercice 2+.';
+    $t.filemode = ':a'; # :mode<wo>, :create, :append
+    $t.closefile = False;
+    $t.tput: '# ----------';
+    $t.tput: '# Donner la liste des diviseurs de 36.';
+    $t.tput: '# Quelle est la parité du nombre de diviseurs ? Pourquoi ?';
+    $t.tput: '-----------------------------------------------------------------------------------';
 }
 
 sub exercise_03 is export(:exe03) {
-    say '# Exercice 3.';
-    say '# ----------';
-    say '# Donner la liste des diviseurs de 257. Que remarque-t-on ?';
-    say '-----------------------------------------------------------------------------------';
+    $t.filepath = 'output/m0303.txt';
+    $t.filemode = ':w'; # :mode<wo>, :create, :truncate
+    $t.tput: '# Exercice 3.';
+    $t.filemode = ':a'; # :mode<wo>, :create, :append
+    $t.closefile = False;
+    $t.tput: '# ----------';
+    $t.tput: '# Donner la liste des diviseurs de 257. Que remarque-t-on ?';
+    $t.tput: '-----------------------------------------------------------------------------------';
+}
+
+sub exercise_03b is export(:exe03b) {
+    $t.filepath = 'output/m0303+.txt';
+    $t.filemode = ':w'; # :mode<wo>, :create, :truncate
+    $t.tput: '# Exercice 3+.';
+    $t.filemode = ':a'; # :mode<wo>, :create, :append
+    $t.closefile = False;
+    $t.tput: '# ----------';
+    $t.tput: '# Donner la liste des diviseurs de 257. Que remarque-t-on ?';
+    $t.tput: '-----------------------------------------------------------------------------------';
 }
 
 sub exercise_04 is export(:exe04) {
-    say '# Exercice 4.';
-    say '# ----------';
-    say '# Donner la liste des diviseurs de 300.';
-    say '-----------------------------------------------------------------------------------';
+    $t.filepath = 'output/m0304.txt';
+    $t.filemode = ':w'; # :mode<wo>, :create, :truncate
+    $t.tput: '# Exercice 4.';
+    $t.filemode = ':a'; # :mode<wo>, :create, :append
+    $t.closefile = False;
+    $t.tput: '# ----------';
+    $t.tput: '# Donner la liste des diviseurs de 300.';
+    $t.tput: '-----------------------------------------------------------------------------------';
 }
 
 sub exercise_04b is export(:exe04b) {
-    say '# Exercice 4b.';
-    say '# -----------';
-    say '# Donner la liste des diviseurs d\'un entier non nul (saisie utilisateur).';
-    say '# (ex: 108, 36, 257, 300...).';
-    say '-----------------------------------------------------------------------------------'
+    $t.filepath = 'output/m0304+.txt';
+    $t.filemode = ':w'; # :mode<wo>, :create, :truncate
+    $t.closefile = False;
+    $t.tput: '# Exercice 4+.';
+    $t.filemode = ':a'; # :mode<wo>, :create, :append
+    $t.closefile = False;
+    $t.tput: '# -----------';
+    $t.tput: '# Donner la liste des diviseurs d\'un entier non nul (saisie utilisateur).';
+    $t.tput: '# (ex: 108, 36, 257, 300...).';
+    $t.tput: '-----------------------------------------------------------------------------------'
+}
+
+sub exercise_04c is export(:exe04c) {
+    $t.filepath = 'output/m0304++.txt';
+    $t.filemode = ':w'; # :mode<wo>, :create, :truncate
+    $t.closefile = False;
+    $t.tput: '# Exercice 4++.';
+    $t.filemode = ':a'; # :mode<wo>, :create, :append
+    $t.closefile = False;
+    $t.tput: '# -----------';
+    $t.tput: '# Donner la liste des diviseurs d\'un entier non nul (saisie utilisateur).';
+    $t.tput: '# (ex: 108, 36, 257, 300...).';
+    $t.tput: '-----------------------------------------------------------------------------------'
 }
 
 sub exercise_05 is export(:exe05) {
-    say '# Exercice 5.';
-    say '# ----------';
-    say '# On veut répartir 32 élèves pour un travail en plusieurs groupes comprenant chacun';
-    say '# le même nombre d\'élèves. Donner toutes les possibilités sachant que chaque groupe';
-    say '# est constitué de plusieurs élèves.';
-    say '-----------------------------------------------------------------------------------';
+    $t.filepath = 'output/m0305.txt';
+    $t.filemode = ':w'; # :mode<wo>, :create, :truncate
+    $t.tput: '# Exercice 5.';
+    $t.filemode = ':a'; # :mode<wo>, :create, :append
+    $t.closefile = False;
+    $t.tput: '# ----------';
+    $t.tput: '# On veut répartir 32 élèves pour un travail en plusieurs groupes comprenant chacun';
+    $t.tput: '# le même nombre d\'élèves. Donner toutes les possibilités sachant que chaque groupe';
+    $t.tput: '# est constitué de plusieurs élèves.';
+    $t.tput: '-----------------------------------------------------------------------------------';
 }
 
 sub exercise_05b is export(:exe05b) {
-    say '# Exercice 5b.';
-    say '# -----------';
-    say '# On veut répartir x élèves pour un travail en plusieurs groupes comprenant chacun';
-    say '# le même nombre d\'élèves. Donner toutes les possibilités sachant que chaque groupe';
-    say '# est constitué de plusieurs élèves (saisie utilisateur de x).';
-    say '-----------------------------------------------------------------------------------';
+    $t.filepath = 'output/m0305+.txt';
+    $t.filemode = ':w'; # :mode<wo>, :create, :truncate
+    $t.tput: '# Exercice 5+.';
+    $t.filemode = ':a'; # :mode<wo>, :create, :append
+    $t.closefile = False;
+    $t.tput: '# -----------';
+    $t.tput: '# On veut répartir x élèves pour un travail en plusieurs groupes comprenant chacun';
+    $t.tput: '# le même nombre d\'élèves. Donner toutes les possibilités sachant que chaque groupe';
+    $t.tput: '# est constitué de plusieurs élèves (saisie utilisateur de x).';
+    $t.tput: '-----------------------------------------------------------------------------------';
+}
+
+sub exercise_05c is export(:exe05c) {
+    $t.filepath = 'output/m0305++.txt';
+    $t.filemode = ':w'; # :mode<wo>, :create, :truncate
+    $t.tput: '# Exercice 5++.';
+    $t.filemode = ':a'; # :mode<wo>, :create, :append
+    $t.closefile = False;
+    $t.tput: '# -----------';
+    $t.tput: '# On veut répartir x élèves pour un travail en plusieurs groupes comprenant chacun';
+    $t.tput: '# le même nombre d\'élèves. Donner toutes les possibilités sachant que chaque groupe';
+    $t.tput: '# est constitué de plusieurs élèves (saisie utilisateur de x).';
+    $t.tput: '-----------------------------------------------------------------------------------';
 }
 
 sub exercise_06 is export(:exe06) {
-    say '# Exercice 6.';
-    say '# ----------';
-    say '# a. Donner la liste des diviseurs de 72.';
-    say '# b. Donner la liste des diviseurs de 84.';
-    say '# c. Donner la liste des diviseurs communs de 72 et de 84.';
-    say '-----------------------------------------------------------------------------------';
+    $t.filepath = 'output/m0306.txt';
+    $t.filemode = ':w'; # :mode<wo>, :create, :truncate
+    $t.tput: '# Exercice 6.';
+    $t.filemode = ':a'; # :mode<wo>, :create, :append
+    $t.closefile = False;
+    $t.tput: '# ----------';
+    $t.tput: '# a. Donner la liste des diviseurs de 72.';
+    $t.tput: '# b. Donner la liste des diviseurs de 84.';
+    $t.tput: '# c. Donner la liste des diviseurs communs de 72 et de 84.';
+    $t.tput: '-----------------------------------------------------------------------------------';
 }
 
 sub exercise_06b is export(:exe06b) {
-    say '# Exercice 6b.';
-    say '# -----------';
-    say '# a. Donner la liste des diviseurs de n1. (saisie utilisateur)';
-    say '# b. Donner la liste des diviseurs de n2. (saisie utilisateur)';
-    say '# c. Donner la liste des diviseurs communs de n1 et de n2.';
-    say '-----------------------------------------------------------------------------------';
+    $t.filepath = 'output/m0306+.txt';
+    $t.filemode = ':w'; # :mode<wo>, :create, :truncate
+    $t.tput: '# Exercice 6+.';
+    $t.filemode = ':a'; # :mode<wo>, :create, :append
+    $t.closefile = False;
+    $t.tput: '# -----------';
+    $t.tput: '# a. Donner la liste des diviseurs de n1. (saisie utilisateur)';
+    $t.tput: '# b. Donner la liste des diviseurs de n2. (saisie utilisateur)';
+    $t.tput: '# c. Donner la liste des diviseurs communs de n1 et de n2.';
+    $t.tput: '-----------------------------------------------------------------------------------';
 }

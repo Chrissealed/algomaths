@@ -5,7 +5,7 @@ use v6;
 =begin pod
 =NAME class B<ArePrime>
 =AUTHOR Christian Béloscar
-=VERSION 1.0
+=VERSION 0.1.119
 
 =for head1
 Cette classe est destinée à dire si deux entiers relatifs

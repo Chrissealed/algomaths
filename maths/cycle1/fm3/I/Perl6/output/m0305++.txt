@@ -1,0 +1,38 @@
+# Exercice 5++.
+# -----------
+# On veut répartir x élèves pour un travail en plusieurs groupes comprenant chacun
+# le même nombre d'élèves. Donner toutes les possibilités sachant que chaque groupe
+# est constitué de plusieurs élèves (saisie utilisateur de x).
+-----------------------------------------------------------------------------------
+1	<=>	750
+2	<=>	375
+3	<=>	250
+5	<=>	150
+6	<=>	125
+10	<=>	75
+15	<=>	50
+25	<=>	30
+
+Les possibilités sont :
+2 groupes de 375 élèves.
+3 groupes de 250 élèves.
+5 groupes de 150 élèves.
+6 groupes de 125 élèves.
+10 groupes de 75 élèves.
+15 groupes de 50 élèves.
+25 groupes de 30 élèves.
+30 groupes de 25 élèves.
+50 groupes de 15 élèves.
+75 groupes de 10 élèves.
+125 groupes de 6 élèves.
+150 groupes de 5 élèves.
+250 groupes de 3 élèves.
+375 groupes de 2 élèves.
+
+1	<=>	254
+2	<=>	127
+
+Les possibilités sont :
+2 groupes de 127 élèves.
+127 groupes de 2 élèves.
+

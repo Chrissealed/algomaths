@@ -5,7 +5,7 @@ use v6;
 =begin pod
 =NAME class PGCD
 =AUTHOR Christian Béloscar
-=VERSION 1.0
+=VERSION 0.1.119
 
 =for head1
 Ce module contient la classe PGCD qui dispose du rôle 'PrimeFactors'.

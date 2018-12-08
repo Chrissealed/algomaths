@@ -3,25 +3,37 @@ unit module Integer-divisors-listing-array;
 use v6;
 
 =begin pod
+=NAME class B<IntegerDivisorsListingA>
+=AUTHOR Christian Béloscar
+=VERSION 0.1.119
 =head1 Cette classe est destinée à établir la liste des diviseurs d'un entier naturel non nul.
-Elle contient deux méthodes, l'une publique : 'list-divisors(Int $integer where {$integer > 0})' 
+
+Elle contient deux méthodes, l'une publique : B<list-divisors(Int $integer where> {$integer > 0})' 
 qui prend en argument un entier supérieur à 0 dont on souhaite établir la liste des diviseurs
 et renvoie un tableau des diviseurs trouvés, et l'autre privée
 destinée à l'affichage d'informations.
-Elle utilise le module 'usual-divisibility-criteria.pm6' pour calculer la divisibilité
+
+Elle utilise le module B<usual-divisibility-criteria.pm6> pour calculer la divisibilité
 des nombres 2, 3, 4, 5, 9, (10, 100, 1000, etc.), 11 et 25
 en utilisant les critères de divisibilité les plus usuels (voir la doc du fichier
-'usual-divisibility-criteria').
-Pour les autres nombres, elle utilise l'opérateur modulo (mod) ou %%.
-Il existe deux autres modules implémentant l'algorithme de ce module avec un Hash.
-Le premier 'integer-divisors-listing-hash.pm6' qui renvoie systématiquement une hash,
-et le second 'integer-divisors-listing.pm6' qui renvoie au choix un hash ou un tableau.
-Ce dernier peut dans tous les cas remplacer ce module.
+B<usual-divisibility-criteria.pm6>).
+Pour les autres nombres, elle utilise l'opérateur B<modulo> (mod) ou %%.
+Il existe deux autres modules implémentant l'algorithme de ce module avec un B<Hash>.
+Le premier B<integer-divisors-listing-hash.pm6> qui renvoie systématiquement une hash,
+et le second B<integer-divisors-listing.pm6> qui renvoie au choix un hash ou un tableau.
+
+Ce dernier peut dans tous les cas remplacer chacun des deux modules.
+
+L'autre attribut requis cette fois et en lecture écriture est un objet
+de type B<Teeput::Tput>.
+Consultez la doc du module B<teeput.pm6> pour plus de détails.
 =end pod
 
 use usual-divisibility-criteria;
+use teeput;
 
 class IntegerDivisorsListingA does UsualDivisibilityCriteria is export {
+    has Teeput::Tput $.t is required is rw;
 
     method list-divisors(Int $integer where {$integer > 0}) {
         my Int $n = $integer;
@@ -288,7 +300,7 @@ class IntegerDivisorsListingA does UsualDivisibilityCriteria is export {
             @array = @array.unique(:with(&[==]));
         }
         for @array -> $elem {
-            say "$elem est un diviseur de $integer : $integer = $elem × ", @array[@array.end-$z];
+            $!t.tput: "$elem est un diviseur de $integer : $integer = $elem × {@array[@array.end-$z]}";
             $z++;
         }
         #say @array;
@@ -296,11 +308,11 @@ class IntegerDivisorsListingA does UsualDivisibilityCriteria is export {
         # sauf si ce nombre est un carré parfait
         #if (@array.elems mod 2 != 0) {
         if $perfectsquare > 0 {
-            say "$integer est un carré parfait! : $perfectsquare × $perfectsquare";
+            $!t.tput: "$integer est un carré parfait! : $perfectsquare × $perfectsquare";
         }
         # Un nombre premier est divisible par 1 et par lui même
         if (@array.elems == 2) {
-            say "$integer est un nombre premier!";
+            $!t.tput: "$integer est un nombre premier!";
         }
         return @array;
     }

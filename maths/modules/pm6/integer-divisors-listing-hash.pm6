@@ -2,27 +2,39 @@ unit module Integer-divisors-listing-hash;
 
 use v6;
 
+use teeput;
+
 =begin pod
-=head1 Ce module contient une classe : 'IntegerDivisorsListingH'
-destinée à établir la liste des diviseurs d'un entier relatif non nul.
-Elle contient deux méthodes, l'une publique : 'list-divisors(Int $integer where {$integer != 0})' 
+=NAME class B<IntegerDivisorsListingH>
+=AUTHOR Christian Béloscar
+=VERSION 0.1.119
+=head1 Cette classe est destinée à établir la liste des diviseurs d'un entier naturel non nul.
+
+Elle contient deux méthodes, l'une publique : B<list-divisors(Int $integer where {$integer != 0})> 
 et l'autre privée destinée à l'affichage d'informations.
-Elle utilise le module 'usual-divisibility-criteria.pm6' pour calculer la divisibilité
+Elle utilise le module B<usual-divisibility-criteria.pm6> pour calculer la divisibilité
 des nombres 2, 3, 4, 5, 9, (10, 100, 1000, etc.), 11 et 25
 en utilisant les critères de divisibilité les plus usuels (voir la doc du fichier
-'usual-divisibility-criteria.pm6').
+B<usual-divisibility-criteria.pm6>).
+
 Pour les autres nombres, elle utilise l'opérateur modulo (mod) ou %%.
-Contrairement au module du fichier 'integer-divisors-listing-array.pm6'
+Contrairement au module du fichier B<integer-divisors-listing-array.pm6>
 implémenté par l'emploi de tableau, et qui renvoie un tableau,
 celui-ci est implémenté par l'emploi de hash et renvoie un hash.
-Le module 'integer-divisors-listing.pm6' permet quant à lui de renvoyer
+Le module B<integer-divisors-listing.pm6> permet quant à lui de renvoyer
 au choix un tableau ou un hash selon l'argument donné au constructeur
-(cf. doc du fichier 'integer-divisors-listing.pm6').
+(cf. doc du fichier B<integer-divisors-listing.pm6>).
+
+L'autre attribut requis cette fois et en lecture écriture est un objet
+de type B<Teeput::Tput>.
+Consultez la doc du module B<teeput.pm6> pour plus de détails.
 =end pod
 
 use usual-divisibility-criteria;
+use teeput;
 
 class IntegerDivisorsListingH does UsualDivisibilityCriteria is export {
+    has Teeput::Tput $.t is required is rw;
 
     method list-divisors(Int $integer where {$integer != 0}) {
         my Int $n = abs($integer);
@@ -289,7 +301,7 @@ class IntegerDivisorsListingH does UsualDivisibilityCriteria is export {
     }
 
     method !display(Int $integer, Int $perfectsquare, %hash) {
-        my %reverse-hash;
+        my %reverse-hash{Int};
         my %my-hash;
         my @a;
         my @b;
@@ -311,17 +323,17 @@ class IntegerDivisorsListingH does UsualDivisibilityCriteria is export {
         # Hyper method call operator. Will call a method on all elements of a List out of order
         # and return the list of return values in order
         for %hash.sort(*.key.Int)>>.kv -> ($k, $v) {
-            "$k\t<=>\t$v".say;
+            $!t.tput: "$k\t<=>\t$v";
         }
         # Le nombre de diviseurs d'un entier non nul est pair
         # sauf si ce nombre est un carré parfait
         #if (@array.elems mod 2 != 0) {
         if $perfectsquare > 0 {
-            say "$integer est un carré parfait! : $perfectsquare × $perfectsquare";
+            $!t.tput: "$integer est un carré parfait! : $perfectsquare × $perfectsquare";
         }
         # Un nombre premier est divisible par 1 et par lui même
         if @array.elems == 2 {
-            say "$integer est un nombre premier!";
+            $!t.tput: "$integer est un nombre premier!";
         }
         push %hash, %reverse-hash;
         for %hash -> $pair {

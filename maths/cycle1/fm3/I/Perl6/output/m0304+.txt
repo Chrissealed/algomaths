@@ -1,0 +1,23 @@
+# Exercice 4+.
+# -----------
+# Donner la liste des diviseurs d'un entier non nul (saisie utilisateur).
+# (ex: 108, 36, 257, 300...).
+-----------------------------------------------------------------------------------
+1 est un diviseur de 456 : 456 = 1 × 456
+2 est un diviseur de 456 : 456 = 2 × 228
+3 est un diviseur de 456 : 456 = 3 × 152
+4 est un diviseur de 456 : 456 = 4 × 114
+6 est un diviseur de 456 : 456 = 6 × 76
+8 est un diviseur de 456 : 456 = 8 × 57
+12 est un diviseur de 456 : 456 = 12 × 38
+19 est un diviseur de 456 : 456 = 19 × 24
+24 est un diviseur de 456 : 456 = 24 × 19
+38 est un diviseur de 456 : 456 = 38 × 12
+57 est un diviseur de 456 : 456 = 57 × 8
+76 est un diviseur de 456 : 456 = 76 × 6
+114 est un diviseur de 456 : 456 = 114 × 4
+152 est un diviseur de 456 : 456 = 152 × 3
+228 est un diviseur de 456 : 456 = 228 × 2
+456 est un diviseur de 456 : 456 = 456 × 1
+1 2 3 4 6 8 12 19 24 38 57 76 114 152 228 456
+

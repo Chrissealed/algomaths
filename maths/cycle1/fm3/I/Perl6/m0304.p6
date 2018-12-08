@@ -2,14 +2,26 @@
 
 use v6;
 use corrective;
+use teeput;
 use method03 :methodwording, :exe04, :examples;
 use integer-divisors-listing-array;
 
 sub answering {
-    my $divisors-listing = IntegerDivisorsListingA.new;
-    my @a;
-    @a = $divisors-listing.list-divisors(300);
-    say @a;
+    class T does Tput {}
+    my $t = T.new(
+        filepath => 'output/m0304.txt',
+        filemode => ':a',
+        writefile => True,
+        closefile => False,
+    );
+    my $divisors-listing = IntegerDivisorsListingA.new(
+        t => $t,
+    );
+    my @a = $divisors-listing.list-divisors(300);
+    $t.tput: "@a[]".perl;
+
+    $t.closefile = True;
+    $t.tput: '';
 }
 
 exercise_04();

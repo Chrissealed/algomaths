@@ -1,0 +1,24 @@
+# Exercice 4.
+# ----------
+# Donner la liste des diviseurs de 300.
+-----------------------------------------------------------------------------------
+1 est un diviseur de 300 : 300 = 1 × 300
+2 est un diviseur de 300 : 300 = 2 × 150
+3 est un diviseur de 300 : 300 = 3 × 100
+4 est un diviseur de 300 : 300 = 4 × 75
+5 est un diviseur de 300 : 300 = 5 × 60
+6 est un diviseur de 300 : 300 = 6 × 50
+10 est un diviseur de 300 : 300 = 10 × 30
+12 est un diviseur de 300 : 300 = 12 × 25
+15 est un diviseur de 300 : 300 = 15 × 20
+20 est un diviseur de 300 : 300 = 20 × 15
+25 est un diviseur de 300 : 300 = 25 × 12
+30 est un diviseur de 300 : 300 = 30 × 10
+50 est un diviseur de 300 : 300 = 50 × 6
+60 est un diviseur de 300 : 300 = 60 × 5
+75 est un diviseur de 300 : 300 = 75 × 4
+100 est un diviseur de 300 : 300 = 100 × 3
+150 est un diviseur de 300 : 300 = 150 × 2
+300 est un diviseur de 300 : 300 = 300 × 1
+"1 2 3 4 5 6 10 12 15 20 25 30 50 60 75 100 150 300"
+

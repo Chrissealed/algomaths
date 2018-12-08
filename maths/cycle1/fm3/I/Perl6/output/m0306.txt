@@ -1,0 +1,23 @@
+# Exercice 6.
+# ----------
+# a. Donner la liste des diviseurs de 72.
+# b. Donner la liste des diviseurs de 84.
+# c. Donner la liste des diviseurs communs de 72 et de 84.
+-----------------------------------------------------------------------------------
+Diviseurs de 72 :
+1	<=>	72
+2	<=>	36
+3	<=>	24
+4	<=>	18
+6	<=>	12
+8	<=>	9
+Diviseurs de 84 :
+1	<=>	84
+2	<=>	42
+3	<=>	28
+4	<=>	21
+6	<=>	14
+7	<=>	12
+Les diviseurs communs à 72 et 84 sont :
+1 2 3 4 6 12
+

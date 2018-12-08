@@ -3,9 +3,9 @@ unit module Teeput;
 use v6;
 
 =begin pod
-=NAME rôle Teeput::Tput
+=NAME rôle B<Teeput::Tput>
 =AUTHOR Christian Béloscar
-=VERSION 1.0
+=VERSION 0.1.119
 
 =for header1
 Le rôle Teeput::Tput est utilisé afin d'écrire les informations
@@ -19,10 +19,8 @@ dans lesquels il est implémenté par composition plutôt que par
 la directive B<does Tput>.
 Il est requis pour chacun de ces fichiers et en mode B<rw>.
 
-Il contient quatre attributs, deux de type B<Str> 
-et deux de type B<Bool>.
-Chacun de ces attributs possède une valeur par défaut
-et sont en lecture/écriture (rw) :
+Il possède les attributs suivants qui possèdent
+chacun une valeur par défaut et sont en lecture/écriture :
 =item B<filepath> contient le chemin d'accès au fichier texte
 qui répliquera les informations, c'est à dire par défaut
 filepath => output/out.txt.
@@ -49,17 +47,25 @@ Notez que le mode B<:x> n'écrit qu'une fois dans un fichier
 de sorte que si vous voulez le mettre à jour,
 il faudra d'abord supprimer ce fichier pour qu'il soit recréé.
 
-Le rôle possède deux méthodes qui correspondent pour l'une
-à la méthode B<put> et pour l'autre à méthode B<print>,
-la différence entre les deux étant que la première
-ajoute un caractère de fin de ligne, tandis que
-la deuxième demeure sur la ligne attendant l'instruction
-d'écriture suivante.
+Le rôle possède trois méthodes qui correspondent pour l'une
+à la méthode B<put>, pour l'autre à méthode B<print> et
+enfin la dernière à la méthode B<say>,
+la différence entre les trois étant que la première
+et la dernière ajoutent un caractère de fin de ligne,
+tandis que la deuxième demeure sur la ligne attendant l'instruction
+d'écriture suivante et que chacune formate différemment leur argument.
 
-Ce sont :
+Les arguments applicables aux trois méthodes sont définis
+selon la jonction B<$param-one-junction = Str:D ^ Array:D ^ Hash:D>;
+autrement dit vous avez le choix pour chaque méthode
+de passer un argument de type B<Str>, B<Array> ou B<Hash>.
+
+Ces trois méthodes renvoient un Booléen selon la réussite
+ou pas de l'appel; voici la signature de ces méthodes :
 =for head2
-tput(Str:D $string --> Bool:D) {}
-tprint(Str:D $string --> Bool:D) {}
+tput($param-one-junction --> Bool:D) {}
+tprint($param-one-junction --> Bool:D) {}
+tsay($param-one-junction --> Bool:D) {}
 =end pod
 
 role Tput is export {
@@ -69,15 +75,18 @@ role Tput is export {
     has Bool $.writefile is rw = False;
     # Utilisé uniquement pour le mode :a
     has Bool $.closefile is rw = True;
-
-    method tput(Str:D $string --> Bool:D) {
+    my $param-one-junction = Str:D ^ Array:D ^ Hash:D;
+    #method tput(Str:D $string --> Bool:D) {
+    method tput($param-one-junction --> Bool:D) {
         # :mode<wo>, :create, :exclusive
         if ($!filemode eq ':x') {
             try {
-                put $string;
+                #put $string;
+                put $param-one-junction;
                 if $!writefile {
                     my $fh = open :x, $!filepath;
-                    $fh.put: $string;
+                    #$fh.put: $string;
+                    $fh.put: $param-one-junction;
                     $fh.close;
                 }
                 # Check for existence
@@ -91,10 +100,12 @@ role Tput is export {
         # :mode<wo>, :create, :truncate
         } elsif ($!filemode eq ':w') {
             try {
-                put $string;
+                #put $string;
+                put $param-one-junction;
                 if $!writefile {
                     my $fh = open :w, $!filepath;
-                    $fh.put: $string;
+                    #$fh.put: $string;
+                    $fh.put: $param-one-junction;
                     $fh.close;
                 }
                 # Check for existence
@@ -108,10 +119,12 @@ role Tput is export {
         # :mode<wo>, :create, :append   
         } elsif ($!filemode eq ':a') {
             try {
-                put $string;
+                #put $string;
+                put $param-one-junction;
                 if $!writefile {
                     my $fh = open :a, $!filepath;
-                    $fh.put: $string;
+                    #$fh.put: $string;
+                    $fh.put: $param-one-junction;
                     $fh.close if $!closefile;
                 }
                 # Check for existence
@@ -123,20 +136,23 @@ role Tput is export {
                 }
             }
         } else {
-            put $string;
+            #put $string;
+            put $param-one-junction;
             return False;
         }
         return True;
     }
 
-    method tprint(Str:D $string --> Bool:D) {
+    method tprint($param-one-junction --> Bool:D) {
         # :mode<wo>, :create, :exclusive
         if ($!filemode eq ':x') {
             try {
-                print $string;
+                #print $string;
+                print $param-one-junction;
                 if $!writefile {
                     my $fh = open :x, $!filepath;
-                    $fh.tprint: $string;
+                    #$fh.tprint: $string;
+                    $fh.tprint: $param-one-junction;
                     $fh.close;
                 }
                 # Check for existence
@@ -150,10 +166,12 @@ role Tput is export {
         # :mode<wo>, :create, :truncate
         } elsif ($!filemode eq ':w') {
             try {
-                print $string;
+                #print $string;
+                print $param-one-junction;
                 if $!writefile {
                     my $fh = open :w, $!filepath;
-                    $fh.print: $string;
+                    #$fh.print: $string;
+                    $fh.print: $param-one-junction;
                     $fh.close;
                 }
                 # Check for existence
@@ -167,10 +185,12 @@ role Tput is export {
         # :mode<wo>, :create, :append   
         } elsif ($!filemode eq ':a') {
             try {
-                print $string;
+                #print $string;
+                print $param-one-junction;
                 if $!writefile {
                     my $fh = open :a, $!filepath;
-                    $fh.print: $string;
+                    #$fh.print: $string;
+                    $fh.print: $param-one-junction;
                     $fh.close if $!closefile;
                 }
                 # Check for existence
@@ -182,9 +202,77 @@ role Tput is export {
                 }
             }
         } else {
-            print $string;
+            #print $string;
+            print $param-one-junction;
             return False;
         }
         return True;
     }
+
+    method tsay($param-one-junction --> Bool:D) {
+        # :mode<wo>, :create, :exclusive
+        if ($!filemode eq ':x') {
+            try {
+                #say $string;
+                say $param-one-junction;
+                if $!writefile {
+                    my $fh = open :x, $!filepath;
+                    #$fh.say: $string;
+                    $fh.say: $param-one-junction;
+                    $fh.close;
+                }
+                # Check for existence
+                if $!filepath.IO.e {
+                    ;
+                } else {
+                    put "Ecriture dans $!filepath en mode $!filemode impossible!";
+                    return False;
+                }
+            }
+        # :mode<wo>, :create, :truncate
+        } elsif ($!filemode eq ':w') {
+            try {
+                #say $string;
+                say $param-one-junction;
+                if $!writefile {
+                    my $fh = open :w, $!filepath;
+                    #$fh.say: $string;
+                    say $param-one-junction;
+                    $fh.close;
+                }
+                # Check for existence
+                if $!filepath.IO.e {
+                    ;
+                } else {
+                    put "Ecriture dans $!filepath en mode $!filemode impossible!";
+                    return False;
+                }
+            }
+        # :mode<wo>, :create, :append   
+        } elsif ($!filemode eq ':a') {
+            try {
+                #say $string;
+                say $param-one-junction;
+                if $!writefile {
+                    my $fh = open :a, $!filepath;
+                    #$fh.say: $string;
+                    $fh.say: $param-one-junction;
+                    $fh.close if $!closefile;
+                }
+                # Check for existence
+                if $!filepath.IO.e {
+                    ;
+                } else {
+                    put "Ecriture dans $!filepath en mode $!filemode impossible!";
+                    return False;
+                }
+            }
+        } else {
+            #say $string;
+            say $param-one-junction;
+            return False;
+        }
+        return True;
+    }
+
 }

@@ -1,0 +1,17 @@
+# Exercice 5+.
+# -----------
+# On veut répartir x élèves pour un travail en plusieurs groupes comprenant chacun
+# le même nombre d'élèves. Donner toutes les possibilités sachant que chaque groupe
+# est constitué de plusieurs élèves (saisie utilisateur de x).
+-----------------------------------------------------------------------------------
+1	<=>	32
+2	<=>	16
+4	<=>	8
+{1 => (32), 16 => (2), 2 => (16), 32 => (1), 4 => (8), 8 => (4)}
+
+Les possibilités sont :
+2 groupes de 16 élèves.
+4 groupes de 8 élèves.
+8 groupes de 4 élèves.
+16 groupes de 2 élèves.
+

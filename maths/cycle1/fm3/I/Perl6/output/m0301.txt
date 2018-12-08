@@ -1,0 +1,18 @@
+# Exercice 1.
+# ----------
+# Donner la liste des diviseurs de 108.
+-----------------------------------------------------------------------------------
+1 est un diviseur de 108 : 108 = 1 × 108
+2 est un diviseur de 108 : 108 = 2 × 54
+3 est un diviseur de 108 : 108 = 3 × 36
+4 est un diviseur de 108 : 108 = 4 × 27
+6 est un diviseur de 108 : 108 = 6 × 18
+9 est un diviseur de 108 : 108 = 9 × 12
+12 est un diviseur de 108 : 108 = 12 × 9
+18 est un diviseur de 108 : 108 = 18 × 6
+27 est un diviseur de 108 : 108 = 27 × 4
+36 est un diviseur de 108 : 108 = 36 × 3
+54 est un diviseur de 108 : 108 = 54 × 2
+108 est un diviseur de 108 : 108 = 108 × 1
+1 2 3 4 6 9 12 18 27 36 54 108
+

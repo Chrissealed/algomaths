@@ -2,29 +2,41 @@
 
 use v6;
 use corrective;
+use teeput;
 use method03 :methodwording, :exe05, :examples;
 use integer-divisors-listing;
 
 
 sub answering {
+    class T does Tput {}
+    my $t = T.new(
+        filepath => 'output/m0305.txt',
+        filemode => ':a',
+        writefile => True,
+        closefile => False,
+    );
     my Int $pupils = 32;
     my @a;
     my $divisors-listing = IntegerDivisorsListing.new(
+        t => $t,
         array-or-hash => '@',
     );
     @a = $divisors-listing.list-divisors($pupils);
-    say @a;
-    say "Les possibilités sont :";
+    $t.tsay: @a;
+    $t.tput: "Les possibilités sont :";
     while (@a.elems > 2) {
         # Eliminer le premier élément du tableau (1) et le dernier (32)
         @a.shift;
         @a.pop;
-        say @a[0], " groupes de ", @a[*-1], " élèves.";
-        say @a[*-1], " groupes de ", @a[0], " élèves.";
+        $t.tsay: "@a[0] groupes de @a[*-1] élèves.";
+        $t.tsay: "@a[*-1] groupes de @a[0] élèves.";
         # Equivalent à suivants sauf retour entre parenthèses.
         #say @a.head, " groupes de ", @a.tail, " élèves.";
         #say @a.tail, " groupes de ", @a.head, " élèves.";
     }
+
+    $t.closefile = True;
+    $t.tput: '';
 }
 
 exercise_05();

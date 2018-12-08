@@ -1,0 +1,9 @@
+# Exercice 3.
+# ----------
+# Donner la liste des diviseurs de 257. Que remarque-t-on ?
+-----------------------------------------------------------------------------------
+1 est un diviseur de 257 : 257 = 1 × 257
+257 est un diviseur de 257 : 257 = 257 × 1
+257 est un nombre premier!
+1 257
+

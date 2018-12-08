@@ -1,0 +1,23 @@
+# Exercice 2+.
+# ----------
+# Donner la liste des diviseurs de 36.
+# Quelle est la parité du nombre de diviseurs ? Pourquoi ?
+-----------------------------------------------------------------------------------
+1	<=>	36
+2	<=>	18
+3	<=>	12
+4	<=>	9
+6	<=>	6
+36 est un carré parfait! : 6 × 6
+1 => 36
+3 => 12
+6 => 6
+36 => 1
+9 => 4
+18 => 2
+2 => 18
+12 => 3
+4 => 9
+1	36 3	12 6	6 36	1 9	4 18	2 2	18 12	3 4	9
+On remarque que le nombre de diviseurs est impair puisque nous avons un carré parfait.
+

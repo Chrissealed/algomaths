@@ -5,7 +5,7 @@ use v6;
 =begin pod
 =NAME class B<IrreducibleFraction>
 =AUTHOR Christian Béloscar
-=VERSION 1.0.0
+=VERSION 0.1.119
 =for head1
 L'objectif de ce module est de renvoyer la fraction irréductible
 de la fraction initiale dont on passe le numérateur et le dénominateur

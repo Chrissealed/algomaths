@@ -1,0 +1,19 @@
+# Exercice 6+.
+# -----------
+# a. Donner la liste des diviseurs de n1. (saisie utilisateur)
+# b. Donner la liste des diviseurs de n2. (saisie utilisateur)
+# c. Donner la liste des diviseurs communs de n1 et de n2.
+-----------------------------------------------------------------------------------
+Diviseurs de 128 :
+1	<=>	128
+2	<=>	64
+4	<=>	32
+8	<=>	16
+Diviseurs de 354 :
+1	<=>	354
+2	<=>	177
+3	<=>	118
+6	<=>	59
+Les diviseurs communs à 128 et 354 sont :
+1 2
+
