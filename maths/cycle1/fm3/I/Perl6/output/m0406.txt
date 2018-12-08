@@ -1,0 +1,21 @@
+# Exercice 6.
+# ----------
+# a. Donner la liste des diviseurs de 56.
+# b. Donner la liste des diviseurs de 70.
+# c. Donner la liste des diviseurs communs de 56 et de 70.
+# d. Quel est le PGCD de 56 et 70 ?
+-----------------------------------------------------------------------------------
+Diviseurs de 56 :
+1	<=>	56
+2	<=>	28
+4	<=>	14
+7	<=>	8
+Diviseurs de 70 :
+1	<=>	70
+2	<=>	35
+5	<=>	14
+7	<=>	10
+Les diviseurs communs à 56 et 70 sont :
+[1 2 7 14]
+Le PGCD de 56 et 70 est 14.
+

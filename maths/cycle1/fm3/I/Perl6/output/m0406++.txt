@@ -1,0 +1,19 @@
+# Exercice 6++.
+# ----------
+# a. Donner la liste des diviseurs de n1. (saisie utilisateur)
+# b. Donner la liste des diviseurs de n2. (saisie utilisateur)
+# c. Donner la liste des diviseurs communs de n1 et de n2.
+# d. Quel est le PGCD de n1 et n2 ?
+-----------------------------------------------------------------------------------
+− Utilisation de l'algorithme de comparaison des listes de tous les diviseurs −
+Diviseurs de 79 :
+1	<=>	79
+79 est un nombre premier!
+Diviseurs de 12 :
+1	<=>	12
+2	<=>	6
+3	<=>	4
+Les diviseurs communs à 79 et 12 sont : 1
+
+Le PGCD de 79 et 12 est 1.
+

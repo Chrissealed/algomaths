@@ -1,0 +1,25 @@
+# Exercice 2.
+# ----------
+# a. Donner la liste des diviseurs de 132.
+# b. Donner la liste des diviseurs de 220.
+# c. Donner la liste des diviseurs communs de 132 et de 220.
+# d. Quel est le PGCD de 132 et 220 ?
+-----------------------------------------------------------------------------------
+Diviseurs de 132 :
+1	<=>	132
+2	<=>	66
+3	<=>	44
+4	<=>	33
+6	<=>	22
+11	<=>	12
+Diviseurs de 220 :
+1	<=>	220
+2	<=>	110
+4	<=>	55
+5	<=>	44
+10	<=>	22
+11	<=>	20
+Les diviseurs communs à 132 et 220 sont :
+[1 2 4 11 22 44]
+Le PGCD de 132 et 220 est 44.
+

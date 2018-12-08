@@ -1,0 +1,20 @@
+# Exercice 3.
+# ----------
+# a. Donner la liste des diviseurs de 105.
+# b. Donner la liste des diviseurs de 175.
+# c. Donner la liste des diviseurs communs de 105 et de 175.
+# d. Quel est le PGCD de 105 et 175 ?
+-----------------------------------------------------------------------------------
+Diviseurs de 105 :
+1	<=>	105
+3	<=>	35
+5	<=>	21
+7	<=>	15
+Diviseurs de 175 :
+1	<=>	175
+5	<=>	35
+7	<=>	25
+Les diviseurs communs à 105 et 175 sont :
+[1 5 7 35]
+Le PGCD de 105 et 175 est 35.
+

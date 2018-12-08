@@ -1,0 +1,18 @@
+# Exercice 4.
+# ----------
+# a. Donner la liste des diviseurs de 124.
+# b. Donner la liste des diviseurs de 65.
+# c. Donner la liste des diviseurs communs de 124 et de 65.
+# d. Quel est le PGCD de 124 et 65 ?
+-----------------------------------------------------------------------------------
+Diviseurs de 124 :
+1	<=>	124
+2	<=>	62
+4	<=>	31
+Diviseurs de 65 :
+1	<=>	65
+5	<=>	13
+Les diviseurs communs à 124 et 65 sont :
+[1]
+Le PGCD de 124 et 65 est 1.
+

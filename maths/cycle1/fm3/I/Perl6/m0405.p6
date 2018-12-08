@@ -2,27 +2,39 @@
 
 use v6;
 use corrective;
+use teeput;
 use method04 :methodwording, :exe05, :examples;
 use integer-divisors-listing;
 use common-arrays-elements;
 
 sub answering {
+    class T does Tput {}
+    my $t = T.new(
+        filepath => 'output/m0405.txt',
+        filemode => ':a',
+        writefile => True,
+        closefile => False,
+    );
     my Int $n1 = 38;
     my Int $n2 = 190;
     my (@a, @b, @c) = ();
 
     my $divisors-listing = IntegerDivisorsListing.new(
+        t => $t,
         array-or-hash => '@',
     );
-    say "Diviseurs de $n1 :";
+    $t.tput: "Diviseurs de $n1 :";
     @a = $divisors-listing.list-divisors($n1);
-    say "Diviseurs de $n2 :";
+    $t.tput: "Diviseurs de $n2 :";
     @b = $divisors-listing.list-divisors($n2);
 
     @c = common-arrays-elements(@a, @b);
-    say "Les diviseurs communs à $n1 et $n2 sont :";
-    say @c;
-    say "Le PGCD de $n1 et $n2 est ", @c[@c.end], ".";
+    $t.tput: "Les diviseurs communs à $n1 et $n2 sont :";
+    $t.tsay: @c;
+    $t.tput: "Le PGCD de $n1 et $n2 est {@c[@c.end]}.";
+
+    $t.closefile = True;
+    $t.tprint: "\n";
 }
 
 exercise_05();

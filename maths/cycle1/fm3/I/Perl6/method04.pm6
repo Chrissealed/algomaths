@@ -2,9 +2,21 @@ unit module Method04;
 
 use v6;
 
+=begin pod
+=NAME module B<Method03>
+=AUTHOR Christian Béloscar
+=VERSION 0.1.119
+=end pod
+
+use teeput;
+
+class T does Teeput::Tput {}
+my $t = T.new(
+    writefile => True,
+);
+    
 sub put-up-method is export(:methodwording) {
-    say q:to/EOM/;
-###################################################################################
+    my $message = q:to/EOM/;
 # Chapitre I : ARITHMÉTIQUE.
 ###################################################################################
 # Méthode 4. Comment déterminer le PGCD de deux nombres entiers connaissant
@@ -15,6 +27,9 @@ sub put-up-method is export(:methodwording) {
 ###################################################################################
 
 EOM
+    $t.filepath = 'output/method04.txt';
+    $t.filemode = ':x'; # :mode<wo>, :create, :exclusive
+    $t.tput($message);
 }
 
 sub show-examples is export(:examples) {
@@ -22,71 +37,113 @@ sub show-examples is export(:examples) {
 }
 
 sub exercise_01 is export(:exe01) {
-    say '# Exercice 1.';
-    say '# ----------';
-    say '# a. Donner la liste des diviseurs de 90.';
-    say '# b. Donner la liste des diviseurs de 126.';
-    say '# c. Donner la liste des diviseurs communs de 90 et de 126.';
-    say '# d. Quel est le PGCD de 90 et 126 ?';
-    say '-----------------------------------------------------------------------------------';
+    $t.filepath = 'output/m0401.txt';
+    $t.filemode = ':w'; # :mode<wo>, :create, :truncate
+    $t.tput: '# Exercice 1.';
+    $t.filemode = ':a'; # :mode<wo>, :create, :append
+    $t.closefile = False;
+    $t.tput: '# ----------';
+    $t.tput: '# a. Donner la liste des diviseurs de 90.';
+    $t.tput: '# b. Donner la liste des diviseurs de 126.';
+    $t.tput: '# c. Donner la liste des diviseurs communs de 90 et de 126.';
+    $t.tput: '# d. Quel est le PGCD de 90 et 126 ?';
+    $t.tput: '-----------------------------------------------------------------------------------';
 }
 
 sub exercise_02 is export(:exe02) {
-    say '# Exercice 2.';
-    say '# ----------';
-    say '# a. Donner la liste des diviseurs de 132.';
-    say '# b. Donner la liste des diviseurs de 220.';
-    say '# c. Donner la liste des diviseurs communs de 132 et de 220.';
-    say '# d. Quel est le PGCD de 132 et 220 ?';
-    say '-----------------------------------------------------------------------------------';
+    $t.filepath = 'output/m0402.txt';
+    $t.filemode = ':w'; # :mode<wo>, :create, :truncate
+    $t.tput: '# Exercice 2.';
+    $t.filemode = ':a'; # :mode<wo>, :create, :append
+    $t.closefile = False;
+    $t.tput: '# ----------';
+    $t.tput: '# a. Donner la liste des diviseurs de 132.';
+    $t.tput: '# b. Donner la liste des diviseurs de 220.';
+    $t.tput: '# c. Donner la liste des diviseurs communs de 132 et de 220.';
+    $t.tput: '# d. Quel est le PGCD de 132 et 220 ?';
+    $t.tput: '-----------------------------------------------------------------------------------';
 }
 
 sub exercise_03 is export(:exe03) {
-    say '# Exercice 3.';
-    say '# ----------';
-    say '# a. Donner la liste des diviseurs de 105.';
-    say '# b. Donner la liste des diviseurs de 175.';
-    say '# c. Donner la liste des diviseurs communs de 105 et de 175.';
-    say '# d. Quel est le PGCD de 105 et 175 ?';
-    say '-----------------------------------------------------------------------------------';
+    $t.filepath = 'output/m0403.txt';
+    $t.filemode = ':w'; # :mode<wo>, :create, :truncate
+    $t.tput: '# Exercice 3.';
+    $t.filemode = ':a'; # :mode<wo>, :create, :append
+    $t.closefile = False;
+    $t.tput: '# ----------';
+    $t.tput: '# a. Donner la liste des diviseurs de 105.';
+    $t.tput: '# b. Donner la liste des diviseurs de 175.';
+    $t.tput: '# c. Donner la liste des diviseurs communs de 105 et de 175.';
+    $t.tput: '# d. Quel est le PGCD de 105 et 175 ?';
+    $t.tput: '-----------------------------------------------------------------------------------';
 }
 
 sub exercise_04 is export(:exe04) {
-    say '# Exercice 4.';
-    say '# ----------';
-    say '# a. Donner la liste des diviseurs de 124.';
-    say '# b. Donner la liste des diviseurs de 65.';
-    say '# c. Donner la liste des diviseurs communs de 124 et de 65.';
-    say '# d. Quel est le PGCD de 124 et 65 ?';
-    say '-----------------------------------------------------------------------------------';
+    $t.filepath = 'output/m0404.txt';
+    $t.filemode = ':w'; # :mode<wo>, :create, :truncate
+    $t.tput: '# Exercice 4.';
+    $t.filemode = ':a'; # :mode<wo>, :create, :append
+    $t.closefile = False;
+    $t.tput: '# ----------';
+    $t.tput: '# a. Donner la liste des diviseurs de 124.';
+    $t.tput: '# b. Donner la liste des diviseurs de 65.';
+    $t.tput: '# c. Donner la liste des diviseurs communs de 124 et de 65.';
+    $t.tput: '# d. Quel est le PGCD de 124 et 65 ?';
+    $t.tput: '-----------------------------------------------------------------------------------';
 }
 
 sub exercise_05 is export(:exe05) {
-    say '# Exercice 5.';
-    say '# ----------';
-    say '# a. Donner la liste des diviseurs de 38.';
-    say '# b. Donner la liste des diviseurs de 190.';
-    say '# c. Donner la liste des diviseurs communs de 38 et de 190.';
-    say '# d. Quel est le PGCD de 38 et 190 ?';
-    say '-----------------------------------------------------------------------------------';
+    $t.filepath = 'output/m0405.txt';
+    $t.filemode = ':w'; # :mode<wo>, :create, :truncate
+    $t.tput: '# Exercice 5.';
+    $t.filemode = ':a'; # :mode<wo>, :create, :append
+    $t.closefile = False;
+    $t.tput: '# ----------';
+    $t.tput: '# a. Donner la liste des diviseurs de 38.';
+    $t.tput: '# b. Donner la liste des diviseurs de 190.';
+    $t.tput: '# c. Donner la liste des diviseurs communs de 38 et de 190.';
+    $t.tput: '# d. Quel est le PGCD de 38 et 190 ?';
+    $t.tput: '-----------------------------------------------------------------------------------';
 }
 
 sub exercise_06 is export(:exe06) {
-    say '# Exercice 6.';
-    say '# ----------';
-    say '# a. Donner la liste des diviseurs de 56.';
-    say '# b. Donner la liste des diviseurs de 70.';
-    say '# c. Donner la liste des diviseurs communs de 56 et de 70.';
-    say '# d. Quel est le PGCD de 56 et 70 ?';
-    say '-----------------------------------------------------------------------------------';
+    $t.filepath = 'output/m0406.txt';
+    $t.filemode = ':w'; # :mode<wo>, :create, :truncate
+    $t.tput: '# Exercice 6.';
+    $t.filemode = ':a'; # :mode<wo>, :create, :append
+    $t.closefile = False;
+    $t.tput: '# ----------';
+    $t.tput: '# a. Donner la liste des diviseurs de 56.';
+    $t.tput: '# b. Donner la liste des diviseurs de 70.';
+    $t.tput: '# c. Donner la liste des diviseurs communs de 56 et de 70.';
+    $t.tput: '# d. Quel est le PGCD de 56 et 70 ?';
+    $t.tput: '-----------------------------------------------------------------------------------';
 }
 
 sub exercise_06b is export(:exe06b) {
-    say '# Exercice 6b.';
-    say '# ----------';
-    say '# a. Donner la liste des diviseurs de n1. (saisie utilisateur)';
-    say '# b. Donner la liste des diviseurs de n2. (saisie utilisateur)';
-    say '# c. Donner la liste des diviseurs communs de n1 et de n2.';
-    say '# d. Quel est le PGCD de n1 et n2 ?';
-    say '-----------------------------------------------------------------------------------';
+    $t.filepath = 'output/m0406+.txt';
+    $t.filemode = ':w'; # :mode<wo>, :create, :truncate
+    $t.tput: '# Exercice 6+.';
+    $t.filemode = ':a'; # :mode<wo>, :create, :append
+    $t.closefile = False;
+    $t.tput: '# ----------';
+    $t.tput: '# a. Donner la liste des diviseurs de n1. (saisie utilisateur)';
+    $t.tput: '# b. Donner la liste des diviseurs de n2. (saisie utilisateur)';
+    $t.tput: '# c. Donner la liste des diviseurs communs de n1 et de n2.';
+    $t.tput: '# d. Quel est le PGCD de n1 et n2 ?';
+    $t.tput: '-----------------------------------------------------------------------------------';
+}
+
+sub exercise_06c is export(:exe06c) {
+    $t.filepath = 'output/m0406++.txt';
+    $t.filemode = ':w'; # :mode<wo>, :create, :truncate
+    $t.tput: '# Exercice 6++.';
+    $t.filemode = ':a'; # :mode<wo>, :create, :append
+    $t.closefile = False;
+    $t.tput: '# ----------';
+    $t.tput: '# a. Donner la liste des diviseurs de n1. (saisie utilisateur)';
+    $t.tput: '# b. Donner la liste des diviseurs de n2. (saisie utilisateur)';
+    $t.tput: '# c. Donner la liste des diviseurs communs de n1 et de n2.';
+    $t.tput: '# d. Quel est le PGCD de n1 et n2 ?';
+    $t.tput: '-----------------------------------------------------------------------------------';
 }

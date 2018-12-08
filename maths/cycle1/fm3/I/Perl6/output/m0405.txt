@@ -1,0 +1,19 @@
+# Exercice 5.
+# ----------
+# a. Donner la liste des diviseurs de 38.
+# b. Donner la liste des diviseurs de 190.
+# c. Donner la liste des diviseurs communs de 38 et de 190.
+# d. Quel est le PGCD de 38 et 190 ?
+-----------------------------------------------------------------------------------
+Diviseurs de 38 :
+1	<=>	38
+2	<=>	19
+Diviseurs de 190 :
+1	<=>	190
+2	<=>	95
+5	<=>	38
+10	<=>	19
+Les diviseurs communs à 38 et 190 sont :
+[1 2 19 38]
+Le PGCD de 38 et 190 est 38.
+

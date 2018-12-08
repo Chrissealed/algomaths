@@ -1,0 +1,25 @@
+# Exercice 1.
+# ----------
+# a. Donner la liste des diviseurs de 90.
+# b. Donner la liste des diviseurs de 126.
+# c. Donner la liste des diviseurs communs de 90 et de 126.
+# d. Quel est le PGCD de 90 et 126 ?
+-----------------------------------------------------------------------------------
+Diviseurs de 90 :
+1	<=>	90
+2	<=>	45
+3	<=>	30
+5	<=>	18
+6	<=>	15
+9	<=>	10
+Diviseurs de 126 :
+1	<=>	126
+2	<=>	63
+3	<=>	42
+6	<=>	21
+7	<=>	18
+9	<=>	14
+Les diviseurs communs à 90 et 126 sont :
+[1 2 3 6 9 18]
+Le PGCD de 90 et 126 est 18.
+

@@ -1,0 +1,10 @@
+# Chapitre I : ARITHMÉTIQUE.
+###################################################################################
+# Méthode 4. Comment déterminer le PGCD de deux nombres entiers connaissant
+# l'ensemble des diviseurs de chacun des deux nombres :
+###################################################################################
+# ▲ on établit la liste des diviseurs communs des deux nombres (méthode 3);
+# ▲ on repère dans cette liste le plus grand nombre, c'est le PGCD cherché.
+###################################################################################
+
+
