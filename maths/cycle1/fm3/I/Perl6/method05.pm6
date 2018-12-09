@@ -3,7 +3,7 @@ unit module Method05;
 use v6;
 
 =begin pod
-=NAME module B<Method03>
+=NAME module B<Method05>
 =AUTHOR Christian Béloscar
 =VERSION 0.1.119
 =end pod
