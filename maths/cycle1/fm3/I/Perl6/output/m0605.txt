@@ -1,0 +1,25 @@
+# Exercice 5.
+# ----------
+# PGCD(877 ; 531)
+-----------------------------------------------------------------------------------
+− Utilisation de l'algorithme des soustractions −
+877 - 531 = 346 d'où PGCD(877 ; 531) = PGCD(531 ; 346)
+531 - 346 = 185 d'où PGCD(531 ; 346) = PGCD(346 ; 185)
+346 - 185 = 161 d'où PGCD(346 ; 185) = PGCD(185 ; 161)
+185 - 161 = 24 d'où PGCD(185 ; 161) = PGCD(161 ; 24)
+161 - 24 = 137 d'où PGCD(161 ; 24) = PGCD(137 ; 24)
+137 - 24 = 113 d'où PGCD(137 ; 24) = PGCD(113 ; 24)
+113 - 24 = 89 d'où PGCD(113 ; 24) = PGCD(89 ; 24)
+89 - 24 = 65 d'où PGCD(89 ; 24) = PGCD(65 ; 24)
+65 - 24 = 41 d'où PGCD(65 ; 24) = PGCD(41 ; 24)
+41 - 24 = 17 d'où PGCD(41 ; 24) = PGCD(24 ; 17)
+24 - 17 = 7 d'où PGCD(24 ; 17) = PGCD(17 ; 7)
+17 - 7 = 10 d'où PGCD(17 ; 7) = PGCD(10 ; 7)
+10 - 7 = 3 d'où PGCD(10 ; 7) = PGCD(7 ; 3)
+7 - 3 = 4 d'où PGCD(7 ; 3) = PGCD(4 ; 3)
+4 - 3 = 1 d'où PGCD(4 ; 3) = PGCD(3 ; 1)
+3 - 1 = 2 d'où PGCD(3 ; 1) = PGCD(2 ; 1)
+2 - 1 = 1 d'où PGCD(2 ; 1) = PGCD(1 ; 1)
+or PGCD(1 ; 1) = 1
+On est arrivé à deux nombres égaux, donc PGCD(877 ; 531) = 1.
+

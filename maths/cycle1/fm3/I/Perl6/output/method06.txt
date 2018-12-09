@@ -1,0 +1,18 @@
+# Chapitre I : ARITHMÉTIQUE.
+###################################################################################
+# Méthode 6. Pour déterminer le PGCD de deux nombres entiers par l'algorithme
+# des soustractions à l'aide d'un tableur :
+###################################################################################
+# ▲ on ouvre une feuille de calcul et on choisit trois colonnes A, B et C;
+# ▲ on marque les titres : Nombre a, Nombre b et Différence respectivement dans les
+# cellules A1, B1 et C1;
+# ▲ on place le plus grand des deux nombres et le plus petit respectivement dans
+# les cellules A2 et B2 et on inscrit =A2-B2 dans la cellule C2;
+# ▲ on écrit : =MAX(B2;C2), =MIN(B2;C2) et =A3-B3 respectivement dans les cellules
+# A3, B3 et C3;
+# ▲ on sélectionne les cellules A3B3C3 et on tire vers le bas le petit carré situé
+# en bas à droite de la sélection jusqu'à trouver 0 dans la colonne C;
+# ▲ on donne le PGCD des deux nombres qui est la dernière différence non nulle.
+###################################################################################
+
+

@@ -1,0 +1,37 @@
+# Exercice 8.
+# ----------
+# Sur une feuille, un élève a créé cette feuille de calcul pour trouver le PGCD
+# de 2691 et 1035 par l'algorithme des soustractions.
+#
+# |   |   A  |   B  |   C  |
+# --------------------------
+# | 1 |   a  |   b  |  a-b |
+# --------------------------
+# | 2 | 2691 | 1035 | 1656 |
+# --------------------------
+# | 3 | 1656 | 1035 |  621 |
+# --------------------------
+# | 4 | 1035 |  621 |  414 |
+# --------------------------
+# | 5 |  621 |  414 |  207 |
+# --------------------------
+# | 6 |  414 |  207 |  207 |
+# --------------------------
+# | 7 |  207 |  207 |   0  |
+# --------------------------
+#
+# a. En utilisant sa feuille de calcul, dire quel est le PGCD de 2691 et 1035.
+# b. Quelle est la formule écrite par l'élève dans la cellule C2 pour obtenir
+#    le résultat indiqué dans cette cellule par le tableur ?
+# c. Quelle est la formule écrite par l'élève dans la cellule B3 pour obtenir
+#    le résultat indiqué dans cette cellule par le tableur ?
+-----------------------------------------------------------------------------------
+
+a. Le PGCD de 2691 et de 1035 est la dernière différence non nulle :
+   PGCD(2691 ; 1035) = 207
+b. La formule écrite par l'élève dans la cellule C2 pour obtenir le résultat
+   indiqué dans cette cellule par le tableur est : =A2-B2.
+c. La formule écrite par l'élève dans la cellule B3 pour obtenir le résultat
+   indiqué dans cette cellule par le tableur est : =MIN(B2;C2).
+
+

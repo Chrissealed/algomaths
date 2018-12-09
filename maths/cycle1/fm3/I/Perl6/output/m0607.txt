@@ -1,0 +1,42 @@
+# Exercice 7.
+# ----------
+# a. PGCD(165 ; 132); b. PGCD(330 ; 264); c. PGCD(495 ; 396)
+# d. Quelles relations y a-t-il entre le PGCD de 165 et 132 et chacun des PGCD de
+# 330 et 264 et de 495 et 396 ? Faire le lien avec les nombres donnés.
+-----------------------------------------------------------------------------------
+a.
+− Utilisation de l'algorithme des soustractions −
+165 - 132 = 33 d'où PGCD(165 ; 132) = PGCD(132 ; 33)
+132 - 33 = 99 d'où PGCD(132 ; 33) = PGCD(99 ; 33)
+99 - 33 = 66 d'où PGCD(99 ; 33) = PGCD(66 ; 33)
+66 - 33 = 33 d'où PGCD(66 ; 33) = PGCD(33 ; 33)
+or PGCD(33 ; 33) = 33
+On est arrivé à deux nombres égaux, donc PGCD(165 ; 132) = 33.
+
+b.
+− Utilisation de l'algorithme des soustractions −
+330 - 264 = 66 d'où PGCD(330 ; 264) = PGCD(264 ; 66)
+264 - 66 = 198 d'où PGCD(264 ; 66) = PGCD(198 ; 66)
+198 - 66 = 132 d'où PGCD(198 ; 66) = PGCD(132 ; 66)
+132 - 66 = 66 d'où PGCD(132 ; 66) = PGCD(66 ; 66)
+or PGCD(66 ; 66) = 66
+On est arrivé à deux nombres égaux, donc PGCD(330 ; 264) = 66.
+
+c.
+− Utilisation de l'algorithme des soustractions −
+495 - 396 = 99 d'où PGCD(495 ; 396) = PGCD(396 ; 99)
+396 - 99 = 297 d'où PGCD(396 ; 99) = PGCD(297 ; 99)
+297 - 99 = 198 d'où PGCD(297 ; 99) = PGCD(198 ; 99)
+198 - 99 = 99 d'où PGCD(198 ; 99) = PGCD(99 ; 99)
+or PGCD(99 ; 99) = 99
+On est arrivé à deux nombres égaux, donc PGCD(495 ; 396) = 99.
+
+d.
+On remarque que 66 = 2 x 33 alors PGCD(330 ; 264) = 2 x PGCD(165 ; 132)
+et comme 99 = 3 x 33 alors PGCD(495 ; 396) = 3 x PGCD(165 ; 132).
+330 = 2 x 165 et 264 = 2 x 132.
+495 = 3 x 165 et 396 = 3 x 132.
+Soit PGCD(2 x 165 ; 2 x 132) = 2 x PGCD(165 ; 132)
+     PGCD(3 x 165 ; 3 x 132) = 3 x PGCD(165 ; 132)
+
+
