@@ -1,0 +1,12 @@
+# Exercice 5.
+# ----------
+# Déterminer le PGCD de 1631 et 932.
+-----------------------------------------------------------------------------------
+− Utilisation de l'algorithme des soustractions −
+1631 - 932 = 699 d'où PGCD(1631 ; 932) = PGCD(932 ; 699)
+932 - 699 = 233 d'où PGCD(932 ; 699) = PGCD(699 ; 233)
+699 - 233 = 466 d'où PGCD(699 ; 233) = PGCD(466 ; 233)
+466 - 233 = 233 d'où PGCD(466 ; 233) = PGCD(233 ; 233)
+or PGCD(233 ; 233) = 233
+On est arrivé à deux nombres égaux, donc PGCD(1631 ; 932) = 233.
+

@@ -1,0 +1,14 @@
+# Exercice 2.
+# ----------
+# Déterminer le PGCD de 510 et 374.
+-----------------------------------------------------------------------------------
+− Utilisation de l'algorithme des soustractions −
+510 - 374 = 136 d'où PGCD(510 ; 374) = PGCD(374 ; 136)
+374 - 136 = 238 d'où PGCD(374 ; 136) = PGCD(238 ; 136)
+238 - 136 = 102 d'où PGCD(238 ; 136) = PGCD(136 ; 102)
+136 - 102 = 34 d'où PGCD(136 ; 102) = PGCD(102 ; 34)
+102 - 34 = 68 d'où PGCD(102 ; 34) = PGCD(68 ; 34)
+68 - 34 = 34 d'où PGCD(68 ; 34) = PGCD(34 ; 34)
+or PGCD(34 ; 34) = 34
+On est arrivé à deux nombres égaux, donc PGCD(510 ; 374) = 34.
+

@@ -1,0 +1,15 @@
+# Chapitre I : ARITHMÉTIQUE.
+###################################################################################
+# Méthode 5. Pour déterminer le PGCD de deux nombres entiers par l'algorithme
+# des soustractions :
+###################################################################################
+# ▲ on calcule la différence des deux nombres;
+# ▲ on garde le plus petit des deux nombres et la différence trouvée et on écrit
+# que le PGCD cherché est leur PGCD;
+# ▲ on recommence le même procédé avec les deux nouveaux nombres jusqu'à l'obtention
+# de deux nombres égaux, le PGCD est égal à leur valeur.
+# La méthode s'appuie sur les propriétés suivantes : a et b désignant deux entiers,
+# si a = b, alors PGCD(a;b) = a = b et si a > b, PGCD(a;b) = PGCD(b;a-b).
+###################################################################################
+
+

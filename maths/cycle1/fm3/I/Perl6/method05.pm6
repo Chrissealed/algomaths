@@ -2,9 +2,21 @@ unit module Method05;
 
 use v6;
 
+=begin pod
+=NAME module B<Method03>
+=AUTHOR Christian Béloscar
+=VERSION 0.1.119
+=end pod
+
+use teeput;
+
+class T does Teeput::Tput {}
+my $t = T.new(
+    writefile => True,
+);
+    
 sub put-up-method is export(:methodwording) {
-    say q:to/EOM/;
-###################################################################################
+    my $message = q:to/EOM/;
 # Chapitre I : ARITHMÉTIQUE.
 ###################################################################################
 # Méthode 5. Pour déterminer le PGCD de deux nombres entiers par l'algorithme
@@ -20,6 +32,9 @@ sub put-up-method is export(:methodwording) {
 ###################################################################################
 
 EOM
+    $t.filepath = 'output/method05.txt';
+    $t.filemode = ':x'; # :mode<wo>, :create, :exclusive
+    $t.tput($message);
 }
 
 sub show-examples is export(:examples) {
@@ -27,59 +42,91 @@ sub show-examples is export(:examples) {
 }
 
 sub exercise_01 is export(:exe01) {
-    say '# Exercice 1.';
-    say '# ----------';
-    say '# Déterminer le PGCD de 1210 et 462.';
-    say '-----------------------------------------------------------------------------------';
+    $t.filepath = 'output/m0501.txt';
+    $t.filemode = ':w'; # :mode<wo>, :create, :truncate
+    $t.tput: '# Exercice 1.';
+    $t.filemode = ':a'; # :mode<wo>, :create, :append
+    $t.closefile = False;
+    $t.tput: '# ----------';
+    $t.tput: '# Déterminer le PGCD de 1210 et 462.';
+    $t.tput: '-----------------------------------------------------------------------------------';
 }
 
 sub exercise_02 is export(:exe02) {
-    say '# Exercice 2.';
-    say '# ----------';
-    say '# Déterminer le PGCD de 510 et 374.';
-    say '-----------------------------------------------------------------------------------';
+    $t.filepath = 'output/m0502.txt';
+    $t.filemode = ':w'; # :mode<wo>, :create, :truncate
+    $t.tput: '# Exercice 2.';
+    $t.filemode = ':a'; # :mode<wo>, :create, :append
+    $t.closefile = False;
+    $t.tput: '# ----------';
+    $t.tput: '# Déterminer le PGCD de 510 et 374.';
+    $t.tput: '-----------------------------------------------------------------------------------';
 }
 
 sub exercise_03 is export(:exe03) {
-    say '# Exercice 3.';
-    say '# ----------';
-    say '# Déterminer le PGCD de 189 et 55.';
-    say '-----------------------------------------------------------------------------------';
+    $t.filepath = 'output/m0503.txt';
+    $t.filemode = ':w'; # :mode<wo>, :create, :truncate
+    $t.tput: '# Exercice 3.';
+    $t.filemode = ':a'; # :mode<wo>, :create, :append
+    $t.closefile = False;
+    $t.tput: '# ----------';
+    $t.tput: '# Déterminer le PGCD de 189 et 55.';
+    $t.tput: '-----------------------------------------------------------------------------------';
 }
 
 sub exercise_04 is export(:exe04) {
-    say '# Exercice 4.';
-    say '# ----------';
-    say '# Déterminer le PGCD de 2072 et 370.';
-    say '-----------------------------------------------------------------------------------';
+    $t.filepath = 'output/m0504.txt';
+    $t.filemode = ':w'; # :mode<wo>, :create, :truncate
+    $t.tput: '# Exercice 4.';
+    $t.filemode = ':a'; # :mode<wo>, :create, :append
+    $t.closefile = False;
+    $t.tput: '# ----------';
+    $t.tput: '# Déterminer le PGCD de 2072 et 370.';
+    $t.tput: '-----------------------------------------------------------------------------------';
 }
 
 sub exercise_05 is export(:exe05) {
-    say '# Exercice 5.';
-    say '# ----------';
-    say '# Déterminer le PGCD de 1631 et 932.';
-    say '-----------------------------------------------------------------------------------';
+    $t.filepath = 'output/m0505.txt';
+    $t.filemode = ':w'; # :mode<wo>, :create, :truncate
+    $t.tput: '# Exercice 5.';
+    $t.filemode = ':a'; # :mode<wo>, :create, :append
+    $t.closefile = False;
+    $t.tput: '# ----------';
+    $t.tput: '# Déterminer le PGCD de 1631 et 932.';
+    $t.tput: '-----------------------------------------------------------------------------------';
 }
 
 sub exercise_06 is export(:exe06) {
-    say '# Exercice 6.';
-    say '# ----------';
-    say '# Déterminer le PGCD de 2940 et 1155.';
-    say '-----------------------------------------------------------------------------------';
+    $t.filepath = 'output/m0506.txt';
+    $t.filemode = ':w'; # :mode<wo>, :create, :truncate
+    $t.tput: '# Exercice 6.';
+    $t.filemode = ':a'; # :mode<wo>, :create, :append
+    $t.closefile = False;
+    $t.tput: '# ----------';
+    $t.tput: '# Déterminer le PGCD de 2940 et 1155.';
+    $t.tput: '-----------------------------------------------------------------------------------';
 }
 
 sub exercise_06b is export(:exe06b) {
-    say '# Exercice 6b.';
-    say '# ----------';
-    say '# Déterminer le PGCD de n1 et n2 (saisie utilisateur).';
-    say '-----------------------------------------------------------------------------------';
+    $t.filepath = 'output/m0506+.txt';
+    $t.filemode = ':w'; # :mode<wo>, :create, :truncate
+    $t.tput: '# Exercice 6+.';
+    $t.filemode = ':a'; # :mode<wo>, :create, :append
+    $t.closefile = False;
+    $t.tput: '# ----------';
+    $t.tput: '# Déterminer le PGCD de n1 et n2 (saisie utilisateur).';
+    $t.tput: '-----------------------------------------------------------------------------------';
 }
 
 sub exercise_07 is export(:exe07) {
-    say '# Exercice 7.';
-    say '# ----------';
-    say '# a. Déterminer le PGCD de 15 et 9 puis celui de 75 et 45.';
-    say '# b. Compléter 75 = ... x 15 et 45 = ... x 9.';
-    say '# Quelle relation y a-t-il entre le PGCD de 15 et de 9 et celui de 75 et 45 ?';
-    say '-----------------------------------------------------------------------------------';
+    $t.filepath = 'output/m0507.txt';
+    $t.filemode = ':w'; # :mode<wo>, :create, :truncate
+    $t.tput: '# Exercice 7.';
+    $t.filemode = ':a'; # :mode<wo>, :create, :append
+    $t.closefile = False;
+    $t.tput: '# ----------';
+    $t.tput: '# a. Déterminer le PGCD de 15 et 9 puis celui de 75 et 45.';
+    $t.tput: '# b. Compléter 75 = ... x 15 et 45 = ... x 9.';
+    $t.tput: '# Quelle relation y a-t-il entre le PGCD de 15 et de 9 et celui de 75 et 45 ?';
+    $t.tput: '-----------------------------------------------------------------------------------';
 }

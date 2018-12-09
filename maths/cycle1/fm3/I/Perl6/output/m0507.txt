@@ -1,0 +1,29 @@
+# Exercice 7.
+# ----------
+# a. Déterminer le PGCD de 15 et 9 puis celui de 75 et 45.
+# b. Compléter 75 = ... x 15 et 45 = ... x 9.
+# Quelle relation y a-t-il entre le PGCD de 15 et de 9 et celui de 75 et 45 ?
+-----------------------------------------------------------------------------------
+a.
+− Utilisation de l'algorithme des soustractions −
+15 - 9 = 6 d'où PGCD(15 ; 9) = PGCD(9 ; 6)
+9 - 6 = 3 d'où PGCD(9 ; 6) = PGCD(6 ; 3)
+6 - 3 = 3 d'où PGCD(6 ; 3) = PGCD(3 ; 3)
+or PGCD(3 ; 3) = 3
+On est arrivé à deux nombres égaux, donc PGCD(15 ; 9) = 3.
+
+− Utilisation de l'algorithme des soustractions −
+75 - 45 = 30 d'où PGCD(75 ; 45) = PGCD(45 ; 30)
+45 - 30 = 15 d'où PGCD(45 ; 30) = PGCD(30 ; 15)
+30 - 15 = 15 d'où PGCD(30 ; 15) = PGCD(15 ; 15)
+or PGCD(15 ; 15) = 15
+On est arrivé à deux nombres égaux, donc PGCD(75 ; 45) = 15.
+
+b.
+75 = 5 × 15
+45 = 5 × 9
+Comme de plus PGCD(15 ; 9) = 3 et PGCD(75 ; 45) = 15, alors
+PGCD(75 ; 45) = PGCD(5 × 15 ; 5 × 9) = 5 × 3 = 5 × PGCD(15 ; 9)
+75 et 45 sont les quintuples respectifs de 15 et 9, le PGCD de 75 et 45
+est le quintuple du PGCD de 15 et 9.
+

@@ -1,0 +1,20 @@
+# Exercice 3.
+# ----------
+# Déterminer le PGCD de 189 et 55.
+-----------------------------------------------------------------------------------
+− Utilisation de l'algorithme des soustractions −
+189 - 55 = 134 d'où PGCD(189 ; 55) = PGCD(134 ; 55)
+134 - 55 = 79 d'où PGCD(134 ; 55) = PGCD(79 ; 55)
+79 - 55 = 24 d'où PGCD(79 ; 55) = PGCD(55 ; 24)
+55 - 24 = 31 d'où PGCD(55 ; 24) = PGCD(31 ; 24)
+31 - 24 = 7 d'où PGCD(31 ; 24) = PGCD(24 ; 7)
+24 - 7 = 17 d'où PGCD(24 ; 7) = PGCD(17 ; 7)
+17 - 7 = 10 d'où PGCD(17 ; 7) = PGCD(10 ; 7)
+10 - 7 = 3 d'où PGCD(10 ; 7) = PGCD(7 ; 3)
+7 - 3 = 4 d'où PGCD(7 ; 3) = PGCD(4 ; 3)
+4 - 3 = 1 d'où PGCD(4 ; 3) = PGCD(3 ; 1)
+3 - 1 = 2 d'où PGCD(3 ; 1) = PGCD(2 ; 1)
+2 - 1 = 1 d'où PGCD(2 ; 1) = PGCD(1 ; 1)
+or PGCD(1 ; 1) = 1
+On est arrivé à deux nombres égaux, donc PGCD(189 ; 55) = 1.
+

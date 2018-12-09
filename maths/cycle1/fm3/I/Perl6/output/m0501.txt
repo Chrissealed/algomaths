@@ -1,0 +1,16 @@
+# Exercice 1.
+# ----------
+# Déterminer le PGCD de 1210 et 462.
+-----------------------------------------------------------------------------------
+− Utilisation de l'algorithme des soustractions −
+1210 - 462 = 748 d'où PGCD(1210 ; 462) = PGCD(748 ; 462)
+748 - 462 = 286 d'où PGCD(748 ; 462) = PGCD(462 ; 286)
+462 - 286 = 176 d'où PGCD(462 ; 286) = PGCD(286 ; 176)
+286 - 176 = 110 d'où PGCD(286 ; 176) = PGCD(176 ; 110)
+176 - 110 = 66 d'où PGCD(176 ; 110) = PGCD(110 ; 66)
+110 - 66 = 44 d'où PGCD(110 ; 66) = PGCD(66 ; 44)
+66 - 44 = 22 d'où PGCD(66 ; 44) = PGCD(44 ; 22)
+44 - 22 = 22 d'où PGCD(44 ; 22) = PGCD(22 ; 22)
+or PGCD(22 ; 22) = 22
+On est arrivé à deux nombres égaux, donc PGCD(1210 ; 462) = 22.
+
