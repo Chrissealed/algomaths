@@ -5,7 +5,7 @@ use v6;
 =begin pod
 =NAME class PGCD
 =AUTHOR Christian Béloscar
-=VERSION 0.1.119
+=VERSION 0.1.120
 
 =for head1
 Ce module contient la classe PGCD qui dispose du rôle 'PrimeFactors'.
@@ -22,7 +22,8 @@ B<divisors-listing_algorithm>(-->Int);
 en facteurs premiers et extraire leurs facteurs communs : B<factorization_algorithm>(--> Int).
 Les quatre méthodes renvoient un B<Int> qui est le PGCD trouvé.
 
-La classe possède en outre un attribut requis destiné à écrire
+La classe possède en outre un attribut requis
+hérité du rôle B<PrimeFactors> destiné à écrire
 dans un fichier les informations qui apparaissent à l'écran
 et qui décrivent les différentes étapes des opérations.
 Il s'agit de B<Teeput::Tput $t is required is rw> :
@@ -36,7 +37,7 @@ use common-arrays-elements;
 use prime-factors;
 
 class PGCD does PrimeFactors is export {
-    # Défini dans le rôle PrimeFactors
+    # Champ défini dans le rôle
     #has Teeput::Tput $.t is required is rw;
 
     has Int $.integer1 is required is rw where { ($_ != 0) or die "Valeur de champ invalide! Entier relatif différent de 0 requis." };
