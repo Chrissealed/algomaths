@@ -1,0 +1,14 @@
+# Exercice 3.
+# PGCD(2014 ; 1515)
+-----------------------------------------------------------------------------------
+− Utilisation de l'algorithme d'Euclide −
+PGCD(2014 ; 1515) = PGCD(1515 ; 499)
+PGCD(1515 ; 499) = PGCD(499 ; 18)
+PGCD(499 ; 18) = PGCD(18 ; 13)
+PGCD(18 ; 13) = PGCD(13 ; 5)
+PGCD(13 ; 5) = PGCD(5 ; 3)
+PGCD(5 ; 3) = PGCD(3 ; 2)
+PGCD(3 ; 2) = PGCD(2 ; 1)
+Le reste de la division de 2 par 1 est nul,
+donc PGCD(2014 ; 1515) = 1.
+

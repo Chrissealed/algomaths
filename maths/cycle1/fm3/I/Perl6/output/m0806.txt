@@ -1,0 +1,12 @@
+# Exercice 6.
+# PGCD(86105 ; 18234)
+-----------------------------------------------------------------------------------
+− Utilisation de l'algorithme d'Euclide −
+PGCD(86105 ; 18234) = PGCD(18234 ; 13169)
+PGCD(18234 ; 13169) = PGCD(13169 ; 5065)
+PGCD(13169 ; 5065) = PGCD(5065 ; 3039)
+PGCD(5065 ; 3039) = PGCD(3039 ; 2026)
+PGCD(3039 ; 2026) = PGCD(2026 ; 1013)
+Le reste de la division de 2026 par 1013 est nul,
+donc PGCD(86105 ; 18234) = 1013.
+

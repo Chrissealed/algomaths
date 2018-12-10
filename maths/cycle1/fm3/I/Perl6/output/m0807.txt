@@ -1,0 +1,52 @@
+# Exercice 7.
+# PGCD(108777 ; 61206)
+# Comparer ce calcul avec celui utilisant l'algorithme des soustractions à l'aide
+# d'un tableur (méthode 6 exercice 6).
+-----------------------------------------------------------------------------------
+a.
+− Utilisation de l'algorithme d'Euclide −
+PGCD(108777 ; 61206) = PGCD(61206 ; 47571)
+PGCD(61206 ; 47571) = PGCD(47571 ; 13635)
+PGCD(47571 ; 13635) = PGCD(13635 ; 6666)
+PGCD(13635 ; 6666) = PGCD(6666 ; 303)
+Le reste de la division de 6666 par 303 est nul,
+donc PGCD(108777 ; 61206) = 303.
+
+b.
+− Utilisation de l'algorithme des soustractions −
+108777 - 61206 = 47571 d'où PGCD(108777 ; 61206) = PGCD(61206 ; 47571)
+61206 - 47571 = 13635 d'où PGCD(61206 ; 47571) = PGCD(47571 ; 13635)
+47571 - 13635 = 33936 d'où PGCD(47571 ; 13635) = PGCD(33936 ; 13635)
+33936 - 13635 = 20301 d'où PGCD(33936 ; 13635) = PGCD(20301 ; 13635)
+20301 - 13635 = 6666 d'où PGCD(20301 ; 13635) = PGCD(13635 ; 6666)
+13635 - 6666 = 6969 d'où PGCD(13635 ; 6666) = PGCD(6969 ; 6666)
+6969 - 6666 = 303 d'où PGCD(6969 ; 6666) = PGCD(6666 ; 303)
+6666 - 303 = 6363 d'où PGCD(6666 ; 303) = PGCD(6363 ; 303)
+6363 - 303 = 6060 d'où PGCD(6363 ; 303) = PGCD(6060 ; 303)
+6060 - 303 = 5757 d'où PGCD(6060 ; 303) = PGCD(5757 ; 303)
+5757 - 303 = 5454 d'où PGCD(5757 ; 303) = PGCD(5454 ; 303)
+5454 - 303 = 5151 d'où PGCD(5454 ; 303) = PGCD(5151 ; 303)
+5151 - 303 = 4848 d'où PGCD(5151 ; 303) = PGCD(4848 ; 303)
+4848 - 303 = 4545 d'où PGCD(4848 ; 303) = PGCD(4545 ; 303)
+4545 - 303 = 4242 d'où PGCD(4545 ; 303) = PGCD(4242 ; 303)
+4242 - 303 = 3939 d'où PGCD(4242 ; 303) = PGCD(3939 ; 303)
+3939 - 303 = 3636 d'où PGCD(3939 ; 303) = PGCD(3636 ; 303)
+3636 - 303 = 3333 d'où PGCD(3636 ; 303) = PGCD(3333 ; 303)
+3333 - 303 = 3030 d'où PGCD(3333 ; 303) = PGCD(3030 ; 303)
+3030 - 303 = 2727 d'où PGCD(3030 ; 303) = PGCD(2727 ; 303)
+2727 - 303 = 2424 d'où PGCD(2727 ; 303) = PGCD(2424 ; 303)
+2424 - 303 = 2121 d'où PGCD(2424 ; 303) = PGCD(2121 ; 303)
+2121 - 303 = 1818 d'où PGCD(2121 ; 303) = PGCD(1818 ; 303)
+1818 - 303 = 1515 d'où PGCD(1818 ; 303) = PGCD(1515 ; 303)
+1515 - 303 = 1212 d'où PGCD(1515 ; 303) = PGCD(1212 ; 303)
+1212 - 303 = 909 d'où PGCD(1212 ; 303) = PGCD(909 ; 303)
+909 - 303 = 606 d'où PGCD(909 ; 303) = PGCD(606 ; 303)
+606 - 303 = 303 d'où PGCD(606 ; 303) = PGCD(303 ; 303)
+or PGCD(303 ; 303) = 303
+On est arrivé à deux nombres égaux, donc PGCD(108777 ; 61206) = 303.
+
+Pour déterminer le PGCD de 108777 et 61206 par l'algorithme d'Euclide
+à l'aide d'un tableur il faut 5 lignes de calcul tandis que par l'algorithme
+des soustractions à l'aide d'un tableur (méthode 6, exercice 6) il en faut 29.
+La détermination du PGCD de 108777 et 61206 est plus courte par l'algorithme d'Euclide.
+

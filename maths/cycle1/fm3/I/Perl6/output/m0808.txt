@@ -1,0 +1,30 @@
+# Exercice 8.
+# Sur une feuille, un élève a créé cette feuille de calcul pour trouver le PGCD de
+# 1596 et 627 par l'algorithme d'Euclide.
+#
+# |   |   A   |   B   |   C   |
+# -----------------------------
+# | 1 |   a   |   b   |   r   |
+# -----------------------------
+# | 2 | 1596  |  627  |  342  |
+# -----------------------------
+# | 3 |  627  |  342  |  285  |
+# -----------------------------
+# | 4 |  342  |  285  |   57  |
+# -----------------------------
+# | 5 |  285  |   57  |    0  |
+# -----------------------------
+#
+# a. En utilisant sa feuille de calcul, dire quel est le PGCD de 1596 et 627.
+# b. Quelle est la formule écrite par l'élève dans la cellule C2 pour obtenir le
+#    résultat indiqué dans cette cellule par le tableur ?
+# c. Quelle est la formule écrite par l'élève dans la cellule A3 pour obtenir le
+#    résultat indiqué dans cette cellule par le tableur ?
+-----------------------------------------------------------------------------------
+
+a. PGCD(1596 ; 627) = 57.
+b. La formule écrite par l'élève dans la cellule C2 pour obtenir le résultat indiqué
+   dans cette cellule par le tableur est : =MOD(A2;B2).
+c. La formule écrite par l'élève dans la cellule A3 pour obtenir le résultat indiqué
+   dans cette cellule par le tableur est : =B2.
+

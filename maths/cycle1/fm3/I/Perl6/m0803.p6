@@ -2,15 +2,27 @@
 
 use v6;
 use corrective;
+use teeput;
 use method08 :methodwording, :exe03, :examples;
 use pgcd;
 
 sub answering {
+    class T does Tput {}
+    my $t = T.new(
+        filepath => 'output/m0803.txt',
+        filemode => ':a',
+        writefile => True,
+        closefile => False,
+    );
     my $pgcd = PGCD.new(
+        t => $t,
         integer1 => 2014,
         integer2 => 1515,
     );
     $pgcd.euclide_algorithm();
+
+    $t.closefile = True;
+    $t.tprint: "\n";
 }
 
 exercise_03();

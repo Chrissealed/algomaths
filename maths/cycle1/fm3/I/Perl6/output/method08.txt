@@ -1,0 +1,22 @@
+# Chapitre I : ARITHMÉTIQUE.
+###################################################################################
+# Comment déterminer le PGCD de deux nombres entiers par l'algorithme
+# d'Euclide à l'aide d'un tableur ?
+###################################################################################
+# ▲ on ouvre une feuille de calcul et on choisit trois colonnes A, B et C;
+# ▲ on marque les titres : Nombre a, Nombre b et Reste respectivement dans les
+# cellules A1, B1 et C1;
+# ▲ on place le plus grand des deux nombres et le plus petit respectivement dans les
+# cellules A2 et B2 et on inscrit =MOD(A2;B2) dans la cellule C2;
+# reste non nul.
+# ▲ on écrit =B2, =C2 et =MOD(A3;B3) respectivement dans les cellules A3, B3 et C3;
+# ▲ on sélectionne les cellules A3B3C3 et on tire vers le bas le petit carré situé
+# en bas à droite de la sélection jusqu'à trouver 0 dans la colonne C;
+# ▲ on donne le PGCD des deux nombres qui est le dernier reste non nul.
+#
+# La méthode s'appuie sur la propriété suivante : a et b désignant deux entiers,
+# si a > b, PGCD(a;b) = PGCD(b;r) où r est le reste de la division euclidienne de
+# a par b
+###################################################################################
+
+

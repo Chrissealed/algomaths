@@ -1,0 +1,9 @@
+# Exercice 1.
+# PGCD(1287 ; 819)
+-----------------------------------------------------------------------------------
+− Utilisation de l'algorithme d'Euclide −
+PGCD(1287 ; 819) = PGCD(819 ; 468)
+PGCD(819 ; 468) = PGCD(468 ; 351)
+PGCD(468 ; 351) = PGCD(351 ; 117)
+Le reste de la division de 351 par 117 est nul,
+donc PGCD(1287 ; 819) = 117.

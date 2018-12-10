@@ -1,0 +1,12 @@
+# Exercice 4.
+# PGCD(126871 ; 116756)
+-----------------------------------------------------------------------------------
+− Utilisation de l'algorithme d'Euclide −
+PGCD(126871 ; 116756) = PGCD(116756 ; 10115)
+PGCD(116756 ; 10115) = PGCD(10115 ; 5491)
+PGCD(10115 ; 5491) = PGCD(5491 ; 4624)
+PGCD(5491 ; 4624) = PGCD(4624 ; 867)
+PGCD(4624 ; 867) = PGCD(867 ; 289)
+Le reste de la division de 867 par 289 est nul,
+donc PGCD(126871 ; 116756) = 289.
+

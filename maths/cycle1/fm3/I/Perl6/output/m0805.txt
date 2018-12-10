@@ -1,0 +1,9 @@
+# Exercice 5.
+# PGCD(13692 ; 6357)
+-----------------------------------------------------------------------------------
+− Utilisation de l'algorithme d'Euclide −
+PGCD(13692 ; 6357) = PGCD(6357 ; 978)
+PGCD(6357 ; 978) = PGCD(978 ; 489)
+Le reste de la division de 978 par 489 est nul,
+donc PGCD(13692 ; 6357) = 489.
+
