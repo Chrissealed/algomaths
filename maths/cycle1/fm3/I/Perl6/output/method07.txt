@@ -1,0 +1,16 @@
+# Chapitre I : ARITHMÉTIQUE.
+###################################################################################
+# Méthode 7. Comment déterminer le PGCD de deux nombres entiers par l'algorithme
+# d'Euclide ?
+###################################################################################
+# ▲ on effectue la division euclidienne du plus grand nombre par le plus petit;
+# ▲ on conserve le plus petit des deux nombres et le reste trouvé et on écrit que
+# le PGCD cherché est leur PGCD;
+# ▲ on continue ainsi jusqu'à l'obtention d'un reste nul, le PGCD est le dernier
+# reste non nul.
+# La méthode s'appuie sur la propriété suivante : a et b désignant deux entiers,
+# si a > b, PGCD(a;b) = PGCD(b;r) où r est le reste de la division euclidienne de
+# a par b
+###################################################################################
+
+

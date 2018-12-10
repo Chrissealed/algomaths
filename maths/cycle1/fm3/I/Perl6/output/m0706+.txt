@@ -1,0 +1,21 @@
+# Exercice 6+.
+# a. Déterminer le PGCD de n1 et n2 (saisies utilisateur).
+-----------------------------------------------------------------------------------
+− Utilisation de l'algorithme d'Euclide −
+PGCD(789 ; 128) = PGCD(128 ; 21)
+PGCD(128 ; 21) = PGCD(21 ; 2)
+PGCD(21 ; 2) = PGCD(2 ; 1)
+Le reste de la division de 2 par 1 est nul,
+donc PGCD(128 ; 789) = 1.
+
+− Utilisation de l'algorithme d'Euclide −
+PGCD(789 ; 456) = PGCD(456 ; 333)
+PGCD(456 ; 333) = PGCD(333 ; 123)
+PGCD(333 ; 123) = PGCD(123 ; 87)
+PGCD(123 ; 87) = PGCD(87 ; 36)
+PGCD(87 ; 36) = PGCD(36 ; 15)
+PGCD(36 ; 15) = PGCD(15 ; 6)
+PGCD(15 ; 6) = PGCD(6 ; 3)
+Le reste de la division de 6 par 3 est nul,
+donc PGCD(-789 ; -456) = 3.
+

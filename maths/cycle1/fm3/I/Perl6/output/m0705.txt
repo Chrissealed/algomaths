@@ -1,0 +1,12 @@
+# Exercice 5.
+# Déterminer le PGCD de 2037 et 454.
+-----------------------------------------------------------------------------------
+− Utilisation de l'algorithme d'Euclide −
+PGCD(2037 ; 454) = PGCD(454 ; 221)
+PGCD(454 ; 221) = PGCD(221 ; 12)
+PGCD(221 ; 12) = PGCD(12 ; 5)
+PGCD(12 ; 5) = PGCD(5 ; 2)
+PGCD(5 ; 2) = PGCD(2 ; 1)
+Le reste de la division de 2 par 1 est nul,
+donc PGCD(2037 ; 454) = 1.
+

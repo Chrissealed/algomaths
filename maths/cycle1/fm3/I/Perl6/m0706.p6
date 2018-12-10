@@ -2,17 +2,26 @@
 
 use v6;
 use corrective;
+use teeput;
 use method07 :methodwording, :exe06, :examples;
 use pgcd;
 
 sub answering {
+    class T does Tput {}
+    my $t = T.new(
+        filepath => 'output/m0706.txt',
+        filemode => ':a',
+        writefile => True,
+        closefile => False,
+    );
     my $pgcd = PGCD.new(
+        t => $t,
         integer1 => 2940,
         integer2 => 147,
     );
-    say 'a';
+    $t.tput: 'a';
     $pgcd.euclide_algorithm();
-    say q:to/EOM/;
+    $t.tprint: q:to/EOM/;
 
 b.
 On remarque qu'une seule division euclidienne suffit pour trouver le PGCD
@@ -21,6 +30,9 @@ on peut utiliser la propriété :
 a et b désignant deux entiers non nuls, si a est un multiple de b, alors
 PGCD(a ; b) = b.
 EOM
+
+    $t.closefile = True;
+    $t.tprint: "\n";
 }
 
 exercise_06();

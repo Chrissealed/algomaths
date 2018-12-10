@@ -1,0 +1,14 @@
+# Exercice 2.
+# Déterminer le PGCD de 988 et 363.
+-----------------------------------------------------------------------------------
+− Utilisation de l'algorithme d'Euclide −
+PGCD(988 ; 363) = PGCD(363 ; 262)
+PGCD(363 ; 262) = PGCD(262 ; 101)
+PGCD(262 ; 101) = PGCD(101 ; 60)
+PGCD(101 ; 60) = PGCD(60 ; 41)
+PGCD(60 ; 41) = PGCD(41 ; 19)
+PGCD(41 ; 19) = PGCD(19 ; 3)
+PGCD(19 ; 3) = PGCD(3 ; 1)
+Le reste de la division de 3 par 1 est nul,
+donc PGCD(988 ; 363) = 1.
+

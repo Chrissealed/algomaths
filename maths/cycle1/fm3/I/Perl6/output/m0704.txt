@@ -1,0 +1,30 @@
+# Exercice 4.
+# a. Déterminer le PGCD de 2072 et 370.
+# b. Comparer avec l'algorithme des soustractions (méthode 5 exercice 4)
+-----------------------------------------------------------------------------------
+a.
+− Utilisation de l'algorithme d'Euclide −
+PGCD(2072 ; 370) = PGCD(370 ; 222)
+PGCD(370 ; 222) = PGCD(222 ; 148)
+PGCD(222 ; 148) = PGCD(148 ; 74)
+Le reste de la division de 148 par 74 est nul,
+donc PGCD(2072 ; 370) = 74.
+
+b.
+− Utilisation de l'algorithme des soustractions −
+2072 - 370 = 1702 d'où PGCD(2072 ; 370) = PGCD(1702 ; 370)
+1702 - 370 = 1332 d'où PGCD(1702 ; 370) = PGCD(1332 ; 370)
+1332 - 370 = 962 d'où PGCD(1332 ; 370) = PGCD(962 ; 370)
+962 - 370 = 592 d'où PGCD(962 ; 370) = PGCD(592 ; 370)
+592 - 370 = 222 d'où PGCD(592 ; 370) = PGCD(370 ; 222)
+370 - 222 = 148 d'où PGCD(370 ; 222) = PGCD(222 ; 148)
+222 - 148 = 74 d'où PGCD(222 ; 148) = PGCD(148 ; 74)
+148 - 74 = 74 d'où PGCD(148 ; 74) = PGCD(74 ; 74)
+or PGCD(74 ; 74) = 74
+On est arrivé à deux nombres égaux, donc PGCD(2072 ; 370) = 74.
+
+Pour déterminer le PGCD de 2072 et 370 par l'algorithme d'Euclide il faut 3
+opérations tandis que par l'algorithme des soustractions, il en faut 8.
+La recherche du PGCD de 2072 et 370 est plus courte par l'algorithme d'Euclide.
+
+

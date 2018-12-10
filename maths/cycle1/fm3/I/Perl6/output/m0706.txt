@@ -1,0 +1,16 @@
+# Exercice 6.
+# a. Déterminer le PGCD de 2940 et 147.
+# b. Que remarque-t-on ?
+-----------------------------------------------------------------------------------
+a
+− Utilisation de l'algorithme d'Euclide −
+Le reste de la division de 2940 par 147 est nul,
+donc PGCD(2940 ; 147) = 147.
+
+b.
+On remarque qu'une seule division euclidienne suffit pour trouver le PGCD
+de 2940 et 147. Elle montre que 2940 est un multiple de 147 (2940 = 147 x 20);
+on peut utiliser la propriété :
+a et b désignant deux entiers non nuls, si a est un multiple de b, alors
+PGCD(a ; b) = b.
+

@@ -1,0 +1,13 @@
+# Exercice 1.
+# ----------
+# Déterminer le PGCD de 780 et 504.
+-----------------------------------------------------------------------------------
+− Utilisation de l'algorithme d'Euclide −
+PGCD(780 ; 504) = PGCD(504 ; 276)
+PGCD(504 ; 276) = PGCD(276 ; 228)
+PGCD(276 ; 228) = PGCD(228 ; 48)
+PGCD(228 ; 48) = PGCD(48 ; 36)
+PGCD(48 ; 36) = PGCD(36 ; 12)
+Le reste de la division de 36 par 12 est nul,
+donc PGCD(780 ; 504) = 12.
+

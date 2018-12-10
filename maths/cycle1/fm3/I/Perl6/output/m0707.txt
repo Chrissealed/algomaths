@@ -1,0 +1,24 @@
+# Exercice 7.
+# a. Déterminer le PGCD de 36 et 20 puis celui de 108 et 60.
+# b. Recopier et compléter : 108 est le ... de 36; 60 est le ... de 20.
+#    Quelle relation a-t-on entre le PGCD de 108 et 60 et celui de 36 et 20 ?
+-----------------------------------------------------------------------------------
+a
+− Utilisation de l'algorithme d'Euclide −
+PGCD(36 ; 20) = PGCD(20 ; 16)
+PGCD(20 ; 16) = PGCD(16 ; 4)
+Le reste de la division de 16 par 4 est nul,
+donc PGCD(36 ; 20) = 4.
+
+− Utilisation de l'algorithme d'Euclide −
+PGCD(108 ; 60) = PGCD(60 ; 48)
+PGCD(60 ; 48) = PGCD(48 ; 12)
+Le reste de la division de 48 par 12 est nul,
+donc PGCD(108 ; 60) = 12.
+
+b.
+108 est le triple de 36; 60 est le triple de 20.
+On a PGCD(108; 60) = 12 et PGCD(36 ; 20) = 4 et 12 est le triple de 4;
+Le PGCD de 108 et 60 est donc le triple du PGCD de 36 et 20 :
+PGCD(108 ; 60) = 3 x PGCD(36 ; 20).
+
