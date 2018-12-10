@@ -1,0 +1,16 @@
+# Exercice 2.
+# Déterminer la liste des diviseurs communs de 2072 et 370 (voir méthode 5 exercice 4).
+-----------------------------------------------------------------------------------
+− Utilisation de l'algorithme d'Euclide −
+PGCD(2072 ; 370) = PGCD(370 ; 222)
+PGCD(370 ; 222) = PGCD(222 ; 148)
+PGCD(222 ; 148) = PGCD(148 ; 74)
+Le reste de la division de 148 par 74 est nul,
+donc PGCD(2072 ; 370) = 74.
+
+Liste des diviseurs de 74, PGCD de (2072 ; 370) :
+1	<=>	74
+2	<=>	37
+Les diviseurs communs à deux nombres sont les diviseurs de leur PGCD :
+[1 2 37 74]
+

@@ -2,24 +2,37 @@
 
 use v6;
 use corrective;
+use teeput;
 use method09 :methodwording, :exe07, :examples;
 use pgcd;
+use integer-divisors-listing;
 
 sub answering {
+    class T does Tput {}
+    my $t = T.new(
+        filepath => 'output/m0907.txt',
+        filemode => ':a',
+        writefile => True,
+        closefile => False,
+    );
     my $pgcd = PGCD.new(
-        # Pour construire la classe 'IntegerDivisorsListing' (dont hérite PGCD)
-        array-or-hash => '@',
+        t => $t,
         # Pour construire la classe 'PGCD', pour la méthode 'euclide_algorithm'
         integer1 => 2037,
         integer2 => 454,
     );
     my Int $p = $pgcd.euclide_algorithm();
-    say();
-    say "Liste des diviseurs de $p, PGCD de (", $pgcd.integer1, " ; ", $pgcd.integer2, ").";
-    # Méthode héritée
-    my @a = $pgcd.list-divisors($p);
-    say "Les diviseurs communs à deux nombres sont les diviseurs de leur PGCD :";
-    say @a;
+    $t.tprint: "\n";
+    $t.tput: "Liste des diviseurs de $p, PGCD de ({$pgcd.integer1} ; {$pgcd.integer2}) :";
+    my $listing = IntegerDivisorsListing.new(
+        t => $t,
+    );
+    my @a = $listing.list-divisors($p);
+    $t.tput: "Les diviseurs communs à deux nombres sont les diviseurs de leur PGCD :";
+    $t.tsay: @a;
+
+    $t.closefile = True;
+    $t.tprint: "\n";
 }
 
 exercise_07();

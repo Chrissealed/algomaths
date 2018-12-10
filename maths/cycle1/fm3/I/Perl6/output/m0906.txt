@@ -1,0 +1,17 @@
+# Exercice 6.
+# Déterminer la liste des diviseurs communs de 7375 et 472 (voir méthode 7 exercice 3).
+-----------------------------------------------------------------------------------
+− Utilisation de l'algorithme d'Euclide −
+PGCD(7375 ; 472) = PGCD(472 ; 295)
+PGCD(472 ; 295) = PGCD(295 ; 177)
+PGCD(295 ; 177) = PGCD(177 ; 118)
+PGCD(177 ; 118) = PGCD(118 ; 59)
+Le reste de la division de 118 par 59 est nul,
+donc PGCD(7375 ; 472) = 59.
+
+Liste des diviseurs de 59, PGCD de (7375 ; 472) :
+1	<=>	59
+59 est un nombre premier!
+Les diviseurs communs à deux nombres sont les diviseurs de leur PGCD :
+[1 59]
+

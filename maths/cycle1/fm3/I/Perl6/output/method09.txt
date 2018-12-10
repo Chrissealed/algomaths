@@ -1,0 +1,14 @@
+# Chapitre I : ARITHMÉTIQUE.
+###################################################################################
+# Méthode 9. Comment déterminer tous les diviseurs communs à deux nombres avec leur
+# PGCD :
+###################################################################################
+# ▲ on détermine le PGCD des deux nombres (méthode 5; 6; 7 ou 8);
+# ▲ on détermine la liste de tous les diviseurs du PGCD (= méthode 3);
+# ▲ on conclut en donnant la liste trouvée; c'est celle de tous les diviseurs
+#   communs aux deux nombres.
+#
+# Les diviseurs communs de deux nombres sont les diviseurs de leur PGCD.
+###################################################################################
+
+

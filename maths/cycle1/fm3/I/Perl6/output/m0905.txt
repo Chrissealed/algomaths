@@ -1,0 +1,20 @@
+# Exercice 5.
+# Démontrer que 988 et 363 n'ont qu'un seul diviseur commun (voir méthode 7 exercice 2).
+-----------------------------------------------------------------------------------
+− Utilisation de l'algorithme d'Euclide −
+PGCD(988 ; 363) = PGCD(363 ; 262)
+PGCD(363 ; 262) = PGCD(262 ; 101)
+PGCD(262 ; 101) = PGCD(101 ; 60)
+PGCD(101 ; 60) = PGCD(60 ; 41)
+PGCD(60 ; 41) = PGCD(41 ; 19)
+PGCD(41 ; 19) = PGCD(19 ; 3)
+PGCD(19 ; 3) = PGCD(3 ; 1)
+Le reste de la division de 3 par 1 est nul,
+donc PGCD(988 ; 363) = 1.
+
+Liste des diviseurs de 1, PGCD de (988 ; 363) :
+1	<=>	1
+1 est un nombre premier!
+Les diviseurs communs à deux nombres sont les diviseurs de leur PGCD :
+[1 1]
+

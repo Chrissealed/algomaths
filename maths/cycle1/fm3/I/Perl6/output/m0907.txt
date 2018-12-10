@@ -1,0 +1,18 @@
+# Exercice 7.
+# Démontrer que 2037 et 454 n'ont qu'un seul diviseur commun (voir méthode 7 exercice 5).
+-----------------------------------------------------------------------------------
+− Utilisation de l'algorithme d'Euclide −
+PGCD(2037 ; 454) = PGCD(454 ; 221)
+PGCD(454 ; 221) = PGCD(221 ; 12)
+PGCD(221 ; 12) = PGCD(12 ; 5)
+PGCD(12 ; 5) = PGCD(5 ; 2)
+PGCD(5 ; 2) = PGCD(2 ; 1)
+Le reste de la division de 2 par 1 est nul,
+donc PGCD(2037 ; 454) = 1.
+
+Liste des diviseurs de 1, PGCD de (2037 ; 454) :
+1	<=>	1
+1 est un nombre premier!
+Les diviseurs communs à deux nombres sont les diviseurs de leur PGCD :
+[1 1]
+

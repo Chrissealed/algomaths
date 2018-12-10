@@ -1,0 +1,19 @@
+# Exercice 1.
+# Déterminer la liste des diviseurs communs de 1210 et 462 (voir méthode 5 exercice 1).
+-----------------------------------------------------------------------------------
+− Utilisation de l'algorithme d'Euclide −
+PGCD(1210 ; 462) = PGCD(462 ; 286)
+PGCD(462 ; 286) = PGCD(286 ; 176)
+PGCD(286 ; 176) = PGCD(176 ; 110)
+PGCD(176 ; 110) = PGCD(110 ; 66)
+PGCD(110 ; 66) = PGCD(66 ; 44)
+PGCD(66 ; 44) = PGCD(44 ; 22)
+Le reste de la division de 44 par 22 est nul,
+donc PGCD(1210 ; 462) = 22.
+
+Liste des diviseurs de 22, PGCD de (1210 ; 462) :
+1	<=>	22
+2	<=>	11
+Les diviseurs communs à deux nombres sont les diviseurs de leur PGCD :
+[1 2 11 22]
+

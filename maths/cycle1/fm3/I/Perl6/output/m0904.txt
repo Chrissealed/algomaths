@@ -1,0 +1,19 @@
+# Exercice 4.
+# Déterminer la liste des diviseurs communs de 780 et 504 (voir méthode 7 exercice 1).
+-----------------------------------------------------------------------------------
+− Utilisation de l'algorithme d'Euclide −
+PGCD(780 ; 504) = PGCD(504 ; 276)
+PGCD(504 ; 276) = PGCD(276 ; 228)
+PGCD(276 ; 228) = PGCD(228 ; 48)
+PGCD(228 ; 48) = PGCD(48 ; 36)
+PGCD(48 ; 36) = PGCD(36 ; 12)
+Le reste de la division de 36 par 12 est nul,
+donc PGCD(780 ; 504) = 12.
+
+Liste des diviseurs de 12, PGCD de (780 ; 504) :
+1	<=>	12
+2	<=>	6
+3	<=>	4
+Les diviseurs communs à deux nombres sont les diviseurs de leur PGCD :
+[1 2 3 4 6 12]
+

@@ -1,0 +1,18 @@
+# Exercice 3.
+# Déterminer la liste des diviseurs communs de 2940 et 1155 (voir méthode 4 exercice 3).
+-----------------------------------------------------------------------------------
+− Utilisation de l'algorithme d'Euclide −
+PGCD(2940 ; 1155) = PGCD(1155 ; 630)
+PGCD(1155 ; 630) = PGCD(630 ; 525)
+PGCD(630 ; 525) = PGCD(525 ; 105)
+Le reste de la division de 525 par 105 est nul,
+donc PGCD(2940 ; 1155) = 105.
+
+Liste des diviseurs de 105, PGCD de (2940 ; 1155) :
+1	<=>	105
+3	<=>	35
+5	<=>	21
+7	<=>	15
+Les diviseurs communs à deux nombres sont les diviseurs de leur PGCD :
+[1 3 5 7 15 21 35 105]
+

@@ -2,9 +2,21 @@ unit module Method09;
 
 use v6;
 
+=begin pod
+=NAME module B<Method09>
+=AUTHOR Christian Béloscar
+=VERSION 0.1.119
+=end pod
+
+use teeput;
+
+class T does Teeput::Tput {}
+my $t = T.new(
+    writefile => True,
+);
+    
 sub put-up-method is export(:methodwording) {
-    say qq:to/EOM/;
-###################################################################################
+    my $message = qq:to/EOM/;
 # Chapitre I : ARITHMÉTIQUE.
 ###################################################################################
 # Méthode 9. Comment déterminer tous les diviseurs communs à deux nombres avec leur
@@ -19,6 +31,9 @@ sub put-up-method is export(:methodwording) {
 ###################################################################################
 
 EOM
+    $t.filepath = 'output/method09.txt';
+    $t.filemode = ':x'; # :mode<wo>, :create, :exclusive
+    $t.tput($message);
 }
 
 sub show-examples is export(:examples) {
@@ -26,43 +41,71 @@ sub show-examples is export(:examples) {
 }
 
 sub exercise_01 is export(:exe01) {
-    say '# Exercice 1.';
-    say '# Déterminer la liste des diviseurs communs de 1210 et 462 (voir méthode 5 exercice 1).';
-    say '-----------------------------------------------------------------------------------';
+    $t.filepath = 'output/m0901.txt';
+    $t.filemode = ':w'; # :mode<wo>, :create, :truncate
+    $t.tput: '# Exercice 1.';
+    $t.filemode = ':a'; # :mode<wo>, :create, :append
+    $t.closefile = False;
+    $t.tput: '# Déterminer la liste des diviseurs communs de 1210 et 462 (voir méthode 5 exercice 1).';
+    $t.tput: '-----------------------------------------------------------------------------------';
 }
 
 sub exercise_02 is export(:exe02) {
-    say '# Exercice 2.';
-    say '# Déterminer la liste des diviseurs communs de 2072 et 370 (voir méthode 5 exercice 4).';
-    say '-----------------------------------------------------------------------------------';
+    $t.filepath = 'output/m0902.txt';
+    $t.filemode = ':w'; # :mode<wo>, :create, :truncate
+    $t.tput: '# Exercice 2.';
+    $t.filemode = ':a'; # :mode<wo>, :create, :append
+    $t.closefile = False;
+    $t.tput: '# Déterminer la liste des diviseurs communs de 2072 et 370 (voir méthode 5 exercice 4).';
+    $t.tput: '-----------------------------------------------------------------------------------';
 }
 
 sub exercise_03 is export(:exe03) {
-    say '# Exercice 3.';
-    say '# Déterminer la liste des diviseurs communs de 2940 et 1155 (voir méthode 4 exercice 3).';
-    say '-----------------------------------------------------------------------------------';
+    $t.filepath = 'output/m0903.txt';
+    $t.filemode = ':w'; # :mode<wo>, :create, :truncate
+    $t.tput: '# Exercice 3.';
+    $t.filemode = ':a'; # :mode<wo>, :create, :append
+    $t.closefile = False;
+    $t.tput: '# Déterminer la liste des diviseurs communs de 2940 et 1155 (voir méthode 4 exercice 3).';
+    $t.tput: '-----------------------------------------------------------------------------------';
 }
 
 sub exercise_04 is export(:exe04) {
-    say '# Exercice 4.';
-    say '# Déterminer la liste des diviseurs communs de 780 et 504 (voir méthode 7 exercice 1).';
-    say '-----------------------------------------------------------------------------------';
+    $t.filepath = 'output/m0904.txt';
+    $t.filemode = ':w'; # :mode<wo>, :create, :truncate
+    $t.tput: '# Exercice 4.';
+    $t.filemode = ':a'; # :mode<wo>, :create, :append
+    $t.closefile = False;
+    $t.tput: '# Déterminer la liste des diviseurs communs de 780 et 504 (voir méthode 7 exercice 1).';
+    $t.tput: '-----------------------------------------------------------------------------------';
 }
 
 sub exercise_05 is export(:exe05) {
-    say '# Exercice 5.';
-    say '# Démontrer que 988 et 363 n\'ont qu\'un seul diviseur commun (voir méthode 7 exercice 2).';
-    say '-----------------------------------------------------------------------------------';
+    $t.filepath = 'output/m0905.txt';
+    $t.filemode = ':w'; # :mode<wo>, :create, :truncate
+    $t.tput: '# Exercice 5.';
+    $t.filemode = ':a'; # :mode<wo>, :create, :append
+    $t.closefile = False;
+    $t.tput: '# Démontrer que 988 et 363 n\'ont qu\'un seul diviseur commun (voir méthode 7 exercice 2).';
+    $t.tput: '-----------------------------------------------------------------------------------';
 }
 
 sub exercise_06 is export(:exe06) {
-    say '# Exercice 6.';
-    say '# Déterminer la liste des diviseurs communs de 7375 et 472 (voir méthode 7 exercice 3).';
-    say '-----------------------------------------------------------------------------------';
+    $t.filepath = 'output/m0906.txt';
+    $t.filemode = ':w'; # :mode<wo>, :create, :truncate
+    $t.tput: '# Exercice 6.';
+    $t.filemode = ':a'; # :mode<wo>, :create, :append
+    $t.closefile = False;
+    $t.tput: '# Déterminer la liste des diviseurs communs de 7375 et 472 (voir méthode 7 exercice 3).';
+    $t.tput: '-----------------------------------------------------------------------------------';
 }
 
 sub exercise_07 is export(:exe07) {
-    say '# Exercice 7.';
-    say '# Démontrer que 2037 et 454 n\'ont qu\'un seul diviseur commun (voir méthode 7 exercice 5).';
-    say '-----------------------------------------------------------------------------------';
+    $t.filepath = 'output/m0907.txt';
+    $t.filemode = ':w'; # :mode<wo>, :create, :truncate
+    $t.tput: '# Exercice 7.';
+    $t.filemode = ':a'; # :mode<wo>, :create, :append
+    $t.closefile = False;
+    $t.tput: '# Démontrer que 2037 et 454 n\'ont qu\'un seul diviseur commun (voir méthode 7 exercice 5).';
+    $t.tput: '-----------------------------------------------------------------------------------';
 }
