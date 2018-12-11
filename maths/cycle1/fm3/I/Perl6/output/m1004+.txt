@@ -1,0 +1,29 @@
+# Exercice 4+.
+# ----------
+# 174702 et 119115.
+# Dire si les deux nombres sont premiers entre eux ? Justifier la réponse.
+-----------------------------------------------------------------------------------
+1	<=>	174702
+2	<=>	87351
+3	<=>	58234
+6	<=>	29117
+11	<=>	15882
+22	<=>	7941
+33	<=>	5294
+66	<=>	2647
+
+1	<=>	119115
+3	<=>	39705
+5	<=>	23823
+9	<=>	13235
+15	<=>	7941
+45	<=>	2647
+
+Les nombres 174702 et 119115 ont un diviseur commun autre que 1 : 3.
+Les nombres 174702 et 119115 ont un diviseur commun autre que 1 : 2647.
+Les nombres 174702 et 119115 ont un diviseur commun autre que 1 : 7941.
+[1 2 3 6 11 22 33 66 2647 5294 7941 15882 29117 58234 87351 174702]
+[1 3 5 9 15 45 2647 7941 13235 23823 39705 119115]
+[3 2647 7941]
+Les nombres 174702 et 119115 ne sont donc pas premiers entre eux.
+

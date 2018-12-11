@@ -1,0 +1,18 @@
+# Exercice 11.
+# -----------
+# 493 et 203.
+# Dire si les deux nombres sont premiers entre eux ? Justifier la réponse.
+-----------------------------------------------------------------------------------
+− Utilisation de l'algorithme de comparaison des listes de tous les diviseurs −
+Diviseurs de 493 :
+1	<=>	493
+17	<=>	29
+Diviseurs de 203 :
+1	<=>	203
+7	<=>	29
+Les diviseurs communs à 493 et 203 sont : 1 29
+
+Le PGCD de 493 et 203 est 29.
+493 et 203 ont un diviseur commun autre que 1 : 29.
+Les nombres 493 et 203 ne sont donc pas premiers entre eux.
+

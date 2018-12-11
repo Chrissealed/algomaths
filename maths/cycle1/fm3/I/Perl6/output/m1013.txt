@@ -1,0 +1,26 @@
+# Exercice 13.
+# -----------
+# 2929 et 10605.
+# Dire si les deux nombres sont premiers entre eux ? Justifier la réponse.
+-----------------------------------------------------------------------------------
+1	<=>	2929
+29	<=>	101
+
+1	<=>	10605
+3	<=>	3535
+5	<=>	2121
+7	<=>	1515
+15	<=>	707
+21	<=>	505
+35	<=>	303
+101	<=>	105
+
+Les nombres 2929 et 10605 ont un diviseur commun autre que 1 : 101.
+[1 29 101 2929]
+[1 3 5 7 15 21 35 101 105 303 505 707 1515 2121 3535 10605]
+[101]
+Les nombres 2929 et 10605 ne sont donc pas premiers entre eux.
+On peut dire aussi que 2929 = 29 × 101 et 10605 = 105 × 101
+donc 2929 et 10605 sont divisibles par 101, 101 est un diviseur
+commun de 2929 et 10605 donc PGCD(2929 ; 10605) n'est pas égal à 1
+donc 2929 et 10605 ne sont pas des nombres premiers entre eux.

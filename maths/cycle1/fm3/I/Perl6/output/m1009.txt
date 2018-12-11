@@ -1,0 +1,24 @@
+# Exercice 9.
+# ----------
+# 5167 et 2277.
+# Dire si les deux nombres sont premiers entre eux ? Justifier la réponse.
+-----------------------------------------------------------------------------------
+− Utilisation de l'algorithme de factorisation en facteurs premiers −
+Facteurs premiers de 5167 :
+5167	=>	1
+5167 est un nombre premier!
+Il n'admet que 1 et lui-même comme diviseurs.
+1 × 5167.
+Facteurs premiers de 2277 :
+2277	=>	3
+759	=>	3
+253	=>	11
+23	=>	23
+3 × 3 × 11 × 23
+3^2 × 11 × 23
+Facteurs communs à 5167 et 2277 : 
+pas de facteurs communs.
+5167 et 2277 n'ont pas de diviseurs communs autre que 1.
+Les nombres 5167 et 2277 sont donc premiers entre eux
+car ils n'ont pas de diviseurs communs autre que 1.
+

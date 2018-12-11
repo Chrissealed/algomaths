@@ -1,0 +1,11 @@
+# Exercice 14.
+# -----------
+# Deux nombres pairs.
+# Dire si les deux nombres sont premiers entre eux ? Justifier la réponse.
+-----------------------------------------------------------------------------------
+Deux nombres pairs sont deux nombres divisibles par 2
+donc 2 est un diviseur commun de ces deux nombres
+donc le PGCD de deux nombres pairs n'est pas égal à 1
+donc deux nombres pairs ne sont pas premiers entre eux.
+
+

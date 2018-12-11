@@ -1,0 +1,8 @@
+# Exercice 10.
+# -----------
+# 9438 et 6799.
+# Dire si les deux nombres sont premiers entre eux ? Justifier la réponse.
+-----------------------------------------------------------------------------------
+9438 et 6799 ont un diviseur commun autre que 1 : 13.
+Les nombres 9438 et 6799 ne sont donc pas premiers entre eux.
+

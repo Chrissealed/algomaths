@@ -2,27 +2,39 @@
 
 use v6;
 use corrective;
-use method10 :methodwording, :exe06, :examples;
+use teeput;
+use method10 :methodwording, :exe06b, :examples;
 use are-prime;
 
 sub answering {
+    class T does Tput {}
+    my $t = T.new(
+        filepath => 'output/m1006+.txt',
+        filemode => ':a',
+        writefile => True,
+        closefile => False,
+    );
     my Int $n1 = 77;
     my Int $n2 = 1001;
     my $are-prime = ArePrime.new(
+        t => $t,
         integer1 => $n1,
         integer2 => $n2,
     );
     # Recherche de tous les diviseurs communs aux nombres
     my Bool $have-common-divisors = $are-prime.have-common-divisors();
     if !$have-common-divisors {
-        say "Les nombres $n1 et $n2 sont donc premiers entre eux";
-        say "car ils n'ont pas de diviseurs communs autre que 1.";
+        $t.tput: "Les nombres $n1 et $n2 sont donc premiers entre eux";
+        $t.tput: "car ils n'ont pas de diviseurs communs autre que 1.";
     } else {
-        say "Les nombres $n1 et $n2 ne sont donc pas premiers entre eux.";
+        $t.tput: "Les nombres $n1 et $n2 ne sont donc pas premiers entre eux.";
     }
+
+    $t.closefile = True;
+    $t.tprint: "\n";
 }
 
-exercise_06();
+exercise_06b();
 my Bool $boolean = do-put-up-method();
 if $boolean {
     put-up-method();

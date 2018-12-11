@@ -1,0 +1,8 @@
+# Exercice 6.
+# ----------
+# 77 et 1001.
+# Dire si les deux nombres sont premiers entre eux ? Justifier la réponse.
+-----------------------------------------------------------------------------------
+77 et 1001 ont un diviseur commun autre que 1 : 7.
+Les nombres 77 et 1001 ne sont donc pas premiers entre eux.
+

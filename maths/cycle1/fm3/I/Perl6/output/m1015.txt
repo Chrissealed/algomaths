@@ -1,0 +1,9 @@
+# Exercice 15.
+# -----------
+# 258 et 259.
+# Dire si les deux nombres sont premiers entre eux ? Justifier la réponse.
+-----------------------------------------------------------------------------------
+259 = 258 × 1 + 1 donc PGCD(259;258) = PGCD(258;1) = 1
+donc 258 et 259 sont des nombres premiers entre eux.
+
+

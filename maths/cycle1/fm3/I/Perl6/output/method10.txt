@@ -1,0 +1,15 @@
+# Chapitre I : ARITHMÉTIQUE.
+###################################################################################
+# Méthode 10. Comment savoir si deux nombres sont premiers entre eux ?
+###################################################################################
+# Pour savoir si deux nombres entiers sont premiers entre eux :
+# ▲ on observe les deux nombres;
+#   - si on constate qu'ils ont un diviseur commun autre que 1,
+# ▲ on conclut qu'ils ne sont pas premiers entre eux,
+#   - dans le cas contraire,
+# ▲ on détermine leur PGCD;
+# ▲ on conclut que les deux nombres sont premiers entre eux, si le PGCD est 1 et
+#   on conclut qu'ils ne le sont pas, si le PGCD est différent de 1.
+###################################################################################
+
+

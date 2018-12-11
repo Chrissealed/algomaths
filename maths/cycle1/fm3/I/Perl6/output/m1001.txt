@@ -1,0 +1,8 @@
+# Exercice 1.
+# ----------
+# 4664 et 2915.
+# Dire si les deux nombres sont premiers entre eux ? Justifier la réponse.
+-----------------------------------------------------------------------------------
+4664 et 2915 ont un diviseur commun autre que 1 : 11.
+Les nombres 4664 et 2915 ne sont donc pas premiers entre eux.
+

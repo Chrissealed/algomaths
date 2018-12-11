@@ -1,0 +1,30 @@
+# Exercice 8.
+# ----------
+# 121 et 450.
+# Dire si les deux nombres sont premiers entre eux ? Justifier la réponse.
+-----------------------------------------------------------------------------------
+1	<=>	121
+11	<=>	11
+121 est un carré parfait! : 11 × 11
+
+1	<=>	450
+2	<=>	225
+3	<=>	150
+5	<=>	90
+6	<=>	75
+9	<=>	50
+10	<=>	45
+15	<=>	30
+18	<=>	25
+
+Les nombres 121 et 450 n'ont pas de diviseurs communs autre que 1.
+[1 11 11 121]
+[1 2 3 5 6 9 10 15 18 25 30 45 50 75 90 150 225 450]
+1
+Les nombres 121 et 450 sont donc premiers entre eux
+car ils n'ont pas de diviseurs communs autre que 1.
+On peut dire aussi que les diviseurs de 121 sont 1, 11 et 121
+qui ne sont pas diviseurs de 450, donc 1 est leur seul diviseur
+commun donc PGCD(121 ; 450) = 1 donc 121 et 450 sont des
+nombres premiers entre eux.
+

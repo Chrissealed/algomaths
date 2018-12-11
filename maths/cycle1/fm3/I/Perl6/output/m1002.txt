@@ -1,0 +1,20 @@
+# Exercice 2.
+# ----------
+# 4435 et 1176.
+# Dire si les deux nombres sont premiers entre eux ? Justifier la réponse.
+-----------------------------------------------------------------------------------
+− Utilisation de l'algorithme d'Euclide −
+PGCD(4435 ; 1176) = PGCD(1176 ; 907)
+PGCD(1176 ; 907) = PGCD(907 ; 269)
+PGCD(907 ; 269) = PGCD(269 ; 100)
+PGCD(269 ; 100) = PGCD(100 ; 69)
+PGCD(100 ; 69) = PGCD(69 ; 31)
+PGCD(69 ; 31) = PGCD(31 ; 7)
+PGCD(31 ; 7) = PGCD(7 ; 3)
+PGCD(7 ; 3) = PGCD(3 ; 1)
+Le reste de la division de 3 par 1 est nul,
+donc PGCD(4435 ; 1176) = 1.
+4435 et 1176 n'ont pas de diviseurs communs autre que 1.
+Les nombres 4435 et 1176 sont donc premiers entre eux
+car ils n'ont pas de diviseurs communs autre que 1.
+

@@ -1,0 +1,18 @@
+# Exercice 7.
+# ----------
+# 14 et 55.
+# Dire si les deux nombres sont premiers entre eux ? Justifier la réponse.
+-----------------------------------------------------------------------------------
+1	<=>	14
+2	<=>	7
+
+1	<=>	55
+5	<=>	11
+
+Les nombres 14 et 55 n'ont pas de diviseurs communs autre que 1.
+[1 2 7 14]
+[1 5 11 55]
+1
+Les nombres 14 et 55 sont donc premiers entre eux
+car ils n'ont pas de diviseurs communs autre que 1.
+

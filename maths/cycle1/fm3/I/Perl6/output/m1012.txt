@@ -1,0 +1,17 @@
+# Exercice 12.
+# -----------
+# 1450 et 2691.
+# Dire si les deux nombres sont premiers entre eux ? Justifier la réponse.
+-----------------------------------------------------------------------------------
+− Utilisation de l'algorithme d'Euclide −
+PGCD(2691 ; 1450) = PGCD(1450 ; 1241)
+PGCD(1450 ; 1241) = PGCD(1241 ; 209)
+PGCD(1241 ; 209) = PGCD(209 ; 196)
+PGCD(209 ; 196) = PGCD(196 ; 13)
+PGCD(196 ; 13) = PGCD(13 ; 1)
+Le reste de la division de 13 par 1 est nul,
+donc PGCD(1450 ; 2691) = 1.
+1450 et 2691 n'ont pas de diviseurs communs autre que 1.
+Les nombres 1450 et 2691 sont donc premiers entre eux
+car ils n'ont pas de diviseurs communs autre que 1.
+

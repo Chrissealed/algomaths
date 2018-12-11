@@ -1,0 +1,8 @@
+# Exercice 4.
+# ----------
+# 174702 et 119115.
+# Dire si les deux nombres sont premiers entre eux ? Justifier la réponse.
+-----------------------------------------------------------------------------------
+174702 et 119115 ont un diviseur commun autre que 1 : 3.
+Les nombres 174702 et 119115 ne sont donc pas premiers entre eux.
+

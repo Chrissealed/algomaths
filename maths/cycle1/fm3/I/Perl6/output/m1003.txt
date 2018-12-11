@@ -1,0 +1,8 @@
+# Exercice 3.
+# ----------
+# 865 et 1540.
+# Dire si les deux nombres sont premiers entre eux ? Justifier la réponse.
+-----------------------------------------------------------------------------------
+865 et 1540 ont un diviseur commun autre que 1 : 5.
+Les nombres 865 et 1540 ne sont donc pas premiers entre eux.
+
