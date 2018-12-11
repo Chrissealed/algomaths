@@ -3,19 +3,23 @@ unit module usual-divisibility-criteria;
 use v6;
 
 =begin pod
+=NAME class B<UsualDivisibilityCriteria>
+=AUTHOR Christian Béloscar
+=VERSION 0.2.0
+
+=for head1
 Ce module est destiné à coder les critères de divisibilité usuels
 des nombres pour lesquels ceux-ci existent :
 2, 3, 4, 5, 9, (10, 100, 1000, etc.), 11 et 25.
+
 Ceci permet d'éviter d'utiliser la méthode par modulo (mod ou %%)
 directement sur le nombre lui-même et ainsi d'accélérer le traitement.
-Il contient autant de méthodes 'divisible_by_n?(Int $integer)'
-ou 'n' est l'un des nombres ci-dessus,
-avec une variante : 'divisible_by_0_queue?(integer)'
+Il contient autant de méthodes de type B<divisible_by_n>(Int:D $integer --> Bool:D)
+ou B<n> est l'un des nombres ci-dessus,
+avec une variante : B<divisible_by_0_queue>(Int:D $integer --> Bool:D)
 pour la série des multiples de 10 (finissant par une suite de 0).
-Chacune de ces méthodes renvoie 'True' ou 'False'
-selon que le nombre donné en argument est divisible ou pas par 'n'.
-Le module est employé notamment par la classe
-'IntegerDivisorsListing' du fichier 'integer-divisors-listing.pm6'
+Chacune de ces méthodes renvoie B<True> ou B<False>
+selon que le nombre donné en argument est divisible ou pas par B<n>.
 
 =head1 Voici les critères de divisibilité courants employés ici :
 
@@ -43,7 +47,7 @@ le nombre se termine par 00, 25, 50 ou 75.
 role UsualDivisibilityCriteria is export {
     # Critère de divisibilité par 2, le chiffre des unités
     # est : 0, 2, 4, 6 ou 8
-    method is_divisible_by_2(Int $integer) {
+    method is_divisible_by_2(Int:D $integer --> Bool:D) {
         my Int $n = abs($integer);
         #my Int $units = $n.Str.comb[$n.Str.chars-1];
         my Str $units = substr($n.Str, *-1);
@@ -55,7 +59,7 @@ role UsualDivisibilityCriteria is export {
 
     # Critère de divisibilité par 3 :
     # la somme des chiffres est divisible par 3
-    method is_divisible_by_3(Int $integer) {
+    method is_divisible_by_3(Int:D $integer --> Bool:D) {
         # Pour protéger les valeurs négatives en vue de la conversion en Int
         my Int $n = abs($integer);
         # Pour un nombre à un chiffre
@@ -88,7 +92,7 @@ role UsualDivisibilityCriteria is export {
 
     # Critère de divisibilité par 4 :
     # le nombre formé par les deux chiffres de droite est divisible par 4
-    method is_divisible_by_4(Int $integer) {
+    method is_divisible_by_4(Int:D $integer --> Bool:D) {
         my Int $n = abs($integer);
         # Pour un nombre à un chiffre
         if $n.Str.chars == 1 {
@@ -113,7 +117,7 @@ role UsualDivisibilityCriteria is export {
 
     # Critère de divisibilité par 5 : le chiffre des unités
     # est 0 ou 5 (cf. divisible_by_2?)
-    method is_divisible_by_5(Int $integer) {
+    method is_divisible_by_5(Int:D $integer --> Bool:D) {
         my Int $n = abs($integer);
         my Str $units = $n.Str.comb[$n.Str.chars - 1];
         given $units {
@@ -125,7 +129,7 @@ role UsualDivisibilityCriteria is export {
     # Pas de critère de divisibilité particulier pour 6, 7 et 8
 
     # Critère de divisibilité par 9 : la somme des chiffres est divisible par 9 (cf.divisible_by_3?)
-    method is_divisible_by_9(Int $integer) {
+    method is_divisible_by_9(Int:D $integer --> Bool:D) {
         my Int $n = abs($integer);
         # Pour un nombre à un chiffre
         if ($n.Str.chars == 1) {
@@ -155,7 +159,7 @@ role UsualDivisibilityCriteria is export {
 
     # Critère de divisibilité par 10, 100, 1000 etc. :
     # le nombre se termine respectivement par 0, 00, 000, etc.
-    method is_divisible_by_0_queue(Int $integer) {
+    method is_divisible_by_0_queue(Int:D $integer --> Bool:D) {
         my Int $n = abs($integer);
         my Int $i = 1;
         my Str $j = '0';
@@ -188,7 +192,7 @@ role UsualDivisibilityCriteria is export {
 
     # Critère de divisibilité par 11 : la différence entre la somme des chiffres
     # de rang pair et celle des chiffres de rang impair est divisible par 11.
-    method is_divisible_by_11(Int $integer) {
+    method is_divisible_by_11(Int:D $integer --> Bool:D) {
         my Int $n = abs($integer);
         my Str @evens;
         my Str @odds;
@@ -236,7 +240,7 @@ role UsualDivisibilityCriteria is export {
 
     # Critère de divisibilité par 25 :
     # le nombre se termine par 00, 25, 50 ou 75
-    method is_divisible_by_25(Int $integer) {
+    method is_divisible_by_25(Int:D $integer --> Bool:D) {
         my Int $n = abs($integer);
         my Bool $flag = False;
         if ($n < 25) { $flag = False; return $flag }

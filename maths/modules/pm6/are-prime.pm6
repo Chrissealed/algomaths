@@ -5,7 +5,7 @@ use v6;
 =begin pod
 =NAME class B<ArePrime>
 =AUTHOR Christian Béloscar
-=VERSION 0.1.119
+=VERSION 0.2.0
 
 =for head1
 Cette classe est destinée à dire si deux entiers relatifs
@@ -14,12 +14,15 @@ qu'ils ne possèdent pas de diviseurs communs autre que 1.
 
 Cette classe inclue le rôle B<UsualDivisibilityCriteria>
 et utilise la méthode B<list-divisors> de la classe B<IntegerDivisorsListing>
-dans sa méthode 1 B<have-common-divisors>
+dans sa méthode 1
+=head2 have-common-divisors(--> Bool: D)
+
 pour déterminer si deux nombres sont premiers entre eux
 cherchant les diviseurs communs en comparant
 les listes de diviseurs de chaque nombre.
 
-Une deuxième méthode B<have-common-divisor> (notez le singulier) utilise
+Une deuxième méthode B<have-common-divisor>(Str $pgcd-algorithm = 'euclide' --> Bool:D)
+(notez le I<singulier>) utilise
 les méthodes du rôle inclus dans la classe B<UsualDivisibilityCriteria>
 chargé de coder les critères usuels
 de divisibilité de deux nombres (cf. doc du module B<usual-divisibility-criteria.pm6>)
@@ -35,7 +38,9 @@ La classe possède deux attributs requis : B<integer1> et B<integer2>
 qui doivent être des entiers différents de 0.
 Tous les champs sont en lecture et écriture.
 
-La méthode 2 utilise un paramètre, B<have-common-divisor($pgcd-algorithm)>
+La méthode 2 utilise un paramètre,
+=head2 have-common-divisor(Str $pgcd-algorithm = 'euclide' --> Bool:D)
+
 visant à spécifier quelle méthode de la classe PGCD
 sera utilisée pour rechercher un diviseur commun
 à partir du nombre 25 (c'est-à-dire au-delà des critères de divisibilité).
@@ -47,9 +52,10 @@ ou la méthode par soustractions, ou celle par factorization
 ou encore celle par comparaison de la liste des diviseurs :
 
 =item 1) 'euclide' ou 'e' ou ':' ou '÷' ou bien
-=item 2) 'subtract' ou 's' ou '-' ou '−' ou bien
+=item 2) 'subtraction' ou 's' ou '-' ou '−' ou bien
 =item 3) 'factorization' ou 'f' ou '*' ou '×' ou bien
 =item 4) 'divisors-listing' ou 'd' ou '#' ou '/'. 
+
 Par défaut la valeur de ce paramètre est 'euclide'.
 
 La classe possède en outre un attribut requis destiné à écrire
@@ -72,7 +78,7 @@ class ArePrime does UsualDivisibilityCriteria is export {
     has Int $.integer1 is required is rw where { ($_ != 0) or die "Valeur de champ invalide: entier relatif différent de 0 requis !" };
     has Int $.integer2 is required is rw where { ($_ != 0) or die "Valeur de champ invalide: entier relatif différent de 0 requis !" };
 
-    method have-common-divisors(--> Bool) {
+    method have-common-divisors(--> Bool:D) {
         my Int $int1 = $!integer1;
         my Int $int2 = $!integer2;
         my Int @a = ();
@@ -81,13 +87,14 @@ class ArePrime does UsualDivisibilityCriteria is export {
         my Bool $flag = False;
 
         my $list = IntegerDivisorsListing.new(
+            t => $!t,
             # Attribut de IntegerDivisorsListing (par défaut : array)
             array-or-hash => '@',
         );
         @a = $list.list-divisors($int1);
-        $!t.tput();
+        $!t.tprint: "\n";
         @b = $list.list-divisors($int2);
-        $!t.tput();
+        $!t.tprint: "\n";
         if (@a.elems < @b.elems || @a.elems == @b.elems) {
             for @a -> $i {
                 for @b -> $j {
@@ -112,21 +119,21 @@ class ArePrime does UsualDivisibilityCriteria is export {
 
         if !$flag {
             $!t.tput: "Les nombres $int1 et $int2 n'ont pas de diviseurs communs autre que 1.";
-            $!t.tput: @a;
-            $!t.tput: @b;
+            $!t.tsay: @a;
+            $!t.tsay: @b;
             push @c, 1;
             $!t.tput: @c;
             return $flag;
         }
-        $!t.tput: @a;
-        $!t.tput: @b;
-        $!t.tput: @c;
+        $!t.tsay: @a;
+        $!t.tsay: @b;
+        $!t.tsay: @c;
         return $flag;
     }
 
-    method have-common-divisor(Str $pgcd-algorithm = 'euclide' --> Bool) {
-        my Int $dvd = self.integer1;
-        my Int $dvs = self.integer2;
+    method have-common-divisor(Str $pgcd-algorithm = 'euclide' --> Bool:D) {
+        my Int $dvd = $!integer1;
+        my Int $dvs = $!integer2;
         my Int $i;
         my Int @a = ();
         my Bool $flag = True;
@@ -194,7 +201,13 @@ class ArePrime does UsualDivisibilityCriteria is export {
             integer1 => $!integer1,
             integer2 => $!integer2,
         );
-        if ($pgcd-algorithm ~~ / euclide || 'e' || ':' || '÷' /) {
+        
+        my $pgcd-euclide-algorithm-one-junction = 'euclide' ^ 'e' ^ ':' ^ '÷';
+        my $pgcd-subtraction-algorithm-one-junction = 'subtraction' ^ 's' ^ '-' ^ '−';
+        my $pgcd-factorization-algorithm-one-junction = 'factorization' ^ 'f' ^ '*' ^ '×';
+        my $pgcd-divisors-listing-algorithm-one-junction = 'divisors-listing' ^ 'd' ^ '#' ^ '/';
+        
+        if ($pgcd-algorithm eq $pgcd-euclide-algorithm-one-junction) {
             my Int $p = $pgcd.euclide_algorithm();
             if ($p > 1 || $p < 1) {
                 $!t.tput: "$dvd et $dvs ont un diviseur commun autre que 1 : $p.";
@@ -205,7 +218,7 @@ class ArePrime does UsualDivisibilityCriteria is export {
                 return $flag = False;
             }
         }
-        elsif ($pgcd-algorithm ~~ / subtraction || 's' || '-' || '−' /) {
+        elsif ($pgcd-algorithm eq $pgcd-subtraction-algorithm-one-junction) {
             my Int $p = $pgcd.subtraction_algorithm();
             if ($p > 1 || $p < 1) {
                 $!t.tput: "$dvd et $dvs ont un diviseur commun autre que 1 : $p.";
@@ -216,7 +229,7 @@ class ArePrime does UsualDivisibilityCriteria is export {
                 return $flag = False;
             }
         }
-        elsif ($pgcd-algorithm ~~ / factorization || 'f' || '*' || '×' /) {
+        elsif ($pgcd-algorithm eq $pgcd-factorization-algorithm-one-junction) {
             my Int $p = $pgcd.factorization_algorithm();
             if ($p > 1 || $p < 1) {
                 $!t.tput: "$dvd et $dvs ont un diviseur commun autre que 1 : $p.";
@@ -227,7 +240,7 @@ class ArePrime does UsualDivisibilityCriteria is export {
                 return $flag = False;
             }
         }
-        elsif ($pgcd-algorithm ~~ / 'divisors-listing' || 'd' || '#' || '/' /) {
+        elsif ($pgcd-algorithm eq $pgcd-divisors-listing-algorithm-one-junction) {
             my Int $p = $pgcd.divisors-listing_algorithm();
             if ($p > 1 || $p < 1) {
                 $!t.tput: "$dvd et $dvs ont un diviseur commun autre que 1 : $p.";
