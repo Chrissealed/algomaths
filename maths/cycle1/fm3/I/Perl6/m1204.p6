@@ -39,7 +39,7 @@ EOM
     
     $t.tput: "b. Le nombre d'équipes est un diviseur commun de 144 et 54 donc";
     $t.tput: "un diviseur de leur PGCD $p.";
-    my $divisors-listing = IntegerDivisorsListing.new( t =>$t );
+    my $divisors-listing = IntegerDivisorsListing.new( t => $t );
     my Int @a = $divisors-listing.list-divisors($p);
     $t.tput: "Les diviseurs de $p sont @a[].";
     my Int @b = ();
