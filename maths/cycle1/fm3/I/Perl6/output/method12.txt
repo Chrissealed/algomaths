@@ -1,0 +1,12 @@
+# Chapitre I : ARITHMÉTIQUE.
+###################################################################################
+# Méthode 12. Comment résoudre un problème en utilisant le PGCD de deux entiers ?
+###################################################################################
+# Pour résoudre un problème en utilisant le PGCD de deux entiers :
+# ▲ on prélève l'information et on explique en quoi le problème est lié à la
+#   détermination du PGCD de deux nombres;
+# ▲ on détermine le PGCD en appliquant une des méthodes de ce chapitre;
+# ▲ on rédige les réponses aux questions.  
+###################################################################################
+
+

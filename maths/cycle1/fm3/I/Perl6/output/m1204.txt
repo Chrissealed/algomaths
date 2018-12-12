@@ -1,0 +1,43 @@
+# Exercice 4.
+# ----------
+# Pour la fête d'un club sportif, 144 jeunes et 54 séniors vont participer à des
+# épreuves par équipe. Les équipes doivent être de même composition : même nombre
+# de jeunes dans chaque équipe, même nombre de séniors dans chaque équipe.
+# a. Quel est le plus grand nombre d'équipes que le responsable pourrait constituer ?
+#    Préciser dans ce cas la composition d'une équipe.
+# b. Pour répartir les lots, le responsable souhaite former entre 5 et 10 équipes.
+#    Quel est le nombre possible d'équipes ?
+#    Quel est dans chaque cas la composition d'une équipe ?
+-----------------------------------------------------------------------------------
+a. Chaque équipe comprenant le même nombre de jeunes parmi les 144 qui participent
+et le même nombre de séniors parmi les 54 qui participent, le nombre d'équipes
+doit être un diviseur de 144 et de 54.
+Comme le responsable souhaite constituer le plus grand nombre d'équipes,
+alors ce dernier est le PGCD de 144 et 54.
+Calculons le PGCD de 144 et de 54 par l'algorithme d'Euclide.
+
+− Utilisation de l'algorithme d'Euclide −
+PGCD(144 ; 54) = PGCD(54 ; 36)
+PGCD(54 ; 36) = PGCD(36 ; 18)
+Le reste de la division de 36 par 18 est nul,
+donc PGCD(144 ; 54) = 18.
+Le responsable du club pourra réaliser 18 équipes.
+144 = 18 × 8 et 54 = 18 × 3.
+Il y aura 8 jeunes et 3 séniors dans chaque équipe.
+b. Le nombre d'équipes est un diviseur commun de 144 et 54 donc
+un diviseur de leur PGCD 18.
+1	<=>	18
+2	<=>	9
+3	<=>	6
+Les diviseurs de 18 sont 1 2 3 6 9 18.
+Pour avoir un nombre d'équipes entre 5 et 10,
+le responsable peut constituer 6 équipes.
+Composition des équipes :
+144 = 6 × 24 et 54 = 6 × 9;
+avec 6 équipes, il y aura 24 jeunes et 9 séniors par équipe.
+Pour avoir un nombre d'équipes entre 5 et 10,
+le responsable peut constituer 9 équipes.
+Composition des équipes :
+144 = 9 × 16 et 54 = 9 × 6;
+avec 9 équipes, il y aura 16 jeunes et 6 séniors par équipe.
+

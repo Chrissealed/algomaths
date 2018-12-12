@@ -1,0 +1,28 @@
+# Exercice 1.
+# ----------
+# Un apprenti menuisier dispose de planches rectangulaires de 1,62m de longueur
+# et de 0,90m de largeur. Il a reçu la consigne suivante : "Découper dans ces planches
+# des carrés tous identiques, les plus grands possibles, de façon à ne pas avoir de perte."
+# Quelle sera la longueur du côté d'un carré ?
+# Combien obtiendra-t-on de carrés par planche ?
+-----------------------------------------------------------------------------------
+a. Il faut changer d'unité pour donner les dimensions de la planche avec
+des nombres entiers : 1,62m = 162cm et 0,90m = 90cm.
+Les carrés doivent être placés un nombre entier de fois dans la longueur de 162cm
+et la largeur de 90cm, comme il n'y a pas de perte et qu'il faut des carrés tous
+identiques, la longueur d'un carré doit être un diviseur de 162 et de 90.
+De plus les carrés doivent être les plus grands possibles donc la longueur
+du côté d'un carré est le PGCD de 162 et de 90.
+En utilisant l'algorithme d'Euclide, on a :
+
+− Utilisation de l'algorithme d'Euclide −
+PGCD(162 ; 90) = PGCD(90 ; 72)
+PGCD(90 ; 72) = PGCD(72 ; 18)
+Le reste de la division de 72 par 18 est nul,
+donc PGCD(162 ; 90) = 18.
+La longueur du côté d'un carré est 18 cm.
+
+b. 162 = 18 × 9 et 90 = 18 × 5
+L'apprenti menuisier obtiendra 9 carrés dans la longueur
+et 5 carrés dans la largeur soit 45 carrés.
+

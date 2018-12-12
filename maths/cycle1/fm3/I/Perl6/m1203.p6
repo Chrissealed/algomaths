@@ -2,11 +2,19 @@
 
 use v6;
 use corrective;
+use teeput;
 use method12 :methodwording, :exe03, :examples;
 use pgcd;
 
 sub answering {
-    say q:to/EOM/;
+    class T does Tput {}
+    my $t = T.new(
+        filepath => 'output/m1203.txt',
+        filemode => ':a',
+        writefile => True,
+        closefile => False,
+    );
+    $t.tput: q:to/EOM/;
 a. Comme chaque candidat doit avoir le même nombre de questions à réponse Vrai
 et comme les 147 questions à réponse Vrai doivent être utilisées,
 le nombre de candidats doit être un diviseur de 147.
@@ -21,17 +29,21 @@ Calculons le PGCD de 147 et de 105 par l'algorithme d'Euclide.
 EOM
 
     my $pgcd = PGCD.new(
+        t => $t,
         integer1 => 147,
         integer2 => 105,
     );
     my Int $p = $pgcd.euclide_algorithm();
-    say "$p candidats au maximum pourront participer au jeu.";
-    say();
-    say 'b.';
+    $t.tput: "$p candidats au maximum pourront participer au jeu.";
+    $t.tprint: "\n";
+    $t.tput: 'b.';
     my Int $n1 = 147 div $p;
     my Int $n2 = 105 div $p;
-    say "147 = $p × $n1 et 105 = $p × $n2.";
-    say "Chaque candidat aura $n1 questions à réponse Vrai et $n2 questions à réponse Faux.";
+    $t.tput: "147 = $p × $n1 et 105 = $p × $n2.";
+    $t.tput: "Chaque candidat aura $n1 questions à réponse Vrai et $n2 questions à réponse Faux.";
+
+    $t.closefile = True;
+    $t.tprint: "\n";
 }
 
 exercise_03();

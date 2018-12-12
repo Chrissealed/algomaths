@@ -1,0 +1,32 @@
+# Exercice 2.
+# ----------
+# Un sorcier confiseur a 1620 serpents glacés et 2376 dragées surprises.
+# Pour vendre à la fête du tournoi des cinq sorciers, il veut faire des paquets
+# identiques contenant le même nombre de serpents glacés et le même nombre de
+# dragées surprises en utilisant tous les serpents et toutes les dragées.
+# a. Quel nombre maximal de paquets pourra-t-il faire ?
+# b. Un serpent glacé coute 0,50 poudors (monnaie des sorciers) et une dragée
+#    surprise 0,30 poudors. Quel sera le prix, en poudor, d'un paquet ?
+-----------------------------------------------------------------------------------
+a. Le sorcier confiseur veut utiliser les 1620 serpents glacés et en avoir
+le même nombre dans chaque paquet donc le nombre de paquets est un diviseur de 1620.
+De même le sorcier confiseur veut utiliser les 2376 dragées surprises et en avoir
+le même nombre dans chaque paquet donc le nombre de paquets est un diviseur de 2376.
+On en déduit que le nombre de paquets doit être un diviseur commun de 1620 et de 2376,
+or ce sorcier confiseur veut obtenir le nombre maximal de paquets donc ce dernier
+est le plus grand diviseur commun de 1620 et de 2376.
+Calculons le PGCD de 1620 et de 2376 par l'algorithme d'Euclide.
+
+− Utilisation de l'algorithme d'Euclide −
+PGCD(2376 ; 1620) = PGCD(1620 ; 756)
+PGCD(1620 ; 756) = PGCD(756 ; 108)
+Le reste de la division de 756 par 108 est nul,
+donc PGCD(1620 ; 2376) = 108.
+Le sorcier confiseur peut faire 108 paquets au maximum.
+
+b. Calculons le nombre de serpents glacés et de dragées surprises dans chaque paquet :
+1620 = 108 × 15 et 2376 = 108 × 22.
+Dans chaque paquet il y aura 15 serpents glacés et 22 dragées surprises.
+0,50 × 15 + 0,30 × 22 = 14.1.
+Le prix d'un paquet de dragées surprises et de serpents glacés est de 14.10 poudors.
+

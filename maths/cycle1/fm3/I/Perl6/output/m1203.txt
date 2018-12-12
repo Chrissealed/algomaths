@@ -1,0 +1,34 @@
+# Exercice 3.
+# ----------
+# Pour un jeu Vrai-Faux, un animateur doit choisir le nombre de candidats,
+# il dispose de 147 questions dont la réponse est Vrai et 105 dont la réponse
+# est Faux. Toutes les questions doivent être utilisées et pour ne pas créer de
+# différence, chaque candidat doit avoir le même nombre de "Vrai", le même nombre de
+# "Faux" que ses concurrents.
+# a. Combien de candidats au maximum pourront participer au jeu ?
+# b. Combien de questions à réponses "Vrai" et combien à réponses "Faux"
+#    aura chaque candidat ?
+-----------------------------------------------------------------------------------
+a. Comme chaque candidat doit avoir le même nombre de questions à réponse Vrai
+et comme les 147 questions à réponse Vrai doivent être utilisées,
+le nombre de candidats doit être un diviseur de 147.
+De même chaque candidat doivent avoir le même nombre de questions à réponse Faux
+et les 105 questions à réponse Faux doivent être utilisées,
+le nombre de candidats doit être un diviseur de 105.
+Le nombre de candidats doit être un diviseur à la fois de 147 et 105
+donc un diviseur commun de 147 et 105, or l'animateur veut obtenir le nombre
+maximal de candidats donc ce nombre est le plus grand diviseur commun de 147 et de 105.
+Calculons le PGCD de 147 et de 105 par l'algorithme d'Euclide.
+
+
+− Utilisation de l'algorithme d'Euclide −
+PGCD(147 ; 105) = PGCD(105 ; 42)
+PGCD(105 ; 42) = PGCD(42 ; 21)
+Le reste de la division de 42 par 21 est nul,
+donc PGCD(147 ; 105) = 21.
+21 candidats au maximum pourront participer au jeu.
+
+b.
+147 = 21 × 7 et 105 = 21 × 5.
+Chaque candidat aura 7 questions à réponse Vrai et 5 questions à réponse Faux.
+
