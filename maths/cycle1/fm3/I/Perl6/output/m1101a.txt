@@ -1,0 +1,25 @@
+# Exercice 1.
+# ----------
+# Déterminer la fraction irréductible à la fraction donnée :
+# a. 493/204
+-----------------------------------------------------------------------------------
+493 et 204 ont un diviseur commun autre que 1 : 17.
+− Utilisation de l'algorithme d'Euclide −
+PGCD(493 ; 204) = PGCD(204 ; 85)
+PGCD(204 ; 85) = PGCD(85 ; 34)
+PGCD(85 ; 34) = PGCD(34 ; 17)
+Le reste de la division de 34 par 17 est nul,
+donc PGCD(493 ; 204) = 17.
+On simplifie avec le PGCD trouvé :
+493/204 = 17 × 29 / 17 × 12
+493/204 = 29/12
+− Utilisation de l'algorithme d'Euclide −
+PGCD(29 ; 12) = PGCD(12 ; 5)
+PGCD(12 ; 5) = PGCD(5 ; 2)
+PGCD(5 ; 2) = PGCD(2 ; 1)
+Le reste de la division de 2 par 1 est nul,
+donc PGCD(29 ; 12) = 1.
+29 et 12 n'ont pas de diviseurs communs autre que 1.
+29 et 12 sont premiers entre eux!
+La fraction 29/12 est irréductible.
+

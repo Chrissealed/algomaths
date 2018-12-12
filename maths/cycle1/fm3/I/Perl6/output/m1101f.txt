@@ -1,0 +1,36 @@
+# Exercice 1.
+# ----------
+# Déterminer la fraction irréductible à la fraction donnée :
+# f. 126/162
+-----------------------------------------------------------------------------------
+126 et 162 ont un diviseur commun autre que 1 : 2.
+− Utilisation de l'algorithme de factorisation en facteurs premiers −
+Facteurs premiers de 126 :
+126	=>	2
+63	=>	3
+21	=>	3
+7	=>	7
+2 × 3 × 3 × 7
+2 × 3^2 × 7
+Facteurs premiers de 162 :
+162	=>	2
+81	=>	3
+27	=>	3
+9	=>	3
+3	=>	3
+2 × 3 × 3 × 3 × 3
+2 × 3^4
+Facteurs communs à 126 et 162 : 2 3 3
+PGCD(126 ; 162)2 × 3 × 3 = 18.
+On simplifie avec le PGCD trouvé :
+126/162 = 18 × 7 / 18 × 9
+126/162 = 7/9
+− Utilisation de l'algorithme d'Euclide −
+PGCD(9 ; 7) = PGCD(7 ; 2)
+PGCD(7 ; 2) = PGCD(2 ; 1)
+Le reste de la division de 2 par 1 est nul,
+donc PGCD(7 ; 9) = 1.
+7 et 9 n'ont pas de diviseurs communs autre que 1.
+7 et 9 sont premiers entre eux!
+La fraction 7/9 est irréductible.
+

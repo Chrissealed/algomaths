@@ -1,0 +1,25 @@
+# Exercice 1.
+# ----------
+# Déterminer la fraction irréductible à la fraction donnée :
+# c. 2652/1547
+-----------------------------------------------------------------------------------
+2652 et 1547 ont un diviseur commun autre que 1 : 13.
+− Utilisation de l'algorithme d'Euclide −
+PGCD(2652 ; 1547) = PGCD(1547 ; 1105)
+PGCD(1547 ; 1105) = PGCD(1105 ; 442)
+PGCD(1105 ; 442) = PGCD(442 ; 221)
+Le reste de la division de 442 par 221 est nul,
+donc PGCD(2652 ; 1547) = 221.
+On simplifie avec le PGCD trouvé :
+2652/1547 = 221 × 12 / 221 × 7
+2652/1547 = 12/7
+− Utilisation de l'algorithme d'Euclide −
+PGCD(12 ; 7) = PGCD(7 ; 5)
+PGCD(7 ; 5) = PGCD(5 ; 2)
+PGCD(5 ; 2) = PGCD(2 ; 1)
+Le reste de la division de 2 par 1 est nul,
+donc PGCD(12 ; 7) = 1.
+12 et 7 n'ont pas de diviseurs communs autre que 1.
+12 et 7 sont premiers entre eux!
+La fraction 12/7 est irréductible.
+

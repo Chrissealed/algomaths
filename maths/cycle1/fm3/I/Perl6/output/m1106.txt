@@ -1,0 +1,33 @@
+# Exercice 6.
+# ----------
+# On donne : A = 43,01/84,15.
+# a. Peut-on déterminer le PGCD du numérateur et du dénominateur de A tels qu'ils figurent
+#    dans l'énoncé ? Justifier la réponse.
+# b. Ecrire A sous forme de fraction
+# c. Déterminer le PGCD du numérateur et du dénominateur.
+# d. En déduire l'écriture de A sous forme d'une fraction irréductible.
+-----------------------------------------------------------------------------------
+a. Le numérateur et le dénominateur de A ne sont pas des nombres entiers
+   donc on ne peut pas déterminer leur PGCD.
+
+b. A = 43,01/84,15 ; A = 43,01×100/84,15×100; A = 4301/8415.
+
+c.d.
+4301 et 8415 ont un diviseur commun autre que 1 : 11.
+− Utilisation de l'algorithme d'Euclide −
+PGCD(8415 ; 4301) = PGCD(4301 ; 4114)
+PGCD(4301 ; 4114) = PGCD(4114 ; 187)
+Le reste de la division de 4114 par 187 est nul,
+donc PGCD(4301 ; 8415) = 187.
+On simplifie avec le PGCD trouvé :
+4301/8415 = 187 × 23 / 187 × 45
+4301/8415 = 23/45
+− Utilisation de l'algorithme d'Euclide −
+PGCD(45 ; 23) = PGCD(23 ; 22)
+PGCD(23 ; 22) = PGCD(22 ; 1)
+Le reste de la division de 22 par 1 est nul,
+donc PGCD(23 ; 45) = 1.
+23 et 45 n'ont pas de diviseurs communs autre que 1.
+23 et 45 sont premiers entre eux!
+La fraction 23/45 est irréductible.
+

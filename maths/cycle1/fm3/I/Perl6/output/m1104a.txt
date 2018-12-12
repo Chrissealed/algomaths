@@ -1,0 +1,34 @@
+# Exercice 4.
+# ----------
+# La fraction suivante est-elle irréductible, sinon donner la fraction irréductible
+# qui lui est égale :
+# a. 315/147
+-----------------------------------------------------------------------------------
+315 et 147 ont un diviseur commun autre que 1 : 3.
+− Utilisation de l'algorithme de factorisation en facteurs premiers −
+Facteurs premiers de 315 :
+315	=>	3
+105	=>	3
+35	=>	5
+7	=>	7
+3 × 3 × 5 × 7
+3^2 × 5 × 7
+Facteurs premiers de 147 :
+147	=>	3
+49	=>	7
+7	=>	7
+3 × 7 × 7
+3 × 7^2
+Facteurs communs à 315 et 147 : 3 7
+PGCD(315 ; 147)3 × 7 = 21.
+On simplifie avec le PGCD trouvé :
+315/147 = 21 × 15 / 21 × 7
+315/147 = 15/7
+− Utilisation de l'algorithme d'Euclide −
+PGCD(15 ; 7) = PGCD(7 ; 1)
+Le reste de la division de 7 par 1 est nul,
+donc PGCD(15 ; 7) = 1.
+15 et 7 n'ont pas de diviseurs communs autre que 1.
+15 et 7 sont premiers entre eux!
+La fraction 15/7 est irréductible.
+

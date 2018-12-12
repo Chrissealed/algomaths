@@ -1,0 +1,15 @@
+# Chapitre I : ARITHMÉTIQUE.
+###################################################################################
+# Méthode 11. Comment déterminer la fraction irréductible égale à une fraction donnée ?
+###################################################################################
+# Pour déterminer la fraction irréductible égale à une fraction donnée :
+# ▲ on simplifie la fraction donnée en divisant le numérateur et le dénominateur
+#   par leur PGCD.
+# ▲ Remarque :
+#   on peut décomposer le numérateur et le dénominateur en produit de facteurs simples
+#   pour faire apparaître les facteurs communs, on supprime ces facteurs au numérateur
+#   et au dénominateur, on s'assure que le numérateur et le dénominateur de la fraction
+#   obtenue sont premiers entre eux.
+###################################################################################
+
+

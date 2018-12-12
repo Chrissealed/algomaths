@@ -1,0 +1,19 @@
+# Exercice 4.
+# ----------
+# La fraction suivante est-elle irréductible, sinon donner la fraction irréductible
+# qui lui est égale :
+# b. 295/567
+-----------------------------------------------------------------------------------
+− Utilisation de l'algorithme d'Euclide −
+PGCD(567 ; 295) = PGCD(295 ; 272)
+PGCD(295 ; 272) = PGCD(272 ; 23)
+PGCD(272 ; 23) = PGCD(23 ; 19)
+PGCD(23 ; 19) = PGCD(19 ; 4)
+PGCD(19 ; 4) = PGCD(4 ; 3)
+PGCD(4 ; 3) = PGCD(3 ; 1)
+Le reste de la division de 3 par 1 est nul,
+donc PGCD(295 ; 567) = 1.
+295 et 567 n'ont pas de diviseurs communs autre que 1.
+295 et 567 sont premiers entre eux!
+La fraction 295/567 est irréductible.
+

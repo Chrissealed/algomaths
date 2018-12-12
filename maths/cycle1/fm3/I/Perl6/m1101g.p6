@@ -2,15 +2,27 @@
 
 use v6;
 use corrective;
+use teeput;
 use method11 :methodwording, :exe01g, :examples;
 use irreducible-fraction;
 
 sub answering {
+    class T does Tput {}
+    my $t = T.new(
+        filepath => 'output/m1101g.txt',
+        filemode => ':a',
+        writefile => True,
+        closefile => False,
+    );
     my $irreducible = IrreducibleFraction.new(
+        t => $t,
         numerator => 312,
         denominator => 273,
     );
     $irreducible.reduce-fraction-with-euclide-algorithm();
+
+    $t.closefile = True;
+    $t.tprint: "\n";
 }
 
 exercise_01g();

@@ -1,0 +1,72 @@
+# Exercice 7.
+# ----------
+# a. Calculer le PGCD de 901 et 1272 et le PGCD de 1037 et 1464.
+# b. Déterminer la fraction irréductible égale à la fraction 901/1272 puis la fraction
+#    irréductible égale à la fraction 1037/1464.
+# c. On donne la figure suivante (elle ne respecte pas les dimensions) :
+#    EA = 10,37m ; EB = 9,01m ; EC = 12,72m ; ED = 14,64m.
+#    Les droites (AB) et (CD) sont-elles parallèles ?
+-----------------------------------------------------------------------------------
+a. On calcule PGCD(1272 ; 901) et PGCD(1464 ; 1037) par l'algorithme d'Euclide.
+b. Si on divise le numérateur et le dénominateur d'une fraction par leur PGCD,
+alors on obtient une fraction irréductible égale à la fraction donnée.
+
+− Utilisation de l'algorithme d'Euclide −
+PGCD(1272 ; 901) = PGCD(901 ; 371)
+PGCD(901 ; 371) = PGCD(371 ; 159)
+PGCD(371 ; 159) = PGCD(159 ; 53)
+Le reste de la division de 159 par 53 est nul,
+donc PGCD(1272 ; 901) = 53.
+1272 et 901 ont un diviseur commun autre que 1 : 53.
+− Utilisation de l'algorithme d'Euclide −
+PGCD(1272 ; 901) = PGCD(901 ; 371)
+PGCD(901 ; 371) = PGCD(371 ; 159)
+PGCD(371 ; 159) = PGCD(159 ; 53)
+Le reste de la division de 159 par 53 est nul,
+donc PGCD(1272 ; 901) = 53.
+On simplifie avec le PGCD trouvé :
+1272/901 = 53 × 24 / 53 × 17
+1272/901 = 24/17
+− Utilisation de l'algorithme d'Euclide −
+PGCD(24 ; 17) = PGCD(17 ; 7)
+PGCD(17 ; 7) = PGCD(7 ; 3)
+PGCD(7 ; 3) = PGCD(3 ; 1)
+Le reste de la division de 3 par 1 est nul,
+donc PGCD(24 ; 17) = 1.
+24 et 17 n'ont pas de diviseurs communs autre que 1.
+24 et 17 sont premiers entre eux!
+La fraction 24/17 est irréductible.
+
+− Utilisation de l'algorithme d'Euclide −
+PGCD(1464 ; 1037) = PGCD(1037 ; 427)
+PGCD(1037 ; 427) = PGCD(427 ; 183)
+PGCD(427 ; 183) = PGCD(183 ; 61)
+Le reste de la division de 183 par 61 est nul,
+donc PGCD(1464 ; 1037) = 61.
+1464 et 1037 ont un diviseur commun autre que 1 : 61.
+− Utilisation de l'algorithme d'Euclide −
+PGCD(1464 ; 1037) = PGCD(1037 ; 427)
+PGCD(1037 ; 427) = PGCD(427 ; 183)
+PGCD(427 ; 183) = PGCD(183 ; 61)
+Le reste de la division de 183 par 61 est nul,
+donc PGCD(1464 ; 1037) = 61.
+On simplifie avec le PGCD trouvé :
+1464/1037 = 61 × 24 / 61 × 17
+1464/1037 = 24/17
+− Utilisation de l'algorithme d'Euclide −
+PGCD(24 ; 17) = PGCD(17 ; 7)
+PGCD(17 ; 7) = PGCD(7 ; 3)
+PGCD(7 ; 3) = PGCD(3 ; 1)
+Le reste de la division de 3 par 1 est nul,
+donc PGCD(24 ; 17) = 1.
+24 et 17 n'ont pas de diviseurs communs autre que 1.
+24 et 17 sont premiers entre eux!
+La fraction 24/17 est irréductible.
+
+c.
+EB/EC = 9,01/12,72 = 901/1272 = 17/24 et EA/ED = 10,37/14,64 = 1037/1464 = 17/24
+donc EB/EC = EA/ED.
+Les points B, E et C sont alignés dans le même ordre que les points A, E et D
+et EB/EC = EA/ED donc les droites (AB) et (CD) sont parallèles
+d'après la réciproque de la propriété de Thalès.
+

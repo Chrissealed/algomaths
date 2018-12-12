@@ -2,15 +2,27 @@
 
 use v6;
 use corrective;
+use teeput;
 use method11 :methodwording, :exe04d, :examples;
 use irreducible-fraction;
 
 sub answering {
+    class T does Tput {}
+    my $t = T.new(
+        filepath => 'output/m1104d.txt',
+        filemode => ':a',
+        writefile => True,
+        closefile => False,
+    );
     my $irreducible = IrreducibleFraction.new(
+        t => $t,
         numerator => 23,
         denominator => 92,
     );
     my Pair $pair = $irreducible.reduce-fraction-with-factorization-algorithm();
+
+    $t.closefile = True;
+    $t.tprint: "\n";
 }
 
 exercise_04d();

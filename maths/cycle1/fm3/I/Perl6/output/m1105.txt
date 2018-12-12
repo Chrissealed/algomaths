@@ -1,0 +1,34 @@
+# Exercice 5.
+# ----------
+# a. Sans calculer leur PGCD, dire pourquoi les nombres 648 et 972 ne sont pas
+#    premiers entre eux.
+# b. Calculer PGCD(972 ; 648)
+#    En déduire la fraction irréductible égale à 648/972.
+# c. Prouver que √648 + √972 = 18(√2 + √3).
+-----------------------------------------------------------------------------------
+a. 648 et 972 sont des nommbres pairs donc des nombres divisibles par 2
+donc leur PGCD n'est pas égal à 1 donc 648 et 972 ne sont pas premiers entre eux.
+
+b.
+648 et 972 ont un diviseur commun autre que 1 : 2.
+− Utilisation de l'algorithme d'Euclide −
+PGCD(972 ; 648) = PGCD(648 ; 324)
+Le reste de la division de 648 par 324 est nul,
+donc PGCD(648 ; 972) = 324.
+On simplifie avec le PGCD trouvé :
+648/972 = 324 × 2 / 324 × 3
+648/972 = 2/3
+− Utilisation de l'algorithme d'Euclide −
+PGCD(3 ; 2) = PGCD(2 ; 1)
+Le reste de la division de 2 par 1 est nul,
+donc PGCD(2 ; 3) = 1.
+2 et 3 n'ont pas de diviseurs communs autre que 1.
+2 et 3 sont premiers entre eux!
+La fraction 2/3 est irréductible.
+
+c.
+√648 + √972 = √324×2 + √324×3
+√648 + √972 = √324 × √2 + √324 × √3 (chapitre 4 méthode 7)
+√648 + √972 = √324(√2 × √3) or √324 = 18
+on a donc bien √648 + √972 = 18(√2 + √3).
+

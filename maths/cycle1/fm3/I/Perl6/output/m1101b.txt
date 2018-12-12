@@ -1,0 +1,32 @@
+# Exercice 1.
+# ----------
+# Déterminer la fraction irréductible à la fraction donnée :
+# b. 25/45
+-----------------------------------------------------------------------------------
+25 et 45 ont un diviseur commun autre que 1 : 5.
+− Utilisation de l'algorithme de factorisation en facteurs premiers −
+Facteurs premiers de 25 :
+25	=>	5
+5	=>	5
+5 × 5
+5^2
+Facteurs premiers de 45 :
+45	=>	3
+15	=>	3
+5	=>	5
+3 × 3 × 5
+3^2 × 5
+Facteurs communs à 25 et 45 : 5
+PGCD(25 ; 45) = 5.
+On simplifie avec le PGCD trouvé :
+25/45 = 5 × 5 / 5 × 9
+25/45 = 5/9
+− Utilisation de l'algorithme d'Euclide −
+PGCD(9 ; 5) = PGCD(5 ; 4)
+PGCD(5 ; 4) = PGCD(4 ; 1)
+Le reste de la division de 4 par 1 est nul,
+donc PGCD(5 ; 9) = 1.
+5 et 9 n'ont pas de diviseurs communs autre que 1.
+5 et 9 sont premiers entre eux!
+La fraction 5/9 est irréductible.
+

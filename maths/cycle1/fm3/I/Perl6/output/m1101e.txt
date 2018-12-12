@@ -1,0 +1,31 @@
+# Exercice 1.
+# ----------
+# Déterminer la fraction irréductible à la fraction donnée :
+# e. 644/294
+-----------------------------------------------------------------------------------
+644 et 294 ont un diviseur commun autre que 1 : 2.
+− Utilisation de l'algorithme des soustractions −
+644 - 294 = 350 d'où PGCD(644 ; 294) = PGCD(350 ; 294)
+350 - 294 = 56 d'où PGCD(350 ; 294) = PGCD(294 ; 56)
+294 - 56 = 238 d'où PGCD(294 ; 56) = PGCD(238 ; 56)
+238 - 56 = 182 d'où PGCD(238 ; 56) = PGCD(182 ; 56)
+182 - 56 = 126 d'où PGCD(182 ; 56) = PGCD(126 ; 56)
+126 - 56 = 70 d'où PGCD(126 ; 56) = PGCD(70 ; 56)
+70 - 56 = 14 d'où PGCD(70 ; 56) = PGCD(56 ; 14)
+56 - 14 = 42 d'où PGCD(56 ; 14) = PGCD(42 ; 14)
+42 - 14 = 28 d'où PGCD(42 ; 14) = PGCD(28 ; 14)
+28 - 14 = 14 d'où PGCD(28 ; 14) = PGCD(14 ; 14)
+or PGCD(14 ; 14) = 14
+On est arrivé à deux nombres égaux, donc PGCD(644 ; 294) = 14.
+On simplifie avec le PGCD trouvé :
+644/294 = 14 × 46 / 14 × 21
+644/294 = 46/21
+− Utilisation de l'algorithme d'Euclide −
+PGCD(46 ; 21) = PGCD(21 ; 4)
+PGCD(21 ; 4) = PGCD(4 ; 1)
+Le reste de la division de 4 par 1 est nul,
+donc PGCD(46 ; 21) = 1.
+46 et 21 n'ont pas de diviseurs communs autre que 1.
+46 et 21 sont premiers entre eux!
+La fraction 46/21 est irréductible.
+

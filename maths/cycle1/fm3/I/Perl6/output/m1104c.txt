@@ -1,0 +1,16 @@
+# Exercice 4.
+# ----------
+# La fraction suivante est-elle irréductible, sinon donner la fraction irréductible
+# qui lui est égale :
+# c. 143/69
+-----------------------------------------------------------------------------------
+− Utilisation de l'algorithme d'Euclide −
+PGCD(143 ; 69) = PGCD(69 ; 5)
+PGCD(69 ; 5) = PGCD(5 ; 4)
+PGCD(5 ; 4) = PGCD(4 ; 1)
+Le reste de la division de 4 par 1 est nul,
+donc PGCD(143 ; 69) = 1.
+143 et 69 n'ont pas de diviseurs communs autre que 1.
+143 et 69 sont premiers entre eux!
+La fraction 143/69 est irréductible.
+

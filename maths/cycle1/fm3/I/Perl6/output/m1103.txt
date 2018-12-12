@@ -1,0 +1,70 @@
+# Exercice 3.
+# ----------
+# On donne F1 = 782/690, F2 = 272/510 et F = 782/690 + 272/510.
+# Ecrire F1, F2 et F sous forme de fractions irréductibles.
+-----------------------------------------------------------------------------------
+782 et 690 ont un diviseur commun autre que 1 : 2.
+− Utilisation de l'algorithme d'Euclide −
+PGCD(782 ; 690) = PGCD(690 ; 92)
+PGCD(690 ; 92) = PGCD(92 ; 46)
+Le reste de la division de 92 par 46 est nul,
+donc PGCD(782 ; 690) = 46.
+On simplifie avec le PGCD trouvé :
+782/690 = 46 × 17 / 46 × 15
+782/690 = 17/15
+− Utilisation de l'algorithme d'Euclide −
+PGCD(17 ; 15) = PGCD(15 ; 2)
+PGCD(15 ; 2) = PGCD(2 ; 1)
+Le reste de la division de 2 par 1 est nul,
+donc PGCD(17 ; 15) = 1.
+17 et 15 n'ont pas de diviseurs communs autre que 1.
+17 et 15 sont premiers entre eux!
+La fraction 17/15 est irréductible.
+
+272 et 510 ont un diviseur commun autre que 1 : 2.
+− Utilisation de l'algorithme d'Euclide −
+PGCD(510 ; 272) = PGCD(272 ; 238)
+PGCD(272 ; 238) = PGCD(238 ; 34)
+Le reste de la division de 238 par 34 est nul,
+donc PGCD(272 ; 510) = 34.
+On simplifie avec le PGCD trouvé :
+272/510 = 34 × 8 / 34 × 15
+272/510 = 8/15
+− Utilisation de l'algorithme d'Euclide −
+PGCD(15 ; 8) = PGCD(8 ; 7)
+PGCD(8 ; 7) = PGCD(7 ; 1)
+Le reste de la division de 7 par 1 est nul,
+donc PGCD(8 ; 15) = 1.
+8 et 15 n'ont pas de diviseurs communs autre que 1.
+8 et 15 sont premiers entre eux!
+La fraction 8/15 est irréductible.
+
+F = 782/690 + 272/510, or 782/690 = 17/15
+et 272/510 = 8/15
+donc F = 17 + 8/15
+
+25 et 15 ont un diviseur commun autre que 1 : 5.
+− Utilisation de l'algorithme de factorisation en facteurs premiers −
+Facteurs premiers de 25 :
+25	=>	5
+5	=>	5
+5 × 5
+5^2
+Facteurs premiers de 15 :
+15	=>	3
+5	=>	5
+3 × 5
+Facteurs communs à 25 et 15 : 5
+PGCD(25 ; 15) = 5.
+On simplifie avec le PGCD trouvé :
+25/15 = 5 × 5 / 5 × 3
+25/15 = 5/3
+− Utilisation de l'algorithme d'Euclide −
+PGCD(5 ; 3) = PGCD(3 ; 2)
+PGCD(3 ; 2) = PGCD(2 ; 1)
+Le reste de la division de 2 par 1 est nul,
+donc PGCD(5 ; 3) = 1.
+5 et 3 n'ont pas de diviseurs communs autre que 1.
+5 et 3 sont premiers entre eux!
+La fraction 5/3 est irréductible.
+

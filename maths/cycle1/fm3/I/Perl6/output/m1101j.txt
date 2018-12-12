@@ -1,0 +1,23 @@
+# Exercice 1.
+# ----------
+# Déterminer la fraction irréductible à la fraction donnée :
+# j. 945/1404
+-----------------------------------------------------------------------------------
+945 et 1404 ont un diviseur commun autre que 1 : 3.
+− Utilisation de l'algorithme d'Euclide −
+PGCD(1404 ; 945) = PGCD(945 ; 459)
+PGCD(945 ; 459) = PGCD(459 ; 27)
+Le reste de la division de 459 par 27 est nul,
+donc PGCD(945 ; 1404) = 27.
+On simplifie avec le PGCD trouvé :
+945/1404 = 27 × 35 / 27 × 52
+945/1404 = 35/52
+− Utilisation de l'algorithme d'Euclide −
+PGCD(52 ; 35) = PGCD(35 ; 17)
+PGCD(35 ; 17) = PGCD(17 ; 1)
+Le reste de la division de 17 par 1 est nul,
+donc PGCD(35 ; 52) = 1.
+35 et 52 n'ont pas de diviseurs communs autre que 1.
+35 et 52 sont premiers entre eux!
+La fraction 35/52 est irréductible.
+

@@ -1,0 +1,26 @@
+# Exercice 4.
+# ----------
+# La fraction suivante est-elle irréductible, sinon donner la fraction irréductible
+# qui lui est égale :
+# d. 23/92
+-----------------------------------------------------------------------------------
+23 et 92 ont un diviseur commun autre que 1 : 23.
+− Utilisation de l'algorithme de factorisation en facteurs premiers −
+Facteurs premiers de 23 :
+23	=>	1
+23 est un nombre premier!
+Il n'admet que 1 et lui-même comme diviseurs.
+1 × 23.
+Facteurs premiers de 92 :
+92	=>	2
+46	=>	2
+23	=>	23
+2 × 2 × 23
+2^2 × 23
+Facteurs communs à 23 et 92 : 23
+PGCD(23 ; 92) = 23.
+On simplifie avec le PGCD trouvé :
+23/92 = 23 × 1 / 23 × 4
+23/92 = 1/4
+La fraction 1/4 est irréductible.
+

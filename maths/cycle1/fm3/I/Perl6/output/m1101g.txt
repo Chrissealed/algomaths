@@ -1,0 +1,21 @@
+# Exercice 1.
+# ----------
+# Déterminer la fraction irréductible à la fraction donnée :
+# g. 312/273
+-----------------------------------------------------------------------------------
+312 et 273 ont un diviseur commun autre que 1 : 3.
+− Utilisation de l'algorithme d'Euclide −
+PGCD(312 ; 273) = PGCD(273 ; 39)
+Le reste de la division de 273 par 39 est nul,
+donc PGCD(312 ; 273) = 39.
+On simplifie avec le PGCD trouvé :
+312/273 = 39 × 8 / 39 × 7
+312/273 = 8/7
+− Utilisation de l'algorithme d'Euclide −
+PGCD(8 ; 7) = PGCD(7 ; 1)
+Le reste de la division de 7 par 1 est nul,
+donc PGCD(8 ; 7) = 1.
+8 et 7 n'ont pas de diviseurs communs autre que 1.
+8 et 7 sont premiers entre eux!
+La fraction 8/7 est irréductible.
+
