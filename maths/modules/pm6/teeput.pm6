@@ -5,7 +5,7 @@ use v6;
 =begin pod
 =NAME rôle B<Teeput::Tput>
 =AUTHOR Christian Béloscar
-=VERSION 0.1.119
+=VERSION 0.1.121
 
 =for header1
 Le rôle Teeput::Tput est utilisé afin d'écrire les informations
@@ -76,16 +76,13 @@ role Tput is export {
     # Utilisé uniquement pour le mode :a
     has Bool $.closefile is rw = True;
     my $param-one-junction = Str:D ^ Array:D ^ Hash:D;
-    #method tput(Str:D $string --> Bool:D) {
     method tput($param-one-junction --> Bool:D) {
         # :mode<wo>, :create, :exclusive
         if ($!filemode eq ':x') {
             try {
-                #put $string;
                 put $param-one-junction;
                 if $!writefile {
                     my $fh = open :x, $!filepath;
-                    #$fh.put: $string;
                     $fh.put: $param-one-junction;
                     $fh.close;
                 }
@@ -100,11 +97,9 @@ role Tput is export {
         # :mode<wo>, :create, :truncate
         } elsif ($!filemode eq ':w') {
             try {
-                #put $string;
                 put $param-one-junction;
                 if $!writefile {
                     my $fh = open :w, $!filepath;
-                    #$fh.put: $string;
                     $fh.put: $param-one-junction;
                     $fh.close;
                 }
@@ -119,11 +114,9 @@ role Tput is export {
         # :mode<wo>, :create, :append   
         } elsif ($!filemode eq ':a') {
             try {
-                #put $string;
                 put $param-one-junction;
                 if $!writefile {
                     my $fh = open :a, $!filepath;
-                    #$fh.put: $string;
                     $fh.put: $param-one-junction;
                     $fh.close if $!closefile;
                 }
@@ -136,7 +129,6 @@ role Tput is export {
                 }
             }
         } else {
-            #put $string;
             put $param-one-junction;
             return False;
         }
@@ -147,11 +139,9 @@ role Tput is export {
         # :mode<wo>, :create, :exclusive
         if ($!filemode eq ':x') {
             try {
-                #print $string;
                 print $param-one-junction;
                 if $!writefile {
                     my $fh = open :x, $!filepath;
-                    #$fh.tprint: $string;
                     $fh.tprint: $param-one-junction;
                     $fh.close;
                 }
@@ -166,11 +156,9 @@ role Tput is export {
         # :mode<wo>, :create, :truncate
         } elsif ($!filemode eq ':w') {
             try {
-                #print $string;
                 print $param-one-junction;
                 if $!writefile {
                     my $fh = open :w, $!filepath;
-                    #$fh.print: $string;
                     $fh.print: $param-one-junction;
                     $fh.close;
                 }
@@ -185,11 +173,9 @@ role Tput is export {
         # :mode<wo>, :create, :append   
         } elsif ($!filemode eq ':a') {
             try {
-                #print $string;
                 print $param-one-junction;
                 if $!writefile {
                     my $fh = open :a, $!filepath;
-                    #$fh.print: $string;
                     $fh.print: $param-one-junction;
                     $fh.close if $!closefile;
                 }
@@ -202,7 +188,6 @@ role Tput is export {
                 }
             }
         } else {
-            #print $string;
             print $param-one-junction;
             return False;
         }
@@ -213,11 +198,9 @@ role Tput is export {
         # :mode<wo>, :create, :exclusive
         if ($!filemode eq ':x') {
             try {
-                #say $string;
                 say $param-one-junction;
                 if $!writefile {
                     my $fh = open :x, $!filepath;
-                    #$fh.say: $string;
                     $fh.say: $param-one-junction;
                     $fh.close;
                 }
@@ -232,11 +215,9 @@ role Tput is export {
         # :mode<wo>, :create, :truncate
         } elsif ($!filemode eq ':w') {
             try {
-                #say $string;
                 say $param-one-junction;
                 if $!writefile {
                     my $fh = open :w, $!filepath;
-                    #$fh.say: $string;
                     say $param-one-junction;
                     $fh.close;
                 }
@@ -251,11 +232,9 @@ role Tput is export {
         # :mode<wo>, :create, :append   
         } elsif ($!filemode eq ':a') {
             try {
-                #say $string;
                 say $param-one-junction;
                 if $!writefile {
                     my $fh = open :a, $!filepath;
-                    #$fh.say: $string;
                     $fh.say: $param-one-junction;
                     $fh.close if $!closefile;
                 }
@@ -268,7 +247,6 @@ role Tput is export {
                 }
             }
         } else {
-            #say $string;
             say $param-one-junction;
             return False;
         }
