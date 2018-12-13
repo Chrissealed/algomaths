@@ -2,10 +2,10 @@
 
 use v6;
 use corrective;
-use method04 :methodwording, :exe01, :examples;
+use method04 :methodwording, :exe04, :examples;
 
 sub answering {
-    exercise_01();
+    exercise_04();
 }  
 
 my Bool $boolean = True;

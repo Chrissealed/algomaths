@@ -1,0 +1,24 @@
+###################################################################################
+# Méthode 3. Comment multiplier rapidement ?
+###################################################################################
+# ▲ A. Principe: En connaissant parfaitement ses tables.
+# Apprenez-les par cœur. Sur la diagonale, on repère la suite des carrés :
+# 1² = 1, 2² = 4, 3² = 9, 4² = 16, 5² = 25, 6² = 36, 7² = 49, 8² = 64, 9² = 81, 10² = 100.
+# ---------------------------------------------------------------------------------
+# ▲ B. Principe: En décomposant par addition.
+# On utilise la propriété (a + b) × c = a × c + b × c.
+# ---------------------------------------------------------------------------------
+# ▲ C. Principe: En décomposant par soustraction.
+# On utilise la propriété (a – b) × c = a × c – b × c.
+# ---------------------------------------------------------------------------------
+# ▲ D. Principe: En décomposant par plusieurs petites multiplications.
+# Pour multiplier par 6, on multiplie par 2 puis par 3.
+# Pour multiplier par 15, on multiplie par 3 puis par 5, etc.
+# ---------------------------------------------------------------------------------
+# ▲ E. Principe: En utilisant la division.
+# Pour multiplier par 50 (par exemple), on multiplie par 100 puis on divise par 2
+# (car 50 = 100 ÷ 2). S'il s'agit de multiplier par 25, on multiplie par 100 puis
+# on divise par 4 (car 25 = 100 ÷ 4), etc.
+###################################################################################
+
+

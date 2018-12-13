@@ -1,0 +1,11 @@
+###################################################################################
+# Méthode 1. Comment additionner rapidement ?
+###################################################################################
+# ▲ Chercher la dizaine, la centaine... la plus proche et décomposer.
+# ▲ Principe:
+# L'idée est de se ramener aux nombres 10, 20, 30... (ou 100, 200, etc.) les plus
+# proches en décomposant (par exemple +7 en +3+4).
+# On calcule bien plus rapidement ensuite.
+###################################################################################
+
+

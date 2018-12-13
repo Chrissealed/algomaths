@@ -1,0 +1,12 @@
+###################################################################################
+# Méthode 2. Comment soustraire rapidement ?
+###################################################################################
+# ▲ Principe:
+# L'idée est la suivante : plutôt que de calculer a – b en partant de a (ce qui
+# n'est pas ce qu'il y a de plus facile), on part de b pour rejoindre a en
+# esMethod02::T<92587632>.tput:ant de trouver ce qui manque.
+# L'idée étant toujours de se ramener à des dizaines proches (comme 10, 20, 30, etc.)
+# ou à des centaines (100, 200, etc.) très facilement maniables.
+###################################################################################
+
+

@@ -1,0 +1,13 @@
+# Exercice 3 :
+# -----------
+# CALCUL MENTAL : MULTIPLICATIONS
+
+Niveau 2
+1. 43 × 8 = 364
+Faux. Recommencez.
+1. 43 × 8 = 344
+Vrai
+2. 64 × 5 = q
+Réponses correctes : 1
+Réponses incorrectes : 1
+

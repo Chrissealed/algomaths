@@ -1,0 +1,14 @@
+# Exercice 4 :
+# -----------
+# CALCUL MENTAL : DIVISIONS
+
+Niveau 1
+1. 360 ÷ 12 = 30
+Vrai
+2. 90 ÷ 6 = 15
+Vrai
+3. 210 ÷ 7 = m
+3. 210 ÷ 7 = Q
+Réponses correctes : 2
+Réponses incorrectes : 0
+

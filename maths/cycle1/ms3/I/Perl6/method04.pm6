@@ -2,10 +2,23 @@ unit module Method04;
 
 use v6;
 
+=begin pod
+=NAME module B<Method04>
+=AUTHOR Christian Béloscar
+=VERSION 0.1.119
+=end pod
+
+use teeput;
+
+class T does Teeput::Tput {}
+my $t = T.new(
+    writefile => True,
+);
+    
 sub put-up-method is export(:methodwording) {
-    say qq:to/EOM/;
+    my $message = qq:to/EOM/;
 ###################################################################################
-# Méthode 2. Comment diviser rapidement ?
+# Méthode 4. Comment diviser rapidement ?
 ###################################################################################
 # ▲ A. Principe: En partant du deuxième.
 # Plutôt que de calculer a ÷ b en partant de a, on part de b pour rejoindre a en
@@ -23,34 +36,52 @@ sub put-up-method is export(:methodwording) {
 ###################################################################################
 
 EOM
+    $t.filepath = 'output/method04.txt';
+    $t.filemode = ':x'; # :mode<wo>, :create, :exclusive
+    $t.tput($message);
 }
 
 sub show-examples is export(:examples) {
     shell 'xdg-open ../examples04.pdf &';
 }
 
-sub result(Int:D $int1, Str:D $int2) {
-    my Str $next = "o";
+sub result(Int:D $int, Str:D $strint) {
+    state Int $true-answers = 0;
+    state Int $false-answers = 0;
+    $t.tput: $strint;
     try {
-        if $int1 == Int($int2) {
-            say "Vrai";
+        if $int == Int($strint) {
+            $t.tput: "Vrai";
+            $true-answers++;
         } else {
-            say "Faux. Recommencez.";
+            $t.tput: "Faux. Recommencez.";
+            $false-answers++;
             return 0;
         }
     }
     if $! {
-        exit if $int2 eq "q" || "Q";
-        say "Donnée incorrecte ! Recommencez.";
+        if ($strint eq 'q' || $strint eq 'Q') {
+            $t.tput: "Réponses correctes : $true-answers";
+            $t.tput: "Réponses incorrectes : $false-answers";
+            $t.closefile = True;
+            $t.tprint: "\n";
+            exit;
+        }
+        put "Donnée incorrecte ! Recommencez.";
+        $! = Any;
         return 0;
     }
 }
 
-sub exercise_01 is export(:exe01) {
-    say '# Exercice 2 :';
-    say '# -----------';
-    say '# CALCUL MENTAL : DIVISIONS';
-    say '';
+sub exercise_04 is export(:exe04) {
+    $t.filepath = 'output/m04.txt';
+    $t.filemode = ':w'; # :mode<wo>, :create, :truncate
+    $t.tput: '# Exercice 4 :';
+    $t.closefile = False;
+    $t.filemode = ':a'; # :mode<wo>, :create, :append
+    $t.tput: '# -----------';
+    $t.tput: '# CALCUL MENTAL : DIVISIONS';
+    $t.tprint: "\n";
     my Str $level = '0';
     my Int $randomlevel = 0;
     my Int $lastrandomlevel = 0;
@@ -59,12 +90,17 @@ sub exercise_01 is export(:exe01) {
     loop {
         $level = prompt "Choisissez un niveau : 1, 2 ou 3, ou 0 pour un choix aléatoire (tapez 'q' à n'importe quel moment pour quitter) : ";
         given $level {
-            when '1' { say "Niveau 1"; }
-            when '2' { say "Niveau 2"; }
-            when '3' { say "Niveau 3"; }
-            when '0' { say "Choix aléatoire"; }
+            when '1' { $t.tput: "Niveau 1"; }
+            when '2' { $t.tput: "Niveau 2"; }
+            when '3' { $t.tput: "Niveau 3"; }
+            when '0' { $t.tput: "Choix aléatoire"; }
+            when 'q' or 'Q' {
+                $t.closefile = True;
+                $t.tprint: "\n";
+                exit;
+            }
             default {
-                say "Donnée incorrecte !";
+                put "Donnée incorrecte !";
             }
         }
         last if $level ~~ / <[0123]> /;
@@ -73,192 +109,192 @@ sub exercise_01 is export(:exe01) {
     given $level {
         when '1' {
             repeat {
-                print "1. 360 ÷ 12 = ";
+                $t.tprint: "1. 360 ÷ 12 = ";
                 $answer = get;
                 result(30, $answer);
             } until ($answer eq '30');
             repeat {
-                print "2. 90 ÷ 6 = ";
+                $t.tprint: "2. 90 ÷ 6 = ";
                 $answer = get;
                 result(15, $answer);
             } until ($answer eq '15');
             repeat {
-                print "3. 210 ÷ 7 = ";
+                $t.tprint: "3. 210 ÷ 7 = ";
                 $answer = get;
                 result(30, $answer);
             } until ($answer eq '30');
             repeat {
-                print "4. 180 ÷ 12 = ";
+                $t.tprint: "4. 180 ÷ 12 = ";
                 $answer = get;
                 result(15, $answer);
             } until ($answer eq '15');
             repeat {
-                print "5. 500 ÷ 25 = ";
+                $t.tprint: "5. 500 ÷ 25 = ";
                 $answer = get;
                 result(20, $answer);
             } until ($answer eq '20');
             repeat {
-                print "6. 1800 ÷ 24 = ";
+                $t.tprint: "6. 1800 ÷ 24 = ";
                 $answer = get;
                 result(75, $answer);
             } until ($answer eq '75');
             repeat {
-                print "7. 270 ÷ 18 = ";
+                $t.tprint: "7. 270 ÷ 18 = ";
                 $answer = get;
                 result(15, $answer);
             } until ($answer eq '15');
             repeat {
-                print "8. 900 ÷ 60 = ";
+                $t.tprint: "8. 900 ÷ 60 = ";
                 $answer = get;
                 result(15, $answer);
             } until ($answer eq '15');
             repeat {
-                print "9. 4800 ÷ 120 = ";
+                $t.tprint: "9. 4800 ÷ 120 = ";
                 $answer = get;
                 result(40, $answer);
             } until ($answer eq '40');
             repeat {
-                print "10. 350 ÷ 7 = ";
+                $t.tprint: "10. 350 ÷ 7 = ";
                 $answer = get;
                 result(50, $answer);
             } until ($answer eq '50');
             repeat {
-                print "11. 900 ÷ 18 = ";
+                $t.tprint: "11. 900 ÷ 18 = ";
                 $answer = get;
                 result(50, $answer);
             } until ($answer eq '50');
             repeat {
-                print "12. 48 ÷ 12 = ";
+                $t.tprint: "12. 48 ÷ 12 = ";
                 $answer = get;
                 result(4, $answer);
             } until ($answer eq '4');
-            say "Fin du niveau 1.";
+            $t.tput: "Fin du niveau 1.";
         }
         when '2' {
             repeat {
-                print "1. 870 ÷ 5 = ";
+                $t.tprint: "1. 870 ÷ 5 = ";
                 $answer = get;
                 result(174, $answer);
             } until ($answer eq '174');
             repeat {
-                print "2. 2500 ÷ 50 = ";
+                $t.tprint: "2. 2500 ÷ 50 = ";
                 $answer = get;
                 result(50, $answer);
             } until ($answer eq '50');
             repeat {
-                print "3. 575 ÷ 5 = ";
+                $t.tprint: "3. 575 ÷ 5 = ";
                 $answer = get;
                 result(115, $answer);
             } until ($answer eq '115');
             repeat {
-                print "4. 70 ÷ 5 = ";
+                $t.tprint: "4. 70 ÷ 5 = ";
                 $answer = get;
                 result(14, $answer);
             } until ($answer eq '14');
             repeat {
-                print "5. 800 ÷ 20 = ";
+                $t.tprint: "5. 800 ÷ 20 = ";
                 $answer = get;
                 result(40, $answer);
             } until ($answer eq '40');
             repeat {
-                print "6. 2700 ÷ 6 = ";
+                $t.tprint: "6. 2700 ÷ 6 = ";
                 $answer = get;
                 result(450, $answer);
             } until ($answer eq '450');
             repeat {
-                print "7. 90 ÷ 18 = ";
+                $t.tprint: "7. 90 ÷ 18 = ";
                 $answer = get;
                 result(5, $answer);
             } until ($answer eq '5');
             repeat {
-                print "8. 600 ÷ 12 = ";
+                $t.tprint: "8. 600 ÷ 12 = ";
                 $answer = get;
                 result(50, $answer);
             } until ($answer eq '50');
             repeat {
-                print "9. 81 ÷ 27 = ";
+                $t.tprint: "9. 81 ÷ 27 = ";
                 $answer = get;
                 result(3, $answer);
             } until ($answer eq '3');
             repeat {
-                print "10. 8100 ÷ 27 = ";
+                $t.tprint: "10. 8100 ÷ 27 = ";
                 $answer = get;
                 result(300, $answer);
             } until ($answer eq '300');
             repeat {
-                print "11. 400 ÷ 16 = ";
+                $t.tprint: "11. 400 ÷ 16 = ";
                 $answer = get;
                 result(25, $answer);
             } until ($answer eq '25');
             repeat {
-                print "12. 1000 ÷ 25 = ";
+                $t.tprint: "12. 1000 ÷ 25 = ";
                 $answer = get;
                 result(40, $answer);
             } until ($answer eq '40');
-            say "Fin du niveau 2.";
+            $t.tput: "Fin du niveau 2.";
         }
         when '3' {
             repeat {
-                print "1. 9000 ÷ 60 = ";
+                $t.tprint: "1. 9000 ÷ 60 = ";
                 $answer = get;
                 result(150, $answer);
             } until ($answer eq '150');
             repeat {
-                print "2. 75 ÷ 5 = ";
+                $t.tprint: "2. 75 ÷ 5 = ";
                 $answer = get;
                 result(15, $answer);
             } until ($answer eq '15');
             repeat {
-                print "3. 1800 ÷ 150 = ";
+                $t.tprint: "3. 1800 ÷ 150 = ";
                 $answer = get;
                 result(12, $answer);
             } until ($answer eq '12');
             repeat {
-                print "4. 450 ÷ 90 = ";
+                $t.tprint: "4. 450 ÷ 90 = ";
                 $answer = get;
                 result(5, $answer);
             } until ($answer eq '5');
             repeat {
-                print "5. 1500 ÷ 12 = ";
+                $t.tprint: "5. 1500 ÷ 12 = ";
                 $answer = get;
                 result(125, $answer);
             } until ($answer eq '125');
             repeat {
-                print "6. 540 ÷ 18 = ";
+                $t.tprint: "6. 540 ÷ 18 = ";
                 $answer = get;
                 result(30, $answer);
             } until ($answer eq '30');
             repeat {
-                print "7. 900 ÷ 36 = ";
+                $t.tprint: "7. 900 ÷ 36 = ";
                 $answer = get;
                 result(25, $answer);
             } until ($answer eq '25');
             repeat {
-                print "8. 450 ÷ 150 = ";
+                $t.tprint: "8. 450 ÷ 150 = ";
                 $answer = get;
                 result(3, $answer);
             } until ($answer eq '3');
             repeat {
-                print "9. 540 ÷ 27 = ";
+                $t.tprint: "9. 540 ÷ 27 = ";
                 $answer = get;
                 result(20, $answer);
             } until ($answer == '20');
             repeat {
-                print "10. 9000 ÷ 600 = ";
+                $t.tprint: "10. 9000 ÷ 600 = ";
                 $answer = get;
                 result(15, $answer);
             } until ($answer eq '15');
             repeat {
-                print "11. 180 ÷ 36 = ";
+                $t.tprint: "11. 180 ÷ 36 = ";
                 $answer = get;
                 result(5, $answer);
             } until ($answer eq '5');
             repeat {
-                print "12. 2700 ÷ 18 = ";
+                $t.tprint: "12. 2700 ÷ 18 = ";
                 $answer = get;
                 result(150, $answer);
             } until ($answer eq '150');
-            say "Fin du niveau 3.";
+            $t.tput: "Fin du niveau 3.";
         }
         when '0' {
             loop {
@@ -269,252 +305,252 @@ sub exercise_01 is export(:exe01) {
                 given $randomlevel {
                     when 1 {
                         repeat {
-                            print "1. 360 ÷ 12 = ";
+                            $t.tprint: "1. 360 ÷ 12 = ";
                             $answer = get;
                             result(30, $answer);
                         } until ($answer eq '30');
                     }
                     when 2 {
                         repeat {
-                            print "2. 90 ÷ 6 = ";
+                            $t.tprint: "2. 90 ÷ 6 = ";
                             $answer = get;
                             result(15, $answer);
                         } until ($answer eq '15');
                     }
                     when 3 {
                         repeat {
-                            print "3. 210 ÷ 7 = ";
+                            $t.tprint: "3. 210 ÷ 7 = ";
                             $answer = get;
                             result(30, $answer);
                         } until ($answer eq '30');
                     }
                     when 4 {
                         repeat {
-                            print "4. 180 ÷ 12 = ";
+                            $t.tprint: "4. 180 ÷ 12 = ";
                             $answer = get;
                             result(15, $answer);
                         } until ($answer eq '15');
                     }
                     when 5 {
                         repeat {
-                            print "5. 500 ÷ 25 = ";
+                            $t.tprint: "5. 500 ÷ 25 = ";
                             $answer = get;
                             result(20, $answer);
                         } until ($answer eq '20');
                     }
                     when 6 {
                         repeat {
-                            print "6. 1800 ÷ 24 = ";
+                            $t.tprint: "6. 1800 ÷ 24 = ";
                             $answer = get;
                             result(75, $answer);
                         } until ($answer eq '75');
                     }
                     when 5 {
                         repeat {
-                            print "7. 270 ÷ 18 = ";
+                            $t.tprint: "7. 270 ÷ 18 = ";
                             $answer = get;
                             result(15, $answer);
                         } until ($answer eq '15');
                     }
                     when 8 {
                         repeat {
-                            print "8. 900 ÷ 60 = ";
+                            $t.tprint: "8. 900 ÷ 60 = ";
                             $answer = get;
                             result(15, $answer);
                         } until ($answer eq '15');
                     }
                     when 9 {
                         repeat {
-                            print "9. 4800 ÷ 120 = ";
+                            $t.tprint: "9. 4800 ÷ 120 = ";
                             $answer = get;
                             result(40, $answer);
                         } until ($answer eq '40');
                     }
                     when 10 {
                         repeat {
-                            print "10. 350 ÷ 7 = ";
+                            $t.tprint: "10. 350 ÷ 7 = ";
                             $answer = get;
                             result(50, $answer);
                         } until ($answer eq '50');
                     }
                     when 11 {
                         repeat {
-                            print "11. 900 ÷ 18 = ";
+                            $t.tprint: "11. 900 ÷ 18 = ";
                             $answer = get;
                             result(50, $answer);
                         } until ($answer eq '50');
                     }
                     when 12 {
                         repeat {
-                            print "12. 48 ÷ 12 = ";
+                            $t.tprint: "12. 48 ÷ 12 = ";
                             $answer = get;
                             result(4, $answer);
                         } until ($answer eq '4');
                     }
                     when 13 {
                         repeat {
-                            print "13. 870 ÷ 5 = ";
+                            $t.tprint: "13. 870 ÷ 5 = ";
                             $answer = get;
                             result(174, $answer);
                         } until ($answer eq '174');
                     }
                     when 14 {
                         repeat {
-                            print "14. 2500 ÷ 50 = ";
+                            $t.tprint: "14. 2500 ÷ 50 = ";
                             $answer = get;
                             result(50, $answer);
                         } until ($answer eq '50');
                     }
                     when 15 {
                         repeat {
-                            print "15. 575 ÷ 5 = ";
+                            $t.tprint: "15. 575 ÷ 5 = ";
                             $answer = get;
                             result(115, $answer);
                         } until ($answer eq '115');
                     }
                     when 16 {
                         repeat {
-                            print "16. 70 ÷ 5 = ";
+                            $t.tprint: "16. 70 ÷ 5 = ";
                             $answer = get;
                             result(14, $answer);
                         } until ($answer eq '14');
                     }
                     when 17 {
                         repeat {
-                            print "17. 800 ÷ 20 = ";
+                            $t.tprint: "17. 800 ÷ 20 = ";
                             $answer = get;
                             result(40, $answer);
                         } until ($answer eq '40');
                     }
                     when 18 {
                         repeat {
-                            print "18. 2700 ÷ 6 = ";
+                            $t.tprint: "18. 2700 ÷ 6 = ";
                             $answer = get;
                             result(450, $answer);
                         } until ($answer eq '450');
                     }
                     when 19 {
                         repeat {
-                            print "19. 90 ÷ 18 = ";
+                            $t.tprint: "19. 90 ÷ 18 = ";
                             $answer = get;
                             result(5, $answer);
                         } until ($answer eq '5');
                     }
                     when 20 {
                         repeat {
-                            print "20. 600 ÷ 12 = ";
+                            $t.tprint: "20. 600 ÷ 12 = ";
                             $answer = get;
                             result(50, $answer);
                         } until ($answer eq '50');
                     }
                     when 21 {
                         repeat {
-                            print "21. 81 ÷ 27 = ";
+                            $t.tprint: "21. 81 ÷ 27 = ";
                             $answer = get;
                             result(3, $answer);
                         } until ($answer eq '3');
                     }
                     when 22 {
                         repeat {
-                            print "22. 8100 ÷ 27 = ";
+                            $t.tprint: "22. 8100 ÷ 27 = ";
                             $answer = get;
                             result(300, $answer);
                         } until ($answer eq '300');
                     }
                     when 23 {
                         repeat {
-                            print "23. 400 ÷ 16 = ";
+                            $t.tprint: "23. 400 ÷ 16 = ";
                             $answer = get;
                             result(25, $answer);
                         } until ($answer eq '25');
                     }
                     when 24 {
                         repeat {
-                            print "24. 1000 ÷ 25 = ";
+                            $t.tprint: "24. 1000 ÷ 25 = ";
                             $answer = get;
                             result(40, $answer);
                         } until ($answer eq '40');
                     }
                     when 25 {
                         repeat {
-                            print "25. 9000 ÷ 60 = ";
+                            $t.tprint: "25. 9000 ÷ 60 = ";
                             $answer = get;
                             result(150, $answer);
                         } until ($answer eq '150');
                     }
                     when 26 {
                         repeat {
-                            print "26. 75 ÷ 5 = ";
+                            $t.tprint: "26. 75 ÷ 5 = ";
                             $answer = get;
                             result(15, $answer);
                         } until ($answer eq '15');
                     }
                     when 27 {
                         repeat {
-                            print "27. 1800 ÷ 150 = ";
+                            $t.tprint: "27. 1800 ÷ 150 = ";
                             $answer = get;
                             result(12, $answer);
                         } until ($answer eq '12');
                     }
                     when 28 {
                         repeat {
-                            print "28. 450 ÷ 90 = ";
+                            $t.tprint: "28. 450 ÷ 90 = ";
                             $answer = get;
                             result(5, $answer);
                         } until ($answer eq '5');
                     }
                     when 29 {
                         repeat {
-                            print "29. 1500 ÷ 12 = ";
+                            $t.tprint: "29. 1500 ÷ 12 = ";
                             $answer = get;
                             result(125, $answer);
                         } until ($answer eq '125');
                     }
                     when 30 {
                         repeat {
-                            print "30. 540 ÷ 18 = ";
+                            $t.tprint: "30. 540 ÷ 18 = ";
                             $answer = get;
                             result(30, $answer);
                         } until ($answer eq '30');
                     }
                     when 31 {
                         repeat {
-                            print "31. 900 ÷ 36 = ";
+                            $t.tprint: "31. 900 ÷ 36 = ";
                             $answer = get;
                             result(25, $answer);
                         } until ($answer eq '25');
                     }
                     when 32 {
                         repeat {
-                            print "32. 450 ÷ 150 = ";
+                            $t.tprint: "32. 450 ÷ 150 = ";
                             $answer = get;
                             result(3, $answer);
                         } until ($answer eq '3');
                     }
                     when 33 {
                         repeat {
-                            print "33. 540 ÷ 27 = ";
+                            $t.tprint: "33. 540 ÷ 27 = ";
                             $answer = get;
                             result(20, $answer);
                         } until ($answer == '20');
                     }
                     when 34 {
                         repeat {
-                            print "34. 9000 ÷ 600 = ";
+                            $t.tprint: "34. 9000 ÷ 600 = ";
                             $answer = get;
                             result(15, $answer);
                         } until ($answer eq '15');
                     }
                     when 35 {
                         repeat {
-                            print "35. 180 ÷ 36 = ";
+                            $t.tprint: "35. 180 ÷ 36 = ";
                             $answer = get;
                             result(5, $answer);
                         } until ($answer eq '5');
                     }
                     when 36 {
                         repeat {
-                            print "36. 2700 ÷ 18 = ";
+                            $t.tprint: "36. 2700 ÷ 18 = ";
                             $answer = get;
                             result(150, $answer);
                         } until ($answer eq '150');

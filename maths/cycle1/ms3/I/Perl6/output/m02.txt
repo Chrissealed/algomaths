@@ -1,0 +1,12 @@
+# Exercice 2 :
+# -----------
+# CALCUL MENTAL : SOUSTRACTIONS
+
+
+Choix aléatoire
+13. 544 – 267 = 200
+Faux. Recommencez.
+13. 544 – 267 = q
+Réponses correctes : 0
+Réponses incorrectes : 1
+
