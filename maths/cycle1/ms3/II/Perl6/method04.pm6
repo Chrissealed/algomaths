@@ -2,8 +2,21 @@ unit module Method04;
 
 use v6;
 
+=begin pod
+=NAME module B<Method04>
+=AUTHOR Christian Béloscar
+=VERSION 0.1.119
+=end pod
+
+use teeput;
+
+class T does Teeput::Tput {}
+my $t = T.new(
+    writefile => True,
+);
+    
 sub put-up-method04 is export(:methodwording) {
-    say qq:to/EOM/;
+    my $message = qq:to/EOM/;
 # II - MÉTHODES SUR LES PGCD -
 ###################################################################################
 # Méthode 4. Comment résoudre un problème en utilisant le PGCD de deux entiers ?
@@ -19,6 +32,9 @@ sub put-up-method04 is export(:methodwording) {
 (Voir aussi method12 de fm3/I/Perl6)
 
 EOM
+    $t.filepath = 'output/method04.txt';
+    $t.filemode = ':x'; # :mode<wo>, :create, :exclusive
+    $t.tput($message);
 }
 
 sub show-examples04 is export(:examples) {
@@ -26,36 +42,48 @@ sub show-examples04 is export(:examples) {
 }
 
 sub exercise_01 is export(:exe01) {
-    say '# Exercice 1.';
-    say '# ----------';
-    say '# Un pâtissier dispose de 411 framboises et de 685 fraises. Afin de préparer des';
-    say '# tartelettes, il désire répartir ces fruits en les utilisant tous et en obtenant';
-    say '# le maximum de tartelettes identiques.';
-    say '# 1°) Calculer le nombre de tartelettes.';
-    say '# 2°) Calculer le nombre de framboises et de fraises dans chaque tartelette.';
-    say '-----------------------------------------------------------------------------------';
+    $t.filepath = 'output/m010204a.txt';
+    $t.filemode = ':w'; # :mode<wo>, :create, :truncate
+    $t.tput: '# Exercice 1.';
+    $t.filemode = ':a'; # :mode<wo>, :create, :append
+    $t.closefile = False;
+    $t.tput: '# ----------';
+    $t.tput: '# Un pâtissier dispose de 411 framboises et de 685 fraises. Afin de préparer des';
+    $t.tput: '# tartelettes, il désire répartir ces fruits en les utilisant tous et en obtenant';
+    $t.tput: '# le maximum de tartelettes identiques.';
+    $t.tput: '# 1°) Calculer le nombre de tartelettes.';
+    $t.tput: '# 2°) Calculer le nombre de framboises et de fraises dans chaque tartelette.';
+    $t.tput: '-----------------------------------------------------------------------------------';
 }
 
 sub exercise_02 is export(:exe02) {
-    say '# Exercice 2.';
-    say '# ----------';
-    say '# 1°) Calculer le plus grand diviseur commun de 540 et 300.';
-    say '# 2°) Une pièce rectangulaire de 5,40 m de long et de 3 m de large est recouverte,';
-    say '# sans découpe, par des dalles de moquettes carrées, toutes identiques.';
-    say '# a. Quelle est la mesure du côté de chacune des dalles, sachant que l\'on veut';
-    say '#    le moins de dalles possibles ?';
-    say '# b. Calculer alors le nombre de dalles utilisées.';
-    say '-----------------------------------------------------------------------------------';
+    $t.filepath = 'output/m010204b.txt';
+    $t.filemode = ':w'; # :mode<wo>, :create, :truncate
+    $t.tput: '# Exercice 2.';
+    $t.filemode = ':a'; # :mode<wo>, :create, :append
+    $t.closefile = False;
+    $t.tput: '# ----------';
+    $t.tput: '# 1°) Calculer le plus grand diviseur commun de 540 et 300.';
+    $t.tput: '# 2°) Une pièce rectangulaire de 5,40 m de long et de 3 m de large est recouverte,';
+    $t.tput: '# sans découpe, par des dalles de moquettes carrées, toutes identiques.';
+    $t.tput: '# a. Quelle est la mesure du côté de chacune des dalles, sachant que l\'on veut';
+    $t.tput: '#    le moins de dalles possibles ?';
+    $t.tput: '# b. Calculer alors le nombre de dalles utilisées.';
+    $t.tput: '-----------------------------------------------------------------------------------';
 }
 
 sub exercise_03 is export(:exe03) {
-    say '# Exercice 3.';
-    say '# ----------';
-    say '# Pierre a gagné 84 sucettes et 147 bonbons à un jeu. Il décide de les partager avec';
-    say '# des amis. Pour ne pas faire de jaloux, chacun doit avoir le même nombre de sucettes';
-    say '# et le même nombre de bonbons.';
-    say '# 1°) Combien de personnes au maximum pourront bénéficier de ces friandises (Pierre';
-    say '# étant inclus dans ces personnes) ? Expliquer votre raisonnement.';
-    say '# 2°) Combien de sucettes et de bonbons aura alors chaque personne ?';
-    say '-----------------------------------------------------------------------------------';
+    $t.filepath = 'output/m010204c.txt';
+    $t.filemode = ':w'; # :mode<wo>, :create, :truncate
+    $t.tput: '# Exercice 3.';
+    $t.filemode = ':a'; # :mode<wo>, :create, :append
+    $t.closefile = False;
+    $t.tput: '# ----------';
+    $t.tput: '# Pierre a gagné 84 sucettes et 147 bonbons à un jeu. Il décide de les partager avec';
+    $t.tput: '# des amis. Pour ne pas faire de jaloux, chacun doit avoir le même nombre de sucettes';
+    $t.tput: '# et le même nombre de bonbons.';
+    $t.tput: '# 1°) Combien de personnes au maximum pourront bénéficier de ces friandises (Pierre';
+    $t.tput: '# étant inclus dans ces personnes) ? Expliquer votre raisonnement.';
+    $t.tput: '# 2°) Combien de sucettes et de bonbons aura alors chaque personne ?';
+    $t.tput: '-----------------------------------------------------------------------------------';
 }

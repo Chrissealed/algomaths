@@ -1,0 +1,26 @@
+# Exercice 1b.
+# ----------
+# Etant donnée la fraction suivante : 1183/455.
+# a. Montrer qu'elle n'est pas irréductible
+# b. L'écrire sous forme irréductible.
+-----------------------------------------------------------------------------------
+1183 et 455 ont un diviseur commun autre que 1 : 7.
+− Utilisation de l'algorithme d'Euclide −
+PGCD(1183 ; 455) = PGCD(455 ; 273)
+PGCD(455 ; 273) = PGCD(273 ; 182)
+PGCD(273 ; 182) = PGCD(182 ; 91)
+Le reste de la division de 182 par 91 est nul,
+donc PGCD(1183 ; 455) = 91.
+On simplifie avec le PGCD trouvé :
+1183/455 = 91 × 13 / 91 × 5
+1183/455 = 13/5
+− Utilisation de l'algorithme d'Euclide −
+PGCD(13 ; 5) = PGCD(5 ; 3)
+PGCD(5 ; 3) = PGCD(3 ; 2)
+PGCD(3 ; 2) = PGCD(2 ; 1)
+Le reste de la division de 2 par 1 est nul,
+donc PGCD(13 ; 5) = 1.
+13 et 5 n'ont pas de diviseurs communs autre que 1.
+13 et 5 sont premiers entre eux!
+La fraction 13/5 est irréductible.
+

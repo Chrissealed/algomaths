@@ -1,0 +1,24 @@
+# Exercice 1d.
+# ----------
+# Etant donnée la fraction suivante : 108/288.
+# a. Montrer qu'elle n'est pas irréductible
+# b. L'écrire sous forme irréductible.
+-----------------------------------------------------------------------------------
+108 et 288 ont un diviseur commun autre que 1 : 2.
+− Utilisation de l'algorithme d'Euclide −
+PGCD(288 ; 108) = PGCD(108 ; 72)
+PGCD(108 ; 72) = PGCD(72 ; 36)
+Le reste de la division de 72 par 36 est nul,
+donc PGCD(108 ; 288) = 36.
+On simplifie avec le PGCD trouvé :
+108/288 = 36 × 3 / 36 × 8
+108/288 = 3/8
+− Utilisation de l'algorithme d'Euclide −
+PGCD(8 ; 3) = PGCD(3 ; 2)
+PGCD(3 ; 2) = PGCD(2 ; 1)
+Le reste de la division de 2 par 1 est nul,
+donc PGCD(3 ; 8) = 1.
+3 et 8 n'ont pas de diviseurs communs autre que 1.
+3 et 8 sont premiers entre eux!
+La fraction 3/8 est irréductible.
+

@@ -1,0 +1,21 @@
+# Exercice 1.
+# ----------
+# Un pâtissier dispose de 411 framboises et de 685 fraises. Afin de préparer des
+# tartelettes, il désire répartir ces fruits en les utilisant tous et en obtenant
+# le maximum de tartelettes identiques.
+# 1°) Calculer le nombre de tartelettes.
+# 2°) Calculer le nombre de framboises et de fraises dans chaque tartelette.
+-----------------------------------------------------------------------------------
+1°) Le nombre de tartelettes doit diviser le nombre de framboises (411)
+et le nombre de fraises (685) et doit être le plus grand possible :
+c'est exactement PGCD(411 ; 685).
+− Utilisation de l'algorithme d'Euclide −
+PGCD(685 ; 411) = PGCD(411 ; 274)
+PGCD(411 ; 274) = PGCD(274 ; 137)
+Le reste de la division de 274 par 137 est nul,
+donc PGCD(411 ; 685) = 137.
+On a après les calculs : PGCD(411 ; 685) = 137.
+Le nombre de tartelettes est donc 137.
+2°) On a 411 ÷ 137 = 3 et 685 ÷ 137 = 5.
+Il y aura donc 3 framboises et 5 fraises par tartelette.
+

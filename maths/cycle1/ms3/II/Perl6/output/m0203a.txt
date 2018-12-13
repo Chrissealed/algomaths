@@ -1,0 +1,24 @@
+# Exercice 1a.
+# ----------
+# Etant donnée la fraction suivante : 170/578.
+# a. Montrer qu'elle n'est pas irréductible
+# b. L'écrire sous forme irréductible.
+-----------------------------------------------------------------------------------
+170 et 578 ont un diviseur commun autre que 1 : 2.
+− Utilisation de l'algorithme d'Euclide −
+PGCD(578 ; 170) = PGCD(170 ; 68)
+PGCD(170 ; 68) = PGCD(68 ; 34)
+Le reste de la division de 68 par 34 est nul,
+donc PGCD(170 ; 578) = 34.
+On simplifie avec le PGCD trouvé :
+170/578 = 34 × 5 / 34 × 17
+170/578 = 5/17
+− Utilisation de l'algorithme d'Euclide −
+PGCD(17 ; 5) = PGCD(5 ; 2)
+PGCD(5 ; 2) = PGCD(2 ; 1)
+Le reste de la division de 2 par 1 est nul,
+donc PGCD(5 ; 17) = 1.
+5 et 17 n'ont pas de diviseurs communs autre que 1.
+5 et 17 sont premiers entre eux!
+La fraction 5/17 est irréductible.
+

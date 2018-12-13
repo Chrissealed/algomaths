@@ -1,0 +1,15 @@
+# II - MÉTHODES SUR LES PGCD -
+###################################################################################
+# Méthode 4. Comment résoudre un problème en utilisant le PGCD de deux entiers ?
+###################################################################################
+# Pour résoudre un problème en utilisant le PGCD de deux entiers :
+# ▲ Principe : On reconnaît ce type de problèmes très facilement : ça parle en
+# général de deux types de choses que l'on souhaite mettre ensemble;
+# ▲ on prélève l'information et on explique en quoi le problème est lié à la
+#   détermination du PGCD de deux nombres;
+# ▲ on détermine le PGCD en appliquant une des méthodes de ce chapitre;
+# ▲ on rédige les réponses aux questions.  
+###################################################################################
+(Voir aussi method12 de fm3/I/Perl6)
+
+

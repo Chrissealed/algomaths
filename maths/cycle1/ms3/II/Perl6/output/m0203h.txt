@@ -1,0 +1,24 @@
+# Exercice 1h.
+# ----------
+# Etant donnée la fraction suivante : 462/546.
+# a. Montrer qu'elle n'est pas irréductible
+# b. L'écrire sous forme irréductible.
+-----------------------------------------------------------------------------------
+462 et 546 ont un diviseur commun autre que 1 : 2.
+− Utilisation de l'algorithme d'Euclide −
+PGCD(546 ; 462) = PGCD(462 ; 84)
+PGCD(462 ; 84) = PGCD(84 ; 42)
+Le reste de la division de 84 par 42 est nul,
+donc PGCD(462 ; 546) = 42.
+On simplifie avec le PGCD trouvé :
+462/546 = 42 × 11 / 42 × 13
+462/546 = 11/13
+− Utilisation de l'algorithme d'Euclide −
+PGCD(13 ; 11) = PGCD(11 ; 2)
+PGCD(11 ; 2) = PGCD(2 ; 1)
+Le reste de la division de 2 par 1 est nul,
+donc PGCD(11 ; 13) = 1.
+11 et 13 n'ont pas de diviseurs communs autre que 1.
+11 et 13 sont premiers entre eux!
+La fraction 11/13 est irréductible.
+

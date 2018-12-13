@@ -1,0 +1,18 @@
+# II - MÉTHODES SUR LES PGCD -
+###################################################################################
+# Méthode 03. Pour simplifier des fractions.
+###################################################################################
+# Pour déterminer la fraction irréductible égale à une fraction donnée :
+# ▲ on simplifie la fraction donnée en divisant le numérateur et le dénominateur
+#   par leur PGCD.
+# Pour rendre irréductible une fraction a/b, on calcule PGCD(a ; b). Ensuite, on
+# divise le haut et le bas (c'est à dire le numérateur et le dénominateur)
+# par ce PGCD.
+# ▲ Remarque :
+#   on peut décomposer le numérateur et le dénominateur en produit de facteurs simples
+#   pour faire apparaître les facteurs communs, on supprime ces facteurs au numérateur
+#   et au dénominateur, on s'assure que le numérateur et le dénominateur de la fraction
+#   obtenue sont premiers entre eux (cf. method10 de fm3/I/Perl6).
+###################################################################################
+
+

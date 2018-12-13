@@ -1,0 +1,24 @@
+# Exercice 1c.
+# ----------
+# Etant donnée la fraction suivante : 1356/4972.
+# a. Montrer qu'elle n'est pas irréductible
+# b. L'écrire sous forme irréductible.
+-----------------------------------------------------------------------------------
+1356 et 4972 ont un diviseur commun autre que 1 : 2.
+− Utilisation de l'algorithme d'Euclide −
+PGCD(4972 ; 1356) = PGCD(1356 ; 904)
+PGCD(1356 ; 904) = PGCD(904 ; 452)
+Le reste de la division de 904 par 452 est nul,
+donc PGCD(1356 ; 4972) = 452.
+On simplifie avec le PGCD trouvé :
+1356/4972 = 452 × 3 / 452 × 11
+1356/4972 = 3/11
+− Utilisation de l'algorithme d'Euclide −
+PGCD(11 ; 3) = PGCD(3 ; 2)
+PGCD(3 ; 2) = PGCD(2 ; 1)
+Le reste de la division de 2 par 1 est nul,
+donc PGCD(3 ; 11) = 1.
+3 et 11 n'ont pas de diviseurs communs autre que 1.
+3 et 11 sont premiers entre eux!
+La fraction 3/11 est irréductible.
+

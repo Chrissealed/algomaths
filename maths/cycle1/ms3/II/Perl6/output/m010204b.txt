@@ -1,0 +1,24 @@
+# Exercice 2.
+# ----------
+# 1°) Calculer le plus grand diviseur commun de 540 et 300.
+# 2°) Une pièce rectangulaire de 5,40 m de long et de 3 m de large est recouverte,
+# sans découpe, par des dalles de moquettes carrées, toutes identiques.
+# a. Quelle est la mesure du côté de chacune des dalles, sachant que l'on veut
+#    le moins de dalles possibles ?
+# b. Calculer alors le nombre de dalles utilisées.
+-----------------------------------------------------------------------------------
+− Utilisation de l'algorithme d'Euclide −
+PGCD(540 ; 300) = PGCD(300 ; 240)
+PGCD(300 ; 240) = PGCD(240 ; 60)
+Le reste de la division de 240 par 60 est nul,
+donc PGCD(540 ; 300) = 60.
+1°) On a (après calculs) PGCD(540 ; 300) = 60.
+
+2°) a. Raisonnons en cm : 5,40 m = 540 cm et 3 m = 300 cm.
+Vu que l'on veut le moins de dalles possibles, il faut qu'elles soient les plus
+grandes possibles sachant que leur longueur (en cm) doit diviser 540 et 300
+(car on veut des dalles entières). Ce qu'on cherche, c'est donc PGCD(540 ; 300),
+c'est à dire 60 ! Chaque dalle doit donc mesurer 60 cm sur 60 cm.
+b. On peut en mettre 540 ÷ 60 = 9 en longueur et 300 ÷ 60 = 5 en largeur,
+ce qui fait 9 × 5 = 45 dalles !
+

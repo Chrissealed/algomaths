@@ -1,0 +1,21 @@
+# Exercice 3.
+# ----------
+# Pierre a gagné 84 sucettes et 147 bonbons à un jeu. Il décide de les partager avec
+# des amis. Pour ne pas faire de jaloux, chacun doit avoir le même nombre de sucettes
+# et le même nombre de bonbons.
+# 1°) Combien de personnes au maximum pourront bénéficier de ces friandises (Pierre
+# étant inclus dans ces personnes) ? Expliquer votre raisonnement.
+# 2°) Combien de sucettes et de bonbons aura alors chaque personne ?
+-----------------------------------------------------------------------------------
+− Utilisation de l'algorithme d'Euclide −
+PGCD(147 ; 84) = PGCD(84 ; 63)
+PGCD(84 ; 63) = PGCD(63 ; 21)
+Le reste de la division de 63 par 21 est nul,
+donc PGCD(84 ; 147) = 21.
+1°) Le nombre de personnes cherché doit diviser 84 ainsi que 147 et être
+le plus grand possible : c'est bien sûr PGCD(84 ; 147).
+On trouve (après calcul) PGCD(84 ; 147) = 21.
+Ainsi 21 personnes au maximum pourront bénéficier de ces friandises.
+
+2°) Il y aura 84 ÷ 21 = 4 sucettes ainsi que 147 ÷ 21 = 7 bonbons par personne.
+

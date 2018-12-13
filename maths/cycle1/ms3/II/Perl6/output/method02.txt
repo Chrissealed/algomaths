@@ -1,22 +1,3 @@
-unit module Method02;
-
-use v6;
-
-=begin pod
-=NAME module B<Method02>
-=AUTHOR Christian Béloscar
-=VERSION 0.1.119
-=end pod
-
-use teeput;
-
-class T does Teeput::Tput {}
-my $t = T.new(
-    writefile => True,
-);
-    
-sub put-up-method02 is export(:methodwording) {
-    my $message = q:to/EOM/;
 II - MÉTHODES SUR LES PGCD -
 ###################################################################################
 # Méthode 2. Comment déterminer le PGCD de deux nombres entiers par l'algorithme
@@ -36,12 +17,4 @@ II - MÉTHODES SUR LES PGCD -
 # a par b
 ###################################################################################
 
-EOM
-    $t.filepath = 'output/method02.txt';
-    $t.filemode = ':x'; # :mode<wo>, :create, :exclusive
-    $t.tput($message);
-}
 
-sub show-examples02 is export(:examples) {
-    shell 'xdg-open ../examples02.pdf &';
-}

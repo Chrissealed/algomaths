@@ -1,0 +1,24 @@
+# Exercice 1e.
+# ----------
+# Etant donnée la fraction suivante : 682/352.
+# a. Montrer qu'elle n'est pas irréductible
+# b. L'écrire sous forme irréductible.
+-----------------------------------------------------------------------------------
+682 et 352 ont un diviseur commun autre que 1 : 2.
+− Utilisation de l'algorithme d'Euclide −
+PGCD(682 ; 352) = PGCD(352 ; 330)
+PGCD(352 ; 330) = PGCD(330 ; 22)
+Le reste de la division de 330 par 22 est nul,
+donc PGCD(682 ; 352) = 22.
+On simplifie avec le PGCD trouvé :
+682/352 = 22 × 31 / 22 × 16
+682/352 = 31/16
+− Utilisation de l'algorithme d'Euclide −
+PGCD(31 ; 16) = PGCD(16 ; 15)
+PGCD(16 ; 15) = PGCD(15 ; 1)
+Le reste de la division de 15 par 1 est nul,
+donc PGCD(31 ; 16) = 1.
+31 et 16 n'ont pas de diviseurs communs autre que 1.
+31 et 16 sont premiers entre eux!
+La fraction 31/16 est irréductible.
+

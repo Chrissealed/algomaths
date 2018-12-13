@@ -1,0 +1,26 @@
+# Exercice 1g.
+# ----------
+# Etant donnée la fraction suivante : 406/696.
+# a. Montrer qu'elle n'est pas irréductible
+# b. L'écrire sous forme irréductible.
+-----------------------------------------------------------------------------------
+406 et 696 ont un diviseur commun autre que 1 : 2.
+− Utilisation de l'algorithme d'Euclide −
+PGCD(696 ; 406) = PGCD(406 ; 290)
+PGCD(406 ; 290) = PGCD(290 ; 116)
+PGCD(290 ; 116) = PGCD(116 ; 58)
+Le reste de la division de 116 par 58 est nul,
+donc PGCD(406 ; 696) = 58.
+On simplifie avec le PGCD trouvé :
+406/696 = 58 × 7 / 58 × 12
+406/696 = 7/12
+− Utilisation de l'algorithme d'Euclide −
+PGCD(12 ; 7) = PGCD(7 ; 5)
+PGCD(7 ; 5) = PGCD(5 ; 2)
+PGCD(5 ; 2) = PGCD(2 ; 1)
+Le reste de la division de 2 par 1 est nul,
+donc PGCD(7 ; 12) = 1.
+7 et 12 n'ont pas de diviseurs communs autre que 1.
+7 et 12 sont premiers entre eux!
+La fraction 7/12 est irréductible.
+

@@ -2,8 +2,21 @@ unit module Method03;
 
 use v6;
 
+=begin pod
+=NAME module B<Method03>
+=AUTHOR Christian Béloscar
+=VERSION 0.1.119
+=end pod
+
+use teeput;
+
+class T does Teeput::Tput {}
+my $t = T.new(
+    writefile => True,
+);
+    
 sub put-up-method03 is export(:methodwording) {
-    say qq:to/EOM/;
+    my $message = qq:to/EOM/;
 # II - MÉTHODES SUR LES PGCD -
 ###################################################################################
 # Méthode 03. Pour simplifier des fractions.
@@ -22,6 +35,9 @@ sub put-up-method03 is export(:methodwording) {
 ###################################################################################
 
 EOM
+    $t.filepath = 'output/method03.txt';
+    $t.filemode = ':x'; # :mode<wo>, :create, :exclusive
+    $t.tput($message);
 }
 
 sub show-examples03 is export(:examples) {
@@ -29,73 +45,105 @@ sub show-examples03 is export(:examples) {
 }
 
 sub exercise_01a is export(:exe01a) {
-    say '# Exercice 1a.';
-    say '# ----------';
-    say '# Etant donnée la fraction suivante : 170/578.';
-    say '# a. Montrer qu\'elle n\'est pas irréductible';
-    say '# b. L\'écrire sous forme irréductible.';
-    say '-----------------------------------------------------------------------------------';
+    $t.filepath = 'output/m0203a.txt';
+    $t.filemode = ':w'; # :mode<wo>, :create, :truncate
+    $t.tput: '# Exercice 1a.';
+    $t.filemode = ':a'; # :mode<wo>, :create, :append
+    $t.closefile = False;
+    $t.tput: '# ----------';
+    $t.tput: '# Etant donnée la fraction suivante : 170/578.';
+    $t.tput: '# a. Montrer qu\'elle n\'est pas irréductible';
+    $t.tput: '# b. L\'écrire sous forme irréductible.';
+    $t.tput: '-----------------------------------------------------------------------------------';
 }
 
 sub exercise_01b is export(:exe01b) {
-    say '# Exercice 1b.';
-    say '# ----------';
-    say '# Etant donnée la fraction suivante : 1183/455.';
-    say '# a. Montrer qu\'elle n\'est pas irréductible';
-    say '# b. L\'écrire sous forme irréductible.';
-    say '-----------------------------------------------------------------------------------';
+    $t.filepath = 'output/m0203b.txt';
+    $t.filemode = ':w'; # :mode<wo>, :create, :truncate
+    $t.tput: '# Exercice 1b.';
+    $t.filemode = ':a'; # :mode<wo>, :create, :append
+    $t.closefile = False;
+    $t.tput: '# ----------';
+    $t.tput: '# Etant donnée la fraction suivante : 1183/455.';
+    $t.tput: '# a. Montrer qu\'elle n\'est pas irréductible';
+    $t.tput: '# b. L\'écrire sous forme irréductible.';
+    $t.tput: '-----------------------------------------------------------------------------------';
 }
 
 sub exercise_01c is export(:exe01c) {
-    say '# Exercice 1c.';
-    say '# ----------';
-    say '# Etant donnée la fraction suivante : 1356/4972.';
-    say '# a. Montrer qu\'elle n\'est pas irréductible';
-    say '# b. L\'écrire sous forme irréductible.';
-    say '-----------------------------------------------------------------------------------';
+    $t.filepath = 'output/m0203c.txt';
+    $t.filemode = ':w'; # :mode<wo>, :create, :truncate
+    $t.tput: '# Exercice 1c.';
+    $t.filemode = ':a'; # :mode<wo>, :create, :append
+    $t.closefile = False;
+    $t.tput: '# ----------';
+    $t.tput: '# Etant donnée la fraction suivante : 1356/4972.';
+    $t.tput: '# a. Montrer qu\'elle n\'est pas irréductible';
+    $t.tput: '# b. L\'écrire sous forme irréductible.';
+    $t.tput: '-----------------------------------------------------------------------------------';
 }
 
 sub exercise_01d is export(:exe01d) {
-    say '# Exercice 1d.';
-    say '# ----------';
-    say '# Etant donnée la fraction suivante : 108/288.';
-    say '# a. Montrer qu\'elle n\'est pas irréductible';
-    say '# b. L\'écrire sous forme irréductible.';
-    say '-----------------------------------------------------------------------------------';
+    $t.filepath = 'output/m0203d.txt';
+    $t.filemode = ':w'; # :mode<wo>, :create, :truncate
+    $t.tput: '# Exercice 1d.';
+    $t.filemode = ':a'; # :mode<wo>, :create, :append
+    $t.closefile = False;
+    $t.tput: '# ----------';
+    $t.tput: '# Etant donnée la fraction suivante : 108/288.';
+    $t.tput: '# a. Montrer qu\'elle n\'est pas irréductible';
+    $t.tput: '# b. L\'écrire sous forme irréductible.';
+    $t.tput: '-----------------------------------------------------------------------------------';
 }
 
 sub exercise_01e is export(:exe01e) {
-    say '# Exercice 1e.';
-    say '# ----------';
-    say '# Etant donnée la fraction suivante : 682/352.';
-    say '# a. Montrer qu\'elle n\'est pas irréductible';
-    say '# b. L\'écrire sous forme irréductible.';
-    say '-----------------------------------------------------------------------------------';
+    $t.filepath = 'output/m0203e.txt';
+    $t.filemode = ':w'; # :mode<wo>, :create, :truncate
+    $t.tput: '# Exercice 1e.';
+    $t.filemode = ':a'; # :mode<wo>, :create, :append
+    $t.closefile = False;
+    $t.tput: '# ----------';
+    $t.tput: '# Etant donnée la fraction suivante : 682/352.';
+    $t.tput: '# a. Montrer qu\'elle n\'est pas irréductible';
+    $t.tput: '# b. L\'écrire sous forme irréductible.';
+    $t.tput: '-----------------------------------------------------------------------------------';
 }
 
 sub exercise_01f is export(:exe01f) {
-    say '# Exercice 1f.';
-    say '# ----------';
-    say '# Etant donnée la fraction suivante : 675/375.';
-    say '# a. Montrer qu\'elle n\'est pas irréductible';
-    say '# b. L\'écrire sous forme irréductible.';
-    say '-----------------------------------------------------------------------------------';
+    $t.filepath = 'output/m0203f.txt';
+    $t.filemode = ':w'; # :mode<wo>, :create, :truncate
+    $t.tput: '# Exercice 1f.';
+    $t.filemode = ':a'; # :mode<wo>, :create, :append
+    $t.closefile = False;
+    $t.tput: '# ----------';
+    $t.tput: '# Etant donnée la fraction suivante : 675/375.';
+    $t.tput: '# a. Montrer qu\'elle n\'est pas irréductible';
+    $t.tput: '# b. L\'écrire sous forme irréductible.';
+    $t.tput: '-----------------------------------------------------------------------------------';
 }
 
 sub exercise_01g is export(:exe01g) {
-    say '# Exercice 1g.';
-    say '# ----------';
-    say '# Etant donnée la fraction suivante : 406/696.';
-    say '# a. Montrer qu\'elle n\'est pas irréductible';
-    say '# b. L\'écrire sous forme irréductible.';
-    say '-----------------------------------------------------------------------------------';
+    $t.filepath = 'output/m0203g.txt';
+    $t.filemode = ':w'; # :mode<wo>, :create, :truncate
+    $t.tput: '# Exercice 1g.';
+    $t.filemode = ':a'; # :mode<wo>, :create, :append
+    $t.closefile = False;
+    $t.tput: '# ----------';
+    $t.tput: '# Etant donnée la fraction suivante : 406/696.';
+    $t.tput: '# a. Montrer qu\'elle n\'est pas irréductible';
+    $t.tput: '# b. L\'écrire sous forme irréductible.';
+    $t.tput: '-----------------------------------------------------------------------------------';
 }
 
 sub exercise_01h is export(:exe01h) {
-    say '# Exercice 1h.';
-    say '# ----------';
-    say '# Etant donnée la fraction suivante : 462/546.';
-    say '# a. Montrer qu\'elle n\'est pas irréductible';
-    say '# b. L\'écrire sous forme irréductible.';
-    say '-----------------------------------------------------------------------------------';
+    $t.filepath = 'output/m0203h.txt';
+    $t.filemode = ':w'; # :mode<wo>, :create, :truncate
+    $t.tput: '# Exercice 1h.';
+    $t.filemode = ':a'; # :mode<wo>, :create, :append
+    $t.closefile = False;
+    $t.tput: '# ----------';
+    $t.tput: '# Etant donnée la fraction suivante : 462/546.';
+    $t.tput: '# a. Montrer qu\'elle n\'est pas irréductible';
+    $t.tput: '# b. L\'écrire sous forme irréductible.';
+    $t.tput: '-----------------------------------------------------------------------------------';
 }
