@@ -1,0 +1,13 @@
+# Chapitre II : NOMBRES RELATIFS EN ÉCRITURE FRACTIONNAIRE : OPÉRATIONS.
+###################################################################################
+# Méthode 3.
+# Comment résoudre un problème conduisant au calcul d'une fraction restante ?
+###################################################################################
+# Pour résoudre un problème conduisant au calcul d'une fraction restante :
+# ▲ on traduit l'énoncé par une somme ou une différence de nombres en écriture
+#   fractionnaire;
+# ▲ on applique les méthodes 1 et 2 de ce chapitre pour calculer l'expression;
+# ▲ on répond au problème en faisant une phrase.
+###################################################################################
+
+
