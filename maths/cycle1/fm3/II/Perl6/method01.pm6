@@ -2,6 +2,12 @@ unit module Method01;
 
 use v6;
 
+=begin pod
+=NAME B<Method01> : Perl 6 module in B<algomaths>/maths/cycle1/fm3/II/Perl6/B<method01.pm6>
+=AUTHOR  https://github.com/Chrissealed/algomaths.git
+=VERSION 2018.12.17
+=end pod
+
 use teeput;
 
 class T does Teeput::Tput {}

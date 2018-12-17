@@ -2,6 +2,12 @@ unit module Method04;
 
 use v6;
 
+=begin pod
+=NAME B<Method04> : Perl 6 module in B<algomaths>/maths/cycle1/fm3/II/Perl6/B<method04.pm6>
+=AUTHOR  https://github.com/Chrissealed/algomaths.git
+=VERSION 2018.12.17
+=end pod
+
 use teeput;
 
 class T does Teeput::Tput {}
@@ -23,7 +29,7 @@ sub put-up-method is export(:methodwording) {
 ###################################################################################
 
 EOM
-    $t.filepath = 'output/method4.txt';
+    $t.filepath = 'output/method04.txt';
     $t.filemode = ':x'; # :mode<wo>, :create, :exclusive
     $t.tput($message);
 }
