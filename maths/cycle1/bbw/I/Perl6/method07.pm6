@@ -3,9 +3,9 @@ unit module Method07;
 use v6;
 
 =begin pod
-=NAME Method07 : Perl 6 module in B<algomaths>/maths/cycle1/bbw/I/Perl6/B<method07.pm6>
+=NAME B<Method07> : Perl 6 module in B<algomaths>/maths/cycle1/bbw/I/Perl6/B<method07.pm6>
 =AUTHOR  https://github.com/Chrissealed/algomaths.git
-=VERSION 2018.12.15
+=VERSION 2018.12.17
 =end pod
 
 use teeput;
