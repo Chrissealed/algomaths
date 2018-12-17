@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <title></title>
+  <meta charset="UTF-8" />
+  <style>
+    /* code gets the browser-default font
+     * kbd gets a slightly less common monospace font
+     * samp gets the hard pixelly fonts
+     */
+    kbd { font-family: "Droid Sans Mono", "Luxi Mono", "Inconsolata", monospace }
+    samp { font-family: "Terminus", "Courier", "Lucida Console", monospace }
+    /* WHATWG HTML frowns on the use of <u> because it looks like a link,
+     * so we make it not look like one.
+     */
+    u { text-decoration: none }
+    .nested {
+        margin-left: 3em;
+    }
+    // footnote things:
+    aside, u { opacity: 0.7 }
+    a[id^="fn-"]:target { background: #ff0 }
+  </style>
+  <link rel="stylesheet" href="design.perl6.org/perl.css">
+  <meta name="author" value="https://github.com/Chrissealed/algomaths.git" />
+<meta name="version" value="2018.12.16" />
+  
+</head>
+<body class="pod">
+<div id="___top"></div>
+
+
+<nav class="indexgroup">
+<table id="TOC">
+<caption><h2 id="TOC_Title">Table of Contents</h2></caption>
+        <tr class="toc-level-1"><td class="toc-number">1</td><td class="toc-text"><a href="#L'objectif_de_ce_module_est_de_renvoyer_la_fraction_irréductible_de_la_fraction_initiale">L&#39;objectif de ce module est de renvoyer la fraction irréductible de la fraction initiale</a></td></tr>
+                                         
+</table>
+</nav>
+
+<div class="pod-body
+
+">
+<section><h1>NAME</h1>
+<p>class <strong>IrreducibleFraction</strong> in <strong>algomaths</strong> Perl6 modules : maths/modules/pm6/<strong>irreducible-fraction.pm6</strong></p>
+</section>
+<section><h1>AUTHOR</h1>
+<p>https://github.com/Chrissealed/algomaths.git</p>
+</section>
+<section><h1>VERSION</h1>
+<p>2018.12.16</p>
+</section>
+<h1 id="L'objectif_de_ce_module_est_de_renvoyer_la_fraction_irréductible_de_la_fraction_initiale"><a class="u" href="#___top" title="go to top of document">L&#39;objectif de ce module est de renvoyer la fraction irréductible de la fraction initiale</a></h1>
+<p>dont on passe le numérateur et le dénominateur aux attributs <em>numerator</em> et <em>denominator</em>, le numérateur étant un entier relatif quelconque et le dénominateur un entier différent de 0.</p>
+<p>Il y a un 3e champ facultatif <strong>pgcd-algorithm</strong> du type string (Str) qui permet de préciser l&#39;argument de la méthode du module <strong>are-prime.pm6</strong> <strong>have-common-divisor</strong>(Str $pgcd-algorithm) qui sera utilisée pour effectuer les calculs en interne. 4 choix sont possibles, on a :</p>
+<ul><li><p>1) &#39;euclide&#39; ou &#39;e&#39; ou &#39;:&#39; ou &#39;÷&#39; (par défaut);</p>
+</li>
+<li><p>2) &#39;subtraction&#39; ou &#39;s&#39; ou &#39;-&#39; ou &#39;−&#39;;</p>
+</li>
+<li><p>3) &#39;factorization&#39; ou &#39;f&#39; ou &#39;*&#39; ou &#39;×&#39;;</p>
+</li>
+<li><p>4) &#39;divisors-listing&#39; ou &#39;d&#39; ou &#39;#&#39; ou &#39;/&#39;.</p>
+</li>
+</ul>
+<p>La valeur par défaut de cet attribut est <strong>euclide</strong>.</p>
+<p>La classe <strong>IrreducibleFraction</strong> utilise l&#39;une des trois méthodes suivantes pour effectuer la réduction :</p>
+<ul><li><p><strong>reduce-fraction-with-euclide-algorithm(Str $sign = &#39;&#39;)</strong>,</p>
+</li>
+<li><p><strong>reduce-fraction-with-subtraction-algorithm(Str $sign = &#39;&#39;)</strong> et</p>
+</li>
+<li><p><strong>reduce-fraction-with-factorization-algorithm(Str $sign = &#39;&#39;)</strong>.</p>
+</li>
+</ul>
+<p>Elle affiche les informations selon la méthode utilisée et chaque méthode renvoie une <strong>paire</strong> (Pair) correspondant pour la clé de la paire au numérateur de la fraction réduite et pour sa valeur au dénominateur.</p>
+<p>L&#39;argument <strong>$sign</strong> de type string est destiné à gérer correctement les fractions dont le signe est négatif; il peut prendre la valeur &#39;-&#39;; le signe positif, lui, n&#39;est pas affiché et donc sa valeur par défaut est &#39;&#39;, une chaîne vide.</p>
+<p>La classe possède en outre un attribut destiné à écrire dans un fichier les informations qui apparaissent à l&#39;écran et qui décrivent les différentes étapes des opérations. Il s&#39;agit de <strong>Teeput::Tput $t is required is rw</strong> : il faut lui passer un objet de type <strong>Teeput::Tput</strong> du module <strong>teeput.pm6</strong>. Référez-vous à la doc de ce module pour plus d&#39;informations.</p>
+
+</div>
+
+
+</body>
+</html>
+

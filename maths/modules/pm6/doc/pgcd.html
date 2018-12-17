@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="fr">
 <head>
   <title></title>
   <meta charset="UTF-8" />
@@ -21,9 +21,9 @@
     aside, u { opacity: 0.7 }
     a[id^="fn-"]:target { background: #ff0 }
   </style>
-  <link rel="stylesheet" href="//design.perl6.org/perl.css">
-  <meta name="author" value="Christian Béloscar" />
-<meta name="version" value="1.0" />
+  <link rel="stylesheet" href="design.perl6.org/perl.css">
+  <meta name="author" value="https://github.com/Chrissealed/algomaths.git" />
+<meta name="version" value="2018.12.15" />
   
 </head>
 <body class="pod">
@@ -33,11 +33,11 @@
 <nav class="indexgroup">
 <table id="TOC">
 <caption><h2 id="TOC_Title">Table of Contents</h2></caption>
-   <tr class="toc-level-1"><td class="toc-number">1</td><td class="toc-text"><a href="#Ce_module_contient_la_classe_PGCD_qui_dispose_du_rôle_'PrimeFactors'.">Ce module contient la classe PGCD qui dispose du rôle &#39;PrimeFactors&#39;.</a></td></tr>
-                             <tr class="toc-level-2"><td class="toc-number">1.1</td><td class="toc-text"><a href="#Méthode_divisors-listing-algorithm(--&gt;_Int)_{}">Méthode divisors-listing-algorithm(--&gt; Int) {}</a></td></tr>
+     <tr class="toc-level-1"><td class="toc-number">1</td><td class="toc-text"><a href="#Ce_module_contient_la_classe_PGCD_qui_dispose_du_rôle_'PrimeFactors'.">Ce module contient la classe PGCD qui dispose du rôle &#39;PrimeFactors&#39;.</a></td></tr>
+                               <tr class="toc-level-2"><td class="toc-number">1.1</td><td class="toc-text"><a href="#Méthode_divisors-listing-algorithm(--&gt;_Int)_{}">Méthode divisors-listing-algorithm(--&gt; Int) {}</a></td></tr>
  <tr class="toc-level-3"><td class="toc-number">1.1.1</td><td class="toc-text"><a href="#Comment_déterminer_le_PGCD_de_deux_nombres_entiers_connaissant_l'ensemble_des_diviseurs_de_chacun_des_deux_nombres_:">Comment déterminer le PGCD de deux nombres entiers connaissant l&#39;ensemble des diviseurs de chacun des deux nombres :</a></td></tr>
-  <tr class="toc-level-2"><td class="toc-number">1.2</td><td class="toc-text"><a href="#Méthode_factorization_algorithm(--&gt;_Int)_{}">Méthode factorization_algorithm(--&gt; Int) {}</a></td></tr>
- <tr class="toc-level-3"><td class="toc-number">1.2.1</td><td class="toc-text"><a href="#Comment_déterminer_le_PGCD_de_deux_nombres_à_l'aide_de_leur_décomposi-_tion_en_facteurs_premiers_:">Comment déterminer le PGCD de deux nombres à l&#39;aide de leur décomposi- tion en facteurs premiers :</a></td></tr>
+   <tr class="toc-level-2"><td class="toc-number">1.2</td><td class="toc-text"><a href="#Méthode_factorization_algorithm(--&gt;_Int)_{}">Méthode factorization_algorithm(--&gt; Int) {}</a></td></tr>
+ <tr class="toc-level-3"><td class="toc-number">1.2.1</td><td class="toc-text"><a href="#Comment_déterminer_le_PGCD_de_deux_nombres_à_l'aide_de_leur_décomposition_en_facteurs_premiers_:">Comment déterminer le PGCD de deux nombres à l&#39;aide de leur décomposition en facteurs premiers :</a></td></tr>
      <tr class="toc-level-2"><td class="toc-number">1.3</td><td class="toc-text"><a href="#Méthode_subtraction_algorithm(--&gt;_Int)_{}">Méthode subtraction_algorithm(--&gt; Int) {}</a></td></tr>
  <tr class="toc-level-3"><td class="toc-number">1.3.1</td><td class="toc-text"><a href="#Pour_déterminer_le_PGCD_de_deux_nombres_entiers_par_l'algorithme_des_soustractions_:">Pour déterminer le PGCD de deux nombres entiers par l&#39;algorithme des soustractions :</a></td></tr>
     <tr class="toc-level-2"><td class="toc-number">1.4</td><td class="toc-text"><a href="#Méthode_euclide_algorithm(--&gt;_Int)_{}">Méthode euclide_algorithm(--&gt; Int) {}</a></td></tr>
@@ -50,13 +50,13 @@
 
 ">
 <section><h1>NAME</h1>
-<p>class PGCD</p>
+<p>class PGCD in <strong>algomaths</strong> Perl6 modules : maths/modules/pm6/pgcd.pm6</p>
 </section>
 <section><h1>AUTHOR</h1>
-<p>Christian Béloscar</p>
+<p>https://github.com/Chrissealed/algomaths.git</p>
 </section>
 <section><h1>VERSION</h1>
-<p>1.0</p>
+<p>2018.12.15</p>
 </section>
 <h1 id="Ce_module_contient_la_classe_PGCD_qui_dispose_du_rôle_'PrimeFactors'."><a class="u" href="#___top" title="go to top of document">Ce module contient la classe PGCD qui dispose du rôle &#39;PrimeFactors&#39;.</a></h1>
 <p>Il est destiné à déterminer le PGCD (plus grand commun diviseur) de deux entiers, <strong>integer1</strong> et <strong>integer2</strong> de type <strong>Int</strong> non nuls qui sont des attributs requis de la classe. Il utilise pour cela quatre méthodes distinctes au choix :</p>
@@ -69,12 +69,13 @@
 <li><p>enfin l&#39;algorithme consistant à décomposer les nombres en facteurs premiers et extraire leurs facteurs communs : <strong>factorization_algorithm</strong>(--&gt; Int). Les quatre méthodes renvoient un <strong>Int</strong> qui est le PGCD trouvé.</p>
 </li>
 </ul>
-<p>La classe possède en outre un attribut requis destiné à écrire dans un fichier les informations qui apparaissent à l&#39;écran et qui décrivent les différentes étapes des opérations. Il s&#39;agit de <strong>Teeput::Tput $t is required is rw</strong> : il faut lui passer un objet de type <strong>Teeput::Tput</strong> du module <strong>teeput.pm6</strong>. Référez-vous à la doc de ce module pour plus d&#39;informations.</p>
+<p>La classe possède en outre un attribut requis hérité du rôle <strong>PrimeFactors</strong> destiné à écrire dans un fichier les informations qui apparaissent à l&#39;écran et qui décrivent les différentes étapes des opérations. Il s&#39;agit de <strong>Teeput::Tput $t is required is rw</strong> : il faut lui passer un objet de type <strong>Teeput::Tput</strong> du module <strong>teeput.pm6</strong>. Référez-vous à la doc de ce module pour plus d&#39;informations.</p>
 <h2 id="Méthode_divisors-listing-algorithm(-->_Int)_{}"><a class="u" href="#___top" title="go to top of document">Méthode divisors-listing-algorithm(--&gt; Int) {}</a></h2>
 <h3 id="Comment_déterminer_le_PGCD_de_deux_nombres_entiers_connaissant_l'ensemble_des_diviseurs_de_chacun_des_deux_nombres_:"><a class="u" href="#___top" title="go to top of document">Comment déterminer le PGCD de deux nombres entiers connaissant l&#39;ensemble des diviseurs de chacun des deux nombres :</a></h3>
-<p>▲ on établit la liste des diviseurs communs des deux nombres; ▲ on repère dans cette liste le plus grand nombre, c&#39;est le PGCD cherché.</p>
+<p>▲ on établit la liste des diviseurs communs des deux nombres;</p>
+<p>▲ on repère dans cette liste le plus grand nombre, c&#39;est le PGCD cherché.</p>
 <h2 id="Méthode_factorization_algorithm(-->_Int)_{}"><a class="u" href="#___top" title="go to top of document">Méthode factorization_algorithm(--&gt; Int) {}</a></h2>
-<h3 id="Comment_déterminer_le_PGCD_de_deux_nombres_à_l'aide_de_leur_décomposi-_tion_en_facteurs_premiers_:"><a class="u" href="#___top" title="go to top of document">Comment déterminer le PGCD de deux nombres à l&#39;aide de leur décomposi- tion en facteurs premiers :</a></h3>
+<h3 id="Comment_déterminer_le_PGCD_de_deux_nombres_à_l'aide_de_leur_décomposition_en_facteurs_premiers_:"><a class="u" href="#___top" title="go to top of document">Comment déterminer le PGCD de deux nombres à l&#39;aide de leur décomposition en facteurs premiers :</a></h3>
 <p>▲ Deux nombres peuvent avoir des facteurs en commun. Le plus grand commun diviseur (PGCD) est, comme son nom l&#39;indique, leur plus grand facteur commun. Le PGCD se déduit directement des décompositions en facteurs premiers des deux nombres. Nous avons effectué les décompositions en facteurs premiers des nombres : 180 = 2² × 3² × 5; 585 = 3² × 5 × 13; 3003 = 3 × 7 × 11 × 13.</p>
 <p>▲ De là, nous obtenons : PGCD(180;585) = PGCD(2² × 3² 5;3² × 5 × 13) = 3² × 5 = 45 PGCD(180;3003) = PGCD(2² × 3² × 5;3 × 7 × 11 × 13) = 3 PGCD(585;3003) = PGCD(3² × 5 × 13;3 × 7 × 11 × 13) = 3 × 13 = 39.</p>
 <p>▲ UNE BONNE IDEE! : il existe une méthode pour déterminer le PGCD de deux nombres qui ne requiert pas leurs décompositions en facteurs premiers et qui souvent s&#39;avère plus rapide. L&#39;idée de base est que le PGCD de deux nombres est aussi forcément un diviseur de leur différence. Voyez-vous pourquoi il en est ainsi ?</p>

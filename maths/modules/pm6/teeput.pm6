@@ -3,13 +3,15 @@ unit module Teeput;
 use v6;
 
 =begin pod
-=NAME rôle B<Teeput::Tput>
-=AUTHOR Christian Béloscar
-=VERSION 0.1.121
+=NAME rôle B<Teeput::Tput> in B<algomaths> Perl 6 modules : maths/modules/pm6/B<teeput.pm6>
+=AUTHOR  https://github.com/Chrissealed/algomaths.git
+=VERSION 2018.12.16
 
-=for header1
-Le rôle Teeput::Tput est utilisé afin d'écrire les informations
-affichées sur la sortie standard, répliquées dans un fichier
+=for head1
+Le rôle Teeput::Tput
+
+est utilisé afin de répliquer les informations
+affichées sur la sortie standard, dans un fichier
 correspondant situé dans le dossier 'output/'
 sous-dossier de chaque dossier comportant les fichiers p6
 à l'instar de la commande 'tee' des systèmes Unix.
@@ -42,7 +44,8 @@ les autres modes B<:x> et B<:w> fermant le fichier d'écriture
 automatiquement après chaque instruction. 
 
 Il faudra penser à lui passer la valeur B<True> avant la dernière
-exécution d'écriture afin que le fichier soit bien fermé.
+exécution d'écriture afin que le fichier soit bien fermé
+si il a été écrit en mode B<:a> et que B<closefile> est à True.
 Notez que le mode B<:x> n'écrit qu'une fois dans un fichier
 de sorte que si vous voulez le mettre à jour,
 il faudra d'abord supprimer ce fichier pour qu'il soit recréé.
@@ -55,17 +58,19 @@ et la dernière ajoutent un caractère de fin de ligne,
 tandis que la deuxième demeure sur la ligne attendant l'instruction
 d'écriture suivante et que chacune formate différemment leur argument.
 
-Les arguments applicables aux trois méthodes sont définis
-selon la jonction B<$param-one-junction = Str:D ^ Array:D ^ Hash:D>;
-autrement dit vous avez le choix pour chaque méthode
-de passer un argument de type B<Str>, B<Array> ou B<Hash>.
-
 Ces trois méthodes renvoient un Booléen selon la réussite
 ou pas de l'appel; voici la signature de ces méthodes :
 =for head2
 tput($param-one-junction --> Bool:D) {}
+=for head2
 tprint($param-one-junction --> Bool:D) {}
+=for head2
 tsay($param-one-junction --> Bool:D) {}
+
+Les arguments applicables aux trois méthodes sont définis
+selon la jonction B<$param-one-junction = Str:D ^ Array:D ^ Hash:D>;
+autrement dit vous avez le choix pour chaque méthode
+de passer un argument de type B<Str>, B<Array> ou B<Hash>.
 =end pod
 
 role Tput is export {

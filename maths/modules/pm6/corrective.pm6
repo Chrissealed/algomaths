@@ -3,11 +3,11 @@ unit module Corrective;
 use v6;
 
 =begin pod
-=NAME module B<Corrective>
-=AUTHOR Christian Béloscar
-=VERSION 0.1.121
+=NAME Perl 6 module B<Corrective> in algomaths/maths/modules/pm6/B<corrective.pm6>
+=AUTHOR https://github.com/Chrissealed/algomaths.git
+=VERSION 2018.12.16 
 
-=for header1
+=for head1
 Ce module est utilisé dans chacun des fichiers *.p6.
 
 Pour demander s'il faut afficher la méthode de l'exercice
@@ -30,6 +30,9 @@ B<do-put-up-method>(Int:D $n --> Bool) {}
 possède un argument de type Int destiné à choisir
 quelle méthode doit être affichée dans le cas
 ou plusieurs sont disponibles pour le même exercice.
+
+De même nous avons la méthode B<multi sub do-put-up-examples>(Int:D $n --> Bool) {}
+pour laquelle le nombre $n indique le numéro de la méthode à afficher.
 
 Une autre méthode B<prompt-for-user-input>(Str:D $promptstr--> Int) {}
 est destinée à demander à l'utilisateur de saisir

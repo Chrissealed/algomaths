@@ -3,12 +3,13 @@ unit module usual-divisibility-criteria;
 use v6;
 
 =begin pod
-=NAME class B<UsualDivisibilityCriteria>
-=AUTHOR Christian Béloscar
-=VERSION 0.2.0
+=NAME rôle B<UsualDivisibilityCriteria> in B<algomaths> Perl6 modules : maths/modules/pm6/B<usual-divisibility-criteria.pm6>
+=AUTHOR https://github.com/Chrissealed/algomaths.git
+=VERSION 2018.12.16 18:28
 
 =for head1
 Ce module est destiné à coder les critères de divisibilité usuels
+
 des nombres pour lesquels ceux-ci existent :
 2, 3, 4, 5, 9, (10, 100, 1000, etc.), 11 et 25.
 

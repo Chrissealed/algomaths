@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="fr">
 <head>
   <title></title>
   <meta charset="UTF-8" />
@@ -21,19 +21,41 @@
     aside, u { opacity: 0.7 }
     a[id^="fn-"]:target { background: #ff0 }
   </style>
-  <link rel="stylesheet" href="//design.perl6.org/perl.css">
-  
+  <link rel="stylesheet" href="design.perl6.org/perl.css">
+  <meta name="author" value="https://github.com/Chrissealed/algomaths.git" />
+<meta name="version" value="2018.12.16 " />
   
 </head>
 <body class="pod">
 <div id="___top"></div>
 
 
+<nav class="indexgroup">
+<table id="TOC">
+<caption><h2 id="TOC_Title">Table of Contents</h2></caption>
+      <tr class="toc-level-1"><td class="toc-number">1</td><td class="toc-text"><a href="#Ce_module_est_utilisé_dans_chacun_des_fichiers_*.p6.">Ce module est utilisé dans chacun des fichiers *.p6.</a></td></tr>
+                         
+</table>
+</nav>
 
 <div class="pod-body
- no-toc
+
 ">
-<p>Ce module est utilisé dans chacun des fichiers *.p6 pour demander s&#39;il faut afficher la méthode de l&#39;exercice avec &#39;do-put-up-method&#39;, des exemples avec &#39;do-put-up-examples&#39; et s&#39;il faut afficher son corrigé avec &#39;do-put-up-correct-version&#39;. Les méthodes renvoient une valeur booléenne. Par défaut la méthode de l&#39;exercice est affichée, les examples non. La dernière méthode ne renvoie rien, elle termine simplement le programme si la réponse à la question &#39;Afficher le corrigé ?&#39; est non. Si la réponse est oui alors elle affiche une ligne vide qui séparera le corrigé de la question. Le corrigé est affiché par défaut, autrement dit si on tape &lt;Return&gt; par exemple, le corrigé est affiché.</p>
+<section><h1>NAME</h1>
+<p>Perl 6 module <strong>Corrective</strong> in algomaths/maths/modules/pm6/<strong>corrective.pm6</strong></p>
+</section>
+<section><h1>AUTHOR</h1>
+<p>https://github.com/Chrissealed/algomaths.git</p>
+</section>
+<section><h1>VERSION</h1>
+<p>2018.12.16 </p>
+</section>
+<h1 id="Ce_module_est_utilisé_dans_chacun_des_fichiers_*.p6."><a class="u" href="#___top" title="go to top of document">Ce module est utilisé dans chacun des fichiers *.p6.</a></h1>
+<p>Pour demander s&#39;il faut afficher la méthode de l&#39;exercice avec <strong>do-put-up-method</strong>, des exemples avec <strong>do-put-up-examples</strong> et s&#39;il faut afficher son corrigé avec <strong>do-put-up-correct-version</strong>. Les méthodes renvoient une valeur booléenne.</p>
+<p>Par défaut la méthode de l&#39;exercice est affichée, les exemples non. La dernière méthode ne renvoie rien, elle termine simplement le programme si la réponse à la question &#39;Afficher le corrigé ?&#39; est non. Si la réponse est oui alors elle affiche une ligne vide qui séparera le corrigé de la question. Le corrigé est affiché par défaut, autrement dit si on tape <strong>Return</strong> ou <strong>Entrée</strong> par exemple, le corrigé est affiché.</p>
+<p>Une méthode similaire à <strong>do-put-up-method</strong>(--&gt; Bool) {} mais avec une autre signature (avec le mot clef multi) : <strong>do-put-up-method</strong>(Int:D $n --&gt; Bool) {} possède un argument de type Int destiné à choisir quelle méthode doit être affichée dans le cas ou plusieurs sont disponibles pour le même exercice.</p>
+<p>De même nous avons la méthode <strong>multi sub do-put-up-examples</strong>(Int:D $n --&gt; Bool) {} pour laquelle le nombre $n indique le numéro de la méthode à afficher.</p>
+<p>Une autre méthode <strong>prompt-for-user-input</strong>(Str:D $promptstr--&gt; Int) {} est destinée à demander à l&#39;utilisateur de saisir une valeur numérique correspondant au message affiché au <strong>prompt</strong> et retourne cette valeur convertie en Int.</p>
 
 </div>
 

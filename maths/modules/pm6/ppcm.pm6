@@ -3,9 +3,10 @@ unit module ppcm;
 use v6;
 
 =begin pod
-=NAME class PPCM
-=AUTHOR Christian Béloscar
-=VERSION 0.1.119
+=NAME class PPCM in B<algomaths> Perl6 modules : maths/modules/pm6/B<ppcm.pm6>
+=AUTHOR https://github.com/Chrissealed/algomaths.git
+=VERSION 2018.12.16 18:50
+
 =for head1
 Ce module contient une classe : PPCM qui dispose du rôle 'PrimeFactors'
 et qui utilise les classes ArePrime et PGCD.
@@ -68,6 +69,7 @@ class PPCM does PrimeFactors is export {
     method by-larger-number-multiples(--> Int) {
         my Int $int1 = $!integer1;
         my Int $int2 = $!integer2;
+        $!t.tput: "− Recherche du PPCM : Méthode par additions successives du plus grand nombre à lui-même −";
         if ($int1 == 1 || $int1 == -1 || $int2 == 1 || $int2 == -1) {
             $!t.tput: "$int1 et $int2 n'ont pas de diviseurs communs autre que 1;";
             $!t.tput: "le PPCM de $int1 et $int2 est donc leur produit : {$int1 * $int2}.";
@@ -105,6 +107,7 @@ class PPCM does PrimeFactors is export {
     method by-prime-factors(--> Int) {
         my $x = $!integer1;
         my $y = $!integer2;
+        $!t.tput: "− Recherche du PPCM : Méthode par décomposition en facteurs premiers −";
         if ($x == 1 || $x == -1 || $y == 1 || $y == -1) {
             $!t.tput: "$x et $y n'ont pas de diviseurs communs autre que 1;";
             $!t.tput: "le PPCM de $x et $y est donc leur produit : {$x * $y}.";
@@ -206,6 +209,7 @@ class PPCM does PrimeFactors is export {
     method by-use-of-pgcd(--> Int) {
         my Int $x = $!integer1;
         my Int $y = $!integer2;
+        $!t.tput: "− Recherche du PPCM : Méthode par utilisation du PGCD −";
         if ($x == 1 || $x == -1 || $y == 1 || $y == -1) {
             $!t.tput: "$x et $y n'ont pas de diviseurs communs autre que 1;";
             $!t.tput: "le PPCM de $x et $y est donc leur produit : {$x * $y}.";

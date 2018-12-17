@@ -3,9 +3,9 @@ unit module pgcd;
 use v6;
 
 =begin pod
-=NAME class PGCD
-=AUTHOR Christian Béloscar
-=VERSION 0.1.120
+=NAME class PGCD in B<algomaths> Perl6 modules : maths/modules/pm6/pgcd.pm6
+=AUTHOR https://github.com/Chrissealed/algomaths.git
+=VERSION 2018.12.16
 
 =for head1
 Ce module contient la classe PGCD qui dispose du rôle 'PrimeFactors'.
@@ -51,13 +51,14 @@ Comment déterminer le PGCD de deux nombres entiers connaissant
 l'ensemble des diviseurs de chacun des deux nombres :
 
 ▲ on établit la liste des diviseurs communs des deux nombres;
+
 ▲ on repère dans cette liste le plus grand nombre, c'est le PGCD cherché.
 =end pod
 
     method divisors-listing_algorithm(--> Int) {
         my (@a, @b, @c) = ();
 
-        $!t.tput: "− Utilisation de l'algorithme de comparaison des listes de tous les diviseurs −";
+        $!t.tput: "− Calcul du PGCD : Utilisation de l'algorithme de comparaison des listes de tous les diviseurs −";
         my $divisors-listing = IntegerDivisorsListing.new(
             t => $!t,
             array-or-hash => '@',
@@ -81,8 +82,8 @@ l'ensemble des diviseurs de chacun des deux nombres :
 =for head2
 Méthode factorization_algorithm(--> Int) {}
 =for head3
-Comment déterminer le PGCD de deux nombres à l'aide de leur décomposi-
-tion en facteurs premiers :
+Comment déterminer le PGCD de deux nombres à l'aide de leur
+décomposition en facteurs premiers :
 
 ▲ Deux nombres peuvent avoir des facteurs en commun. Le plus grand commun diviseur
 (PGCD) est, comme son nom l'indique, leur plus grand facteur commun.
@@ -113,7 +114,7 @@ deux nombres, par conséquent seul 2 l'est; d'ou PGCD(4352 ; 4342) = 2.
         my %factors2{Int};
         my Int @values1 = ();
         my Int @values2 = ();
-        $!t.tput: "− Utilisation de l'algorithme de factorisation en facteurs premiers −";
+        $!t.tput: "− Calcul du PGCD : Utilisation de l'algorithme de factorisation en facteurs premiers −";
         $!t.tput: "Facteurs premiers de $int1 :";
         # Méthode de prime-factors.
         %factors1 = $.breakdown($int1);
@@ -197,14 +198,14 @@ deux nombres, par conséquent seul 2 l'est; d'ou PGCD(4352 ; 4342) = 2.
         
         $!t.tprint: "Facteurs communs à $int1 et $int2 : ";
         $!t.tput: "@factors[]";
-        $!t.tprint: "PGCD($int1 ; $int2)" if (@factors.elems > 0);
+        $!t.tprint: "PGCD($int1 ; $int2) : " if (@factors.elems > 1);
         $i = 0;
         while $i < @factors.elems - 1 {
             $!t.tprint: "@factors[$i] × ";
             $i++;
         }
         if (@factors.elems == 1) {
-            ;
+            $!t.tprint: "PGCD($int1 ; $int2)";
         }
         elsif (@factors.elems == 0) {
             $!t.tput: "pas de facteurs communs.";
@@ -244,7 +245,7 @@ si a = b, alors PGCD(a;b) = a = b et si a > b, PGCD(a;b) = PGCD(b;a-b).
         # Parer les nombres négatifs avec leurs effets de bord
         my Int $x = abs($!integer1);
         my Int $y = abs($!integer2);
-        $!t.tput: "− Utilisation de l'algorithme des soustractions −";
+        $!t.tput: "− Calcul du PGCD : Utilisation de l'algorithme des soustractions −";
         if ($x < $y) {
             # Intervertir $x et $y
             ($x, $y) = ($y, $x);
@@ -297,7 +298,7 @@ a par b.
         # Palier les effets de bord des nombres négatifs
         my Int $dividend = abs($!integer1);
         my Int $divisor = abs($!integer2);
-        $!t.tput: "− Utilisation de l'algorithme d'Euclide −";
+        $!t.tput: "− Calcul du PGCD : Utilisation de l'algorithme d'Euclide −";
         if ($dividend < $divisor) {
             # Intervertir $x et $y
             ($dividend, $divisor) = ($divisor, $dividend);

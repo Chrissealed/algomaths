@@ -3,18 +3,20 @@ unit module Are-prime;
 use v6;
 
 =begin pod
-=NAME class B<ArePrime>
-=AUTHOR Christian Béloscar
-=VERSION 0.2.0
+=NAME class B<ArePrime> in B<algomaths> Perl6 modules : maths/modules/pm6/B<are-prime.pm6>
+=AUTHOR https://github.com/Chrissealed/algomaths.git
+=VERSION 2018.12.16
 
 =for head1
-Cette classe est destinée à dire si deux entiers relatifs
-sont premiers entre eux, c'est-à-dire
-qu'ils ne possèdent pas de diviseurs communs autre que 1.
+Cette classe est destinée à savoir si deux entiers relatifs
+sont premiers entre eux
 
-Cette classe inclue le rôle B<UsualDivisibilityCriteria>
-et utilise la méthode B<list-divisors> de la classe B<IntegerDivisorsListing>
-dans sa méthode 1
+c'est-à-dire qu'ils ne possèdent pas de diviseurs communs autre que 1.
+
+La classe inclue le rôle B<UsualDivisibilityCriteria>
+et intègre la méthode B<list-divisors> de la classe B<IntegerDivisorsListing>
+dans sa méthode 1 :
+
 =head2 have-common-divisors(--> Bool: D)
 
 pour déterminer si deux nombres sont premiers entre eux
@@ -22,7 +24,7 @@ cherchant les diviseurs communs en comparant
 les listes de diviseurs de chaque nombre.
 
 Une deuxième méthode B<have-common-divisor>(Str $pgcd-algorithm = 'euclide' --> Bool:D)
-(notez le I<singulier>) utilise
+(notez le U<singulier>) utilise
 les méthodes du rôle inclus dans la classe B<UsualDivisibilityCriteria>
 chargé de coder les critères usuels
 de divisibilité de deux nombres (cf. doc du module B<usual-divisibility-criteria.pm6>)

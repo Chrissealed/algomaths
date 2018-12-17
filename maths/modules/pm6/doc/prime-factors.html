@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="fr">
 <head>
   <title></title>
   <meta charset="UTF-8" />
@@ -21,9 +21,9 @@
     aside, u { opacity: 0.7 }
     a[id^="fn-"]:target { background: #ff0 }
   </style>
-  <link rel="stylesheet" href="//design.perl6.org/perl.css">
-  <meta name="author" value="Christian Béloscar" />
-<meta name="version" value="1.0" />
+  <link rel="stylesheet" href="design.perl6.org/perl.css">
+  <meta name="author" value="https://github.com/Chrissealed/algomaths.git" />
+<meta name="version" value="2018.12.16" />
   
 </head>
 <body class="pod">
@@ -33,8 +33,8 @@
 <nav class="indexgroup">
 <table id="TOC">
 <caption><h2 id="TOC_Title">Table of Contents</h2></caption>
-    <tr class="toc-level-1"><td class="toc-number">1</td><td class="toc-text"><a href="#Ce_module_contient_un_rôle_:_'PrimeFactors'_destiné_à_établir_la_liste_des_facteurs_premiers_d'un_entier_différent_de_0,_c'est-à-dire_de_le_décomposer_en_facteurs_premiers.">Ce module contient un rôle : &#39;PrimeFactors&#39; destiné à établir la liste des facteurs premiers d&#39;un entier différent de 0, c&#39;est-à-dire de le décomposer en facteurs premiers.</a></td></tr>
-  <tr class="toc-level-2"><td class="toc-number">1.1</td><td class="toc-text"><a href="#breakdown(Int:D_$integer_is_copy_where_{_($integer_!=_0)_or_die_&quot;Argument_invalide!_Nombre_entier_différent_de_0_requis.&quot;_}_--&gt;_Hash:D)_{}">breakdown(Int:D $integer is copy where { ($integer != 0) or die &quot;Argument invalide! Nombre entier différent de 0 requis.&quot; } --&gt; Hash:D) {}</a></td></tr>
+        <tr class="toc-level-1"><td class="toc-number">1</td><td class="toc-text"><a href="#Ce_module_contient_un_rôle_:_'PrimeFactors'">Ce module contient un rôle : &#39;PrimeFactors&#39;</a></td></tr>
+   <tr class="toc-level-2"><td class="toc-number">1.1</td><td class="toc-text"><a href="#breakdown(Int:D_$integer_is_copy_where_{_($integer_!=_0)_or_die_&quot;Argument_invalide!_Nombre_entier_différent_de_0_requis.&quot;_}_--&gt;_Hash:D)_{}">breakdown(Int:D $integer is copy where { ($integer != 0) or die &quot;Argument invalide! Nombre entier différent de 0 requis.&quot; } --&gt; Hash:D) {}</a></td></tr>
              <tr class="toc-level-2"><td class="toc-number">1.2</td><td class="toc-text"><a href="#La_deuxième_méthode_:_reduce-fractions-prime-factors(Int:D_@numerators_is_copy,_Int:D_@denominators_is_copy,_Int:D_$return-array_--&gt;_Array:D)_{}">La deuxième méthode : reduce-fractions-prime-factors(Int:D @numerators is copy, Int:D @denominators is copy, Int:D $return-array --&gt; Array:D) {}</a></td></tr>
        
 </table>
@@ -44,15 +44,16 @@
 
 ">
 <section><h1>NAME</h1>
-<p>class <strong>PrimeFactors</strong></p>
+<p>class <strong>PrimeFactors</strong> in <strong>algomaths</strong> Perl6 modules : maths/modules/pm6/<strong>prime-factors.pm6</strong></p>
 </section>
 <section><h1>AUTHOR</h1>
-<p>Christian Béloscar</p>
+<p>https://github.com/Chrissealed/algomaths.git</p>
 </section>
 <section><h1>VERSION</h1>
-<p>1.0</p>
+<p>2018.12.16</p>
 </section>
-<h1 id="Ce_module_contient_un_rôle_:_'PrimeFactors'_destiné_à_établir_la_liste_des_facteurs_premiers_d'un_entier_différent_de_0,_c'est-à-dire_de_le_décomposer_en_facteurs_premiers."><a class="u" href="#___top" title="go to top of document">Ce module contient un rôle : &#39;PrimeFactors&#39; destiné à établir la liste des facteurs premiers d&#39;un entier différent de 0, c&#39;est-à-dire de le décomposer en facteurs premiers.</a></h1>
+<h1 id="Ce_module_contient_un_rôle_:_'PrimeFactors'"><a class="u" href="#___top" title="go to top of document">Ce module contient un rôle : &#39;PrimeFactors&#39;</a></h1>
+<p>destiné à établir la liste des facteurs premiers d&#39;un entier différent de 0, c&#39;est-à-dire de le décomposer en facteurs premiers.</p>
 <p>Il contient deux méthodes, la première :</p>
 <h2 id="breakdown(Int:D_$integer_is_copy_where_{_($integer_!=_0)_or_die_&quot;Argument_invalide!_Nombre_entier_différent_de_0_requis.&quot;_}_-->_Hash:D)_{}"><a class="u" href="#___top" title="go to top of document">breakdown(Int:D $integer is copy where { ($integer != 0) or die &quot;Argument invalide! Nombre entier différent de 0 requis.&quot; } --&gt; Hash:D) {}</a></h2>
 <p>avec <strong>$integer</strong> différent de 0 qui renvoie un <strong>Hash</strong> comprenant le mappage des nombres avec leurs facteurs. Il affiche ce mappage sous plusieurs formes : en tableau associatif (Hash) clé =&gt; valeur, en facteurs successifs puis en facteurs élevés à la puissance requise.</p>
