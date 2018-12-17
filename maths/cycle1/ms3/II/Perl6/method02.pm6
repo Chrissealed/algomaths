@@ -3,9 +3,9 @@ unit module Method02;
 use v6;
 
 =begin pod
-=NAME module B<Method02>
-=AUTHOR Christian Béloscar
-=VERSION 0.1.119
+=NAME B<Method02> : Perl 6 module in B<algomaths>/maths/cycle1/ms3/II/Perl6/B<method02.pm6>
+=AUTHOR  https://github.com/Chrissealed/algomaths.git
+=VERSION 2018.12.17
 =end pod
 
 use teeput;
