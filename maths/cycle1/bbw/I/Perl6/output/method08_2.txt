@@ -1,0 +1,20 @@
+###################################################################################
+# Méthode 8. Comment déterminer le PPCM (plus petit commun multiple) de deux
+# nombres entiers.
+# ▲ Le 'plus petit commun multiple' (PPCM) de deux nombres est le plus petit nombre
+# qui est à la fois multiple de l'un et de l'autre nombre. En d'autres mots, c'est
+# le plus petit nombre qui est divisible par chacun des deux nombres.
+####################################################################################
+# Deuxième méthode :
+# ▲ Le PPCM s'obtient aisément à partir de la décomposition en facteurs premiers.
+# Ainsi :
+# PPCM(180 ; 585) = PPCM(2² × 3² × 5 ; 3² × 5 × 13) = 2² × 3² × 5 × 13 = 2340.
+# (Utilisant les décompositions de 84 et 270 en produits de nombres premiers) :
+# 84 = 2 × 42 = 2 × 2 × 21 = 2 × 2 × 3 × 7 = 2² × 3 × 7
+# 270 = 2 × 135 = 2 × 3 × 45 = 2 × 3 × 3 × 15 = 2 × 3 × 3 × 3 × 5 = 2 × 3² × 5
+# PPCM(84 , 270 ) = 2² × 3³ × 5 × 7 = 3780
+# (On prend tous les facteurs premiers qui apparaissent et on les affecte du plus
+# grand exposant)
+####################################################################################
+
+

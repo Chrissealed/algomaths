@@ -1,0 +1,12 @@
+# Exercice 2.
+# c. PPCM(144 ; 240)
+-----------------------------------------------------------------------------------
+− Recherche du PPCM : Méthode par additions successives du plus grand nombre à lui-même −
+240 et 144 ont un diviseur commun autre que 1 : 2.
+Reste de la division de 240 par 144 : 96
+240 + 240 = 480
+Reste de la division de 480 par 144 : 48
+480 + 240 = 720
+Reste de la division de 720 par 144 : 0
+PPCM(144 ; 240) = 720.
+

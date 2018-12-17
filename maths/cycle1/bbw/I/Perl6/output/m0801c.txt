@@ -1,0 +1,10 @@
+# Exercice 1.
+# c. PPCM(18 ; 63)
+-----------------------------------------------------------------------------------
+− Recherche du PPCM : Méthode par additions successives du plus grand nombre à lui-même −
+63 et 18 ont un diviseur commun autre que 1 : 3.
+Reste de la division de 63 par 18 : 9
+63 + 63 = 126
+Reste de la division de 126 par 18 : 0
+PPCM(18 ; 63) = 126.
+

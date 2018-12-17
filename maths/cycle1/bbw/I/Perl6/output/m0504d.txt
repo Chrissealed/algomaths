@@ -1,0 +1,12 @@
+Décomposez le nombre suivant en facteurs premiers.
+s. 432
+432	=>	2
+216	=>	2
+108	=>	2
+54	=>	2
+27	=>	3
+9	=>	3
+3	=>	3
+2 × 2 × 2 × 2 × 3 × 3 × 3
+2^4 × 3^3
+

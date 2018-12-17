@@ -2,12 +2,22 @@
 
 use v6;
 use corrective;
+use teeput;
 use method09 :methodwording, :exe01c, :examples;
 use pgcd;
 use ppcm;
 
 sub answering {
+    class T does Tput {}
+    my $t = T.new(
+        filepath => 'output/m0901c.txt',
+        filemode => ':a', # :mode<wo>, :create, :append
+        writefile => True,
+        closefile => False,
+    );
+
     my $pgcd = PGCD.new(
+        t => $t,
         integer1 => 10,
         integer2 => 15,
     );
@@ -15,18 +25,21 @@ sub answering {
     $pgcd.integer1 = $pd;
     $pgcd.integer2 = 35;
     $pd = $pgcd.factorization_algorithm();
-    say "PGCD(10 ; 15 ; 35) = $pd.";
+    $t.tput: "PGCD(10 ; 15 ; 35) = $pd.";
 
     my $ppcm = PPCM.new(
+        t => $t,
         integer1 => 10,
         integer2 => 15,
     );
-    say();
+    $t.tprint: "\n";
     my Int $pm = $ppcm.by-prime-factors();
     $ppcm.integer1 = $pm;
     $ppcm.integer2 = 35;
     $pm = $ppcm.by-prime-factors();
-    say "PPCM(10 ; 15 ; 35) = $pm.";
+    $t.tput: "PPCM(10 ; 15 ; 35) = $pm.";
+    $t.closefile = True;
+    $t.tprint: "\n";
 }
 
 exercise_01c();

@@ -1,0 +1,26 @@
+################################################################################### 
+# 1. Comment additionner rapidement ?
+# Décomposer en cherchant les dizaines, centaines, milliers... les plus proches.
+# ---------------------------------------------------------------------------------
+# 2. Comment soustraire rapidement ?
+# Soit mentalement. Soit en partant du deuxième.
+# ---------------------------------------------------------------------------------
+# 3. Comment multiplier rapidement ?
+# a. En utilisant les tables.
+# b. En décomposant par addition, soustraction, multiplication ou division.
+# ---------------------------------------------------------------------------------
+# 4. Comment diviser rapidement ?
+# a. Soit mentalement.
+# b. Soit en partant du deuxième.
+# c. Soit en décomposant par division.
+# d. Soit en utilisant la multiplication.
+# NOTE: Ecrivez le quotient et le reste concaténés (c-à-d. sans espace entre eux).
+# ---------------------------------------------------------------------------------
+# BONUS : PRIORITÉ DES OPÉRATIONS
+# 5. Comment simplifier une ligne de calculs ?
+# a. Les calculs entre parenthèses en premier.
+# b. Les multiplications et les divisions en deuxième.
+# c. Les additions et les soustractions en troisième.
+###################################################################################
+
+

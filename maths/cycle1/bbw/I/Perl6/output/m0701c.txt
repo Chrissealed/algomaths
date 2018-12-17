@@ -1,0 +1,19 @@
+# Exercice 1.
+# c. PGCD(27 ; 45)
+-----------------------------------------------------------------------------------
+− Utilisation de l'algorithme de factorisation en facteurs premiers −
+Facteurs premiers de 27 :
+27	=>	3
+9	=>	3
+3	=>	3
+3 × 3 × 3
+3^3
+Facteurs premiers de 45 :
+45	=>	3
+15	=>	3
+5	=>	5
+3 × 3 × 5
+3^2 × 5
+Facteurs communs à 27 et 45 : 3 3
+PGCD(27 ; 45) : 3 × 3 = 9.
+

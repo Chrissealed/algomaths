@@ -1,0 +1,25 @@
+# Exercice 2.
+# e. PGCD(188 ; 168)
+-----------------------------------------------------------------------------------
+− Utilisation de l'algorithme de factorisation en facteurs premiers −
+Facteurs premiers de 288 :
+288	=>	2
+144	=>	2
+72	=>	2
+36	=>	2
+18	=>	2
+9	=>	3
+3	=>	3
+2 × 2 × 2 × 2 × 2 × 3 × 3
+2^5 × 3^2
+Facteurs premiers de 168 :
+168	=>	2
+84	=>	2
+42	=>	2
+21	=>	3
+7	=>	7
+2 × 2 × 2 × 3 × 7
+2^3 × 3 × 7
+Facteurs communs à 288 et 168 : 2 2 2 3
+PGCD(288 ; 168) : 2 × 2 × 2 × 3 = 24.
+

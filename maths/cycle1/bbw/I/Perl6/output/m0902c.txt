@@ -1,0 +1,44 @@
+# Exercice 2.
+# Déterminez le PGCD et le PPCM.
+# c. PGCD(39 ; 52 ; 130). PPCM(39 ; 52 ; 130).
+-----------------------------------------------------------------------------------
+− Calcul du PGCD : Utilisation de l'algorithme des soustractions −
+52 - 39 = 13 d'où PGCD(52 ; 39) = PGCD(39 ; 13)
+39 - 13 = 26 d'où PGCD(39 ; 13) = PGCD(26 ; 13)
+26 - 13 = 13 d'où PGCD(26 ; 13) = PGCD(13 ; 13)
+or PGCD(13 ; 13) = 13
+On est arrivé à deux nombres égaux, donc PGCD(39 ; 52) = 13.
+− Calcul du PGCD : Utilisation de l'algorithme des soustractions −
+130 - 13 = 117 d'où PGCD(130 ; 13) = PGCD(117 ; 13)
+117 - 13 = 104 d'où PGCD(117 ; 13) = PGCD(104 ; 13)
+104 - 13 = 91 d'où PGCD(104 ; 13) = PGCD(91 ; 13)
+91 - 13 = 78 d'où PGCD(91 ; 13) = PGCD(78 ; 13)
+78 - 13 = 65 d'où PGCD(78 ; 13) = PGCD(65 ; 13)
+65 - 13 = 52 d'où PGCD(65 ; 13) = PGCD(52 ; 13)
+52 - 13 = 39 d'où PGCD(52 ; 13) = PGCD(39 ; 13)
+39 - 13 = 26 d'où PGCD(39 ; 13) = PGCD(26 ; 13)
+26 - 13 = 13 d'où PGCD(26 ; 13) = PGCD(13 ; 13)
+or PGCD(13 ; 13) = 13
+On est arrivé à deux nombres égaux, donc PGCD(13 ; 130) = 13.
+PGCD(39 ; 52 ; 130) = 13.
+
+− Recherche du PPCM : Méthode par additions successives du plus grand nombre à lui-même −
+52 et 39 ont un diviseur commun autre que 1 : 13.
+Reste de la division de 52 par 39 : 13
+52 + 52 = 104
+Reste de la division de 104 par 39 : 26
+104 + 52 = 156
+Reste de la division de 156 par 39 : 0
+− Recherche du PPCM : Méthode par additions successives du plus grand nombre à lui-même −
+156 et 130 ont un diviseur commun autre que 1 : 2.
+Reste de la division de 156 par 130 : 26
+156 + 156 = 312
+Reste de la division de 312 par 130 : 52
+312 + 156 = 468
+Reste de la division de 468 par 130 : 78
+468 + 156 = 624
+Reste de la division de 624 par 130 : 104
+624 + 156 = 780
+Reste de la division de 780 par 130 : 0
+PPCM(39 ; 52 ; 130) = 780.
+

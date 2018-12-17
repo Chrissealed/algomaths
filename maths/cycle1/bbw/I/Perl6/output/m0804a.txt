@@ -1,0 +1,24 @@
+# Exercice 4.
+# a. PPCM(240 ; 180)
+-----------------------------------------------------------------------------------
+− Recherche du PPCM : Méthode par décomposition en facteurs premiers −
+240 et 180 ont un diviseur commun autre que 1 : 2.
+240	=>	2
+120	=>	2
+60	=>	2
+30	=>	2
+15	=>	3
+5	=>	5
+2 × 2 × 2 × 2 × 3 × 5
+2^4 × 3 × 5
+180	=>	2
+90	=>	2
+45	=>	3
+15	=>	3
+5	=>	5
+2 × 2 × 3 × 3 × 5
+2^2 × 3^2 × 5
+En prenant les plus grands facteurs de chaque liste, 
+le PPCM de 240 et 180 équivaut donc à : 16 × 9 × 5.
+PPCM(240 ; 180) = 720.
+

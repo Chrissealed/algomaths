@@ -1,0 +1,9 @@
+Décomposez le nombre suivant en facteurs premiers.
+y. 2004
+2004	=>	2
+1002	=>	2
+501	=>	3
+167	=>	167
+2 × 2 × 3 × 167
+2^2 × 3 × 167
+

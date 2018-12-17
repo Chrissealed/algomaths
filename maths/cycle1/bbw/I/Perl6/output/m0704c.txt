@@ -1,0 +1,23 @@
+# Exercice 4.
+# c. PGCD(875 ; 900)
+-----------------------------------------------------------------------------------
+− Utilisation de l'algorithme de factorisation en facteurs premiers −
+Facteurs premiers de 875 :
+875	=>	5
+175	=>	5
+35	=>	5
+7	=>	7
+5 × 5 × 5 × 7
+5^3 × 7
+Facteurs premiers de 900 :
+900	=>	2
+450	=>	2
+225	=>	3
+75	=>	3
+25	=>	5
+5	=>	5
+2 × 2 × 3 × 3 × 5 × 5
+2^2 × 3^2 × 5^2
+Facteurs communs à 875 et 900 : 5 5
+PGCD(875 ; 900) : 5 × 5 = 25.
+

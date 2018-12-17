@@ -1,0 +1,12 @@
+# Exercice 3.
+# e. PPCM(124 ; 341)
+-----------------------------------------------------------------------------------
+− Recherche du PPCM : Méthode par utilisation du PGCD −
+− Calcul du PGCD : Utilisation de l'algorithme d'Euclide −
+PGCD(240 ; 180) = PGCD(180 ; 60)
+Le reste de la division de 180 par 60 est nul,
+donc PGCD(240 ; 180) = 60.
+Produit de 240 par 180 = 43200;
+PPCM(240 ; 180) = 43200 div 60 = 720.
+PPCM(240 ; 180) = 720.
+

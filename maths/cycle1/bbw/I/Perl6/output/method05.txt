@@ -1,0 +1,21 @@
+###################################################################################
+# Méthode 5. Diviseurs et nombres premiers.
+###################################################################################
+# ▲ Il arrive parfois qu'une division s'arrête, autrement dit, que le reste soit nul.
+# Par exemple : 238 ÷ 17 = 14, ce qui revient à 238 = 14 × 17.
+# Les nombres 14 et 17 s'appellent diviseurs de 238 et l'expression 238 = 14 × 17
+# s'appelle 'décomposition en facteurs' de 238.
+# Ici les termes 'diviseurs' et 'facteurs' sont synonymes.
+# ▲ Un de ces deux facteurs peut à son tour être décomposé, à savoir 14 = 2 × 7.
+# La décomposition de 238 ne peut pas être poursuivie car 2, 7 et 17 sont tous les
+# trois des nombres 'premiers'. Cela signifie que ces nombres ne peuvent pas être
+# décomposés en facteurs plus petits. Finalement la décomposition en facteurs premiers
+# de 238 est : 238 = 2 × 7 × 17.
+# ▲ Comme 238 = 1 × 238 est aussi une décomposition de 238, les nombres 1 et 238
+# sont aussi des diviseurs de 238. Tout nombre entier admet 1 et lui-même comme
+# diviseur. Les diviseurs intéressants, les 'vrais diviseurs', sont en fait les
+# diviseurs supérieurs à 1 et inférieurs au nombre lui-même. Les 'nombres premiers'
+# sont les nombres supérieurs à 1 et qui n'ont pas de vrais diviseurs.
+###################################################################################
+
+

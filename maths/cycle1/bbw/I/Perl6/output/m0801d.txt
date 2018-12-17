@@ -1,0 +1,10 @@
+# Exercice 1.
+# d. PPCM(16 ; 40)
+-----------------------------------------------------------------------------------
+− Recherche du PPCM : Méthode par additions successives du plus grand nombre à lui-même −
+40 et 16 ont un diviseur commun autre que 1 : 2.
+Reste de la division de 40 par 16 : 8
+40 + 40 = 80
+Reste de la division de 80 par 16 : 0
+PPCM(16 ; 40) = 80.
+

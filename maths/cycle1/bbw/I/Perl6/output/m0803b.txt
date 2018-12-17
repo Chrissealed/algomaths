@@ -1,0 +1,12 @@
+# Exercice 3.
+# b. PPCM(144 ; 216)
+-----------------------------------------------------------------------------------
+− Recherche du PPCM : Méthode par additions successives du plus grand nombre à lui-même −
+520 et 390 ont un diviseur commun autre que 1 : 2.
+Reste de la division de 520 par 390 : 130
+520 + 520 = 1040
+Reste de la division de 1040 par 390 : 260
+1040 + 520 = 1560
+Reste de la division de 1560 par 390 : 0
+PPCM(520 ; 390) = 1560.
+

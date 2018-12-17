@@ -1,0 +1,7 @@
+Déterminez tous les facteurs du nombre suivant.
+a. 12
+1	<=>	12
+2	<=>	6
+3	<=>	4
+[1 2 3 4 6 12]
+

@@ -1,0 +1,30 @@
+# Exercice 2.
+# Déterminez le PGCD et le PPCM.
+# b. PGCD(64 ; 80 ; 112). PPCM(64 ; 80 ; 112).
+-----------------------------------------------------------------------------------
+− Calcul du PGCD : Utilisation de l'algorithme d'Euclide −
+PGCD(80 ; 64) = PGCD(64 ; 16)
+Le reste de la division de 64 par 16 est nul,
+donc PGCD(64 ; 80) = 16.
+− Calcul du PGCD : Utilisation de l'algorithme d'Euclide −
+Le reste de la division de 112 par 16 est nul,
+donc PGCD(16 ; 112) = 16.
+PGCD(64 ; 80 ; 112) = 16.
+
+− Recherche du PPCM : Méthode par utilisation du PGCD −
+− Calcul du PGCD : Utilisation de l'algorithme d'Euclide −
+PGCD(80 ; 64) = PGCD(64 ; 16)
+Le reste de la division de 64 par 16 est nul,
+donc PGCD(80 ; 64) = 16.
+Produit de 80 par 64 = 5120;
+PPCM(80 ; 64) = 5120 div 16 = 320.
+− Recherche du PPCM : Méthode par utilisation du PGCD −
+− Calcul du PGCD : Utilisation de l'algorithme d'Euclide −
+PGCD(320 ; 112) = PGCD(112 ; 96)
+PGCD(112 ; 96) = PGCD(96 ; 16)
+Le reste de la division de 96 par 16 est nul,
+donc PGCD(320 ; 112) = 16.
+Produit de 320 par 112 = 35840;
+PPCM(320 ; 112) = 35840 div 16 = 2240.
+PPCM(64 ; 80 ; 112) = 2240.
+

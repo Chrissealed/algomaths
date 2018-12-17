@@ -1,0 +1,12 @@
+Décomposez le nombre suivant en facteurs premiers.
+u. 2000
+2000	=>	2
+1000	=>	2
+500	=>	2
+250	=>	2
+125	=>	5
+25	=>	5
+5	=>	5
+2 × 2 × 2 × 2 × 5 × 5 × 5
+2^4 × 5^3
+

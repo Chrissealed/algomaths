@@ -1,0 +1,9 @@
+Décomposez le nombre suivant en facteurs premiers.
+l. 676
+676	=>	2
+338	=>	2
+169	=>	13
+13	=>	13
+2 × 2 × 13 × 13
+2^2 × 13^2
+

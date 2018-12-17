@@ -2,16 +2,26 @@
 
 use v6;
 use corrective;
+use teeput;
 use method06 :methodwording, :exe01c, :examples;
 use integer-divisors-listing;
 
 sub answering {
+    class T does Tput {}
+    my $t = T.new(
+        filepath => 'output/m0601c.txt',
+        filemode => ':a',
+        writefile => True,
+        closefile => False,
+    );
     my $divisors-listing = IntegerDivisorsListing.new(
+        t => $t,
         array-or-hash => '@',
     );
     my @a = $divisors-listing.list-divisors(32);
-    say @a;
-    say();
+    $t.tsay: @a;
+    $t.closefile = True;
+    $t.tprint: "\n";
 }
 
 exercise_01c();

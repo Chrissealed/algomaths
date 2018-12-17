@@ -1,0 +1,16 @@
+# Exercice 4.
+# b. PGCD(1721 ; 1726)
+-----------------------------------------------------------------------------------
+− Utilisation de l'algorithme de factorisation en facteurs premiers −
+Facteurs premiers de 1721 :
+1721	=>	1
+1721 est un nombre premier!
+Il n'admet que 1 et lui-même comme diviseurs.
+1 × 1721.
+Facteurs premiers de 1726 :
+1726	=>	2
+863	=>	863
+2 × 863
+Facteurs communs à 1721 et 1726 : 
+pas de facteurs communs.
+

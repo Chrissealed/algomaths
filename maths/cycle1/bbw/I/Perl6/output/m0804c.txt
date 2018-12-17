@@ -1,0 +1,24 @@
+# Exercice 4.
+# c. PPCM(588 ; 504)
+-----------------------------------------------------------------------------------
+− Recherche du PPCM : Méthode par décomposition en facteurs premiers −
+588 et 504 ont un diviseur commun autre que 1 : 2.
+588	=>	2
+294	=>	2
+147	=>	3
+49	=>	7
+7	=>	7
+2 × 2 × 3 × 7 × 7
+2^2 × 3 × 7^2
+504	=>	2
+252	=>	2
+126	=>	2
+63	=>	3
+21	=>	3
+7	=>	7
+2 × 2 × 2 × 3 × 3 × 7
+2^3 × 3^2 × 7
+En prenant les plus grands facteurs de chaque liste, 
+le PPCM de 588 et 504 équivaut donc à : 8 × 9 × 49.
+PPCM(588 ; 504) = 3528.
+

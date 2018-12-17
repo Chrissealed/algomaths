@@ -1,0 +1,10 @@
+###################################################################################
+# Méthode 2. Comment soustraire rapidement ?
+###################################################################################
+# ▲ Principe:
+# L'idée est la suivante : plutôt que de calculer a – b en partant de a (ce qui
+# n'est pas ce qu'il y a de plus facile), on part de b pour rejoindre a en
+# essayant de trouver ce qui manque.
+###################################################################################
+
+

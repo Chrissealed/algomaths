@@ -1,0 +1,12 @@
+# Exercice 4.
+# d. PPCM(315 ; 189)
+-----------------------------------------------------------------------------------
+− Recherche du PPCM : Méthode par additions successives du plus grand nombre à lui-même −
+315 et 189 ont un diviseur commun autre que 1 : 3.
+Reste de la division de 315 par 189 : 126
+315 + 315 = 630
+Reste de la division de 630 par 189 : 63
+630 + 315 = 945
+Reste de la division de 945 par 189 : 0
+PPCM(315 ; 189) = 945.
+

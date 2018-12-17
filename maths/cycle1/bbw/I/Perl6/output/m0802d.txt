@@ -1,0 +1,17 @@
+# Exercice 2.
+# d. PPCM(169 ; 130)
+-----------------------------------------------------------------------------------
+− Recherche du PPCM : Méthode par décomposition en facteurs premiers −
+169 et 130 ont un diviseur commun autre que 1 : 13.
+169	=>	13
+13	=>	13
+13 × 13
+13^2
+130	=>	2
+65	=>	5
+13	=>	13
+2 × 5 × 13
+En prenant les plus grands facteurs de chaque liste, 
+le PPCM de 169 et 130 équivaut donc à : 2 × 5 × 169.
+PPCM(169 ; 130) = 1690.
+

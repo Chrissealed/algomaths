@@ -1,0 +1,19 @@
+# Exercice 1.
+# b. PPCM(27 ; 45)
+-----------------------------------------------------------------------------------
+− Recherche du PPCM : Méthode par décomposition en facteurs premiers −
+27 et 45 ont un diviseur commun autre que 1 : 3.
+27	=>	3
+9	=>	3
+3	=>	3
+3 × 3 × 3
+3^3
+45	=>	3
+15	=>	3
+5	=>	5
+3 × 3 × 5
+3^2 × 5
+En prenant les plus grands facteurs de chaque liste, 
+le PPCM de 27 et 45 équivaut donc à : 27 × 5.
+PPCM(27 ; 45) = 135.
+

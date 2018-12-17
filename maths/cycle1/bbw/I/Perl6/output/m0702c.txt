@@ -1,0 +1,21 @@
+# Exercice 2.
+# c. PGCD(90 ; 196)
+-----------------------------------------------------------------------------------
+− Utilisation de l'algorithme de factorisation en facteurs premiers −
+Facteurs premiers de 90 :
+90	=>	2
+45	=>	3
+15	=>	3
+5	=>	5
+2 × 3 × 3 × 5
+2 × 3^2 × 5
+Facteurs premiers de 196 :
+196	=>	2
+98	=>	2
+49	=>	7
+7	=>	7
+2 × 2 × 7 × 7
+2^2 × 7^2
+Facteurs communs à 90 et 196 : 2
+PGCD(90 ; 196) = 2.
+

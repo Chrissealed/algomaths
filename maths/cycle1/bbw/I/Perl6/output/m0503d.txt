@@ -1,0 +1,8 @@
+Décomposez le nombre suivant en facteurs premiers.
+n. 1122
+1122	=>	2
+561	=>	3
+187	=>	11
+17	=>	17
+2 × 3 × 11 × 17
+

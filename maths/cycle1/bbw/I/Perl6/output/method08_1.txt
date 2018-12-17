@@ -1,0 +1,14 @@
+###################################################################################
+# Méthode 8. Comment déterminer le PPCM (plus petit commun multiple) de deux
+# nombres entiers.
+# ▲ Le 'plus petit commun multiple' (PPCM) de deux nombres est le plus petit nombre
+# qui est à la fois multiple de l'un et de l'autre nombre. En d'autres mots, c'est
+# le plus petit nombre qui est divisible par chacun des deux nombres.
+####################################################################################
+# Première méthode, en cherchant les multiples des deux nombres :
+# ▲ On établit la liste des multiples du plus grand nombre en l'ajoutant successive-
+# ment à lui-même et on vérifie pour chaque multiple s'il est divisible par le plus
+# petit nombre.
+####################################################################################
+
+

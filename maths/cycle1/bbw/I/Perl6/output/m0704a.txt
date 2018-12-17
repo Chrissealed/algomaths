@@ -1,0 +1,17 @@
+# Exercice 4.
+# a. PGCD(1243 ; 1244)
+-----------------------------------------------------------------------------------
+− Utilisation de l'algorithme de factorisation en facteurs premiers −
+Facteurs premiers de 1243 :
+1243	=>	11
+113	=>	113
+11 × 113
+Facteurs premiers de 1244 :
+1244	=>	2
+622	=>	2
+311	=>	311
+2 × 2 × 311
+2^2 × 311
+Facteurs communs à 1243 et 1244 : 
+pas de facteurs communs.
+

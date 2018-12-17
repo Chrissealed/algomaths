@@ -1,0 +1,7 @@
+Déterminez tous les facteurs du nombre suivant.
+c. 32
+1	<=>	32
+2	<=>	16
+4	<=>	8
+[1 2 4 8 16 32]
+

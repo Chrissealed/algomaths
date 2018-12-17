@@ -1,0 +1,13 @@
+# Exercice 3.
+# c. PPCM(520 ; 390)
+-----------------------------------------------------------------------------------
+− Recherche du PPCM : Méthode par utilisation du PGCD −
+− Calcul du PGCD : Utilisation de l'algorithme d'Euclide −
+PGCD(888 ; 185) = PGCD(185 ; 148)
+PGCD(185 ; 148) = PGCD(148 ; 37)
+Le reste de la division de 148 par 37 est nul,
+donc PGCD(888 ; 185) = 37.
+Produit de 888 par 185 = 164280;
+PPCM(888 ; 185) = 164280 div 37 = 4440.
+PPCM(888 ; 185) = 4440.
+

@@ -1,0 +1,11 @@
+Décomposez le nombre suivant en facteurs premiers.
+m. 2025
+2025	=>	3
+675	=>	3
+225	=>	3
+75	=>	3
+25	=>	5
+5	=>	5
+3 × 3 × 3 × 3 × 5 × 5
+3^4 × 5^2
+

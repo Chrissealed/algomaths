@@ -2,8 +2,21 @@ unit module Method06;
 
 use v6;
 
+=begin pod
+=NAME Method06 : Perl 6 module in B<algomaths>/maths/cycle1/bbw/I/Perl6/B<method06.pm6>
+=AUTHOR  https://github.com/Chrissealed/algomaths.git
+=VERSION 2018.12.15
+=end pod
+
+use teeput;
+
+class T does Teeput::Tput {}
+my $t = T.new(
+    writefile => True,
+);
+    
 sub put-up-method is export(:methodwording) {
-    say q:to/EOM/;
+    my $message = q:to/EOM/;
 ###################################################################################
 # Méthode 6. Comment établir la liste des diviseurs d'un entier non nul ?
 ###################################################################################
@@ -22,6 +35,9 @@ sub put-up-method is export(:methodwording) {
 ###################################################################################
 
 EOM
+    $t.filepath = 'output/method06.txt';
+    $t.filemode = ':x'; # :mode<wo>, :create, :exclusive
+    $t.tput($message);
 }
 
 sub show-examples() is export(:examples) {
@@ -29,61 +45,91 @@ sub show-examples() is export(:examples) {
 }
 
 sub exercise_01a is export(:exe01a) {
-    say "Déterminez tous les facteurs du nombre suivant.";
-    say "Un conseil : décomposez d'abord ce nombre en facteurs premiers.";
-    say "a. 12";
+    $t.filemode = ':w'; # :mode<wo>, :create, :truncate
+    $t.filepath = 'output/m0601a.txt';
+    $t.tput: "Déterminez tous les facteurs du nombre suivant.";
+    $t.filemode = ':a'; # :mode<wo>, :create, :append
+    $t.closefile = False;
+    $t.tput: "a. 12";
 }
 
-sub exercise_01b is export(:exe02b) {
-    say "Déterminez tous les facteurs du nombre suivant.";
-    say "Un conseil : décomposez d'abord ce nombre en facteurs premiers.";
-    say "b. 20";
+sub exercise_01b is export(:exe01b) {
+    $t.filemode = ':w'; # :mode<wo>, :create, :truncate
+    $t.filepath = 'output/m0601b.txt';
+    $t.tput: "Déterminez tous les facteurs du nombre suivant.";
+    $t.filemode = ':a'; # :mode<wo>, :create, :append
+    $t.closefile = False;
+    $t.tput: "b. 20";
 }
 
-sub exercise_01c is export(:exe03c) {
-    say "Déterminez tous les facteurs du nombre suivant.";
-    say "Un conseil : décomposez d'abord ce nombre en facteurs premiers.";
-    say "c. 32";
+sub exercise_01c is export(:exe01c) {
+    $t.filemode = ':w'; # :mode<wo>, :create, :truncate
+    $t.filepath = 'output/m0601c.txt';
+    $t.tput: "Déterminez tous les facteurs du nombre suivant.";
+    $t.filemode = ':a'; # :mode<wo>, :create, :append
+    $t.closefile = False;
+    $t.tput: "c. 32";
 }
 
-sub exercise_01d is export(:exe04d) {
-    say "Déterminez tous les facteurs du nombre suivant.";
-    say "Un conseil : décomposez d'abord ce nombre en facteurs premiers.";
-    say "d. 108";
+sub exercise_01d is export(:exe01d) {
+    $t.filemode = ':w'; # :mode<wo>, :create, :truncate
+    $t.filepath = 'output/m0601d.txt';
+    $t.tput: "Déterminez tous les facteurs du nombre suivant.";
+    $t.filemode = ':a'; # :mode<wo>, :create, :append
+    $t.closefile = False;
+    $t.tput: "d. 108";
 }
 
-sub exercise_01e is export(:exe05e) {
-    say "Déterminez tous les facteurs du nombre suivant.";
-    say "Un conseil : décomposez d'abord ce nombre en facteurs premiers.";
-    say "e. 144";
+sub exercise_01e is export(:exe01e) {
+    $t.filemode = ':w'; # :mode<wo>, :create, :truncate
+    $t.filepath = 'output/m0601e.txt';
+    $t.tput: "Déterminez tous les facteurs du nombre suivant.";
+    $t.filemode = ':a'; # :mode<wo>, :create, :append
+    $t.closefile = False;
+    $t.tput: "e. 144";
 }
 
 sub exercise_02a is export(:exe02a) {
-    say "Déterminez tous les facteurs du nombre suivant.";
-    say "Un conseil : décomposez d'abord ce nombre en facteurs premiers.";
-    say "a. 72";
+    $t.filemode = ':w'; # :mode<wo>, :create, :truncate
+    $t.filepath = 'output/m0602a.txt';
+    $t.tput: "Déterminez tous les facteurs du nombre suivant.";
+    $t.filemode = ':a'; # :mode<wo>, :create, :append
+    $t.closefile = False;
+    $t.tput: "a. 72";
 }
 
 sub exercise_02b is export(:exe02b) {
-    say "Déterminez tous les facteurs du nombre suivant.";
-    say "Un conseil : décomposez d'abord ce nombre en facteurs premiers.";
-    say "b. 100";
+    $t.filemode = ':w'; # :mode<wo>, :create, :truncate
+    $t.filepath = 'output/m0602b.txt';
+    $t.tput: "Déterminez tous les facteurs du nombre suivant.";
+    $t.filemode = ':a'; # :mode<wo>, :create, :append
+    $t.closefile = False;
+    $t.tput: "b. 100";
 }
 
 sub exercise_02c is export(:exe02c) {
-    say "Déterminez tous les facteurs du nombre suivant.";
-    say "Un conseil : décomposez d'abord ce nombre en facteurs premiers.";
-    say "c. 1001";
+    $t.filemode = ':w'; # :mode<wo>, :create, :truncate
+    $t.filepath = 'output/m0602c.txt';
+    $t.tput: "Déterminez tous les facteurs du nombre suivant.";
+    $t.filemode = ':a'; # :mode<wo>, :create, :append
+    $t.closefile = False;
+    $t.tput: "c. 1001";
 }
 
 sub exercise_02d is export(:exe02d) {
-    say "Déterminez tous les facteurs du nombre suivant.";
-    say "Un conseil : décomposez d'abord ce nombre en facteurs premiers.";
-    say "d. 561";
+    $t.filemode = ':w'; # :mode<wo>, :create, :truncate
+    $t.filepath = 'output/m0602d.txt';
+    $t.tput: "Déterminez tous les facteurs du nombre suivant.";
+    $t.filemode = ':a'; # :mode<wo>, :create, :append
+    $t.closefile = False;
+    $t.tput: "d. 561";
 }
 
 sub exercise_02e is export(:exe02e) {
-    say "Déterminez tous les facteurs du nombre suivant.";
-    say "Un conseil : décomposez d'abord ce nombre en facteurs premiers.";
-    say "e. 196";
+    $t.filemode = ':w'; # :mode<wo>, :create, :truncate
+    $t.filepath = 'output/m0602e.txt';
+    $t.tput: "Déterminez tous les facteurs du nombre suivant.";
+    $t.filemode = ':a'; # :mode<wo>, :create, :append
+    $t.closefile = False;
+    $t.tput: "e. 196";
 }

@@ -1,0 +1,52 @@
+# Exercice 1.
+# Déterminez le PGCD et le PPCM.
+# c. PGCD(10 ; 15 ; 35). PPCM(10 ; 15 ; 35).
+-----------------------------------------------------------------------------------
+− Calcul du PGCD : Utilisation de l'algorithme de factorisation en facteurs premiers −
+Facteurs premiers de 10 :
+10	=>	2
+5	=>	5
+2 × 5
+Facteurs premiers de 15 :
+15	=>	3
+5	=>	5
+3 × 5
+Facteurs communs à 10 et 15 : 5
+PGCD(10 ; 15) = 5.
+− Calcul du PGCD : Utilisation de l'algorithme de factorisation en facteurs premiers −
+Facteurs premiers de 5 :
+5	=>	1
+5 est un nombre premier!
+Il n'admet que 1 et lui-même comme diviseurs.
+1 × 5.
+Facteurs premiers de 35 :
+35	=>	5
+7	=>	7
+5 × 7
+Facteurs communs à 5 et 35 : 5
+PGCD(5 ; 35) = 5.
+PGCD(10 ; 15 ; 35) = 5.
+
+− Recherche du PPCM : Méthode par décomposition en facteurs premiers −
+10 et 15 ont un diviseur commun autre que 1 : 5.
+10	=>	2
+5	=>	5
+2 × 5
+15	=>	3
+5	=>	5
+3 × 5
+En prenant les plus grands facteurs de chaque liste, 
+le PPCM de 10 et 15 équivaut donc à : 2 × 3 × 5.
+− Recherche du PPCM : Méthode par décomposition en facteurs premiers −
+30 et 35 ont un diviseur commun autre que 1 : 5.
+30	=>	2
+15	=>	3
+5	=>	5
+2 × 3 × 5
+35	=>	5
+7	=>	7
+5 × 7
+En prenant les plus grands facteurs de chaque liste, 
+le PPCM de 30 et 35 équivaut donc à : 2 × 3 × 5 × 7.
+PPCM(10 ; 15 ; 35) = 210.
+

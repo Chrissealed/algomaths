@@ -2,14 +2,23 @@
 
 use v6;
 use corrective;
+use teeput;
 use method05 :methodwording, :exe03c, :examples;
 use prime-factors;
 
 sub answering {
+    class T does Tput {}
+    my $t = T.new(
+        filepath => 'output/m0503c.txt',
+        filemode => ':a',
+        writefile => True,
+        closefile => False,
+    );
     class P does PrimeFactors {}
-    my $prime = P.new();
+    my $prime = P.new( t => $t );
     my %p = $prime.breakdown(2025);
-    say();
+    $t.closefile = True;
+    $t.tprint: "\n";
 }
 
 exercise_03c();

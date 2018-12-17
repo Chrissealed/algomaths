@@ -1,0 +1,10 @@
+Déterminez tous les facteurs du nombre suivant.
+d. 108
+1	<=>	108
+2	<=>	54
+3	<=>	36
+4	<=>	27
+6	<=>	18
+9	<=>	12
+[1 2 3 4 6 9 12 18 27 36 54 108]
+

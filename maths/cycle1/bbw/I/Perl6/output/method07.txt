@@ -1,0 +1,17 @@
+###################################################################################
+# Méthode 7. Comment déterminer le PGCD de deux nombres à l'aide de leur décomposi-
+# tion en facteurs premiers :
+# ▲ Deux nombres peuvent avoir des facteurs en commun. Le plus grand commun diviseur
+# (PGCD) est, comme son nom l'indique, leur plus grand facteur commun.
+# Le PGCD se déduit directement des décompositions en facteurs premiers des deux
+# nombres en prenant les facteurs communs à chacun des nombres.
+###################################################################################
+# ▲ UNE BONNE IDEE! : il existe une méthode pour déterminer le PGCD de deux nombres
+# qui ne requiert pas leurs décompositions en facteurs premiers et qui souvent
+# s'avère plus rapide. L'idée de base est que le PGCD de deux nombres est aussi
+# forcément un diviseur de leur différence. Voyez-vous pourquoi il en est ainsi ?
+###################################################################################
+# (Voir aussi les méthodes 4, 5, 6, 7 et 8 du dossier fm3).
+###################################################################################
+
+

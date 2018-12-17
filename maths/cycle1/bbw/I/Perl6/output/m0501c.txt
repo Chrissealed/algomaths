@@ -1,0 +1,9 @@
+Décomposez le nombre suivant en facteurs premiers.
+c. 250
+250	=>	2
+125	=>	5
+25	=>	5
+5	=>	5
+2 × 5 × 5 × 5
+2 × 5^3
+

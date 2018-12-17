@@ -1,0 +1,9 @@
+Décomposez le nombre suivant en facteurs premiers.
+o. 860
+860	=>	2
+430	=>	2
+215	=>	5
+43	=>	43
+2 × 2 × 5 × 43
+2^2 × 5 × 43
+

@@ -1,0 +1,65 @@
+# Exercice 1.
+# Déterminez le PGCD et le PPCM.
+# e. PGCD(21 ; 24 ; 27). PPCM(21 ; 24 ; 27).
+-----------------------------------------------------------------------------------
+− Calcul du PGCD : Utilisation de l'algorithme de factorisation en facteurs premiers −
+Facteurs premiers de 21 :
+21	=>	3
+7	=>	7
+3 × 7
+Facteurs premiers de 24 :
+24	=>	2
+12	=>	2
+6	=>	2
+3	=>	3
+2 × 2 × 2 × 3
+2^3 × 3
+Facteurs communs à 21 et 24 : 3
+PGCD(21 ; 24) = 3.
+− Calcul du PGCD : Utilisation de l'algorithme de factorisation en facteurs premiers −
+Facteurs premiers de 3 :
+3	=>	1
+3 est un nombre premier!
+Il n'admet que 1 et lui-même comme diviseurs.
+1 × 3.
+Facteurs premiers de 27 :
+27	=>	3
+9	=>	3
+3	=>	3
+3 × 3 × 3
+3^3
+Facteurs communs à 3 et 27 : 3
+PGCD(3 ; 27) = 3.
+PGCD(21 ; 24 ; 27) = 3.
+
+− Recherche du PPCM : Méthode par décomposition en facteurs premiers −
+21 et 24 ont un diviseur commun autre que 1 : 3.
+21	=>	3
+7	=>	7
+3 × 7
+24	=>	2
+12	=>	2
+6	=>	2
+3	=>	3
+2 × 2 × 2 × 3
+2^3 × 3
+En prenant les plus grands facteurs de chaque liste, 
+le PPCM de 21 et 24 équivaut donc à : 8 × 3 × 7.
+− Recherche du PPCM : Méthode par décomposition en facteurs premiers −
+168 et 27 ont un diviseur commun autre que 1 : 3.
+168	=>	2
+84	=>	2
+42	=>	2
+21	=>	3
+7	=>	7
+2 × 2 × 2 × 3 × 7
+2^3 × 3 × 7
+27	=>	3
+9	=>	3
+3	=>	3
+3 × 3 × 3
+3^3
+En prenant les plus grands facteurs de chaque liste, 
+le PPCM de 168 et 27 équivaut donc à : 8 × 27 × 7.
+PPCM(21 ; 24 ; 27) = 1512.
+

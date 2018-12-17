@@ -2,8 +2,21 @@ unit module Method05;
 
 use v6;
 
+=begin pod
+=NAME module B<Method05>
+=AUTHOR Christian Béloscar
+=VERSION 0.1.119
+=end pod
+
+use teeput;
+
+class T does Teeput::Tput {}
+my $t = T.new(
+    writefile => True,
+);
+    
 sub put-up-method is export(:methodwording) {
-    say qq:to/EOM/
+    my $message = qq:to/EOM/;
 ###################################################################################
 # Méthode 5. Diviseurs et nombres premiers.
 ###################################################################################
@@ -25,6 +38,9 @@ sub put-up-method is export(:methodwording) {
 ###################################################################################
 
 EOM
+    $t.filepath = 'output/method05.txt';
+    $t.filemode = ':x'; # :mode<wo>, :create, :exclusive
+    $t.tput($message);
 }
 
 sub show-examples() is export(:examples) {
@@ -32,126 +48,226 @@ sub show-examples() is export(:examples) {
 }
 
 sub exercise_01a is export(:exe01a) {
-    say "Décomposez le nombre suivant en facteurs premiers.";
-    say "a. 24";
+    $t.filemode = ':w'; # :mode<wo>, :create, :truncate
+    $t.filepath = 'output/m0501a.txt';
+    $t.tput: "Décomposez le nombre suivant en facteurs premiers.";
+    $t.filemode = ':a'; # :mode<wo>, :create, :append
+    $t.closefile = False;
+    $t.tput: "a. 24";
 }
 
 sub exercise_01b is export(:exe01b) {
-    say "Décomposez le nombre suivant en facteurs premiers.";
-    say "b. 72";
+    $t.filemode = ':w'; # :mode<wo>, :create, :truncate
+    $t.filepath = 'output/m0501b.txt';
+    $t.tput: "Décomposez le nombre suivant en facteurs premiers.";
+    $t.filemode = ':a'; # :mode<wo>, :create, :append
+    $t.closefile = False;
+    $t.tput: "b. 72";
 }
 
 sub exercise_01c is export(:exe01c) {
-    say "Décomposez le nombre suivant en facteurs premiers.";
-    say "c. 250";
+    $t.filemode = ':w'; # :mode<wo>, :create, :truncate
+    $t.filepath = 'output/m0501c.txt';
+    $t.tput: "Décomposez le nombre suivant en facteurs premiers.";
+    $t.filemode = ':a'; # :mode<wo>, :create, :append
+    $t.closefile = False;
+    $t.tput: "c. 250";
 }
 
 sub exercise_01d is export(:exe01d) {
-    say "Décomposez le nombre suivant en facteurs premiers.";
-    say "d. 96";
+    $t.filemode = ':w'; # :mode<wo>, :create, :truncate
+    $t.filepath = 'output/m0501d.txt';
+    $t.tput: "Décomposez le nombre suivant en facteurs premiers.";
+    $t.filemode = ':a'; # :mode<wo>, :create, :append
+    $t.closefile = False;
+    $t.tput: "d. 96";
 }
 
 sub exercise_01e is export(:exe01e) {
-    say "Décomposez le nombre suivant en facteurs premiers.";
-    say "e. 98";
+    $t.filemode = ':w'; # :mode<wo>, :create, :truncate
+    $t.filepath = 'output/m0501e.txt';
+    $t.tput: "Décomposez le nombre suivant en facteurs premiers.";
+    $t.filemode = ':a'; # :mode<wo>, :create, :append
+    $t.closefile = False;
+    $t.tput: "e. 98";
 }
 
 sub exercise_02a is export(:exe02a) {
-    say "Décomposez le nombre suivant en facteurs premiers.";
-    say "f. 288";
+    $t.filemode = ':w'; # :mode<wo>, :create, :truncate
+    $t.filepath = 'output/m0502a.txt';
+    $t.tput: "Décomposez le nombre suivant en facteurs premiers.";
+    $t.filemode = ':a'; # :mode<wo>, :create, :append
+    $t.closefile = False;
+    $t.tput: "f. 288";
 }
 
 sub exercise_02b is export(:exe02b) {
-    say "Décomposez le nombre suivant en facteurs premiers.";
-    say "g. 1024";
+    $t.filemode = ':w'; # :mode<wo>, :create, :truncate
+    $t.filepath = 'output/m0502b.txt';
+    $t.tput: "Décomposez le nombre suivant en facteurs premiers.";
+    $t.filemode = ':a'; # :mode<wo>, :create, :append
+    $t.closefile = False;
+    $t.tput: "g. 1024";
 }
 
 sub exercise_02c is export(:exe02c) {
-    say "Décomposez le nombre suivant en facteurs premiers.";
-    say "h. 315";
+    $t.filemode = ':w'; # :mode<wo>, :create, :truncate
+    $t.filepath = 'output/m0502c.txt';
+    $t.tput: "Décomposez le nombre suivant en facteurs premiers.";
+    $t.filemode = ':a'; # :mode<wo>, :create, :append
+    $t.closefile = False;
+    $t.tput: "h. 315";
 }
 
 sub exercise_02d is export(:exe02d) {
-    say "Décomposez le nombre suivant en facteurs premiers.";
-    say "i. 396";
+    $t.filemode = ':w'; # :mode<wo>, :create, :truncate
+    $t.filepath = 'output/m0502d.txt';
+    $t.tput: "Décomposez le nombre suivant en facteurs premiers.";
+    $t.filemode = ':a'; # :mode<wo>, :create, :append
+    $t.closefile = False;
+    $t.tput: "i. 396";
 }
 
 sub exercise_02e is export(:exe02e) {
-    say "Décomposez le nombre suivant en facteurs premiers.";
-    say "j. 1875";
+    $t.filemode = ':w'; # :mode<wo>, :create, :truncate
+    $t.filepath = 'output/m0502e.txt';
+    $t.tput: "Décomposez le nombre suivant en facteurs premiers.";
+    $t.filemode = ':a'; # :mode<wo>, :create, :append
+    $t.closefile = False;
+    $t.tput: "j. 1875";
 }
 
 sub exercise_03a is export(:exe03a) {
-    say "Décomposez le nombre suivant en facteurs premiers.";
-    say "k. 972";
+    $t.filemode = ':w'; # :mode<wo>, :create, :truncate
+    $t.filepath = 'output/m0503a.txt';
+    $t.tput: "Décomposez le nombre suivant en facteurs premiers.";
+    $t.filemode = ':a'; # :mode<wo>, :create, :append
+    $t.closefile = False;
+    $t.tput: "k. 972";
 }
 
 sub exercise_03b is export(:exe03b) {
-    say "Décomposez le nombre suivant en facteurs premiers.";
-    say "l. 676";
+    $t.filemode = ':w'; # :mode<wo>, :create, :truncate
+    $t.filepath = 'output/m0503b.txt';
+    $t.tput: "Décomposez le nombre suivant en facteurs premiers.";
+    $t.filemode = ':a'; # :mode<wo>, :create, :append
+    $t.closefile = False;
+    $t.tput: "l. 676";
 }
 
 sub exercise_03c is export(:exe03c) {
-    say "Décomposez le nombre suivant en facteurs premiers.";
-    say "m. 2025";
+    $t.filemode = ':w'; # :mode<wo>, :create, :truncate
+    $t.filepath = 'output/m0503c.txt';
+    $t.tput: "Décomposez le nombre suivant en facteurs premiers.";
+    $t.filemode = ':a'; # :mode<wo>, :create, :append
+    $t.closefile = False;
+    $t.tput: "m. 2025";
 }
 
 sub exercise_03d is export(:exe03d) {
-    say "Décomposez le nombre suivant en facteurs premiers.";
-    say "n. 1122";
+    $t.filemode = ':w'; # :mode<wo>, :create, :truncate
+    $t.filepath = 'output/m0503d.txt';
+    $t.tput: "Décomposez le nombre suivant en facteurs premiers.";
+    $t.filemode = ':a'; # :mode<wo>, :create, :append
+    $t.closefile = False;
+    $t.tput: "n. 1122";
 }
 
 sub exercise_03e is export(:exe03e) {
-    say "Décomposez le nombre suivant en facteurs premiers.";
-    say "o. 860";
+    $t.filemode = ':w'; # :mode<wo>, :create, :truncate
+    $t.filepath = 'output/m0503e.txt';
+    $t.tput: "Décomposez le nombre suivant en facteurs premiers.";
+    $t.filemode = ':a'; # :mode<wo>, :create, :append
+    $t.closefile = False;
+    $t.tput: "o. 860";
 }
 
 sub exercise_04a is export(:exe04a) {
-    say "Décomposez le nombre suivant en facteurs premiers.";
-    say "p. 255";
+    $t.filemode = ':w'; # :mode<wo>, :create, :truncate
+    $t.filepath = 'output/m0504a.txt';
+    $t.tput: "Décomposez le nombre suivant en facteurs premiers.";
+    $t.filemode = ':a'; # :mode<wo>, :create, :append
+    $t.closefile = False;
+    $t.tput: "p. 255";
 }
 
 sub exercise_04b is export(:exe04b) {
-    say "Décomposez le nombre suivant en facteurs premiers.";
-    say "q. 441";
+    $t.filemode = ':w'; # :mode<wo>, :create, :truncate
+    $t.filepath = 'output/m0504b.txt';
+    $t.tput: "Décomposez le nombre suivant en facteurs premiers.";
+    $t.filemode = ':a'; # :mode<wo>, :create, :append
+    $t.closefile = False;
+    $t.tput: "q. 441";
 }
 
 sub exercise_04c is export(:exe04c) {
-    say "Décomposez le nombre suivant en facteurs premiers.";
-    say "r. 722";
+    $t.filemode = ':w'; # :mode<wo>, :create, :truncate
+    $t.filepath = 'output/m0504c.txt';
+    $t.tput: "Décomposez le nombre suivant en facteurs premiers.";
+    $t.filemode = ':a'; # :mode<wo>, :create, :append
+    $t.closefile = False;
+    $t.tput: "r. 722";
 }
 
 sub exercise_04d is export(:exe04d) {
-    say "Décomposez le nombre suivant en facteurs premiers.";
-    say "s. 432";
+    $t.filemode = ':w'; # :mode<wo>, :create, :truncate
+    $t.filepath = 'output/m0504d.txt';
+    $t.tput: "Décomposez le nombre suivant en facteurs premiers.";
+    $t.filemode = ':a'; # :mode<wo>, :create, :append
+    $t.closefile = False;
+    $t.tput: "s. 432";
 }
 
 sub exercise_04e is export(:exe04e) {
-    say "Décomposez le nombre suivant en facteurs premiers.";
-    say "t. 985";
+    $t.filemode = ':w'; # :mode<wo>, :create, :truncate
+    $t.filepath = 'output/m0504e.txt';
+    $t.tput: "Décomposez le nombre suivant en facteurs premiers.";
+    $t.filemode = ':a'; # :mode<wo>, :create, :append
+    $t.closefile = False;
+    $t.tput: "t. 985";
 }
 
 sub exercise_05a is export(:exe05a) {
-    say "Décomposez le nombre suivant en facteurs premiers.";
-    say "u. 2000";
+    $t.filemode = ':w'; # :mode<wo>, :create, :truncate
+    $t.filepath = 'output/m0505a.txt';
+    $t.tput: "Décomposez le nombre suivant en facteurs premiers.";
+    $t.filemode = ':a'; # :mode<wo>, :create, :append
+    $t.closefile = False;
+    $t.tput: "u. 2000";
 }
 
 sub exercise_05b is export(:exe05b) {
-    say "Décomposez le nombre suivant en facteurs premiers.";
-    say "v. 2001";
+    $t.filemode = ':w'; # :mode<wo>, :create, :truncate
+    $t.filepath = 'output/m0505b.txt';
+    $t.tput: "Décomposez le nombre suivant en facteurs premiers.";
+    $t.filemode = ':a'; # :mode<wo>, :create, :append
+    $t.closefile = False;
+    $t.tput: "v. 2001";
 }
 
 sub exercise_05c is export(:exe05c) {
-    say "Décomposez le nombre suivant en facteurs premiers.";
-    say "w. 2002";
+    $t.filemode = ':w'; # :mode<wo>, :create, :truncate
+    $t.filepath = 'output/m0505c.txt';
+    $t.tput: "Décomposez le nombre suivant en facteurs premiers.";
+    $t.filemode = ':a'; # :mode<wo>, :create, :append
+    $t.closefile = False;
+    $t.tput: "w. 2002";
 }
 
 sub exercise_05d is export(:exe05d) {
-    say "Décomposez le nombre suivant en facteurs premiers.";
-    say "x. 2003";
+    $t.filemode = ':w'; # :mode<wo>, :create, :truncate
+    $t.filepath = 'output/m0505d.txt';
+    $t.tput: "Décomposez le nombre suivant en facteurs premiers.";
+    $t.filemode = ':a'; # :mode<wo>, :create, :append
+    $t.closefile = False;
+    $t.tput: "x. 2003";
 }
 
 sub exercise_05e is export(:exe05e) {
-    say "Décomposez le nombre suivant en facteurs premiers.";
-    say "y. 2004";
+    $t.filemode = ':w'; # :mode<wo>, :create, :truncate
+    $t.filepath = 'output/m0505e.txt';
+    $t.tput: "Décomposez le nombre suivant en facteurs premiers.";
+    $t.filemode = ':a'; # :mode<wo>, :create, :append
+    $t.closefile = False;
+    $t.tput: "y. 2004";
 }

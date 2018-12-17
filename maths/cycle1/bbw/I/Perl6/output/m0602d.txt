@@ -1,0 +1,8 @@
+Déterminez tous les facteurs du nombre suivant.
+d. 561
+1	<=>	561
+3	<=>	187
+11	<=>	51
+17	<=>	33
+[1 3 11 17 33 51 187 561]
+

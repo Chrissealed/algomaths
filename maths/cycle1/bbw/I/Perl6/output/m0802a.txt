@@ -1,0 +1,12 @@
+# Exercice 2.
+# a. PPCM(52 ; 39)
+-----------------------------------------------------------------------------------
+− Recherche du PPCM : Méthode par utilisation du PGCD −
+− Calcul du PGCD : Utilisation de l'algorithme d'Euclide −
+PGCD(52 ; 39) = PGCD(39 ; 13)
+Le reste de la division de 39 par 13 est nul,
+donc PGCD(52 ; 39) = 13.
+Produit de 52 par 39 = 2028;
+PPCM(52 ; 39) = 2028 div 13 = 156.
+PPCM(52 ; 39) = 156.
+

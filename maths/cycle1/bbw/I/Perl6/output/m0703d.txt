@@ -1,0 +1,24 @@
+# Exercice 3.
+# d. PGCD(1960 ; 6370)
+-----------------------------------------------------------------------------------
+− Utilisation de l'algorithme de factorisation en facteurs premiers −
+Facteurs premiers de 1960 :
+1960	=>	2
+980	=>	2
+490	=>	2
+245	=>	5
+49	=>	7
+7	=>	7
+2 × 2 × 2 × 5 × 7 × 7
+2^3 × 5 × 7^2
+Facteurs premiers de 6370 :
+6370	=>	2
+3185	=>	5
+637	=>	7
+91	=>	7
+13	=>	13
+2 × 5 × 7 × 7 × 13
+2 × 5 × 7^2 × 13
+Facteurs communs à 1960 et 6370 : 2 5 7 7
+PGCD(1960 ; 6370) : 2 × 5 × 7 × 7 = 490.
+

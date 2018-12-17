@@ -2,17 +2,28 @@
 
 use v6;
 use corrective;
+use teeput;
 use method08_123 :methodwording2, :exe04c, :examples;
 use ppcm;
 
 sub answering {
-    my $ppcm = PPCM.new(
-        integer1 => 315,
-        integer2 => 189,
+    class T does Tput {}
+    my $t = T.new(
+        filepath => 'output/m0804c.txt',
+        filemode => ':a', # :mode<wo>, :create, :append
+        writefile => True,
+        closefile => False,
     );
-    say "-- Utilisation de la méthode 2 --";
+
+    my $ppcm = PPCM.new(
+        t => $t,
+        integer1 => 588,
+        integer2 => 504,
+    );
     my Int $int = $ppcm.by-prime-factors();
-    say "PPCM(315 ; 189) = $int.";
+    $t.tput: "PPCM(588 ; 504) = $int.";
+    $t.closefile = True;
+    $t.tprint: "\n";
 }
 
 exercise_04c();

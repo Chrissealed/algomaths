@@ -1,0 +1,13 @@
+Déterminez tous les facteurs du nombre suivant.
+e. 144
+1	<=>	144
+2	<=>	72
+3	<=>	48
+4	<=>	36
+6	<=>	24
+8	<=>	18
+9	<=>	16
+12	<=>	12
+144 est un carré parfait! : 12 × 12
+[1 2 3 4 6 8 9 12 12 16 18 24 36 48 72 144]
+

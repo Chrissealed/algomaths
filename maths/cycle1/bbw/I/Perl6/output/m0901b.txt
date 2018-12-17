@@ -1,0 +1,68 @@
+# Exercice 1.
+# Déterminez le PGCD et le PPCM.
+# b. PGCD(24 ; 30 ; 36). PPCM(24 ; 30 ; 36).
+-----------------------------------------------------------------------------------
+− Calcul du PGCD : Utilisation de l'algorithme de factorisation en facteurs premiers −
+Facteurs premiers de 24 :
+24	=>	2
+12	=>	2
+6	=>	2
+3	=>	3
+2 × 2 × 2 × 3
+2^3 × 3
+Facteurs premiers de 30 :
+30	=>	2
+15	=>	3
+5	=>	5
+2 × 3 × 5
+Facteurs communs à 24 et 30 : 2 3
+PGCD(24 ; 30) : 2 × 3 = 6.
+− Calcul du PGCD : Utilisation de l'algorithme de factorisation en facteurs premiers −
+Facteurs premiers de 6 :
+6	=>	2
+3	=>	3
+2 × 3
+Facteurs premiers de 36 :
+36	=>	2
+18	=>	2
+9	=>	3
+3	=>	3
+2 × 2 × 3 × 3
+2^2 × 3^2
+Facteurs communs à 6 et 36 : 2 3
+PGCD(6 ; 36) : 2 × 3 = 6.
+PGCD(24 ; 30 ; 36) = 6.
+
+− Recherche du PPCM : Méthode par décomposition en facteurs premiers −
+24 et 30 ont un diviseur commun autre que 1 : 2.
+24	=>	2
+12	=>	2
+6	=>	2
+3	=>	3
+2 × 2 × 2 × 3
+2^3 × 3
+30	=>	2
+15	=>	3
+5	=>	5
+2 × 3 × 5
+En prenant les plus grands facteurs de chaque liste, 
+le PPCM de 24 et 30 équivaut donc à : 8 × 3 × 5.
+− Recherche du PPCM : Méthode par décomposition en facteurs premiers −
+120 et 36 ont un diviseur commun autre que 1 : 2.
+120	=>	2
+60	=>	2
+30	=>	2
+15	=>	3
+5	=>	5
+2 × 2 × 2 × 3 × 5
+2^3 × 3 × 5
+36	=>	2
+18	=>	2
+9	=>	3
+3	=>	3
+2 × 2 × 3 × 3
+2^2 × 3^2
+En prenant les plus grands facteurs de chaque liste, 
+le PPCM de 120 et 36 équivaut donc à : 8 × 9 × 5.
+PPCM(24 ; 30 ; 36) = 360.
+

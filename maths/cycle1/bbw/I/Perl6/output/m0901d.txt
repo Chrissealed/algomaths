@@ -1,0 +1,66 @@
+# Exercice 1.
+# Déterminez le PGCD et le PPCM.
+# d. PGCD(18 ; 27 ; 63). PPCM(18 ; 27 ; 63).
+-----------------------------------------------------------------------------------
+− Calcul du PGCD : Utilisation de l'algorithme de factorisation en facteurs premiers −
+Facteurs premiers de 18 :
+18	=>	2
+9	=>	3
+3	=>	3
+2 × 3 × 3
+2 × 3^2
+Facteurs premiers de 27 :
+27	=>	3
+9	=>	3
+3	=>	3
+3 × 3 × 3
+3^3
+Facteurs communs à 18 et 27 : 3 3
+PGCD(18 ; 27) : 3 × 3 = 9.
+− Calcul du PGCD : Utilisation de l'algorithme de factorisation en facteurs premiers −
+Facteurs premiers de 9 :
+9	=>	3
+3	=>	3
+3 × 3
+3^2
+Facteurs premiers de 63 :
+63	=>	3
+21	=>	3
+7	=>	7
+3 × 3 × 7
+3^2 × 7
+Facteurs communs à 9 et 63 : 3 3
+PGCD(9 ; 63) : 3 × 3 = 9.
+PGCD(18 ; 27 ; 63) = 9.
+
+− Recherche du PPCM : Méthode par décomposition en facteurs premiers −
+18 et 27 ont un diviseur commun autre que 1 : 3.
+18	=>	2
+9	=>	3
+3	=>	3
+2 × 3 × 3
+2 × 3^2
+27	=>	3
+9	=>	3
+3	=>	3
+3 × 3 × 3
+3^3
+En prenant les plus grands facteurs de chaque liste, 
+le PPCM de 18 et 27 équivaut donc à : 2 × 27.
+− Recherche du PPCM : Méthode par décomposition en facteurs premiers −
+54 et 63 ont un diviseur commun autre que 1 : 3.
+54	=>	2
+27	=>	3
+9	=>	3
+3	=>	3
+2 × 3 × 3 × 3
+2 × 3^3
+63	=>	3
+21	=>	3
+7	=>	7
+3 × 3 × 7
+3^2 × 7
+En prenant les plus grands facteurs de chaque liste, 
+le PPCM de 54 et 63 équivaut donc à : 2 × 27 × 7.
+PPCM(18 ; 27 ; 63) = 378.
+

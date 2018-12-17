@@ -1,0 +1,19 @@
+###################################################################################
+# Méthode 4 : Comment diviser rapidement ?
+###################################################################################
+# ▲ A. Principe: En partant du deuxième.
+# Plutôt que de calculer a ÷ b en partant de a, on part de b pour rejoindre a en
+# essayant de trouver par combien il faut multiplier.
+# ---------------------------------------------------------------------------------
+# ▲ B. Principe: En décomposant par plusieurs petites divisions.
+# Pour diviser par 6, on divise successivement par 2 puis par 3 (c'est ce que l'on
+# fait concrètement lorsqu'on coupe un gâteau d'anniversaire en 6 parts : on le
+# coupe d'abord en 2 puis chacune des deux moitiés en 3).
+# De même pour diviser par 15, on divise successivement par 3 puis par 5, etc.
+# ---------------------------------------------------------------------------------
+# ▲ C. Principe: En utilisant la multiplication.
+# Plutôt que de diviser par 5, on multiplie par 2 puis on divise par 10. S'il s'agit
+# de diviser par 25, on multiplie par 4 puis on divise par 100, etc.
+###################################################################################
+
+

@@ -1,0 +1,8 @@
+Déterminez tous les facteurs du nombre suivant.
+c. 1001
+1	<=>	1001
+7	<=>	143
+11	<=>	91
+13	<=>	77
+[1 7 11 13 77 91 143 1001]
+

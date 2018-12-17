@@ -1,0 +1,20 @@
+# Exercice 2.
+# a. PGCD(45 ; 225)
+-----------------------------------------------------------------------------------
+− Utilisation de l'algorithme de factorisation en facteurs premiers −
+Facteurs premiers de 45 :
+45	=>	3
+15	=>	3
+5	=>	5
+3 × 3 × 5
+3^2 × 5
+Facteurs premiers de 225 :
+225	=>	3
+75	=>	3
+25	=>	5
+5	=>	5
+3 × 3 × 5 × 5
+3^2 × 5^2
+Facteurs communs à 45 et 225 : 3 3 5
+PGCD(45 ; 225) : 3 × 3 × 5 = 45.
+

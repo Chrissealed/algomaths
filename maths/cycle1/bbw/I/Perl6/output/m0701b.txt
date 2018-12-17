@@ -1,0 +1,21 @@
+# Exercice 1.
+# b. PGCD(24 ; 84)
+-----------------------------------------------------------------------------------
+− Utilisation de l'algorithme de factorisation en facteurs premiers −
+Facteurs premiers de 24 :
+24	=>	2
+12	=>	2
+6	=>	2
+3	=>	3
+2 × 2 × 2 × 3
+2^3 × 3
+Facteurs premiers de 84 :
+84	=>	2
+42	=>	2
+21	=>	3
+7	=>	7
+2 × 2 × 3 × 7
+2^2 × 3 × 7
+Facteurs communs à 24 et 84 : 2 2 3
+PGCD(24 ; 84) : 2 × 2 × 3 = 12.
+

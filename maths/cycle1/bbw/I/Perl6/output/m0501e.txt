@@ -1,0 +1,8 @@
+Décomposez le nombre suivant en facteurs premiers.
+e. 98
+98	=>	2
+49	=>	7
+7	=>	7
+2 × 7 × 7
+2 × 7^2
+

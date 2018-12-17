@@ -1,0 +1,10 @@
+# Exercice 3.
+# a. PPCM(250 ; 125)
+-----------------------------------------------------------------------------------
+− Recherche du PPCM : Méthode par additions successives du plus grand nombre à lui-même −
+216 et 144 ont un diviseur commun autre que 1 : 2.
+Reste de la division de 216 par 144 : 72
+216 + 216 = 432
+Reste de la division de 432 par 144 : 0
+PPCM(144 ; 216) = 432.
+

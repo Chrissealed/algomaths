@@ -1,0 +1,15 @@
+# Exercice 4.
+# e. PPCM(403 ; 221)
+-----------------------------------------------------------------------------------
+− Recherche du PPCM : Méthode par décomposition en facteurs premiers −
+403 et 221 ont un diviseur commun autre que 1 : 13.
+403	=>	13
+31	=>	31
+13 × 31
+221	=>	13
+17	=>	17
+13 × 17
+En prenant les plus grands facteurs de chaque liste, 
+le PPCM de 403 et 221 équivaut donc à : 13 × 17 × 31.
+PPCM(403 ; 221) = 6851.
+

@@ -1,0 +1,25 @@
+# Exercice 2.
+# b. PGCD(144 ; 216)
+-----------------------------------------------------------------------------------
+− Utilisation de l'algorithme de factorisation en facteurs premiers −
+Facteurs premiers de 144 :
+144	=>	2
+72	=>	2
+36	=>	2
+18	=>	2
+9	=>	3
+3	=>	3
+2 × 2 × 2 × 2 × 3 × 3
+2^4 × 3^2
+Facteurs premiers de 216 :
+216	=>	2
+108	=>	2
+54	=>	2
+27	=>	3
+9	=>	3
+3	=>	3
+2 × 2 × 2 × 3 × 3 × 3
+2^3 × 3^3
+Facteurs communs à 144 et 216 : 2 2 2 3 3
+PGCD(144 ; 216) : 2 × 2 × 2 × 3 × 3 = 72.
+

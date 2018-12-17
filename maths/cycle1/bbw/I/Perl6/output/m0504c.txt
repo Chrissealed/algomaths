@@ -1,0 +1,8 @@
+Décomposez le nombre suivant en facteurs premiers.
+r. 722
+722	=>	2
+361	=>	19
+19	=>	19
+2 × 19 × 19
+2 × 19^2
+

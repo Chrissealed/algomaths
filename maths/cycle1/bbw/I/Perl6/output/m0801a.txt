@@ -1,0 +1,10 @@
+# Exercice 1.
+# a. PPCM(12 ; 30)
+-----------------------------------------------------------------------------------
+− Recherche du PPCM : Méthode par additions successives du plus grand nombre à lui-même −
+30 et 12 ont un diviseur commun autre que 1 : 2.
+Reste de la division de 30 par 12 : 6
+30 + 30 = 60
+Reste de la division de 60 par 12 : 0
+PPCM(12 ; 30) = 60.
+

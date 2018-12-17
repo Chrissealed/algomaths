@@ -2,17 +2,28 @@
 
 use v6;
 use corrective;
+use teeput;
 use method08_123 :methodwording1, :exe02e, :examples;
 use ppcm;
 
 sub answering {
+    class T does Tput {}
+    my $t = T.new(
+        filepath => 'output/m0802e.txt',
+        filemode => ':a', # :mode<wo>, :create, :append
+        writefile => True,
+        closefile => False,
+    );
+
     my $ppcm = PPCM.new(
+        t => $t,
         integer1 => 250,
         integer2 => 125,
     );
-    say "-- Utilisation de la méthode 1 --";
     my Int $int = $ppcm.by-larger-number-multiples();
-    say "PPCM(250 ; 125) = $int.";
+    $t.tput: "PPCM(250 ; 125) = $int.";
+    $t.closefile = True;
+    $t.tprint: "\n";
 }
 
 exercise_02e();

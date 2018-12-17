@@ -1,0 +1,8 @@
+# Exercice 2.
+# e. PPCM(33 ; 121)
+-----------------------------------------------------------------------------------
+− Recherche du PPCM : Méthode par additions successives du plus grand nombre à lui-même −
+250 et 125 ont un diviseur commun autre que 1 : 5.
+Reste de la division de 250 par 125 : 0
+PPCM(250 ; 125) = 250.
+

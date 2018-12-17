@@ -1,0 +1,22 @@
+# Exercice 1.
+# d. PGCD(32 ; 56)
+-----------------------------------------------------------------------------------
+− Utilisation de l'algorithme de factorisation en facteurs premiers −
+Facteurs premiers de 32 :
+32	=>	2
+16	=>	2
+8	=>	2
+4	=>	2
+2	=>	2
+2 × 2 × 2 × 2 × 2
+2^5
+Facteurs premiers de 56 :
+56	=>	2
+28	=>	2
+14	=>	2
+7	=>	7
+2 × 2 × 2 × 7
+2^3 × 7
+Facteurs communs à 32 et 56 : 2 2 2
+PGCD(32 ; 56) : 2 × 2 × 2 = 8.
+

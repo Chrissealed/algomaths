@@ -1,0 +1,9 @@
+Décomposez le nombre suivant en facteurs premiers.
+q. 441
+441	=>	3
+147	=>	3
+49	=>	7
+7	=>	7
+3 × 3 × 7 × 7
+3^2 × 7^2
+

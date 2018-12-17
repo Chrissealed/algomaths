@@ -2,12 +2,22 @@
 
 use v6;
 use corrective;
+use teeput;
 use method09 :methodwording, :exe02e, :examples;
 use pgcd;
 use ppcm;
 
 sub answering {
+    class T does Tput {}
+    my $t = T.new(
+        filepath => 'output/m0902e.txt',
+        filemode => ':a', # :mode<wo>, :create, :append
+        writefile => True,
+        closefile => False,
+    );
+
     my $pgcd = PGCD.new(
+        t => $t,
         integer1 => 189,
         integer2 => 252,
     );
@@ -15,18 +25,21 @@ sub answering {
     $pgcd.integer1 = $pd;
     $pgcd.integer2 = 315;
     $pd = $pgcd.euclide_algorithm();
-    say "PGCD(189 ; 252 ; 315) = $pd.";
+    $t.tput: "PGCD(189 ; 252 ; 315) = $pd.";
 
     my $ppcm = PPCM.new(
+        t => $t,
         integer1 => 189,
         integer2 => 252,
     );
-    say();
+    $t.tprint: "\n";
     my Int $pm = $ppcm.by-use-of-pgcd();
     $ppcm.integer1 = $pm;
     $ppcm.integer2 = 315;
     $pm = $ppcm.by-use-of-pgcd();
-    say "PPCM(189 ; 252 ; 315) = $pm.";
+    $t.tput: "PPCM(189 ; 252 ; 315) = $pm.";
+    $t.closefile = True;
+    $t.tprint: "\n";
 }
 
 exercise_02e();

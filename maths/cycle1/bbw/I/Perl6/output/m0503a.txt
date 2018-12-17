@@ -1,0 +1,12 @@
+Décomposez le nombre suivant en facteurs premiers.
+k. 972
+972	=>	2
+486	=>	2
+243	=>	3
+81	=>	3
+27	=>	3
+9	=>	3
+3	=>	3
+2 × 2 × 3 × 3 × 3 × 3 × 3
+2^2 × 3^5
+

@@ -1,0 +1,10 @@
+Déterminez tous les facteurs du nombre suivant.
+a. 72
+1	<=>	72
+2	<=>	36
+3	<=>	24
+4	<=>	18
+6	<=>	12
+8	<=>	9
+[1 2 3 4 6 8 9 12 18 24 36 72]
+

@@ -1,0 +1,10 @@
+Déterminez tous les facteurs du nombre suivant.
+e. 196
+1	<=>	196
+2	<=>	98
+4	<=>	49
+7	<=>	28
+14	<=>	14
+196 est un carré parfait! : 14 × 14
+[1 2 4 7 14 14 28 49 98 196]
+
