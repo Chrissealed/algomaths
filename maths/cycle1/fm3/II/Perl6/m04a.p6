@@ -20,8 +20,9 @@ sub answering {
         t => $t,
         nudepair1 => 4 => 11,
         nudepair2 => 5 => 3,
-        breakdown'factors => False,
-        compute'prime'factors => False,
+        breakdown-numerators => False,
+        breakdown-denominators => False,
+        compute-prime-factors => False,
         which-irreducible-fraction-algorithm => 'euclide',
         which-pgcd-algorithm => 'subtraction',
     );

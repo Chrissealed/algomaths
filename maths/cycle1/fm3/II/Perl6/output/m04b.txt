@@ -4,25 +4,21 @@
 -----------------------------------------------------------------------------------
 Les fractions −7/3 et −1/−28 sont irréductibles.
 Signe du produit de -7/3 par -1/-28 : −.
+
 On multiplie les numérateurs de chaque fraction puis les dénominateurs :
-Facteurs premiers de -1 :
--1	=>	1
--1 est un nombre premier!
-Il n'admet que 1 et lui-même comme diviseurs.
-Facteurs premiers obtenus pour -7 -1 : 1 7;
+Facteurs obtenus pour (-7;-1) : 1 7.
 
-Facteurs premiers de -28 :
--7	=>	7
--14	=>	2
--28	=>	2
-7 × 2 × 2
+facteurs premiers de 28 :
+28	=>	2
+14	=>	2
+7	=>	7
+2 × 2 × 7
 2^2 × 7
-Facteurs premiers obtenus pour 3 -28 : 2 2 3 7;
 
-Réduction des facteurs du numérateur :
-facteurs réduits résultants de 1 7 : 1.
-Réduction des facteurs du dénominateur :
-facteurs réduits résultants de 2 2 3 7 : 2 2 3.
+Facteurs obtenus pour (3;-28) : 2 2 3 7.
+
+Facteurs résultants de 1 7 : 1;
+Facteurs résultants de 2 2 3 7 : 2 2 3.
 Fraction résultante : -1/12.
 
 On simplifie la dernière fraction obtenue :

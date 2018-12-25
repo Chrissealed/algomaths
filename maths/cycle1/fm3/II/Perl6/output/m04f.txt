@@ -4,38 +4,21 @@
 -----------------------------------------------------------------------------------
 Les fractions 7/4 et 4/−7 sont irréductibles.
 Signe du produit de 7/4 par 4/-7 : −.
+
 On multiplie les numérateurs de chaque fraction puis les dénominateurs :
-Facteurs premiers de 7 :
-7	=>	1
-7 est un nombre premier!
-Il n'admet que 1 et lui-même comme diviseurs.
-1 × 7.
-Facteurs premiers de 4 :
-4	=>	2
-2	=>	2
-2 × 2
-2^2
-Facteurs premiers obtenus pour 7 4 : 2 2 7;
+Facteurs obtenus pour (7;4) : 4 7.
 
-Facteurs premiers de 4 :
-4	=>	2
-2	=>	2
-2 × 2
-2^2
-Facteurs premiers de -7 :
--7	=>	1
--7 est un nombre premier!
-Il n'admet que 1 et lui-même comme diviseurs.
-1 × -7.
-Facteurs premiers obtenus pour 4 -7 : 2 2 7;
+Facteurs obtenus pour (4;-7) : 4 7.
 
-Réduction des facteurs du numérateur :
-facteurs réduits résultants de 2 2 7 : .
-Réduction des facteurs du dénominateur :
-facteurs réduits résultants de 2 2 7 : .
-Fraction résultante : -1/1.
+Fraction résultante : -28/28.
 
 On simplifie la dernière fraction obtenue :
+-28 et 28 ont un diviseur commun autre que 1 : 2.
+− Calcul du PGCD : Utilisation de l'algorithme des soustractions −
+PGCD(-28 ; 28) = 28.
+On simplifie avec le PGCD trouvé :
+-28/28 = 28 × -1 / 28 × 1
+-28/28 = -1/1
 La fraction -1/1 est irréductible.
 Fraction résolue : -1.
 

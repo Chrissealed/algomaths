@@ -4,13 +4,16 @@
 -----------------------------------------------------------------------------------
 Les fractions 1/2, −1/4 et 1/8 sont irréductibles.
 Signe du produit de 1/2 par -1/4 et 1/8 : −.
+
 On multiplie les numérateurs de chaque fraction puis les dénominateurs :
-Réduction des facteurs du numérateur :
-facteurs réduits résultants de 1 -1 1 : 1 1 1.
-Réduction des facteurs du dénominateur :
-facteurs réduits résultants de 2 4 8 : 2 4 8.
+Facteurs obtenus pour (1;-1;1) : 1 1 1.
+
+Facteurs obtenus pour (2;4;8) : 2 4 8.
+
+Facteurs résultants de 1 1 1 : 1 1 1;
+Facteurs résultants de 2 4 8 : 2 4 8.
 Fraction résultante : -1/64.
 
 On simplifie la dernière fraction obtenue :
-La fraction -1/64 est irréductible.
+La fraction 1/64 est irréductible.
 

@@ -4,11 +4,16 @@
 -----------------------------------------------------------------------------------
 Les fractions 4/11 et 5/3 sont irréductibles.
 Signe du produit de 4/11 par 5/3 : +.
+
 On multiplie les numérateurs de chaque fraction puis les dénominateurs :
+Facteurs obtenus pour (4;5) : 4 5.
+
+Facteurs obtenus pour (11;3) : 3 11.
+
 Fraction résultante : 20/33.
 
 On simplifie la dernière fraction obtenue :
-− Utilisation de l'algorithme des soustractions −
+− Calcul du PGCD : Utilisation de l'algorithme des soustractions −
 33 - 20 = 13 d'où PGCD(33 ; 20) = PGCD(20 ; 13)
 20 - 13 = 7 d'où PGCD(20 ; 13) = PGCD(13 ; 7)
 13 - 7 = 6 d'où PGCD(13 ; 7) = PGCD(7 ; 6)

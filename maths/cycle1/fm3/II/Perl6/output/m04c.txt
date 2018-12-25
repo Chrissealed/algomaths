@@ -4,41 +4,37 @@
 -----------------------------------------------------------------------------------
 Les fractions −4/−3 et −21/−20 sont irréductibles.
 Signe du produit de -4/-3 par -21/-20 : +.
+
 On multiplie les numérateurs de chaque fraction puis les dénominateurs :
-Facteurs premiers de -4 :
--2	=>	2
--4	=>	2
+Facteurs premiers de 4 :
+4	=>	2
+2	=>	2
 2 × 2
 2^2
-Facteurs premiers de -21 :
--7	=>	7
--21	=>	3
-7 × 3
-Facteurs premiers obtenus pour -4 -21 : 2 2 3 7;
+Facteurs premiers de 21 :
+21	=>	3
+7	=>	7
+3 × 7
 
-Facteurs premiers de -3 :
--3	=>	1
--3 est un nombre premier!
-Il n'admet que 1 et lui-même comme diviseurs.
-1 × -3.
-Facteurs premiers de -20 :
--5	=>	5
--10	=>	2
--20	=>	2
-5 × 2 × 2
+Facteurs obtenus pour (-4;-21) : 2 2 3 7.
+
+facteurs premiers de 20 :
+20	=>	2
+10	=>	2
+5	=>	5
+2 × 2 × 5
 2^2 × 5
-Facteurs premiers obtenus pour -3 -20 : 2 2 3 5;
 
-Réduction des facteurs du numérateur :
-facteurs réduits résultants de 2 2 3 7 : 7.
-Réduction des facteurs du dénominateur :
-facteurs réduits résultants de 2 2 3 5 : 5.
+Facteurs obtenus pour (-3;-20) : 2 2 3 5.
+
+Facteurs résultants de 2 2 3 7 : 7;
+Facteurs résultants de 2 2 3 5 : 5.
 Fraction résultante : 7/5.
 
 On simplifie la dernière fraction obtenue :
-− Utilisation de l'algorithme d'Euclide −
+− Calcul du PGCD : Utilisation de l'algorithme d'Euclide −
 PGCD(7 ; 5) = PGCD(5 ; 2)
-PGCD(5 ; 2) = PGCD(2 ; 1)
+PGCD(7 ; 5) = PGCD(2 ; 1)
 Le reste de la division de 2 par 1 est nul,
 donc PGCD(7 ; 5) = 1.
 7 et 5 n'ont pas de diviseurs communs autre que 1.

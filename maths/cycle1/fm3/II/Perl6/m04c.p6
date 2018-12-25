@@ -20,6 +20,10 @@ sub answering {
         t => $t,
         nudepair1 => -4 => -3,
         nudepair2 => -21 => -20,
+        breakdown-numerators => True,
+        breakdown-denominator2 => True,
+        #reduce-last-one => False,
+        reduce-last-once => False,
         which-irreducible-fraction-algorithm => 'e',
         which-pgcd-algorithm => 'e',
     );

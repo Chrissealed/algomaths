@@ -19,10 +19,11 @@ sub answering {
     my $fraction = OperationsOnFractions.new(
         t => $t,
         nudepair1 => 3 => 5,
-        breakdown-factors1 => False,
         nudepair2 => 5 => 7,
-        breakdown-factors2 => False,
         nudepair3 => 7 => 9,
+        breakdown-numerators => False,
+        breakdown-denominator3 => True,
+        #breakdown-denominators => False,
         reduce-last-one => False,
         which-irreducible-fraction-algorithm => '÷',
         which-pgcd-algorithm => ':',

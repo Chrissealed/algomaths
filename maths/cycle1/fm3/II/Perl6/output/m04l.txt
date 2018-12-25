@@ -4,25 +4,20 @@
 -----------------------------------------------------------------------------------
 Les fractions 3/5, 5/7 et 7/9 sont irréductibles.
 Signe du produit de 3/5 par 5/7 et 7/9 : +.
-On multiplie les numérateurs de chaque fraction puis les dénominateurs :
-Facteurs premiers de 7 :
-7	=>	1
-7 est un nombre premier!
-Il n'admet que 1 et lui-même comme diviseurs.
-1 × 7.
-Facteurs premiers obtenus pour 3 5 7 : 3 5 7;
 
-Facteurs premiers de 9 :
+On multiplie les numérateurs de chaque fraction puis les dénominateurs :
+Facteurs premiers obtenus pour (3;5;7) : 3 5 7.
+
+facteurs premiers de 9 :
 9	=>	3
 3	=>	3
 3 × 3
 3^2
-Facteurs premiers obtenus pour 5 7 9 : 3 3 5 7;
 
-Réduction des facteurs du numérateur :
-facteurs réduits résultants de 3 5 7 : .
-Réduction des facteurs du dénominateur :
-facteurs réduits résultants de 3 3 5 7 : 3.
+Facteurs premiers obtenus pour (5;7;9) : 3 3 5 7.
+
+Facteurs premiers résultants de 3 5 7 : 1;
+Facteurs premiers résultants de 3 3 5 7 : 3.
 Fraction résultante : 1/3.
 
 

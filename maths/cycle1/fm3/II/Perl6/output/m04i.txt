@@ -4,20 +4,22 @@
 -----------------------------------------------------------------------------------
 Les fractions −16/33 et −9/20 sont irréductibles.
 Signe du produit de -16/33 par -9/20 : +.
+
 On multiplie les numérateurs de chaque fraction puis les dénominateurs :
-Facteurs premiers de -16 :
--2	=>	2
--4	=>	2
--8	=>	2
--16	=>	2
+Facteurs premiers de 16 :
+16	=>	2
+8	=>	2
+4	=>	2
+2	=>	2
 2 × 2 × 2 × 2
 2^4
-Facteurs premiers de -9 :
--3	=>	3
--9	=>	3
+Facteurs premiers de 9 :
+9	=>	3
+3	=>	3
 3 × 3
 3^2
-Facteurs premiers obtenus pour -16 -9 : 2 2 2 2 3 3;
+
+Facteurs premiers obtenus pour (-16;-9) : 2 2 2 2 3 3.
 
 Facteurs premiers de 33 :
 33	=>	3
@@ -29,20 +31,19 @@ Facteurs premiers de 20 :
 5	=>	5
 2 × 2 × 5
 2^2 × 5
-Facteurs premiers obtenus pour 33 20 : 2 2 3 5 11;
 
-Réduction des facteurs du numérateur :
-facteurs réduits résultants de 2 2 2 2 3 3 : 2 2 3.
-Réduction des facteurs du dénominateur :
-facteurs réduits résultants de 2 2 3 5 11 : 5 11.
+Facteurs premiers obtenus pour (33;20) : 2 2 3 5 11.
+
+Facteurs premiers résultants de 2 2 2 2 3 3 : 2 2 3;
+Facteurs premiers résultants de 2 2 3 5 11 : 5 11.
 Fraction résultante : 12/55.
 
 On simplifie la dernière fraction obtenue :
-− Utilisation de l'algorithme d'Euclide −
-PGCD(55 ; 12) = PGCD(12 ; 7)
-PGCD(12 ; 7) = PGCD(7 ; 5)
-PGCD(7 ; 5) = PGCD(5 ; 2)
-PGCD(5 ; 2) = PGCD(2 ; 1)
+− Calcul du PGCD : Utilisation de l'algorithme d'Euclide −
+PGCD(12 ; 55) = PGCD(12 ; 7)
+PGCD(12 ; 55) = PGCD(7 ; 5)
+PGCD(12 ; 55) = PGCD(5 ; 2)
+PGCD(12 ; 55) = PGCD(2 ; 1)
 Le reste de la division de 2 par 1 est nul,
 donc PGCD(12 ; 55) = 1.
 12 et 55 n'ont pas de diviseurs communs autre que 1.

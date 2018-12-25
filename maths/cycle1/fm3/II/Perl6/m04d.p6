@@ -21,8 +21,9 @@ sub answering {
         nudepair1 => 3 => 7,
         nudepair2 => 5 => 11,
         nudepair3 => 7 => 2,
-        breakdown'factors => False,
-        compute'prime'factors => True, # Valeur par défaut
+        breakdown-numerators => False,
+        breakdown-denominators => False,
+        compute-prime-factors => True, # Valeur par défaut
         which-irreducible-fraction-algorithm => '×',
         which-pgcd-algorithm => '÷',
     );

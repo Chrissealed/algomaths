@@ -20,6 +20,8 @@ sub answering {
         t => $t,
         nudepair1 => -5 => 7,
         nudepair2 => -5 => 7,
+        breakdown-numerators => False,
+        breakdown-denominators => False,
     );
     my Pair $P = $fraction.calculate-fractions('×');
 

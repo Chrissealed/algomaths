@@ -4,15 +4,18 @@
 -----------------------------------------------------------------------------------
 Les fractions 5/7, 2/−13 et 7/−3 sont irréductibles.
 Signe du produit de 5/7 par 2/-13 et 7/-3 : +.
+
 On multiplie les numérateurs de chaque fraction puis les dénominateurs :
-Réduction des facteurs du numérateur :
-facteurs réduits résultants de 5 2 7 : 5 2.
-Réduction des facteurs du dénominateur :
-facteurs réduits résultants de 7 -13 -3 : 13 3.
+Facteurs obtenus pour (5;2;7) : 2 5 7.
+
+Facteurs obtenus pour (7;-13;-3) : 3 7 13.
+
+Facteurs résultants de 2 5 7 : 2 5;
+Facteurs résultants de 3 7 13 : 3 13.
 Fraction résultante : 10/39.
 
 On simplifie la dernière fraction obtenue :
-− Utilisation de l'algorithme de factorisation en facteurs premiers −
+− Calcul du PGCD : Utilisation de l'algorithme de factorisation en facteurs premiers −
 Facteurs premiers de 10 :
 10	=>	2
 5	=>	5
