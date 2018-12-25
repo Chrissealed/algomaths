@@ -3,9 +3,9 @@ unit module pgcd;
 use v6;
 
 =begin pod
-=NAME class PGCD in B<algomaths> Perl6 modules : maths/modules/pm6/pgcd.pm6
+=NAME class PGCD in B<algomaths> Perl6 modules : maths/modules/pm6/B<pgcd.pm6>
 =AUTHOR https://github.com/Chrissealed/algomaths.git
-=VERSION 2018.12.16
+=VERSION 2018.12.23
 
 =for head1
 Ce module contient la classe PGCD qui dispose du rôle 'PrimeFactors'.
@@ -253,7 +253,7 @@ si a = b, alors PGCD(a;b) = a = b et si a > b, PGCD(a;b) = PGCD(b;a-b).
         my Int $z = $x - $y;
         # Si le dividende et le diviseur sont égaux
         if ($x == $y) {
-            $!t.tput: "PGCD($x ; $y) = $x.";
+            $!t.tput: "PGCD($!integer1 ; $!integer2) = $x.";
             return $x;
         }
         loop {
@@ -268,7 +268,7 @@ si a = b, alors PGCD(a;b) = a = b et si a > b, PGCD(a;b) = PGCD(b;a-b).
             elsif ($y == $z) {
                 $!t.tput: "$x - $y = $z d'où PGCD($x ; $y) = PGCD($y ; $z)";
                 $!t.tput: "or PGCD($y ; $z) = $z";
-                $!t.tput: "On est arrivé à deux nombres égaux, donc PGCD($.integer1 ; $.integer2) = $z.";
+                $!t.tput: "On est arrivé à deux nombres égaux, donc PGCD($!integer1 ; $!integer2) = $z.";
                 return $z;
             }
             $z = $x - $y;
@@ -310,7 +310,7 @@ a par b.
         my Int $pgcd;
         # Si le dividende et le diviseur sont égaux
         if $dividend == $divisor {
-            $!t.tput: "PGCD($dividend ; $divisor) = $dividend.";
+            $!t.tput: "PGCD($!integer1 ; $!integer2) = $dividend.";
             return $dividend;
         }
         repeat {
@@ -327,9 +327,9 @@ a par b.
                 } else {
                     $pgcd = $r;
                 }
-                $!t.tput: "PGCD($dividend ; $divisor) = PGCD($div ; $r)";
                 $dividend = $div;
                 $divisor = $r;
+                $!t.tput: "PGCD($!integer1 ; $!integer2) = PGCD($div ; $r)";
             }
             elsif ($r > $div) {
                 $div = $rest;
@@ -341,9 +341,9 @@ a par b.
                 } else {
                     $pgcd = $div;
                 }
-                $!t.tput: "PGCD($dividend ; $divisor) = PGCD($div ; $r)";
                 $dividend = $r;
                 $divisor = $div;
+                $!t.tput: "PGCD($!integer1 ; $!integer2) = PGCD($div ; $r)";
             }
             elsif ($divisor == $rest) {
                 $rest = 0;

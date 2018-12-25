@@ -5,7 +5,7 @@ use v6;
 =begin pod
 =NAME class B<PrimeFactors> in B<algomaths> Perl6 modules : maths/modules/pm6/B<prime-factors.pm6>
 =AUTHOR https://github.com/Chrissealed/algomaths.git
-=VERSION 2018.12.16
+=VERSION 2018.12.22
 
 =for head1
 Ce module contient un rôle : 'PrimeFactors'
@@ -39,7 +39,7 @@ use teeput;
 role PrimeFactors is export {
     has Teeput::Tput $.t is required is rw;
 
-    method breakdown(Int:D $integer is copy where { ($integer != 0) or die "Argument invalide! Nombre entier différent de 0 requis." } --> Hash:D) {
+    method breakdown(Int:D $integer is copy where { ($integer != 0) or die "Argument invalide! Entier relatif différent de 0 requis." } --> Hash:D) {
         #my @prime = (2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79);
         my Int $intcopy = $integer;
         my %prime{Int};
@@ -133,7 +133,7 @@ role PrimeFactors is export {
 =begin pod
 =for head2
 La deuxième méthode :
-reduce-fractions-prime-factors(Int:D @numerators is copy, Int:D @denominators is copy, Int:D $return-array --> Array:D) {}
+reduce-fractions-prime-factors(Int:D @numerators is copy, Int:D @denominators is copy, Int $return-array = 1 --> Array:D) {}
 
 qui prend 2 tableaux de B<Int> en arguments et délivre pour chacun des 2 tableaux
 un troisième et quatrième tableau contenant les valeurs qui se trouvent dans l'un des tableaux
@@ -142,12 +142,12 @@ Selon la valeur de l'argument B<$return-array> (1 ou 2),
 le premier tableau ou le deuxième tableau sera retourné,
 pour disposer des valeurs contenues dans les 2 tableaux,
 il faudra faire deux appels avec une valeur différente de B<$return-array>
-pour chacun d'eux.
+pour chacun d'eux. 1 est la valeur par défaut du paramètre.
 =end pod
 
-    method reduce-fractions-prime-factors(Int:D @numerators is copy, Int:D @denominators is copy, Int:D $return-array --> Array:D) {
-        my Int @a = ();
-        my Int @b = ();
+    method reduce-fractions-prime-factors(Int:D @numerators is copy, Int:D @denominators is copy, Int $return-array = 1 --> Array:D) {
+        my Int @n = ();
+        my Int @d = ();
         my Int $i = 0;
         my Int $j = 0;
         if (@numerators.elems <= @denominators.elems) {
@@ -181,16 +181,16 @@ pour chacun d'eux.
 
         for @numerators -> $elem {
             # Pallier aux effets de bord des nombres négatifs
-            push @a, abs($elem) if ($elem != 0);
+            push @n, abs($elem) if ($elem != 0);
         }
         for @denominators -> $elem {
-            push @b, abs($elem) if ($elem != 0);
+            push @d, abs($elem) if ($elem != 0);
         }
 
         if ($return-array == 1) {
-            return @a;
+            return @n;
         } else {
-            return @b;
+            return @d;
         }
     }
 
