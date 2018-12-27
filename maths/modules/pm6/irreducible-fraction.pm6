@@ -5,7 +5,7 @@ use v6;
 =begin pod
 =NAME class B<IrreducibleFraction> in B<algomaths> Perl6 modules : maths/modules/pm6/B<irreducible-fraction.pm6>
 =AUTHOR https://github.com/Chrissealed/algomaths.git
-=VERSION 2018.12.25
+=VERSION 2018.12.27
 
 =for head1
 L'objectif de ce module est de renvoyer la fraction irréductible
@@ -201,11 +201,10 @@ class IrreducibleFraction is export {
             integer1 => $n,
             integer2 => $d,
         );
-        if !$are-prime.have-common-divisor($algo) {
+        if ! $are-prime.have-common-divisor($algo) {
             $!t.tput: "$n et $d sont premiers entre eux!";
             $!t.tput: "La fraction $n/$d est irréductible.";
             $pair = $sign ~ $n => $d;
-            $!t.tput: "Fraction résolue : {$pair.key.Int div $pair.value}.";
             return $pair;
         }
 
@@ -224,14 +223,12 @@ class IrreducibleFraction is export {
         if ($PGCD == 1 || $PGCD == -1) {
             $!t.tput: "La fraction $dividend/$divisor est irréductible.";
             $pair = $sign ~ $dividend => $divisor;
-            $!t.tput: "Fraction résolue : {$pair.key.Int div $pair.value}.";
             return $pair;
         } else {
             repeat {
                 if ($dividend == 1 || $dividend == -1) {
                     $pair = $dividend => $divisor;
                     $!t.tput: "La fraction $dividend/$divisor est irréductible.";
-                    $!t.tput: "Fraction résolue : {$pair.key.Int div $pair.value}.";
                     return $pair;
                 }
                 if ($divisor == 1 || $divisor == -1) {
@@ -242,12 +239,11 @@ class IrreducibleFraction is export {
                 }
                 $are-prime.integer1 = $dividend;
                 $are-prime.integer2 = $divisor;
-                if (!$are-prime.have-common-divisor) {
+                if ! $are-prime.have-common-divisor($algo) {
                     $!t.tput: "$dividend et $divisor sont premiers entre eux!";
                     $!t.tput: "La fraction $dividend/$divisor est irréductible.";
                     $PGCD = 1;
                     $pair = $sign ~ $dividend => $divisor;
-                    $!t.tput: "Fraction résolue : {$pair.key.Int div $pair.value}.";
                     return $pair;
                 }
                 $!t.tput: "et la fraction $sign$dividend/$divisor est réductible :";
@@ -262,7 +258,6 @@ class IrreducibleFraction is export {
             } until ($PGCD == 1 || $PGCD == -1);
             $!t.tput: "La fraction $dividend/$divisor est irréductible.";
             $pair = $sign ~ $dividend => $divisor;
-            $!t.tput: "Fraction résolue : {$pair.key.Int div $pair.value}.";
             return $pair;
         }
     }
@@ -299,7 +294,7 @@ class IrreducibleFraction is export {
             integer1 => $n,
             integer2 => $d,
         );
-        if !$are-prime.have-common-divisor($algo) {
+        if ! $are-prime.have-common-divisor($algo) {
             $!t.tput: "$n et $d sont premiers entre eux!";
             $!t.tput: "La fraction $sign$n/$d est irréductible.";
             $pair = $sign ~ $n => $d;
@@ -336,7 +331,7 @@ class IrreducibleFraction is export {
                 }
                 $are-prime.integer1 = $dividend;
                 $are-prime.integer2 = $divisor;
-                if !$are-prime.have-common-divisor($algo) {
+                if ! $are-prime.have-common-divisor($algo) {
                     $!t.tput: "$dividend et $divisor sont premiers entre eux!";
                     $!t.tput: "La fraction $sign$dividend/$divisor est irréductible.";
                     $PGCD = 1;

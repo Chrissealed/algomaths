@@ -11,14 +11,22 @@ https://github.com/Chrissealed/algomaths.git
 VERSION
 =======
 
-2018.12.24
+2018.12.27
 
 Ce module est destiné à faire des opérations sur des fractions.
 ===============================================================
 
-Il utilise les modules **ppcm.pm6**, **irreducible-fraction.pm6** et **prime-factors.pm6** et hérite du rôle **PrimeFactors**. La méthode principale de la classe **OperationsOnFractions** est **calculate-fractions(Str $operation)** ou le
+Il utilise les modules **ppcm.pm6**, **irreducible-fraction.pm6** et **prime-factors.pm6** et hérite du rôle **PrimeFactors**. La méthode principale de la classe **OperationsOnFractions** est **calculate-fractions(Str $operation)** ou le paramètre **$operation** peut être l'un des suivants :
 
-  * paramètre **$operation** est soit 'add-up' ou '+' ou 'a' soit 'subtract' ou '-' ou '−' ou 's', soit 'multiply' ou '*' ou '×' ou 'm' soit 'divide' ou ':' ou '÷' ou 'd', dans le cas ou il n'y a que deux fractions.
+  * 'add-up' ou '+' ou 'a',
+
+  * 'subtract' ou '-' ou '−' ou 's',
+
+  * 'multiply' ou '*' ou '×' ou 'm',
+
+  * 'divide' ou ':' ou '÷' ou 'd',
+
+ceci dans le cas ou il on opère que sur que deux fractions.
 
 Elle renvoie une **paire** (Pair) comme valeur de retour. Les champs obligatoires à renseigner sont **nudepair1**, et **nudepair2**, correspondant aux numérateur et dénominateur de chaque fraction sur laquelle pratiquer l'opération choisie.
 
@@ -28,7 +36,13 @@ Le champ suivant est facultatif :
 
   * **nudepair3**, pour lequel d'autres opérateurs sont disponibles pour l'**addition** et la **soustraction** uniquement, c'est-à-dire :
 
-  * 'add-upx2' ou '++' ou 'aa', 'subtractx2' ou '--' ou '−−' ou 'ss', 'add-up-subtract' ou '+-' ou '+−' ou 'as', et enfin 'subtract-add-up' ou '-+' ou '−+' ou 'sa'.
+  * 'add-upx2' ou '++' ou 'aa',
+
+  * 'subtractx2' ou '--' ou '−−' ou 'ss',
+
+  * 'add-up-subtract' ou '+-' ou '+−' ou 'as', et enfin
+
+  * 'subtract-add-up' ou '-+' ou '−+' ou 'sa'.
 
 Ensuite, trois champs booléens facultatifs associés aux champs **nudepair1**, **nudepair2** et **nudepair3** servent à préciser si l'on effectue la réduction de la fraction en question avant le traitement des données,
 
@@ -38,9 +52,9 @@ ces champs par défaut sont à **False**, autrement dit on ne tente pas d'opére
 
   * **reduce-last-once** (**False** par défaut), et **reduce-last-one** (**True** par défaut);
 
-le premier visant dans le cadre de l'_addition_ ou de la _soustraction_ à réduire une seule fois la première fraction au terme du calcul dans une liste chaînée d'opérations (par exemple : +−), et le deuxième à réduire systématiquement la dernière fraction obtenue à tous les niveaux de cette liste ou bien lors d'une opération simple (+ ou −). Ces attributs visent à modifier les opérations de calcul de manière à produire plusieurs options pour générer un même résultat.
+le premier visant dans le cadre de l'**_addition_** ou de la **_soustraction_** à réduire une seule fois la première fraction au terme du calcul dans une liste chaînée d'opérations (par exemple : +−) lors du calcul de trois fractions, et le deuxième à réduire systématiquement la dernière fraction obtenue à tous les niveaux de cette liste ou bien lors d'une opération simple (+ ou −). Ces attributs visent à modifier les opérations de calcul de manière à produire plusieurs options pour générer un même résultat.
 
-Six autres attributs, peuvent être utilisés lors d'une opération de _multiplication_ ou de _division_, pour une granularité maximale, ce sont :
+Six autres attributs, peuvent être utilisés lors d'une opération de **_multiplication_** ou de **_division_**, pour une granularité maximale, ce sont :
 
   * **breakdown-numerator1**, réduire en facteurs premiers le numérateur de la première fraction,
 
@@ -56,13 +70,13 @@ Six autres attributs, peuvent être utilisés lors d'une opération de _multipli
 
 Ces six attributs ont par défaut la valeur **False**.
 
-Viennent ensuite deux autres champs facultatifs utilisables pour la _multiplication_ ou la _division_ de fractions uniquement et qui jouent avec les six attributs décrits précédemment :
+Viennent ensuite deux autres champs facultatifs utilisables pour la **_multiplication_** ou la **_division_** de fractions uniquement et qui jouent avec les six attributs décrits précédemment :
 
   * **breakdown-numerators**
 
   * **breakdown-denominators** 
 
-qui pour le premier réduit en facteurs premiers les numérateurs de chaque fraction et le deuxième réduit en facteurs premiers les dénominateurs de chaque fraction; ces deux attributs sont tous les deux à **True** par défaut.
+qui pour le premier réduit en facteurs premiers les numérateurs de chaque fraction et le deuxième réduit en facteurs premiers les dénominateurs de chaque fraction; ces attributs sont tous les deux à **True** par défaut.
 
 Vous disposez ainsi de deux niveaux de contrôle, l'un global pour tous les numérateurs et/ou dénominateurs et l'autre pour un contrôle dont la granularité vous permet d'agir exactement sur les numérateurs et/ou dénominateurs de chaque fraction séparément.
 
@@ -70,7 +84,7 @@ Note: chaque fois que vous mettez à **True** l'un des six attributs granulaires
 
   * L'attribut **compute-prime-factors**
 
-enfin permet de supprimer les facteurs en double dans le numérateur et le dénominateur de toutes les fractions pour opérer leur réduction. Ce champ est à **True** par défaut lui aussi.
+enfin permet de supprimer les facteurs en double dans le numérateur et le dénominateur de deux fractions pour opérer leur réduction. Ce champ est à **True** par défaut lui aussi.
 
 Les autres champs, facultatifs, sont destinés à choisir parmi les diverses méthodes utilisées pour le calcul des méthodes de classes appelées en interne :
 
@@ -82,7 +96,7 @@ Les autres champs, facultatifs, sont destinés à choisir parmi les diverses mé
 
   * 'by-use-of-pgcd' ou 'b.u.o.p.' ou 'by-p' ou 'bp' (utilisé par défaut).
 
-Ce dernier attribut n'est **pas** utilisé pour la _multiplication_ ou la _division_, mais uniquement pour l'_addition_ ou la _soustraction_ afin de choisir l'algorithme qui sera utilisé pour le calcul par la classe PPCM.
+Ce dernier attribut n'est **pas** utilisé pour la **_multiplication_** ou la **_division_**, mais uniquement pour l'**_addition_** ou la **_soustraction_** afin de choisir l'algorithme qui sera utilisé pour le calcul par la classe PPCM.
 
   * **which-irreducible-fraction-algorithm** peut prendre les valeurs :
 
@@ -106,7 +120,7 @@ Cet attribut est destiné à choisir la méthode qui sera utilisée par la class
 
 Cet attribut peut être employé pour toutes les opérations; il détermine l'algorithme utilisé par la classe PGCD pour le calcul du PPCM.
 
-La classe possède en outre un attribut requis destiné à écrire dans un fichier les informations qui apparaissent à l'écran et qui décrivent les différentes étapes des opérations. Il s'agit de **Teeput::Tput $t is required is rw** : il faut lui passer un objet de type **Teeput::Tput** du module **teeput.pm6**. Référez-vous à la doc de ce module pour plus d'informations. Celui-ci est dérivé du rôle **PrimeFactors**.
+La classe possède en outre un **attribut requis** destiné à écrire dans un fichier les informations qui apparaissent à l'écran et qui décrivent les différentes étapes des opérations laissant ainsi un *témoin* du calcul effectué. Celui-ci (pour info) est défini dans le rôle sous-jacent **PrimeFactors**. Il s'agit de **Teeput::Tput $t is required is rw** : il faut lui passer un objet de type **Teeput::Tput** du module **teeput.pm6**. Ses méthodes sont utilisées en remplacement des méthodes **_put_** (tput), **_print_** (tprint) ou **_say_** (tsay). Référez-vous à la doc de ce module pour plus d'informations.
 
 Voici la liste des méthodes de la classe OperationsOnFractions :
 ================================================================
@@ -115,6 +129,11 @@ calculate-fractions(Str:D $operation --> Pair:D) {}
 ---------------------------------------------------
 
 Cette méthode est la principale de la classe, qui donne accès à toutes les autres méthodes − bien que celles-là ne soient pas privées et sont donc accessibles isolément − en employant un seul argument, le type d'opération à effectuer. (Voir plus haut)
+
+are-they-prime(Int:D @numerators, Int:D @denominators --> Pair:D) {}
+--------------------------------------------------------------------
+
+Cette méthode a pour but de déterminer si les numérateurs et les dénominateurs sont des facteurs premiers. Les arguments correspondant sont des tableaux de 2 ou 3 éléments. Si oui, les attributs de la classe en lecture seule **are-prime-nu** et/ou **are-prime-de** sont passés à **True**. La méthode renvoie une paire constituée de deux valeurs booléenes : la première composante correspondant aux numérateurs et la deuxième au dénominateurs.
 
 reduce-fraction(Int:D $numerator, Int:D $denominator, Str $sign = '' --> Pair:D) {}
 -----------------------------------------------------------------------------------
@@ -130,9 +149,9 @@ Cette méthode destinée à obtenir la fraction irréductible à partir du numé
 add-up(Pair:D $pair1, Pair:D $pair2, Int $times = 0 --> Pair:D) {}
 ------------------------------------------------------------------
 
-Cette méthode renvoie l'addition des numérateurs et dénominateurs passés aux attributs de la classe, c'est-à-dire, **nudepair1** et **nudepair2**. Elle utilise les modules **ppcm.pm6** et **pgcd.pm6**, ainsi que la méthode de la classe **reduce-fraction**(Int:D $numerator, Int:D $denominator, Str $sign = '' --> Pair:D) {}
+Cette méthode renvoie l'addition des numérateurs et dénominateurs passés aux attributs de la classe, c'est-à-dire, **nudepair1** et **nudepair2**. Elle utilise les modules **ppcm.pm6** et **pgcd.pm6**, ainsi que la méthode de la classe **reduce-fraction**(Int:D $numerator, Int:D $denominator, Str $sign = '' --> Pair:D) {} par l'entremise de laquelle sont appelées les méthodes du module **irreducible-fraction.pm6**.
 
-Le paramètre **$times** s'il est mis à 1 et que l'attribut de la classe **reduce-last-on_c_e** est passé à **True**, la méthode ne réduira pas la fraction résultante lors d'un premier appel, mais la réduira lors d'un appel subséquent lors de l'effectuation d'un calcul sur trois fractions par la méthode **calculate-fractions**(Str:D $operation --> Pair:D) {} Elle renvoie une **paire** constituée du numérateur et du dénominateur de la fraction résultante.
+Le paramètre **$times** s'il est mis à 1 et que l'attribut de la classe **reduce-last-on**_c_e**** est passé à **True**, la méthode ne réduira pas la fraction résultante lors d'un premier appel, mais la réduira lors d'un appel subséquent lors de l'effectuation d'un calcul sur trois fractions par la méthode **calculate-fractions**(Str:D $operation --> Pair:D) {} Elle renvoie une **paire** constituée du numérateur et du dénominateur de la fraction résultante.
 
 add-upx2(Pair:D $pair1, Pair:D $pair2, Pair:D $pair3 --> Pair:D) {}
 -------------------------------------------------------------------
@@ -149,8 +168,8 @@ subtractx2(Pair:D $pair1, Pair:D $pair2, Pair:D $pair3 --> Pair:D) {}
 
 Cette méthode renvoie la soustraction des numérateurs et dénominateurs passés aux attributs de la classe, c'est-à-dire, **nudepair1**, **nudepair2** et **nudepair3** pour calculer la différence de trois fractions. Elle utilise les modules **ppcm.pm6** et **pgcd.pm6**, ainsi que la méthode de la classe : **reduce-fraction($numerator, $denominator)**. Elle renvoie une **paire** constituée par le numérateur et le dénominateur de la fraction résultante.
 
-add-up-subtract(Pair:D $pair1, Pair:D $pair2, Pair:D $pair3 --> Pair:D)
------------------------------------------------------------------------
+add-up-subtract(Pair:D $pair1, Pair:D $pair2, Pair:D $pair3 --> Pair:D) {}
+--------------------------------------------------------------------------
 
 Cette méthode renvoie l'addition des numérateurs et dénominateurs passés aux attributs de la classe, c'est-à-dire, **nudepair1** et **nudepair2**, et la soustraction des numérateurs et dénominateurs passés à l'argument **nudepair3** pour calculer la somme des deux premières fractions et la différence du résultat et de la troisième fraction. Elle utilise les modules **ppcm.pm6** et **pgcd.pm6**, ainsi que la méthode de la classe : **reduce-fraction($numerator, $denominator)**. Elle renvoie une **paire** constituée par le numérateur et le dénominateur de la fraction résultante.
 
@@ -162,7 +181,7 @@ Cette méthode est l'inverse de la précédente, c'est-à-dire qu'elle renvoie l
 breakdown-factors(Int:D @array-of-factors, Str:D $nu'de --> Array:D) {}
 -----------------------------------------------------------------------
 
-Cette méthode décompose un tableau de facteurs en facteurs premiers. (remarquez le séparateur ' qui est parfaitement valide en Perl 6). Elle utilise la méthode **breakdown** du rôle **PrimeFactors**. L'argument **$nu'de** peut contenir les valeurs **nu** ou **de** (pour 'numerator'/'denominator') pour indiquer à la fonction qu'elle doit retourner soit un tableau des numérateurs, soit un tableau des dénominateurs. Consultez la documentation du module **prime-factors.pm6** pour plus d'informations.
+Cette méthode décompose un tableau de facteurs en facteurs premiers. (remarquez le séparateur ' du deuxième paramètre qui est parfaitement valide en Perl 6). Elle utilise la méthode **breakdown** du rôle **PrimeFactors**. L'argument **$nu'de** peut contenir les valeurs **nu** ou **de** (pour 'numerator'/'denominator') pour indiquer à la fonction qu'elle doit retourner soit un tableau des numérateurs, soit un tableau des dénominateurs. Consultez la documentation du module **prime-factors.pm6** pour plus d'informations.
 
 breakdown-numerator(Int:D $numerator --> Array:D) {}
 ----------------------------------------------------
@@ -177,17 +196,17 @@ Cette méthode permet d'ajouter de la granularité aux opérations en réduisant
 fractions-product-sign(Pair:D $p1, Pair $p2:D, Pair $p3? --> Str:D) {}
 ----------------------------------------------------------------------
 
-Cette méthode est utilisée pour déduire le signe du résultat du produit des fractions passées en arguments aux attributs de la classe que sont **nudepair1**, **nudepair2** et facultativement **nudepair3** avant d'effectuer les calculs. Elle retourne '+' ou '−'.
+Cette méthode est utilisée pour déduire le signe du résultat du produit des fractions passées en arguments aux attributs de la classe que sont **nudepair1**, **nudepair2** et facultativement **nudepair3** avant d'effectuer les calculs. Cette méthode est employée uniquement pour des opérations de **multiplication** ou de **division**. Elle retourne '+' ou '−' qui seront convertis en '' ou '-' pour leur utilisation effective.
 
 multiply(Pair:D $pair1, Pair:D $pair2, Pair $pair3? --> Pair:D) {}
 ------------------------------------------------------------------
 
 Cette méthode est utilisée pour multiplier deux ou trois fractions données en arguments sous forme de paires numérateur => dénominateur passées aux attributs de classe **nudepair1**, **nudepair2** et facultativement **nudepair3**. Elle retourne une nouvelle **paire**.
 
-reduce-fractions-prime-factors(Int:D @numerators, Int:D @denominators, Int $return-array = 1 --> Array:D)
----------------------------------------------------------------------------------------------------------
+reduce-fractions-prime-factors(Int:D @numerators, Int:D @denominators, Int $return-array = 1 --> Array:D) {}
+------------------------------------------------------------------------------------------------------------
 
-Cette méthode appartient au rôle **PrimeFactors** : elle consiste à produire les facteurs qui sont dans l'un des tableaux mais pas dans l'autre. Il faut passer l'argument 1 (c'est la valeur par défaut) à l'argument **$return-array** pour retourner le premier tableau, c'est-à-dire les numérateurs ou 2 pour retourner le deuxième tableau, celui des dénominateurs. Consultez aussi la documentation du module **prime-factors.pm6**.
+Cette méthode appartient au rôle **PrimeFactors** : elle consiste à produire les facteurs qui sont dans l'un des tableaux mais pas dans l'autre. Il faut passer l'argument 1 (c'est la valeur par défaut) à l'argument **$return-array** pour retourner le premier tableau, c'est-à-dire les numérateurs ou 2 pour retourner le deuxième tableau, celui des dénominateurs. Elle est implémentée ici directement dans le code et n'est donc pas disponible comme méthode du module **operations-on-fractions** mais seulement comme méthode du module **prime-factors.pm6** dont je rappelle qu'il définit le rôle **PrimeFactors** employé par la classe **OperationsOnFractions**. Consultez aussi la documentation du module **prime-factors.pm6**.
 
 deliver-fraction-sign(Int:D $key, Int:D $value --> Str:D) {}
 ------------------------------------------------------------

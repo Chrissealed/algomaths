@@ -5,7 +5,7 @@ use v6;
 =begin pod
 =NAME B<OperationsOnFractions> : B<algomaths> Perl 6 module in /maths/modules/pm6/B<operations-on-fractions.pm6>
 =AUTHOR  https://github.com/Chrissealed/algomaths.git
-=VERSION 2018.12.25
+=VERSION 2018.12.27
 
 =for head1
 Ce module est destiné à faire des opérations sur des fractions.
@@ -15,10 +15,13 @@ et B<prime-factors.pm6>
 et hérite du rôle B<PrimeFactors>.
 La méthode principale de la classe B<OperationsOnFractions>
 est B<calculate-fractions(Str $operation)> ou le
-=item paramètre B<$operation> est soit 'add-up' ou '+' ou 'a'
-soit 'subtract' ou '-' ou '−' ou 's', soit 'multiply' ou '*' ou '×' ou 'm'
-soit 'divide' ou ':' ou '÷' ou 'd',
-dans le cas ou il n'y a que deux fractions.
+paramètre B<$operation> peut être l'un des suivants :
+=item 'add-up' ou '+' ou 'a',
+=item 'subtract' ou '-' ou '−' ou 's',
+=item 'multiply' ou '*' ou '×' ou 'm',
+=item 'divide' ou ':' ou '÷' ou 'd',
+
+ceci dans le cas ou il on opère que sur que deux fractions.
 
 Elle renvoie une B<paire> (Pair) comme valeur de retour.
 Les champs obligatoires à renseigner sont B<nudepair1>, et B<nudepair2>,
@@ -46,9 +49,10 @@ Le champ suivant est facultatif :
 =item B<nudepair3>, pour lequel
 d'autres opérateurs sont disponibles pour l'B<addition>
 et la B<soustraction> uniquement, c'est-à-dire :
-=item 'add-upx2' ou '++' ou 'aa', 'subtractx2' ou '--' ou '−−' ou 'ss',
-'add-up-subtract' ou '+-' ou '+−' ou 'as', et enfin
-'subtract-add-up' ou '-+' ou '−+' ou 'sa'.
+=item 'add-upx2' ou '++' ou 'aa',
+=item 'subtractx2' ou '--' ou '−−' ou 'ss',
+=item 'add-up-subtract' ou '+-' ou '+−' ou 'as', et enfin
+=item 'subtract-add-up' ou '-+' ou '−+' ou 'sa'.
 
 Ensuite, trois champs booléens facultatifs associés aux champs
 B<nudepair1>, B<nudepair2> et B<nudepair3> servent à préciser si l'on
@@ -66,10 +70,10 @@ sur deux autres attributs Booléens :
 =item B<reduce-last-once> (B<False> par défaut), et
 B<reduce-last-one> (B<True> par défaut);
 
-le premier visant dans le cadre de l'U<addition> ou de la U<soustraction>
+le premier visant dans le cadre de l'B<U<addition>> ou de la B<U<soustraction>>
 à réduire une seule fois
 la première fraction au terme du calcul dans une liste chaînée
-d'opérations (par exemple : +−),
+d'opérations (par exemple : +−) lors du calcul de trois fractions,
 et le deuxième à réduire systématiquement la dernière
 fraction obtenue à tous les niveaux de cette liste
 ou bien lors d'une opération simple (+ ou −).
@@ -78,7 +82,7 @@ de manière à produire plusieurs options pour générer
 un même résultat.
 
 Six autres attributs, peuvent être utilisés lors d'une opération de
-U<multiplication> ou de U<division>, pour une granularité maximale, ce sont :
+B<U<multiplication>> ou de B<U<division>>, pour une granularité maximale, ce sont :
 =item B<breakdown-numerator1>, réduire en facteurs premiers le numérateur de la première fraction,
 =item B<breakdown-numerator2>, réduire en facteurs premiers le numérateur de la deuxième fraction,
 =item B<breakdown-numerator3>, réduire en facteurs premiers le numérateur de la troisième fraction facultative.
@@ -89,14 +93,14 @@ U<multiplication> ou de U<division>, pour une granularité maximale, ce sont :
 Ces six attributs ont par défaut la valeur B<False>.
 
 Viennent ensuite deux autres champs facultatifs
-utilisables pour la U<multiplication> ou la U<division> de fractions uniquement
+utilisables pour la B<U<multiplication>> ou la B<U<division>> de fractions uniquement
 et qui jouent avec les six attributs décrits précédemment :
 =item B<breakdown-numerators>
 =item B<breakdown-denominators> 
 
 qui pour le premier réduit en facteurs premiers les numérateurs de chaque fraction
 et le deuxième réduit en facteurs premiers les dénominateurs de chaque fraction;
-ces deux attributs sont tous les deux à B<True> par défaut.
+ces attributs sont tous les deux à B<True> par défaut.
 
 Vous disposez ainsi de deux niveaux de contrôle,
 l'un global pour tous les numérateurs et/ou dénominateurs
@@ -111,7 +115,7 @@ et/ou B<breakdown-denominators>) est automatiquement désactivé.
 =item L'attribut B<compute-prime-factors>
 
 enfin permet de supprimer les facteurs en double
-dans le numérateur et le dénominateur de toutes les fractions
+dans le numérateur et le dénominateur de deux fractions
 pour opérer leur réduction. Ce champ est à B<True>
 par défaut lui aussi.
 
@@ -124,8 +128,8 @@ B<which-ppcm-algorithm>, peut prendre l'une des valeurs suivantes :
 =item 'by-prime-factors' ou 'b.p.f.' ou 'by-f' ou 'bf';
 =item 'by-use-of-pgcd' ou 'b.u.o.p.' ou 'by-p' ou 'bp' (utilisé par défaut).
 
-Ce dernier attribut n'est B<pas> utilisé pour la U<multiplication> ou la U<division>,
-mais uniquement pour l'U<addition> ou la U<soustraction>
+Ce dernier attribut n'est B<pas> utilisé pour la B<U<multiplication>> ou la B<U<division>>,
+mais uniquement pour l'B<U<addition>> ou la B<U<soustraction>>
 afin de choisir l'algorithme qui sera utilisé pour le calcul
 par la classe PPCM.
 =for item
@@ -148,14 +152,16 @@ Cet attribut peut être employé pour toutes les opérations;
 il détermine l'algorithme utilisé par la classe PGCD
 pour le calcul du PPCM.
 
-La classe possède en outre un attribut requis destiné à écrire
+La classe possède en outre un B<attribut requis> destiné à écrire
 dans un fichier les informations qui apparaissent à l'écran
-et qui décrivent les différentes étapes des opérations.
+et qui décrivent les différentes étapes des opérations
+laissant ainsi un I<témoin> du calcul effectué.
+Celui-ci (pour info) est défini dans le rôle sous-jacent B<PrimeFactors>.
 Il s'agit de B<Teeput::Tput $t is required is rw> :
 il faut lui passer un objet de type B<Teeput::Tput> du module
-B<teeput.pm6>. Référez-vous à la doc de ce module
-pour plus d'informations.
-Celui-ci est dérivé du rôle B<PrimeFactors>.
+B<teeput.pm6>. Ses méthodes sont utilisées en remplacement des méthodes
+B<U<put>> (tput), B<U<print>> (tprint) ou B<U<say>> (tsay).
+Référez-vous à la doc de ce module pour plus d'informations.
 =end pod
 
 use ppcm;
@@ -188,11 +194,11 @@ class OperationsOnFractions does PrimeFactors is export {
     has Bool $.breakdown-denominator3 is rw = False;
     # Attributs globaux pour tous les numérateurs
     # et dénominateurs de toutes les fractions
-    # dans le cadre de la U<multiplication> ou de la U<division> uniquement
+    # dans le cadre de la multiplication ou de la division uniquement
     has Bool $.breakdown-numerators is rw = True;
-    has Bool $.are-prime-nu = True;
+    has Bool $.are-prime-nu = False;
     has Bool $.breakdown-denominators is rw = True;
-    has Bool $.are-prime-de = True;
+    has Bool $.are-prime-de = False;
     has Bool $.compute-prime-factors is rw = True;
     
     # Pour l'addition et la soustraction
@@ -246,6 +252,18 @@ en employant un seul argument, le type d'opération
 à effectuer. (Voir plus haut)
 
 =for head2
+are-they-prime(Int:D @numerators, Int:D @denominators --> Pair:D) {}
+
+Cette méthode a pour but de déterminer si les numérateurs et les
+dénominateurs sont des facteurs premiers.
+Les arguments correspondant sont des tableaux de 2 ou 3 éléments.
+Si oui, les attributs de la classe en lecture seule B<are-prime-nu> et/ou
+B<are-prime-de> sont passés à B<True>.
+La méthode renvoie une paire constituée de deux valeurs booléenes :
+la première composante correspondant aux numérateurs
+et la deuxième au dénominateurs.
+
+=for head2
 reduce-fraction(Int:D $numerator, Int:D $denominator, Str $sign = '' --> Pair:D) {}
 
 Cette méthode destinée à obtenir la fraction irréductible
@@ -266,6 +284,33 @@ Le signe + n'est pas écrit, il est géré par la valeur par défaut de B<$sign>
 une chaîne vide.
 =end pod
 
+    method are-they-prime(Int:D @numerators, Int:D @denominators --> Pair:D) {
+        if defined($!nudepair3) {
+            if is-prime(@numerators[0]) && is-prime(@numerators[1]) && is-prime(@numerators[2]) {
+                $!are-prime-nu = True;
+            } else { $!are-prime-nu = False; }
+        }
+        else {
+            if is-prime(@numerators[0]) && is-prime(@numerators[1]) {
+                $!are-prime-nu = True;
+            } else { $!are-prime-nu = False; }
+        }
+
+        if defined($!nudepair3) {
+            if is-prime(@denominators[0]) && is-prime(@denominators[1]) && is-prime(@denominators[2]) {
+                $!are-prime-de = True;
+            } else { $!are-prime-de = False; }
+        }
+        else {
+            if is-prime(@denominators[0]) && is-prime(@denominators[1]) {
+                $!are-prime-de = True;
+            } else { $!are-prime-de = False; }
+        }
+        my Pair $are-they-prime;
+        $are-they-prime = $!are-prime-nu => $!are-prime-de;
+        return $are-they-prime;
+    }
+    
     method reduce-fraction(Int:D $numerator, Int:D $denominator, Str $sign = '' --> Pair:D) {
         my Pair $P;
         my Str $irreducible-fraction-algorithm = $!which-irreducible-fraction-algorithm;
@@ -282,7 +327,6 @@ une chaîne vide.
             when $euclide-one-junction { $P = $irreducible.reduce-fraction-with-euclide-algorithm($sign); }
             when $subtraction-one-junction { $P = $irreducible.reduce-fraction-with-subtraction-algorithm($sign); }
             when $factorization-one-junction { $P = $irreducible.reduce-fraction-with-factorization-algorithm($sign); }
-            #default { $P = $irreducible.reduce-fraction-with-euclide-algorithm(); }
         }
         $P = Int($P.key) => $P.value;
         return $P;
@@ -298,9 +342,11 @@ B<nudepair1> et B<nudepair2>.
 Elle utilise les modules B<ppcm.pm6> et B<pgcd.pm6>,
 ainsi que la méthode de la classe
 B<reduce-fraction>(Int:D $numerator, Int:D $denominator, Str $sign = '' --> Pair:D) {}
+par l'entremise de laquelle sont appelées les méthodes du module
+B<irreducible-fraction.pm6>.
 
 Le paramètre B<$times> s'il est mis à 1
-et que l'attribut de la classe B<reduce-last-onU<c>e>
+et que l'attribut de la classe B<reduce-last-onB<U<c>e>>
 est passé à B<True>, la méthode ne réduira pas la fraction résultante
 lors d'un premier appel, mais la réduira lors d'un appel subséquent
 lors de l'effectuation d'un calcul sur trois fractions par la méthode 
@@ -351,7 +397,6 @@ de la fraction résultante.
                 when $by-larger-number-multiples-one-junction { $PPCM = $ppcm.by-larger-number-multiples; }
                 when $by-prime-factors-one-junction { $PPCM = $ppcm.by-prime-factors; }
                 when $by-use-of-pgcd-one-junction { $PPCM = $ppcm.by-use-of-pgcd; }
-                #default { $p = $ppcm.by-use-of-pgcd; }
             }
             $multiple1 = $PPCM div $d1;
             $multiple2 = $PPCM div $d2;
@@ -453,7 +498,6 @@ de la fraction résultante.
                 when $by-larger-number-multiples-one-junction { $PPCM = $ppcm.by-larger-number-multiples; }
                 when $by-prime-factors-one-junction { $PPCM = $ppcm.by-prime-factors; }
                 when $by-use-of-pgcd-one-junction { $PPCM = $ppcm.by-use-of-pgcd; }
-                #default { $p = $ppcm.by-use-of-pgcd; }
             }
             $multiple1 = $PPCM div $d1;
             $multiple2 = $PPCM div $d2;
@@ -550,7 +594,7 @@ de la fraction résultante.
 breakdown-factors(Int:D @array-of-factors, Str:D $nu'de --> Array:D) {}
 
 Cette méthode décompose un tableau de facteurs en facteurs premiers.
-(remarquez le séparateur ' qui est parfaitement valide en Perl 6).
+(remarquez le séparateur ' du deuxième paramètre qui est parfaitement valide en Perl 6).
 Elle utilise la méthode B<breakdown> du rôle B<PrimeFactors>.
 L'argument B<$nu'de> peut contenir les valeurs B<nu> ou B<de>
 (pour 'numerator'/'denominator') pour indiquer à la fonction
@@ -648,7 +692,10 @@ Cette méthode est utilisée pour déduire le signe du résultat
 du produit des fractions passées en arguments aux attributs
 de la classe que sont B<nudepair1>, B<nudepair2> et
 facultativement B<nudepair3> avant d'effectuer les calculs.
-Elle retourne '+' ou '−'.
+Cette méthode est employée uniquement pour des opérations
+de B<multiplication> ou de B<division>.
+Elle retourne '+' ou '−' qui seront convertis en '' ou '-'
+pour leur utilisation effective.
 =end pod
 
     method fractions-product-sign(Pair:D $p1, Pair:D $p2, Pair $p3? --> Str:D) {
@@ -707,6 +754,9 @@ Elle retourne une nouvelle B<paire>.
                 $sign = '-';
             }
         }
+        my Int ($n1, $n2) = 0;
+        my Int ($d1, $d2) = 0;
+
         $!t.tprint: "\n";
         my Int @numerators = ();
         my Int @denominators = ();
@@ -720,20 +770,14 @@ Elle retourne une nouvelle B<paire>.
             @n1 = |$.breakdown-numerator($P1.key);
         }
         else {
-            if ($!compute-prime-factors) {
-                push @n1, $P1.key;
-            }
-            else { push @n1, $P1.key; $!are-prime-nu = False; }
+            push @n1, $P1.key;
         }
         if ($!breakdown-numerator2) {
             $!breakdown-numerators = False;
             @n2 = |$.breakdown-numerator($P2.key);
         }
         else {
-            if ($!compute-prime-factors) {
-                push @n2, $P2.key;
-            }
-            else { push @n2, $P2.key; $!are-prime-nu = False; }
+            push @n2, $P2.key;
         }
         if defined($pair3) {
             if ($!breakdown-numerator3) {
@@ -741,10 +785,7 @@ Elle retourne une nouvelle B<paire>.
                 @n3 = |$.breakdown-numerator($P3.key);
             }
             else {
-                if ($!compute-prime-factors) {
-                    push @n3, $P3.key;
-                }
-                else { push @n3, $P3.key; $!are-prime-nu = False; }
+                push @n3, $P3.key;
             }
         }
         push @numerators, |@n1, |@n2;
@@ -752,19 +793,8 @@ Elle retourne une nouvelle B<paire>.
         if ($!breakdown-numerators) {
             @numerators = |$.breakdown-factors(@numerators, 'nu');
         }
-        else { $!are-prime-nu = False; }
         $numerator = [*] @numerators;
         @numerators = @numerators.sort;
-
-        if defined($pair3) {
-            $!are-prime-nu ?? $!t.tprint: "Facteurs premiers " !! $!t.tprint: "Facteurs ";
-            $!t.tput: "obtenus pour ({$pair1.key};{$pair2.key};{$pair3.key}) : @numerators[].";
-            $!t.tprint: "\n";
-        } else {
-            $!are-prime-nu ?? $!t.tprint: "Facteurs premiers " !! $!t.tprint: "Facteurs ";
-            $!t.tput: "obtenus pour ({$pair1.key};{$pair2.key}) : @numerators[].";
-            $!t.tprint: "\n";
-        }
 
         my Int (@d1, @d2, @d3) = ();
         if ($!breakdown-denominator1) {
@@ -772,20 +802,14 @@ Elle retourne une nouvelle B<paire>.
             @d1 = |$.breakdown-denominator($P1.value);
         }
         else {
-            if ($!compute-prime-factors) {
-                push @d1, $P1.value;
-            }
-            else { push @d1, $P1.value; $!are-prime-de = False; }
+            push @d1, $P1.value;
         }
         if ($!breakdown-denominator2) {
             $!breakdown-denominators = False;
             @d2 = |$.breakdown-denominator($P2.value);
         }
         else {
-            if ($!compute-prime-factors) {
-                push @d2, $P2.value;
-            }
-            else { push @d2, $P2.value; $!are-prime-de = False; }
+            push @d2, $P2.value;
         }
         if defined($pair3) {
             if ($!breakdown-denominator3) {
@@ -793,10 +817,7 @@ Elle retourne une nouvelle B<paire>.
                 @d3 = |$.breakdown-denominator($P3.value);
             }
             else {
-                if ($!compute-prime-factors) {
-                    push @d3, $P3.value;
-                }
-                else { push @d3, $P3.value; $!are-prime-de = False; }
+                push @d3, $P3.value;
             }
         }
         push @denominators, |@d1, |@d2;
@@ -804,18 +825,24 @@ Elle retourne une nouvelle B<paire>.
         if ($!breakdown-denominators) {
             @denominators = |$.breakdown-factors(@denominators, 'de');
         }
-        else { $!are-prime-de = False; }
         $denominator = [*] @denominators;
         @denominators = @denominators.sort;
 
+        my Pair $prime = $.are-they-prime(@numerators, @denominators); 
+        if defined($pair3) {
+            $!are-prime-nu ?? $!t.tprint: "Facteurs premiers " !! $!t.tprint: "Facteurs ";
+            $!t.tput: "obtenus pour {$pair1.key} × {$pair2.key} × {$pair3.key} = $numerator : @numerators[].";
+        } else {
+            $!are-prime-nu ?? $!t.tprint: "Facteurs premiers " !! $!t.tprint: "Facteurs ";
+            $!t.tput: "obtenus pour {$pair1.key} × {$pair2.key} = $numerator : @numerators[].";
+        }
+
         if defined($pair3) {
             $!are-prime-de ?? $!t.tprint: "Facteurs premiers " !! $!t.tprint: "Facteurs ";
-            $!t.tput: "obtenus pour ({$pair1.value};{$pair2.value};{$pair3.value}) : @denominators[].";
-            $!t.tprint: "\n";
+            $!t.tput: "obtenus pour {$pair1.value} × {$pair2.value} × {$pair3.value} = $denominator : @denominators[].";
         } else {
             $!are-prime-de ?? $!t.tprint: "Facteurs premiers " !! $!t.tprint: "Facteurs ";
-            $!t.tput: "obtenus pour ({$pair1.value};{$pair2.value}) : @denominators[].";
-            $!t.tprint: "\n";
+            $!t.tput: "obtenus pour {$pair1.value} × {$pair2.value} = $denominator : @denominators[].";
         }
 
 =begin pod
@@ -828,6 +855,11 @@ mais pas dans l'autre. Il faut passer l'argument 1 (c'est la valeur par défaut)
 à l'argument B<$return-array>
 pour retourner le premier tableau, c'est-à-dire les numérateurs
 ou 2 pour retourner le deuxième tableau, celui des dénominateurs.
+Elle est implémentée ici directement dans le code et n'est donc
+pas disponible comme méthode du module B<operations-on-fractions>
+mais seulement comme méthode du module B<prime-factors.pm6>
+dont je rappelle qu'il définit le rôle B<PrimeFactors>
+employé par la classe B<OperationsOnFractions>.
 Consultez aussi la documentation du module B<prime-factors.pm6>.
 =end pod
 
@@ -837,23 +869,24 @@ Consultez aussi la documentation du module B<prime-factors.pm6>.
             # Méthode du rôle PrimeFactors
             @prime-factors-n = |$.reduce-fractions-prime-factors(@numerators, @denominators, 1);
             $numerator = [*] @prime-factors-n;
-            $!are-prime-nu ?? $!t.tprint: "Facteurs premiers " !! $!t.tprint: "Facteurs ";
-            $!t.tprint: "résultants de ({$pair1.key};{$pair2.key}) : ";
-            @prime-factors-n.elems > 0 ?? $!t.tput: "@prime-factors-n[];" !! $!t.tput: '1;';
             # Méthode du rôle PrimeFactors
             @prime-factors-d = |$.reduce-fractions-prime-factors(@numerators, @denominators, 2);
             $denominator = [*] @prime-factors-d;
-            $!are-prime-de ?? $!t.tprint: "Facteurs premiers " !! $!t.tprint: "Facteurs ";
-            $!t.tprint: "résultants de ({$pair1.value};{$pair2.value}) : ";
-            @prime-factors-d.elems > 0 ?? $!t.tput: "@prime-factors-d[]." !! $!t.tput: '1.';
+            $!are-prime-nu && $!are-prime-de ?? $!t.tprint: "Facteurs premiers résultants : "
+                                             !! $!t.tprint: "Facteurs résultants : ";
+            if @prime-factors-n.elems != 0 {
+                $!t.tput: "@prime-factors-n[], @prime-factors-d[]."
+            } else {
+                $!t.tput: "1, @prime-factors-d[]."
+            }
         }
+
         $!t.tput: "Fraction résultante : $sign$numerator/$denominator.";
         $!t.tprint: "\n";
         my Pair $P;
         if ($!reduce-last-one) {
             $!t.tput: 'On simplifie la dernière fraction obtenue :';
             $P = $.reduce-fraction(Int($sign ~ $numerator), $denominator, $sign);
-            #$P = $.reduce-fraction($numerator, $denominator, $sign);
         } else {
             $P = Int($sign ~ $numerator) => $denominator;
         }
