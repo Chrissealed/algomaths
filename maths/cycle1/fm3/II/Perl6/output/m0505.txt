@@ -1,0 +1,40 @@
+# Exercice 5.
+# ------------------
+# Chez un fleuriste, les cinq huitièmes des fleurs sont blanches.
+# Parmi les fleurs blanches, les deux tiers sont des orchidées.
+# Quelle fraction du nombre total de fleurs représente les orchidées blanches ?
+-----------------------------------------------------------------------------------
+Les orchidées blanches représentent deux tiers des cinq huitièmes du nombre total de fleurs.
+Les fractions 2/3 et 5/8 sont irréductibles.
+Signe du produit de 2/3 par 5/8 : +.
+
+On multiplie les numérateurs de chaque fraction puis les dénominateurs :
+facteurs premiers de 8 :
+8	=>	2
+4	=>	2
+2	=>	2
+2 × 2 × 2
+2^3
+
+Facteurs premiers obtenus pour 2 × 5 = 10 : 2 5.
+Facteurs premiers obtenus pour 3 × 8 = 24 : 2 2 2 3.
+Facteurs premiers résultants : 5, 2 2 3.
+Fraction résultante : 5/12.
+
+On simplifie la dernière fraction obtenue :
+− Calcul du PGCD : Utilisation de l'algorithme de comparaison des listes de tous les diviseurs −
+Diviseurs de 5 :
+1	<=>	5
+5 est un nombre premier!
+Diviseurs de 12 :
+1	<=>	12
+2	<=>	6
+3	<=>	4
+Les diviseurs communs à 5 et 12 sont : 1
+
+Le PGCD de 5 et 12 est 1.
+5 et 12 n'ont pas de diviseurs communs autre que 1.
+5 et 12 sont premiers entre eux!
+La fraction 5/12 est irréductible.
+Les orchidées blanches représentent 5/12 du nombre total de fleurs.
+

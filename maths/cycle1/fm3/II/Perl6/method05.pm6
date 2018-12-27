@@ -2,8 +2,21 @@ unit module Method05;
 
 use v6;
 
+=begin pod
+=NAME B<Method05> : Perl 6 module in B<algomaths>/maths/cycle1/fm3/II/Perl6/B<method05.pm6>
+=AUTHOR  https://github.com/Chrissealed/algomaths.git
+=VERSION 2018.12.17
+=end pod
+
+use teeput;
+
+class T does Teeput::Tput {}
+my $t = T.new(
+    writefile => True,
+);
+    
 sub put-up-method is export(:methodwording) {
-    put qq:to/EOM/;
+    my $message = qq:to/EOM/;
 # Chapitre II : NOMBRES RELATIFS EN ÉCRITURE FRACTIONNAIRE : OPÉRATIONS.
 ###################################################################################
 # Méthode 5.
@@ -16,6 +29,9 @@ sub put-up-method is export(:methodwording) {
 ###################################################################################
 
 EOM
+    $t.filepath = 'output/method05.txt';
+    $t.filemode = ':x'; # :mode<wo>, :create, :exclusive
+    $t.tput($message);
 }
 
 sub show-examples is export(:examples) {
@@ -23,56 +39,80 @@ sub show-examples is export(:examples) {
 }
 
 sub exercise_01 is export(:exe01) {
-    put '# Exercice 1.';
-    put '# ------------------';
-    put '# Une bouteille de trois quart de litres est remplie au deux tiers.';
-    put '# Quelle quantité de liquide, en fraction de litres, est dans cette bouteille ?';
-    put '-----------------------------------------------------------------------------------';
+    $t.filepath = 'output/m0501.txt';
+    $t.filemode = ':w'; # :mode<wo>, :create, :truncate
+    $t.tput: '# Exercice 1.';
+    $t.filemode = ':a'; # :mode<wo>, :create, :append
+    $t.closefile = False;
+    $t.tput: '# ------------------';
+    $t.tput: '# Une bouteille de trois quart de litres est remplie au deux tiers.';
+    $t.tput: '# Quelle quantité de liquide, en fraction de litres, est dans cette bouteille ?';
+    $t.tput: '-----------------------------------------------------------------------------------';
 }
 
 sub exercise_02 is export(:exe02) {
-    put '# Exercice 2.';
-    put '# ------------------';
-    put '# Dans une entreprise, les deux tiers des employés sont des hommes et les deux cinquièmes';
-    put '# de ceux-ci ont moins de 35 ans.';
-    put '# Quelle fraction du nombre total d\'employés représente les hommes de moins de 35 ans ?';
-    put '-----------------------------------------------------------------------------------';
+    $t.filepath = 'output/m0502.txt';
+    $t.filemode = ':w'; # :mode<wo>, :create, :truncate
+    $t.tput: '# Exercice 2.';
+    $t.filemode = ':a'; # :mode<wo>, :create, :append
+    $t.closefile = False;
+    $t.tput: '# ------------------';
+    $t.tput: '# Dans une entreprise, les deux tiers des employés sont des hommes et les deux cinquièmes';
+    $t.tput: '# de ceux-ci ont moins de 35 ans.';
+    $t.tput: '# Quelle fraction du nombre total d\'employés représente les hommes de moins de 35 ans ?';
+    $t.tput: '-----------------------------------------------------------------------------------';
 }
 
 sub exercise_03 is export(:exe03) {
-    put '# Exercice 3.';
-    put '# ------------------';
-    put '# Les trois cinquième des candidats à un concours ont été admissibles à l\'écrit.';
-    put '# Les cinq septièmes de ceux-ci ont été reçus à ce concours après l\'oral';
-    put '# Quelle fraction du nombre total de candidats représente le nombre de candidats reçus ?';
-    put '-----------------------------------------------------------------------------------';
+    $t.filepath = 'output/m0503.txt';
+    $t.filemode = ':w'; # :mode<wo>, :create, :truncate
+    $t.tput: '# Exercice 3.';
+    $t.filemode = ':a'; # :mode<wo>, :create, :append
+    $t.closefile = False;
+    $t.tput: '# ------------------';
+    $t.tput: '# Les trois cinquième des candidats à un concours ont été admissibles à l\'écrit.';
+    $t.tput: '# Les cinq septièmes de ceux-ci ont été reçus à ce concours après l\'oral';
+    $t.tput: '# Quelle fraction du nombre total de candidats représente le nombre de candidats reçus ?';
+    $t.tput: '-----------------------------------------------------------------------------------';
 }
 
 sub exercise_04 is export(:exe04) {
-    put '# Exercice 4.';
-    put '# ------------------';
-    put '# Dans une colonie il y a quatre cinquièmes de garçons et trois quarts de ces garçons';
-    put '# ont moins de 5 ans.';
-    put '# Quelle fraction du nombre des enfants de cette colonie représente ceux qui ont';
-    put '# moins de 5 ans ?';
-    put '-----------------------------------------------------------------------------------';
+    $t.filepath = 'output/m0504.txt';
+    $t.filemode = ':w'; # :mode<wo>, :create, :truncate
+    $t.tput: '# Exercice 4.';
+    $t.filemode = ':a'; # :mode<wo>, :create, :append
+    $t.closefile = False;
+    $t.tput: '# ------------------';
+    $t.tput: '# Dans une colonie il y a quatre cinquièmes de garçons et trois quarts de ces garçons';
+    $t.tput: '# ont moins de 5 ans.';
+    $t.tput: '# Quelle fraction du nombre des enfants de cette colonie représente ceux qui ont';
+    $t.tput: '# moins de 5 ans ?';
+    $t.tput: '-----------------------------------------------------------------------------------';
 }
 
 sub exercise_05 is export(:exe05) {
-    put '# Exercice 5.';
-    put '# ------------------';
-    put '# Chez un fleuriste, les cinq huitièmes des fleurs sont blanches.';
-    put '# Parmi les fleurs blanches, les deux tiers sont des orchidées.';
-    put '# Quelle fraction du nombre total de fleurs représente les orchidées blanches ?';
-    put '-----------------------------------------------------------------------------------';
+    $t.filepath = 'output/m0505.txt';
+    $t.filemode = ':w'; # :mode<wo>, :create, :truncate
+    $t.tput: '# Exercice 5.';
+    $t.filemode = ':a'; # :mode<wo>, :create, :append
+    $t.closefile = False;
+    $t.tput: '# ------------------';
+    $t.tput: '# Chez un fleuriste, les cinq huitièmes des fleurs sont blanches.';
+    $t.tput: '# Parmi les fleurs blanches, les deux tiers sont des orchidées.';
+    $t.tput: '# Quelle fraction du nombre total de fleurs représente les orchidées blanches ?';
+    $t.tput: '-----------------------------------------------------------------------------------';
 }
 
 sub exercise_06 is export(:exe06) {
-    put '# Exercice 6.';
-    put '# ------------------';
-    put '# Dans une boîte de chocolat les deux tiers sont des chocolats au lait et la moitié';
-    put '# des chocolats au lait ont des noisettes.';
-    put '# Quelle fraction du nombre total de chocolats représente les chocolats au lait';
-    put '# et aux noisettes.';
-    put '-----------------------------------------------------------------------------------';
+    $t.filepath = 'output/m0506.txt';
+    $t.filemode = ':w'; # :mode<wo>, :create, :truncate
+    $t.tput: '# Exercice 6.';
+    $t.filemode = ':a'; # :mode<wo>, :create, :append
+    $t.closefile = False;
+    $t.tput: '# ------------------';
+    $t.tput: '# Dans une boîte de chocolat les deux tiers sont des chocolats au lait et la moitié';
+    $t.tput: '# des chocolats au lait ont des noisettes.';
+    $t.tput: '# Quelle fraction du nombre total de chocolats représente les chocolats au lait';
+    $t.tput: '# et aux noisettes.';
+    $t.tput: '-----------------------------------------------------------------------------------';
 }

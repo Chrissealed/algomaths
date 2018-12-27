@@ -1,0 +1,34 @@
+# Exercice 4.
+# ------------------
+# Dans une colonie il y a quatre cinquièmes de garçons et trois quarts de ces garçons
+# ont moins de 5 ans.
+# Quelle fraction du nombre des enfants de cette colonie représente ceux qui ont
+# moins de 5 ans ?
+-----------------------------------------------------------------------------------
+Les trois quarts des quatre cinquièmes des enfants sont
+des garçons de moins de 5 ans.
+Les fractions 3/4 et 4/5 sont irréductibles.
+Signe du produit de 3/4 par 4/5 : +.
+
+On multiplie les numérateurs de chaque fraction puis les dénominateurs :
+Facteurs obtenus pour 3 × 4 = 12 : 3 4.
+Facteurs obtenus pour 4 × 5 = 20 : 4 5.
+Facteurs résultants : 3, 5.
+Fraction résultante : 3/5.
+
+On simplifie la dernière fraction obtenue :
+− Calcul du PGCD : Utilisation de l'algorithme de comparaison des listes de tous les diviseurs −
+Diviseurs de 3 :
+1	<=>	3
+3 est un nombre premier!
+Diviseurs de 5 :
+1	<=>	5
+5 est un nombre premier!
+Les diviseurs communs à 3 et 5 sont : 1
+
+Le PGCD de 3 et 5 est 1.
+3 et 5 n'ont pas de diviseurs communs autre que 1.
+3 et 5 sont premiers entre eux!
+La fraction 3/5 est irréductible.
+Dans cette colonie, 3/5 des enfants sont des garçons de moins de cinq ans.
+

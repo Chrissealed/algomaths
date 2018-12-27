@@ -1,0 +1,18 @@
+# Exercice 3.
+# ------------------
+# Les trois cinquième des candidats à un concours ont été admissibles à l'écrit.
+# Les cinq septièmes de ceux-ci ont été reçus à ce concours après l'oral
+# Quelle fraction du nombre total de candidats représente le nombre de candidats reçus ?
+-----------------------------------------------------------------------------------
+Les cinq septièmes des trois cinquièmes des candidats ont été reçus.
+Les fractions 5/7 et 3/5 sont irréductibles.
+Signe du produit de 5/7 par 3/5 : +.
+
+On multiplie les numérateurs de chaque fraction puis les dénominateurs :
+Facteurs premiers obtenus pour 5 × 3 = 15 : 3 5.
+Facteurs premiers obtenus pour 7 × 5 = 35 : 5 7.
+Facteurs premiers résultants : 3/7.
+Fraction résultante : 3/7.
+
+3/7 du nombre total des candidats ont été reçus.
+

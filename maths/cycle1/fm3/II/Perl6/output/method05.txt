@@ -1,0 +1,12 @@
+# Chapitre II : NOMBRES RELATIFS EN ÉCRITURE FRACTIONNAIRE : OPÉRATIONS.
+###################################################################################
+# Méthode 5.
+# Comment résoudre un problème conduisant au calcul d'une fraction de fraction ?
+###################################################################################
+# Pour résoudre un problème conduisant au calcul d'une fraction de fraction :
+# ▲ on traduit l'énoncé par un produit de nombres en écriture fractionnaire;
+# ▲ on applique la méthode 4 de ce chapitre pour calculer l'expression;
+# ▲ on répond au problème en faisant une phrase.
+###################################################################################
+
+

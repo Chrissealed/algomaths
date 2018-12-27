@@ -1,0 +1,25 @@
+# Exercice 1.
+# ------------------
+# Une bouteille de trois quart de litres est remplie au deux tiers.
+# Quelle quantité de liquide, en fraction de litres, est dans cette bouteille ?
+-----------------------------------------------------------------------------------
+Dans cette bouteille, il y a deux tiers de trois quarts de litres de liquide.
+Les fractions 2/3 et 3/4 sont irréductibles.
+Signe du produit de 2/3 par 3/4 : +.
+
+On multiplie les numérateurs de chaque fraction puis les dénominateurs :
+facteurs premiers de 4 :
+4	=>	2
+2	=>	2
+2 × 2
+2^2
+
+Facteurs premiers obtenus pour 2 × 3 = 6 : 2 3.
+Facteurs premiers obtenus pour 3 × 4 = 12 : 2 2 3.
+Facteurs premiers résultants : 1/2.
+Fraction résultante : 1/2.
+
+On simplifie la dernière fraction obtenue :
+La fraction 1/2 est irréductible.
+Il y a 1/2 litre de liquide dans cette bouteille.
+

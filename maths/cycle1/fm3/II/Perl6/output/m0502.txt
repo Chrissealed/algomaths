@@ -1,0 +1,33 @@
+# Exercice 2.
+# ------------------
+# Dans une entreprise, les deux tiers des employés sont des hommes et les deux cinquièmes
+# de ceux-ci ont moins de 35 ans.
+# Quelle fraction du nombre total d'employés représente les hommes de moins de 35 ans ?
+-----------------------------------------------------------------------------------
+Les deux cinquièmes des deux tiers des employés
+sont des hommes de moins de 35 ans.
+Les fractions 2/3 et 2/5 sont irréductibles.
+Signe du produit de 2/3 par 2/5 : +.
+
+On multiplie les numérateurs de chaque fraction puis les dénominateurs :
+Facteurs premiers obtenus pour 2 × 2 = 4 : 2 2.
+Facteurs premiers obtenus pour 3 × 5 = 15 : 3 5.
+Fraction résultante : 4/15.
+
+On simplifie la dernière fraction obtenue :
+− Calcul du PGCD : Utilisation de l'algorithme de comparaison des listes de tous les diviseurs −
+Diviseurs de 4 :
+1	<=>	4
+2	<=>	2
+4 est un carré parfait! : 2 × 2
+Diviseurs de 15 :
+1	<=>	15
+3	<=>	5
+Les diviseurs communs à 4 et 15 sont : 1
+
+Le PGCD de 4 et 15 est 1.
+4 et 15 n'ont pas de diviseurs communs autre que 1.
+4 et 15 sont premiers entre eux!
+La fraction 4/15 est irréductible.
+Les hommes de moins de 35 ans représentent 4/15 du nombre total d'employés.
+
