@@ -5,7 +5,7 @@ use v6;
 =begin pod
 =NAME B<Method04> : Perl 6 module in B<algomaths>/maths/cycle1/fm3/II/Perl6/B<method04.pm6>
 =AUTHOR  https://github.com/Chrissealed/algomaths.git
-=VERSION 2018.12.17
+=VERSION 2018.12.30
 =end pod
 
 use teeput;
@@ -254,6 +254,6 @@ sub exercise_t is export(:exe-t) {
     $t.filemode = ':a'; # :mode<wo>, :create, :append
     $t.closefile = False;
     $t.tput: '# ------------------';
-    $t.tput: '# S = 7/12 × 4π/5.';
+    $t.tput: '# T = 7/12 × 4π/5.';
     $t.tput: '-----------------------------------------------------------------------------------'
 }
