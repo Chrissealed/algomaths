@@ -5,7 +5,7 @@ use v6;
 =begin pod
 =NAME class B<IrreducibleFraction> in B<algomaths> Perl6 modules : maths/modules/pm6/B<irreducible-fraction.pm6>
 =AUTHOR https://github.com/Chrissealed/algomaths.git
-=VERSION 2018.12.27
+=VERSION 2019.01.02
 
 =for head1
 L'objectif de ce module est de renvoyer la fraction irréductible
@@ -218,22 +218,22 @@ class IrreducibleFraction is export {
         $!t.tput: "On simplifie avec le PGCD trouvé :";
         my Int $dividend = $n div $PGCD;
         my Int $divisor = $d div $PGCD;
-        $!t.tput: "$n/$d = $PGCD × $dividend / $PGCD × $divisor";
-        $!t.tput: "$n/$d = $dividend/$divisor";
+        $!t.tput: "$sign$n/$d = $PGCD × $sign$dividend / $PGCD × $divisor";
+        $!t.tput: "$sign$n/$d = $sign$dividend/$divisor";
         if ($PGCD == 1 || $PGCD == -1) {
-            $!t.tput: "La fraction $dividend/$divisor est irréductible.";
+            $!t.tput: "La fraction $sign$dividend/$divisor est irréductible.";
             $pair = $sign ~ $dividend => $divisor;
             return $pair;
         } else {
             repeat {
                 if ($dividend == 1 || $dividend == -1) {
                     $pair = $dividend => $divisor;
-                    $!t.tput: "La fraction $dividend/$divisor est irréductible.";
+                    $!t.tput: "La fraction $sign$dividend/$divisor est irréductible.";
                     return $pair;
                 }
                 if ($divisor == 1 || $divisor == -1) {
                     $pair = $sign ~ $dividend => $divisor;
-                    $!t.tput: "La fraction $dividend/$divisor est irréductible.";
+                    $!t.tput: "La fraction $sign$dividend/$divisor est irréductible.";
                     $!t.tput: "Fraction résolue : {$pair.key.Int div $pair.value}.";
                     return $pair;
                 }
@@ -241,7 +241,7 @@ class IrreducibleFraction is export {
                 $are-prime.integer2 = $divisor;
                 if ! $are-prime.have-common-divisor($algo) {
                     $!t.tput: "$dividend et $divisor sont premiers entre eux!";
-                    $!t.tput: "La fraction $dividend/$divisor est irréductible.";
+                    $!t.tput: "La fraction $sign$dividend/$divisor est irréductible.";
                     $PGCD = 1;
                     $pair = $sign ~ $dividend => $divisor;
                     return $pair;
@@ -256,7 +256,7 @@ class IrreducibleFraction is export {
                 $dividend = $dvd;
                 $divisor = $dvs;
             } until ($PGCD == 1 || $PGCD == -1);
-            $!t.tput: "La fraction $dividend/$divisor est irréductible.";
+            $!t.tput: "La fraction $sign$dividend/$divisor est irréductible.";
             $pair = $sign ~ $dividend => $divisor;
             return $pair;
         }
@@ -311,8 +311,8 @@ class IrreducibleFraction is export {
         $!t.tput: "On simplifie avec le PGCD trouvé :";
         my Int $dividend = $n div $PGCD;
         my Int $divisor = $d div $PGCD;
-        $!t.tput: "$n/$d = $PGCD × $sign$dividend / $PGCD × $divisor";
-        $!t.tput: "$n/$d = $sign$dividend/$divisor";
+        $!t.tput: "$sign$n/$d = $PGCD × $sign$dividend / $PGCD × $divisor";
+        $!t.tput: "$sign$n/$d = $sign$dividend/$divisor";
         if ($PGCD == 1 || $PGCD == -1) {
             $pair = $sign ~ $dividend => $divisor;
             $!t.tput: "La fraction $sign$dividend/$divisor est irréductible.";
@@ -321,7 +321,7 @@ class IrreducibleFraction is export {
             repeat {
                 if ($dividend == 1 || $dividend == -1) {
                     $pair = $dividend => $divisor;
-                    $!t.tput: "La fraction $dividend/$divisor est irréductible.";
+                    $!t.tput: "La fraction $sign$dividend/$divisor est irréductible.";
                     return $pair;
                 }
                 if ($divisor == 1 || $divisor == -1) {
@@ -338,7 +338,7 @@ class IrreducibleFraction is export {
                     $pair = $sign ~ $dividend => $divisor;
                     return $pair;
                 }
-                $!t.tput: "La fraction $dividend/$divisor est réductible :";
+                $!t.tput: "La fraction $sign$dividend/$divisor est réductible :";
                 my Int $dvd = $dividend div $PGCD;
                 my Int $dvs = $divisor div $PGCD;
                 $!t.tput: "$dividend/$divisor = $PGCD × $dvd / $PGCD × $dvs";
