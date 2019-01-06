@@ -23,7 +23,7 @@
   </style>
   <link rel="stylesheet" href="design.perl6.org/perl.css">
   <meta name="author" value="https://github.com/Chrissealed/algomaths.git" />
-<meta name="version" value="2018.12.27" />
+<meta name="version" value="2019.01.04" />
   
 </head>
 <body class="pod">
@@ -50,7 +50,8 @@
           <tr class="toc-level-2"><td class="toc-number">2.13</td><td class="toc-text"><a href="#fractions-product-sign(Pair:D_$p1,_Pair_$p2:D,_Pair_$p3?_--&gt;_Str:D)_{}">fractions-product-sign(Pair:D $p1, Pair $p2:D, Pair $p3? --&gt; Str:D) {}</a></td></tr>
             <tr class="toc-level-2"><td class="toc-number">2.14</td><td class="toc-text"><a href="#multiply(Pair:D_$pair1,_Pair:D_$pair2,_Pair_$pair3?_--&gt;_Pair:D)_{}">multiply(Pair:D $pair1, Pair:D $pair2, Pair $pair3? --&gt; Pair:D) {}</a></td></tr>
           <tr class="toc-level-2"><td class="toc-number">2.15</td><td class="toc-text"><a href="#reduce-fractions-prime-factors(Int:D_@numerators,_Int:D_@denominators,_Int_$return-array_=_1_--&gt;_Array:D)_{}">reduce-fractions-prime-factors(Int:D @numerators, Int:D @denominators, Int $return-array = 1 --&gt; Array:D) {}</a></td></tr>
-                <tr class="toc-level-2"><td class="toc-number">2.16</td><td class="toc-text"><a href="#deliver-fraction-sign(Int:D_$key,_Int:D_$value_--&gt;_Str:D)_{}">deliver-fraction-sign(Int:D $key, Int:D $value --&gt; Str:D) {}</a></td></tr>
+                <tr class="toc-level-2"><td class="toc-number">2.16</td><td class="toc-text"><a href="#divide(Pair:D_$pair1,_Pair:D_$pair2_--&gt;_Pair:D)_{}">divide(Pair:D $pair1, Pair:D $pair2 --&gt; Pair:D) {}</a></td></tr>
+          <tr class="toc-level-2"><td class="toc-number">2.17</td><td class="toc-text"><a href="#deliver-fraction-sign(Int:D_$key,_Int:D_$value_--&gt;_Str:D)_{}">deliver-fraction-sign(Int:D $key, Int:D $value --&gt; Str:D) {}</a></td></tr>
              
 </table>
 </nav>
@@ -65,7 +66,7 @@
 <p>https://github.com/Chrissealed/algomaths.git</p>
 </section>
 <section><h1>VERSION</h1>
-<p>2018.12.27</p>
+<p>2019.01.04</p>
 </section>
 <h1 id="Ce_module_est_destiné_à_faire_des_opérations_sur_des_fractions."><a class="u" href="#___top" title="go to top of document">Ce module est destiné à faire des opérations sur des fractions.</a></h1>
 <p>Il utilise les modules <strong>ppcm.pm6</strong>, <strong>irreducible-fraction.pm6</strong> et <strong>prime-factors.pm6</strong> et hérite du rôle <strong>PrimeFactors</strong>. La méthode principale de la classe <strong>OperationsOnFractions</strong> est <strong>calculate-fractions(Str $operation)</strong> ou le paramètre <strong>$operation</strong> peut être l&#39;un des suivants :</p>
@@ -203,6 +204,8 @@
 <p>Cette méthode est utilisée pour multiplier deux ou trois fractions données en arguments sous forme de paires numérateur =&gt; dénominateur passées aux attributs de classe <strong>nudepair1</strong>, <strong>nudepair2</strong> et facultativement <strong>nudepair3</strong>. Elle retourne une nouvelle <strong>paire</strong>.</p>
 <h2 id="reduce-fractions-prime-factors(Int:D_@numerators,_Int:D_@denominators,_Int_$return-array_=_1_-->_Array:D)_{}"><a class="u" href="#___top" title="go to top of document">reduce-fractions-prime-factors(Int:D @numerators, Int:D @denominators, Int $return-array = 1 --&gt; Array:D) {}</a></h2>
 <p>Cette méthode appartient au rôle <strong>PrimeFactors</strong> : elle consiste à produire les facteurs qui sont dans l&#39;un des tableaux mais pas dans l&#39;autre. Il faut passer l&#39;argument 1 (c&#39;est la valeur par défaut) à l&#39;argument <strong>$return-array</strong> pour retourner le premier tableau, c&#39;est-à-dire les numérateurs ou 2 pour retourner le deuxième tableau, celui des dénominateurs. Elle est implémentée ici directement dans le code et n&#39;est donc pas disponible comme méthode du module <strong>operations-on-fractions</strong> mais seulement comme méthode du module <strong>prime-factors.pm6</strong> dont je rappelle qu&#39;il définit le rôle <strong>PrimeFactors</strong> employé par la classe <strong>OperationsOnFractions</strong>. Consultez aussi la documentation du module <strong>prime-factors.pm6</strong>.</p>
+<h2 id="divide(Pair:D_$pair1,_Pair:D_$pair2_-->_Pair:D)_{}"><a class="u" href="#___top" title="go to top of document">divide(Pair:D $pair1, Pair:D $pair2 --&gt; Pair:D) {}</a></h2>
+<p>Cette méthode est utilisée pour diviser deux fractions données en arguments sous forme de paires numérateur =&gt; dénominateur passées aux attributs de classe <strong>nudepair1</strong> et <strong>nudepair2</strong>. Elle retourne une nouvelle <strong>paire</strong>. Remarquez que l&#39;attribut <strong>nudepair3</strong> n&#39;est pas utilisé contrairement aux autres opérations et sera donc ignoré.</p>
 <h2 id="deliver-fraction-sign(Int:D_$key,_Int:D_$value_-->_Str:D)_{}"><a class="u" href="#___top" title="go to top of document">deliver-fraction-sign(Int:D $key, Int:D $value --&gt; Str:D) {}</a></h2>
 <p>Cette méthode permet de distribuer le signe de chacune des fractions prises isolément. Elle est utilisée si l&#39;un des attributs <strong>reduce-fraction1</strong> et/ou <strong>reduce-fraction2</strong> et/ou <strong>reduce-fraction3</strong> sont passés à <strong>True</strong> dans la méthode <strong>calculate-fractions</strong>(Str:D $operation --&gt; Pair:D); je rappelle ici que ces trois champs sont à <strong>False</strong> par défaut.</p>
 

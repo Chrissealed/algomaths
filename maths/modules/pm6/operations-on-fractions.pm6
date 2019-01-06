@@ -5,7 +5,7 @@ use v6;
 =begin pod
 =NAME B<OperationsOnFractions> : B<algomaths> Perl 6 module in /maths/modules/pm6/B<operations-on-fractions.pm6>
 =AUTHOR  https://github.com/Chrissealed/algomaths.git
-=VERSION 2018.12.27
+=VERSION 2019.01.04
 
 =for head1
 Ce module est destiné à faire des opérations sur des fractions.
@@ -831,18 +831,18 @@ Elle retourne une nouvelle B<paire>.
         my Pair $prime = $.are-they-prime(@numerators, @denominators); 
         if defined($pair3) {
             $!are-prime-nu ?? $!t.tprint: "Facteurs premiers " !! $!t.tprint: "Facteurs ";
-            $!t.tput: "obtenus pour {$pair1.key} × {$pair2.key} × {$pair3.key} = $numerator : @numerators[].";
+            $!t.tput: "obtenus pour {$P1.key} × {$P2.key} × {$P3.key} = $numerator : @numerators[].";
         } else {
             $!are-prime-nu ?? $!t.tprint: "Facteurs premiers " !! $!t.tprint: "Facteurs ";
-            $!t.tput: "obtenus pour {$pair1.key} × {$pair2.key} = $numerator : @numerators[].";
+            $!t.tput: "obtenus pour {$P1.key} × {$P2.key} = $numerator : @numerators[].";
         }
 
         if defined($pair3) {
             $!are-prime-de ?? $!t.tprint: "Facteurs premiers " !! $!t.tprint: "Facteurs ";
-            $!t.tput: "obtenus pour {$pair1.value} × {$pair2.value} × {$pair3.value} = $denominator : @denominators[].";
+            $!t.tput: "obtenus pour {$P1.value} × {$P2.value} × {$P3.value} = $denominator : @denominators[].";
         } else {
             $!are-prime-de ?? $!t.tprint: "Facteurs premiers " !! $!t.tprint: "Facteurs ";
-            $!t.tput: "obtenus pour {$pair1.value} × {$pair2.value} = $denominator : @denominators[].";
+            $!t.tput: "obtenus pour {$P1.value} × {$P2.value} = $denominator : @denominators[].";
         }
 
 =begin pod
@@ -874,11 +874,9 @@ Consultez aussi la documentation du module B<prime-factors.pm6>.
             $denominator = [*] @prime-factors-d;
             $!are-prime-nu && $!are-prime-de ?? $!t.tprint: "Facteurs premiers résultants : "
                                              !! $!t.tprint: "Facteurs résultants : ";
-            if @prime-factors-n.elems != 0 {
-                $!t.tput: "@prime-factors-n[], @prime-factors-d[]."
-            } else {
-                $!t.tput: "1, @prime-factors-d[]."
-            }
+            if @prime-factors-n.elems == 0 { push @prime-factors-n, 1; }
+            if @prime-factors-d.elems == 0 { push @prime-factors-d, 1; }
+            $!t.tput: "@prime-factors-n[] ; @prime-factors-d[]."
         }
 
         $!t.tput: "Fraction résultante : $sign$numerator/$denominator.";
@@ -893,8 +891,123 @@ Consultez aussi la documentation du module B<prime-factors.pm6>.
         return $P;
     }
 
-    method divide(Pair:D $pair1, Pair:D $pair2 --> Pair:D) {
+=begin pod
+=for head2
+divide(Pair:D $pair1, Pair:D $pair2 --> Pair:D) {}
 
+Cette méthode est utilisée pour diviser deux fractions
+données en arguments sous forme de paires
+numérateur => dénominateur passées aux attributs de classe
+B<nudepair1> et B<nudepair2>.
+Elle retourne une nouvelle B<paire>.
+Remarquez que l'attribut B<nudepair3> n'est pas utilisé
+contrairement aux autres opérations et sera donc ignoré.
+=end pod
+
+    method divide(Pair:D $pair1, Pair:D $pair2 --> Pair:D) {
+        my Pair $P1 = abs($pair1.key) => abs($pair1.value);
+        my Pair $P2 = abs($pair2.value) => abs($pair2.key);
+        my Str $sign = '';
+        $sign = $.fractions-product-sign($pair1, $pair2);
+        $!t.tprint: "Signe de la division de {$pair1.key}/{$pair1.value} par {$pair2.key}/{$pair2.value} : ";
+        given $sign {
+            when '+' {
+                $!t.tput: "$sign.";
+                $sign = '';
+            }
+            when '−' {
+                $!t.tput: "$sign.";
+                $sign = '-';
+            }
+        }
+        my Int ($n1, $n2) = 0;
+        my Int ($d1, $d2) = 0;
+
+        $!t.tprint: "\n";
+        my Int @numerators = ();
+        my Int @denominators = ();
+        my Int $numerator = 0;
+        my Int $denominator = 0;
+        $!t.tprint: 'On multiplie le premier nombre en écriture fractionnaire par l\'inverse du second : ';
+        $!t.tput: "{$pair1.key} × {$pair2.value} = {$pair1.key * $pair2.value}";
+
+        my Int (@n1, @n2) = ();
+        if ($!breakdown-numerator1) {
+            $!breakdown-numerators = False;
+            @n1 = |$.breakdown-numerator($P1.key);
+        }
+        else {
+            push @n1, $P1.key;
+        }
+        if ($!breakdown-numerator2) {
+            $!breakdown-numerators = False;
+            @n2 = |$.breakdown-numerator($P2.key);
+        }
+        else {
+            push @n2, $P2.key;
+        }
+        push @numerators, |@n1, |@n2;
+        if ($!breakdown-numerators) {
+            @numerators = |$.breakdown-factors(@numerators, 'nu');
+        }
+        $numerator = [*] @numerators;
+        @numerators = @numerators.sort;
+
+        my Int (@d1, @d2) = ();
+        if ($!breakdown-denominator1) {
+            $!breakdown-denominators = False;
+            @d1 = |$.breakdown-denominator($P1.value);
+        }
+        else {
+            push @d1, $P1.value;
+        }
+        if ($!breakdown-denominator2) {
+            $!breakdown-denominators = False;
+            @d2 = |$.breakdown-denominator($P2.value);
+        }
+        else {
+            push @d2, $P2.value;
+        }
+        push @denominators, |@d1, |@d2;
+        if ($!breakdown-denominators) {
+            @denominators = |$.breakdown-factors(@denominators, 'de');
+        }
+        $denominator = [*] @denominators;
+        @denominators = @denominators.sort;
+
+        my Pair $prime = $.are-they-prime(@numerators, @denominators); 
+        $!are-prime-nu ?? $!t.tprint: "Facteurs premiers " !! $!t.tprint: "Facteurs ";
+        $!t.tput: "obtenus pour {$P1.key} × {$P2.key} = $numerator : @numerators[].";
+
+        $!are-prime-de ?? $!t.tprint: "Facteurs premiers " !! $!t.tprint: "Facteurs ";
+        $!t.tput: "obtenus pour {$P1.value} × {$P2.value} = $denominator : @denominators[].";
+
+        my Int @prime-factors-n;
+        my Int @prime-factors-d;
+        if ($!compute-prime-factors) {
+            # Méthode du rôle PrimeFactors
+            @prime-factors-n = |$.reduce-fractions-prime-factors(@numerators, @denominators, 1);
+            $numerator = [*] @prime-factors-n;
+            # Méthode du rôle PrimeFactors
+            @prime-factors-d = |$.reduce-fractions-prime-factors(@numerators, @denominators, 2);
+            $denominator = [*] @prime-factors-d;
+            $!are-prime-nu && $!are-prime-de ?? $!t.tprint: "Facteurs premiers résultants : "
+                                             !! $!t.tprint: "Facteurs résultants : ";
+            if @prime-factors-n.elems == 0 { push @prime-factors-n, 1; }
+            if @prime-factors-d.elems == 0 { push @prime-factors-d, 1; }
+            $!t.tput: "@prime-factors-n[] ; @prime-factors-d[]."
+        }
+
+        $!t.tput: "Fraction résultante : $sign$numerator/$denominator.";
+        $!t.tprint: "\n";
+        my Pair $P;
+        if ($!reduce-last-one) {
+            $!t.tput: 'On simplifie la dernière fraction obtenue :';
+            $P = $.reduce-fraction(Int($sign ~ $numerator), $denominator, $sign);
+        } else {
+            $P = Int($sign ~ $numerator) => $denominator;
+        }
+        return $P;
     }
 
 =begin pod
@@ -948,6 +1061,7 @@ je rappelle ici que ces trois champs sont à B<False> par défaut.
             $!t.tprint: "\n";
         }
 
+        
         if ! defined($!nudepair3) {
             my $add-up-one-junction = 'add-up' ^ '+' ^ 'a';
             my $subtract-one-junction = 'subtract' ^ '-' ^ '−' ^ 's';
@@ -988,7 +1102,7 @@ je rappelle ici que ces trois champs sont à B<False> par défaut.
                 when $subtractx2-one-junction { $P4 = $.subtractx2($P1, $P2, $P3); }
                 when $subtract-add-up-one-junction { $P4 = $.subtract-add-up($P1, $P2, $P3); }
                 when $multiply-one-junction { $P4 = $.multiply($P1, $P2, $P3); }
-                when $divide-one-junction { $P4 = $.divide($P1, $P2, $P3); }
+                when $divide-one-junction { $P4 = $.divide($P1, $P2); }
                 default { say "Opération non définie pour trois opérateurs!
                               'add-upx2' ou '++' ou 'aa';
                               'add-up-subtract' ou '+-' ou '+−' ou 'as';

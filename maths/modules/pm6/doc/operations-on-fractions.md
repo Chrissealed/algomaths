@@ -11,7 +11,7 @@ https://github.com/Chrissealed/algomaths.git
 VERSION
 =======
 
-2018.12.27
+2019.01.04
 
 Ce module est destiné à faire des opérations sur des fractions.
 ===============================================================
@@ -207,6 +207,11 @@ reduce-fractions-prime-factors(Int:D @numerators, Int:D @denominators, Int $retu
 ------------------------------------------------------------------------------------------------------------
 
 Cette méthode appartient au rôle **PrimeFactors** : elle consiste à produire les facteurs qui sont dans l'un des tableaux mais pas dans l'autre. Il faut passer l'argument 1 (c'est la valeur par défaut) à l'argument **$return-array** pour retourner le premier tableau, c'est-à-dire les numérateurs ou 2 pour retourner le deuxième tableau, celui des dénominateurs. Elle est implémentée ici directement dans le code et n'est donc pas disponible comme méthode du module **operations-on-fractions** mais seulement comme méthode du module **prime-factors.pm6** dont je rappelle qu'il définit le rôle **PrimeFactors** employé par la classe **OperationsOnFractions**. Consultez aussi la documentation du module **prime-factors.pm6**.
+
+divide(Pair:D $pair1, Pair:D $pair2 --> Pair:D) {}
+--------------------------------------------------
+
+Cette méthode est utilisée pour diviser deux fractions données en arguments sous forme de paires numérateur => dénominateur passées aux attributs de classe **nudepair1** et **nudepair2**. Elle retourne une nouvelle **paire**. Remarquez que l'attribut **nudepair3** n'est pas utilisé contrairement aux autres opérations et sera donc ignoré.
 
 deliver-fraction-sign(Int:D $key, Int:D $value --> Str:D) {}
 ------------------------------------------------------------
