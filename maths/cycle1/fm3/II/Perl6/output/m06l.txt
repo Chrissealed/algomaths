@@ -1,0 +1,58 @@
+# Exercice. Calculer le quotient suivant.
+# ------------------
+# L = 20/21 ÷ 5/14.
+-----------------------------------------------------------------------------------
+Les fractions 20/21 et 5/14 sont irréductibles.
+Signe de la division de 20/21 par 5/14 : +.
+
+On multiplie le premier nombre en écriture fractionnaire par l'inverse du second :
+facteurs premiers de 20 :
+20	=>	2
+10	=>	2
+5	=>	5
+2 × 2 × 5
+2^2 × 5
+
+Facteurs premiers de 21 :
+21	=>	3
+7	=>	7
+3 × 7
+Facteurs premiers de 5 :
+5	=>	1
+5 est un nombre premier!
+Il n'admet que 1 et lui-même comme diviseurs.
+1 × 5.
+
+Facteurs premiers obtenus pour 20 × 14 = 280 : 2 2 5 14.
+Facteurs premiers obtenus pour 21 × 5 = 105 : 3 5 7.
+Facteurs premiers résultants : 2 2 14 ; 3 7.
+Fraction résultante : 56/21.
+
+On simplifie la dernière fraction obtenue :
+56 et 21 ont un diviseur commun autre que 1 : 7.
+− Calcul du PGCD : Utilisation de l'algorithme de factorisation en facteurs premiers −
+Facteurs premiers de 56 :
+56	=>	2
+28	=>	2
+14	=>	2
+7	=>	7
+2 × 2 × 2 × 7
+2^3 × 7
+Facteurs premiers de 21 :
+21	=>	3
+7	=>	7
+3 × 7
+Facteurs communs à 56 et 21 : 7
+PGCD(56 ; 21) = 7.
+On simplifie avec le PGCD trouvé :
+56/21 = 7 × 8 / 7 × 3
+56/21 = 8/3
+− Calcul du PGCD : Utilisation de l'algorithme d'Euclide −
+PGCD(8 ; 3) = PGCD(3 ; 2)
+PGCD(8 ; 3) = PGCD(2 ; 1)
+Le reste de la division de 2 par 1 est nul,
+donc PGCD(8 ; 3) = 1.
+8 et 3 n'ont pas de diviseurs communs autre que 1.
+8 et 3 sont premiers entre eux!
+La fraction 8/3 est irréductible.
+

@@ -1,0 +1,56 @@
+# Exercice. Calculer le quotient suivant.
+# ------------------
+# E = 27/55 ÷ 3/5.
+-----------------------------------------------------------------------------------
+La fraction 3/5 est irréductible.
+On simplifie si possible la première fraction :
+− Calcul du PGCD : Utilisation de l'algorithme d'Euclide −
+PGCD(27 ; 55) = PGCD(27 ; 1)
+Le reste de la division de 27 par 1 est nul,
+donc PGCD(27 ; 55) = 1.
+27 et 55 n'ont pas de diviseurs communs autre que 1.
+27 et 55 sont premiers entre eux!
+La fraction 27/55 est irréductible.
+Fraction réduite : 27/55.
+
+Signe de la division de 27/55 par 3/5 : +.
+
+On multiplie le premier nombre en écriture fractionnaire par l'inverse du second :
+facteurs premiers de 27 :
+27	=>	3
+9	=>	3
+3	=>	3
+3 × 3 × 3
+3^3
+
+facteurs premiers de 5 :
+5	=>	1
+5 est un nombre premier!
+Il n'admet que 1 et lui-même comme diviseurs.
+1 × 5.
+
+Facteurs premiers de 55 :
+55	=>	5
+11	=>	11
+5 × 11
+Facteurs premiers de 3 :
+3	=>	1
+3 est un nombre premier!
+Il n'admet que 1 et lui-même comme diviseurs.
+1 × 3.
+
+Facteurs premiers obtenus pour 27 × 5 = 135 : 3 3 3 5.
+Facteurs premiers obtenus pour 55 × 3 = 165 : 3 5 11.
+Facteurs premiers résultants : 3 3 ; 11.
+Fraction résultante : 9/11.
+
+On simplifie la dernière fraction obtenue :
+− Calcul du PGCD : Utilisation de l'algorithme d'Euclide −
+PGCD(9 ; 11) = PGCD(9 ; 2)
+PGCD(9 ; 11) = PGCD(2 ; 1)
+Le reste de la division de 2 par 1 est nul,
+donc PGCD(9 ; 11) = 1.
+9 et 11 n'ont pas de diviseurs communs autre que 1.
+9 et 11 sont premiers entre eux!
+La fraction 9/11 est irréductible.
+

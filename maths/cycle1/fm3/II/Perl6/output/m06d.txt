@@ -1,0 +1,27 @@
+# Exercice. Calculer le quotient suivant.
+# ------------------
+# D = 7/3 ÷ 14/9.
+-----------------------------------------------------------------------------------
+Les fractions 7/3 et 14/9 sont irréductibles.
+Signe de la division de 7/3 par 14/9 : +.
+
+On multiplie le premier nombre en écriture fractionnaire par l'inverse du second :
+facteurs premiers de 9 :
+9	=>	3
+3	=>	3
+3 × 3
+3^2
+
+facteurs premiers de 14 :
+14	=>	2
+7	=>	7
+2 × 7
+
+Facteurs premiers obtenus pour 7 × 9 = 63 : 3 3 7.
+Facteurs premiers obtenus pour 3 × 14 = 42 : 2 3 7.
+Facteurs premiers résultants : 3 ; 2.
+Fraction résultante : 3/2.
+
+On simplifie la dernière fraction obtenue :
+La fraction 3/2 est irréductible.
+

@@ -1,0 +1,14 @@
+# Exercice. Calculer le quotient suivant.
+# ------------------
+# B = 1/(−9) ÷ (−3)/7
+-----------------------------------------------------------------------------------
+Les fractions 1/(−9) et (−3)/7 sont irréductibles.
+Signe de la division de 1/-9 par -3/7 : +.
+
+On multiplie le premier nombre en écriture fractionnaire par l'inverse du second :
+Facteurs obtenus pour 1 × 7 = 7 : 1 7.
+Facteurs obtenus pour -9 × -3 = 27 : 3 9.
+Facteurs résultants : 1 7, 3 9.
+Fraction résultante : 7/27.
+
+

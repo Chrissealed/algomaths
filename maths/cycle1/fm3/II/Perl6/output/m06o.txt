@@ -1,0 +1,41 @@
+# Exercice. Calculer le quotient suivant.
+# ------------------
+# O = 55/21|− 15/14.
+-----------------------------------------------------------------------------------
+Les fractions 55/21 et − 15/14 sont irréductibles.
+Signe de la division de 55/21 par -15/14 : −.
+
+On multiplie le premier nombre en écriture fractionnaire par l'inverse du second : 55 × 14 = 770
+Facteurs premiers de 55 :
+55	=>	5
+11	=>	11
+5 × 11
+Facteurs premiers de 14 :
+14	=>	2
+7	=>	7
+2 × 7
+
+Facteurs premiers de 21 :
+21	=>	3
+7	=>	7
+3 × 7
+Facteurs premiers de 15 :
+15	=>	3
+5	=>	5
+3 × 5
+
+Facteurs premiers obtenus pour 55 × 14 = 770 : 2 5 7 11.
+Facteurs premiers obtenus pour 21 × 15 = 315 : 3 3 5 7.
+Facteurs premiers résultants : 2 11 ; 3 3.
+Fraction résultante : -22/9.
+
+On simplifie la dernière fraction obtenue :
+− Calcul du PGCD : Utilisation de l'algorithme d'Euclide −
+PGCD(22 ; 9) = PGCD(9 ; 4)
+PGCD(22 ; 9) = PGCD(4 ; 1)
+Le reste de la division de 4 par 1 est nul,
+donc PGCD(22 ; 9) = 1.
+22 et 9 n'ont pas de diviseurs communs autre que 1.
+-22 et 9 sont premiers entre eux!
+La fraction -22/9 est irréductible.
+

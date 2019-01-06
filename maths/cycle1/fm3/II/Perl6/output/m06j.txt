@@ -1,0 +1,43 @@
+# Exercice. Calculer le quotient suivant.
+# ------------------
+# J = 4/10 ÷ 3/100.
+-----------------------------------------------------------------------------------
+La fraction 3/100 est irréductible.
+Signe de la division de 4/10 par 3/100 : +.
+
+On multiplie le premier nombre en écriture fractionnaire par l'inverse du second :
+Facteurs obtenus pour 4 × 100 = 400 : 4 100.
+Facteurs obtenus pour 10 × 3 = 30 : 3 10.
+Facteurs résultants : 4 100 ; 3 10.
+Fraction résultante : 400/30.
+
+On simplifie la dernière fraction obtenue :
+400 et 30 ont un diviseur commun autre que 1 : 2.
+− Calcul du PGCD : Utilisation de l'algorithme de factorisation en facteurs premiers −
+Facteurs premiers de 400 :
+400	=>	2
+200	=>	2
+100	=>	2
+50	=>	2
+25	=>	5
+5	=>	5
+2 × 2 × 2 × 2 × 5 × 5
+2^4 × 5^2
+Facteurs premiers de 30 :
+30	=>	2
+15	=>	3
+5	=>	5
+2 × 3 × 5
+Facteurs communs à 400 et 30 : 2 5
+PGCD(400 ; 30) : 2 × 5 = 10.
+On simplifie avec le PGCD trouvé :
+400/30 = 10 × 40 / 10 × 3
+400/30 = 40/3
+− Calcul du PGCD : Utilisation de l'algorithme d'Euclide −
+PGCD(40 ; 3) = PGCD(3 ; 1)
+Le reste de la division de 3 par 1 est nul,
+donc PGCD(40 ; 3) = 1.
+40 et 3 n'ont pas de diviseurs communs autre que 1.
+40 et 3 sont premiers entre eux!
+La fraction 40/3 est irréductible.
+

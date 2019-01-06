@@ -1,0 +1,14 @@
+# Chapitre II : NOMBRES RELATIFS EN ÉCRITURE FRACTIONNAIRE : OPÉRATIONS.
+###################################################################################
+# Méthode 6.
+# Comment diviser deux nombres relatifs non nuls en écriture fractionnaire ?
+###################################################################################
+# Pour diviser deux nombres relatifs non nuls en écriture fractionnaire :
+# ▲ on commence par étudier le signe du quotient, si c'est − on l'écrit;
+# ▲ on multiplie le premier nombre en écriture fractionnaire par l'inverse du second;
+# ▲ on calcule le produit des nombres en écriture fractionnaire en se reportant à
+#   la méthode 3 de ce chapitre;
+# ▲ on simplifie avant d'effectuer les calculs si c'est possible.
+###################################################################################
+
+

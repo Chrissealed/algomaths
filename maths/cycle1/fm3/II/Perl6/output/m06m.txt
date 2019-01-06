@@ -1,0 +1,32 @@
+# Exercice. Calculer le quotient suivant.
+# ------------------
+# M = − 10/7|− 7/10.
+-----------------------------------------------------------------------------------
+Les fractions (− 10/7) et/ou (− 7/10) sont irréductibles.
+Signe de la division de -10/7 par -7/10 : +.
+
+On multiplie le premier nombre en écriture fractionnaire par l'inverse du second :
+Facteurs premiers de 10 :
+10	=>	2
+5	=>	5
+2 × 5
+Facteurs premiers de 10 :
+10	=>	2
+5	=>	5
+2 × 5
+
+Facteurs premiers obtenus pour 10 × 7 = 100 : 2 2 5 5.
+Facteurs premiers obtenus pour 7 × 10 = 49 : 7 7.
+Facteurs premiers résultants : 2 2 5 5 ; 7 7.
+Fraction résultante : 100/49.
+
+On simplifie la dernière fraction obtenue :
+− Calcul du PGCD : Utilisation de l'algorithme d'Euclide −
+PGCD(100 ; 49) = PGCD(49 ; 2)
+PGCD(100 ; 49) = PGCD(2 ; 1)
+Le reste de la division de 2 par 1 est nul,
+donc PGCD(100 ; 49) = 1.
+100 et 49 n'ont pas de diviseurs communs autre que 1.
+100 et 49 sont premiers entre eux!
+La fraction 100/49 est irréductible.
+

@@ -1,0 +1,37 @@
+# Exercice. Calculer le quotient suivant.
+# ------------------
+# H = 1/5 ÷ (− 11/5).
+-----------------------------------------------------------------------------------
+Les fractions 1/5 et (− 11/15) sont irréductibles.
+Signe de la division de 1/5 par -11/15 : −.
+
+On multiplie le premier nombre en écriture fractionnaire par l'inverse du second :
+Facteurs obtenus pour 1 × 15 = 15 : 1 15.
+Facteurs premiers obtenus pour 5 × -11 = 55 : 5 11.
+Fraction résultante : -15/55.
+
+On simplifie la dernière fraction obtenue :
+15 et 55 ont un diviseur commun autre que 1 : 5.
+− Calcul du PGCD : Utilisation de l'algorithme de factorisation en facteurs premiers −
+Facteurs premiers de 15 :
+15	=>	3
+5	=>	5
+3 × 5
+Facteurs premiers de 55 :
+55	=>	5
+11	=>	11
+5 × 11
+Facteurs communs à 15 et 55 : 5
+PGCD(15 ; 55) = 5.
+On simplifie avec le PGCD trouvé :
+-15/55 = 5 × -3 / 5 × 11
+-15/55 = -3/11
+− Calcul du PGCD : Utilisation de l'algorithme d'Euclide −
+PGCD(3 ; 11) = PGCD(3 ; 2)
+PGCD(3 ; 11) = PGCD(2 ; 1)
+Le reste de la division de 2 par 1 est nul,
+donc PGCD(3 ; 11) = 1.
+3 et 11 n'ont pas de diviseurs communs autre que 1.
+3 et 11 sont premiers entre eux!
+La fraction -3/11 est irréductible.
+

@@ -1,0 +1,44 @@
+# Exercice. Calculer le quotient suivant.
+# ------------------
+# P = 132/(−51)|−(−33)/34.
+-----------------------------------------------------------------------------------
+Les fractions 132/(−51) et −(−33)/34 sont irréductibles.
+Signe de la division de 132/-51 par 33/34 : −.
+
+On multiplie le premier nombre en écriture fractionnaire par l'inverse du second : 132 × 34 = 4488
+Facteurs premiers de 132 :
+132	=>	2
+66	=>	2
+33	=>	3
+11	=>	11
+2 × 2 × 3 × 11
+2^2 × 3 × 11
+Facteurs premiers de 34 :
+34	=>	2
+17	=>	17
+2 × 17
+
+Facteurs premiers de 51 :
+51	=>	3
+17	=>	17
+3 × 17
+Facteurs premiers de 33 :
+33	=>	3
+11	=>	11
+3 × 11
+
+Facteurs premiers obtenus pour 132 × 34 = 4488 : 2 2 2 3 11 17.
+Facteurs premiers obtenus pour 51 × 33 = 1683 : 3 3 11 17.
+Facteurs premiers résultants : 2 2 2 ; 3.
+Fraction résultante : -8/3.
+
+On simplifie la dernière fraction obtenue :
+− Calcul du PGCD : Utilisation de l'algorithme d'Euclide −
+PGCD(8 ; 3) = PGCD(3 ; 2)
+PGCD(8 ; 3) = PGCD(2 ; 1)
+Le reste de la division de 2 par 1 est nul,
+donc PGCD(8 ; 3) = 1.
+8 et 3 n'ont pas de diviseurs communs autre que 1.
+8 et 3 sont premiers entre eux!
+La fraction -8/3 est irréductible.
+

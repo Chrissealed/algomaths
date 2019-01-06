@@ -1,0 +1,40 @@
+# Exercice. Calculer le quotient suivant.
+# ------------------
+# C = 4/3 ÷ 16/(−11).
+-----------------------------------------------------------------------------------
+Les fractions 4/3 et 16/(-11) sont irréductibles.
+Signe de la division de 4/3 par 16/-11 : −.
+
+On multiplie le premier nombre en écriture fractionnaire par l'inverse du second :
+Facteurs premiers de 4 :
+4	=>	2
+2	=>	2
+2 × 2
+2^2
+Facteurs premiers de 11 :
+11	=>	1
+11 est un nombre premier!
+Il n'admet que 1 et lui-même comme diviseurs.
+1 × 11.
+
+Facteurs premiers de 3 :
+3	=>	1
+3 est un nombre premier!
+Il n'admet que 1 et lui-même comme diviseurs.
+1 × 3.
+Facteurs premiers de 16 :
+16	=>	2
+8	=>	2
+4	=>	2
+2	=>	2
+2 × 2 × 2 × 2
+2^4
+
+Facteurs premiers obtenus pour 4 × -11 = 44 : 2 2 11.
+Facteurs premiers obtenus pour 3 × 16 = 48 : 2 2 2 2 3.
+Facteurs premiers résultants : 11 ; 2 2 3.
+Fraction résultante : -11/12.
+
+On simplifie la dernière fraction obtenue :
+La fraction -11/12 est irréductible.
+

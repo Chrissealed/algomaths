@@ -1,0 +1,15 @@
+# Exercice. Calculer le quotient suivant.
+# ------------------
+# A = 2/5 ÷ 3/7.
+-----------------------------------------------------------------------------------
+Les fractions 2/5 et 3/7 sont irréductibles.
+Signe de la division de 2/5 par 3/7 : +.
+
+On multiplie le premier nombre en écriture fractionnaire par l'inverse du second :
+Facteurs premiers obtenus pour 2 × 7 = 14 : 2 7.
+Facteurs premiers obtenus pour 5 × 3 = 15 : 3 5.
+Fraction résultante : 14/15.
+
+On simplifie la dernière fraction obtenue :
+La fraction 14/15 est irréductible.
+

@@ -1,0 +1,24 @@
+# Exercice. Calculer le quotient suivant.
+# ------------------
+# G = 5/3 ÷ (−3)/5.
+-----------------------------------------------------------------------------------
+Les fractions 5/3 et (−3)/5 sont irréductibles.
+Signe de la division de 5/3 par -3/5 : −.
+
+On multiplie le premier nombre en écriture fractionnaire par l'inverse du second :
+Facteurs premiers obtenus pour 5 × 5 = 25 : 5 5.
+Facteurs premiers obtenus pour 3 × -3 = 9 : 3 3.
+Facteurs premiers résultants : 5 5 ; 3 3.
+Fraction résultante : -25/9.
+
+On simplifie la dernière fraction obtenue :
+− Calcul du PGCD : Utilisation de l'algorithme d'Euclide −
+PGCD(25 ; 9) = PGCD(9 ; 7)
+PGCD(25 ; 9) = PGCD(7 ; 2)
+PGCD(25 ; 9) = PGCD(2 ; 1)
+Le reste de la division de 2 par 1 est nul,
+donc PGCD(25 ; 9) = 1.
+25 et 9 n'ont pas de diviseurs communs autre que 1.
+-25 et 9 sont premiers entre eux!
+La fraction -25/9 est irréductible.
+

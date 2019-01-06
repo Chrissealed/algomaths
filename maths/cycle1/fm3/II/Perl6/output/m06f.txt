@@ -1,0 +1,38 @@
+# Exercice. Calculer le quotient suivant.
+# ------------------
+# F = 10/(−13) ÷ (−10)/13.
+-----------------------------------------------------------------------------------
+Les fractions 10/(−13) et (−10)/13 sont irréductibles.
+Signe de la division de 10/-13 par -10/13 : +.
+
+On multiplie le premier nombre en écriture fractionnaire par l'inverse du second :
+facteurs premiers de 10 :
+10	=>	2
+5	=>	5
+2 × 5
+
+facteurs premiers de 13 :
+13	=>	1
+13 est un nombre premier!
+Il n'admet que 1 et lui-même comme diviseurs.
+1 × 13.
+
+Facteurs premiers de 13 :
+13	=>	1
+13 est un nombre premier!
+Il n'admet que 1 et lui-même comme diviseurs.
+1 × 13.
+Facteurs premiers de 10 :
+10	=>	2
+5	=>	5
+2 × 5
+
+Facteurs premiers obtenus pour 10 × 13 = 130 : 2 5 13.
+Facteurs premiers obtenus pour -13 × -10 = 130 : 2 5 13.
+Facteurs premiers résultants : 1 ; 1.
+Fraction résultante : 1/1.
+
+On simplifie la dernière fraction obtenue :
+La fraction 1/1 est irréductible.
+Fraction résolue : 1.
+

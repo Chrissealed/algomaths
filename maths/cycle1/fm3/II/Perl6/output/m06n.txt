@@ -1,0 +1,39 @@
+# Exercice. Calculer le quotient suivant.
+# ------------------
+# N = (−42)/5|77/5.
+-----------------------------------------------------------------------------------
+Les fractions (−42)/5 et 77/5 sont irréductibles.
+Signe de la division de -42/5 par 77/5 : −.
+
+On multiplie le premier nombre en écriture fractionnaire par l'inverse du second : -42 × 5 = -210
+Facteurs obtenus pour 42 × 5 = 210 : 5 42.
+Facteurs obtenus pour 5 × 77 = 385 : 5 77.
+Facteurs résultants : 42 ; 77.
+Fraction résultante : -42/77.
+
+On simplifie la dernière fraction obtenue :
+42 et 77 ont un diviseur commun autre que 1 : 7.
+− Calcul du PGCD : Utilisation de l'algorithme de factorisation en facteurs premiers −
+Facteurs premiers de 42 :
+42	=>	2
+21	=>	3
+7	=>	7
+2 × 3 × 7
+Facteurs premiers de 77 :
+77	=>	7
+11	=>	11
+7 × 11
+Facteurs communs à 42 et 77 : 7
+PGCD(42 ; 77) = 7.
+On simplifie avec le PGCD trouvé :
+-42/77 = 7 × -6 / 7 × 11
+-42/77 = -6/11
+− Calcul du PGCD : Utilisation de l'algorithme d'Euclide −
+PGCD(6 ; 11) = PGCD(6 ; 5)
+PGCD(6 ; 11) = PGCD(5 ; 1)
+Le reste de la division de 5 par 1 est nul,
+donc PGCD(6 ; 11) = 1.
+6 et 11 n'ont pas de diviseurs communs autre que 1.
+6 et 11 sont premiers entre eux!
+La fraction -6/11 est irréductible.
+
