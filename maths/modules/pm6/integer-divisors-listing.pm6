@@ -3,14 +3,14 @@ unit module Integer-divisors-listing;
 use v6;
 
 =begin pod
-=NAME class B<IntegerDivisorsListing>
-=AUTHOR Christian Béloscar
-=VERSION 0.1.119
+=NAME B<IntegerDivisorsListing> : B<algomaths> Perl 6 module in /maths/modules/pm6/B<integer-divisors-listing.pm6>
+=AUTHOR  https://github.com/Chrissealed/algomaths.git
+=VERSION 2019.01.06
 
 for=head1
 Cette classe est destinée à établir la liste des diviseurs d'un entier relatif non nul.
 
-Elle contient une méthode publique : B<list-divisors(Int $integer where {$integer != 0})> 
+Elle contient une méthode publique : B<list-divisors(Int $integer where \{$integer != 0\})> 
 et une méthode privée destinée à l'affichage d'informations.
 Elle dispose du rôle B<UsualDivisibilityCriteria> pour calculer la divisibilité
 des nombres 2, 3, 4, 5, 9, (10, 100, 1000, etc.), 11 et 25

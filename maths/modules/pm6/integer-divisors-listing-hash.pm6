@@ -5,12 +5,13 @@ use v6;
 use teeput;
 
 =begin pod
-=NAME class B<IntegerDivisorsListingH>
-=AUTHOR Christian Béloscar
-=VERSION 0.1.119
+=NAME B<IntegerDivisorsListingH> : B<algomaths> Perl 6 module in /maths/modules/pm6/B<integer-divisors-listing-hash.pm6>
+=AUTHOR  https://github.com/Chrissealed/algomaths.git
+=VERSION 2019.01.06
+
 =head1 Cette classe est destinée à établir la liste des diviseurs d'un entier naturel non nul.
 
-Elle contient deux méthodes, l'une publique : B<list-divisors(Int $integer where {$integer != 0})> 
+Elle contient deux méthodes, l'une publique : B<list-divisors(Int $integer where \{$integer != 0\})> 
 et l'autre privée destinée à l'affichage d'informations.
 Elle utilise le module B<usual-divisibility-criteria.pm6> pour calculer la divisibilité
 des nombres 2, 3, 4, 5, 9, (10, 100, 1000, etc.), 11 et 25

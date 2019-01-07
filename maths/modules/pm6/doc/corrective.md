@@ -24,5 +24,5 @@ Une méthode similaire à **do-put-up-method**(--> Bool) {} mais avec une autre 
 
 De même nous avons la méthode **multi sub do-put-up-examples**(Int:D $n --> Bool) {} pour laquelle le nombre $n indique le numéro de la méthode à afficher.
 
-Une autre méthode **prompt-for-user-input**(Str:D $promptstr--> Int) {} est destinée à demander à l'utilisateur de saisir une valeur numérique correspondant au message affiché au **prompt** et retourne cette valeur convertie en Int.
+Une autre méthode **prompt-for-user-input**(Str:D $promptstr --> Int) {} est destinée à demander à l'utilisateur de saisir une valeur numérique correspondant au message affiché au **prompt** et retourne cette valeur convertie en Int.
 

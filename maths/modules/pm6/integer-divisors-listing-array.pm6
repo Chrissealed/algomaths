@@ -3,12 +3,13 @@ unit module Integer-divisors-listing-array;
 use v6;
 
 =begin pod
-=NAME class B<IntegerDivisorsListingA>
-=AUTHOR Christian Béloscar
-=VERSION 0.1.119
+=NAME B<IntegerDivisorsListingA> : B<algomaths> Perl 6 module in /maths/modules/pm6/B<integer-divisors-listing.pm6>
+=AUTHOR  https://github.com/Chrissealed/algomaths.git
+=VERSION 2019.01.06
+
 =head1 Cette classe est destinée à établir la liste des diviseurs d'un entier naturel non nul.
 
-Elle contient deux méthodes, l'une publique : B<list-divisors(Int $integer where> {$integer > 0})' 
+Elle contient deux méthodes, l'une publique : B<list-divisors>(Int $integer where \{$integer > 0\})
 qui prend en argument un entier supérieur à 0 dont on souhaite établir la liste des diviseurs
 et renvoie un tableau des diviseurs trouvés, et l'autre privée
 destinée à l'affichage d'informations.
