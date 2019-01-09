@@ -1,0 +1,13 @@
+# Exercice. Calculer l'expression donnée.
+# ------------------
+# G = 1 ÷ 3/11.
+-----------------------------------------------------------------------------------
+Les fractions 1/1 et 3/11 sont irréductibles.
+Signe de la division de 1/1 par 3/11 : +.
+
+On multiplie le premier nombre en écriture fractionnaire par l'inverse du second : 1 × 11 = 11
+Facteurs obtenus pour 1 × 11 = 11 : 1 11.
+Facteurs obtenus pour 1 × 3 = 3 : 1 3.
+Fraction résultante : 11/3.
+
+

@@ -1,0 +1,13 @@
+# Exercice. Calculer l'expression donnée.
+# ------------------
+# J = 2/3 ÷ 3.
+-----------------------------------------------------------------------------------
+Les fractions 2/3 et 3/1 sont irréductibles.
+Signe de la division de 2/3 par 3/1 : +.
+
+On multiplie le premier nombre en écriture fractionnaire par l'inverse du second : 2 × 1 = 2
+Facteurs obtenus pour 2 × 1 = 2 : 1 2.
+Facteurs premiers obtenus pour 3 × 3 = 9 : 3 3.
+Fraction résultante : 2/9.
+
+

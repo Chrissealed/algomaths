@@ -1,0 +1,13 @@
+# Exercice. Calculer l'expression donnée.
+# ------------------
+# B = 10/3 ÷ (−3).
+-----------------------------------------------------------------------------------
+Les fractions 10/3 et 1/(−3) sont irréductibles.
+Signe du produit de 10/3 par 1/-3 : −.
+
+On multiplie les numérateurs de chaque fraction puis les dénominateurs :
+Facteurs obtenus pour 10 × 1 = 10 : 1 10.
+Facteurs premiers obtenus pour 3 × 3 = 9 : 3 3.
+Fraction résultante : -10/9.
+
+

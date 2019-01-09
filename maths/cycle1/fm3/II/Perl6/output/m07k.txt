@@ -1,0 +1,13 @@
+# Exercice. Calculer l'expression donnée.
+# ------------------
+# K = (−3)|7/6.
+-----------------------------------------------------------------------------------
+Les fractions (−3)/1 et 7/6 sont irréductibles.
+Signe de la division de -3/1 par 7/6 : −.
+
+On multiplie le premier nombre en écriture fractionnaire par l'inverse du second : -3 × 6 = -18
+Facteurs obtenus pour 3 × 6 = 18 : 3 6.
+Facteurs obtenus pour 1 × 7 = 7 : 1 7.
+Fraction résultante : -18/7.
+
+

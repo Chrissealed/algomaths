@@ -1,0 +1,35 @@
+# Exercice. Calculer l'expression donnée.
+# ------------------
+# L = (−3)|6/7.
+-----------------------------------------------------------------------------------
+Les fractions (−3)/1 et 6/7 sont irréductibles.
+Signe de la division de -3/1 par 6/7 : −.
+
+On multiplie le premier nombre en écriture fractionnaire par l'inverse du second : -3 × 7 = -21
+Facteurs premiers obtenus pour 3 × 7 = 21 : 3 7.
+Facteurs obtenus pour 1 × 6 = 6 : 1 6.
+Fraction résultante : -21/6.
+
+On simplifie la dernière fraction obtenue :
+21 et 6 ont un diviseur commun autre que 1 : 3.
+− Calcul du PGCD : Utilisation de l'algorithme des soustractions −
+21 - 6 = 15 d'où PGCD(21 ; 6) = PGCD(15 ; 6)
+15 - 6 = 9 d'où PGCD(15 ; 6) = PGCD(9 ; 6)
+9 - 6 = 3 d'où PGCD(9 ; 6) = PGCD(6 ; 3)
+6 - 3 = 3 d'où PGCD(6 ; 3) = PGCD(3 ; 3)
+or PGCD(3 ; 3) = 3
+On est arrivé à deux nombres égaux, donc PGCD(21 ; 6) = 3.
+On simplifie avec le PGCD trouvé :
+-21/6 = 3 × -7 / 3 × 2
+-21/6 = -7/2
+− Calcul du PGCD : Utilisation de l'algorithme des soustractions −
+7 - 2 = 5 d'où PGCD(7 ; 2) = PGCD(5 ; 2)
+5 - 2 = 3 d'où PGCD(5 ; 2) = PGCD(3 ; 2)
+3 - 2 = 1 d'où PGCD(3 ; 2) = PGCD(2 ; 1)
+2 - 1 = 1 d'où PGCD(2 ; 1) = PGCD(1 ; 1)
+or PGCD(1 ; 1) = 1
+On est arrivé à deux nombres égaux, donc PGCD(7 ; 2) = 1.
+7 et 2 n'ont pas de diviseurs communs autre que 1.
+7 et 2 sont premiers entre eux!
+La fraction -7/2 est irréductible.
+

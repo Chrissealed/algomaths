@@ -1,0 +1,17 @@
+# Chapitre II : NOMBRES RELATIFS EN ÉCRITURE FRACTIONNAIRE : OPÉRATIONS.
+###################################################################################
+# Méthode 7.
+# Comment multiplier ou diviser deux nombres relatifs non nuls l'un en écriture
+# décimale, l'autre en écriture fractionnaire ?
+###################################################################################
+# Pour multiplier ou diviser deux nombres relatifs non nuls l'un en écriture
+# décimale, l'autre en écriture fractionnaire :
+# ▲ on considère le nombre en écriture décimale comme un nombre en écriture
+#   fractionnaire de dénominateur 1;
+# ▲ on se ramène à des calculs avec deux nombres en écriture fractionnaire
+#   dont l'un a pour dénominateur 1; 
+# ▲ on calcule en utilisant les méthodes 1, 2 et 4 de ce chapitre 
+#   en fonction des opérations.
+###################################################################################
+
+

@@ -1,0 +1,28 @@
+# Exercice. Calculer l'expression donnée.
+# ------------------
+# I = (−44) × 5/(−11).
+-----------------------------------------------------------------------------------
+Les fractions (−44) et 5/(−11) sont irréductibles.
+Signe du produit de -44/1 par 5/-11 : +.
+
+On multiplie les numérateurs de chaque fraction puis les dénominateurs :
+facteurs premiers de 44 :
+44	=>	2
+22	=>	2
+11	=>	11
+2 × 2 × 11
+2^2 × 11
+
+facteurs premiers de 11 :
+11	=>	1
+11 est un nombre premier!
+Il n'admet que 1 et lui-même comme diviseurs.
+1 × 11.
+
+Facteurs premiers obtenus pour 44 × 5 = 220 : 2 2 5 11.
+Facteurs obtenus pour 1 × 11 = 11 : 1 11.
+Facteurs résultants : 2 2 5 ; 1.
+Fraction résultante : 20/1.
+Soit 20/1 = 20.
+
+

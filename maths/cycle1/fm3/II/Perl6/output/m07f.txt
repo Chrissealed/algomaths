@@ -1,0 +1,40 @@
+# Exercice. Calculer l'expression donnée.
+# ------------------
+# F = − 3/8 × 24.
+-----------------------------------------------------------------------------------
+Les fractions − 3/8 et 24/1 sont irréductibles.
+Signe du produit de -3/8 par 24/1 : −.
+
+On multiplie les numérateurs de chaque fraction puis les dénominateurs :
+facteurs premiers de 24 :
+24	=>	2
+12	=>	2
+6	=>	2
+3	=>	3
+2 × 2 × 2 × 3
+2^3 × 3
+
+Facteurs premiers obtenus pour 3 × 24 = 72 : 2 2 2 3 3.
+Facteurs obtenus pour 8 × 1 = 8 : 1 8.
+Facteurs résultants : 2 2 2 3 3 ; 1 8.
+Fraction résultante : -72/8.
+
+On simplifie la dernière fraction obtenue :
+72 et 8 ont un diviseur commun autre que 1 : 2.
+− Calcul du PGCD : Utilisation de l'algorithme des soustractions −
+72 - 8 = 64 d'où PGCD(72 ; 8) = PGCD(64 ; 8)
+64 - 8 = 56 d'où PGCD(64 ; 8) = PGCD(56 ; 8)
+56 - 8 = 48 d'où PGCD(56 ; 8) = PGCD(48 ; 8)
+48 - 8 = 40 d'où PGCD(48 ; 8) = PGCD(40 ; 8)
+40 - 8 = 32 d'où PGCD(40 ; 8) = PGCD(32 ; 8)
+32 - 8 = 24 d'où PGCD(32 ; 8) = PGCD(24 ; 8)
+24 - 8 = 16 d'où PGCD(24 ; 8) = PGCD(16 ; 8)
+16 - 8 = 8 d'où PGCD(16 ; 8) = PGCD(8 ; 8)
+or PGCD(8 ; 8) = 8
+On est arrivé à deux nombres égaux, donc PGCD(72 ; 8) = 8.
+On simplifie avec le PGCD trouvé :
+-72/8 = 8 × -9 / 8 × 1
+-72/8 = -9/1
+La fraction -9/1 est irréductible.
+Fraction résolue : -9.
+

@@ -1,0 +1,13 @@
+# Exercice. Calculer l'expression donnée.
+# ------------------
+# H = 11/7 ÷ (−7).
+-----------------------------------------------------------------------------------
+Les fractions 11/7 et (−7/1) sont irréductibles.
+Signe de la division de 11/7 par -7/1 : −.
+
+On multiplie le premier nombre en écriture fractionnaire par l'inverse du second : 11 × 1 = 11
+Facteurs obtenus pour 11 × 1 = 11 : 1 11.
+Facteurs premiers obtenus pour 7 × 7 = 49 : 7 7.
+Fraction résultante : -11/49.
+
+

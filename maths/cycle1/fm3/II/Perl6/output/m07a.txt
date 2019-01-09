@@ -1,0 +1,13 @@
+# Exercice. Calculer l'expression donnée.
+# ------------------
+# A = 7 × 3/5.
+-----------------------------------------------------------------------------------
+Les fractions 7/1 et 3/5 sont irréductibles.
+Signe du produit de 7/1 par 3/5 : +.
+
+On multiplie les numérateurs de chaque fraction puis les dénominateurs :
+Facteurs premiers obtenus pour 7 × 3 = 21 : 3 7.
+Facteurs obtenus pour 1 × 5 = 5 : 1 5.
+Fraction résultante : 21/5.
+
+

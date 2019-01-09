@@ -1,0 +1,19 @@
+# Exercice. Calculer l'expression donnée.
+# ------------------
+# M = − 6/7|3.
+-----------------------------------------------------------------------------------
+Les fractions −6/7 et 3/1 sont irréductibles.
+Signe de la division de -6/7 par 3/1 : −.
+
+On multiplie le premier nombre en écriture fractionnaire par l'inverse du second : -6 × 1 = -6
+facteurs premiers de 6 :
+6	=>	2
+3	=>	3
+2 × 3
+
+Facteurs obtenus pour 6 × 1 = 6 : 1 2 3.
+Facteurs premiers obtenus pour 7 × 3 = 21 : 3 7.
+Facteurs résultants : 1 2 ; 7.
+Fraction résultante : -2/7.
+
+

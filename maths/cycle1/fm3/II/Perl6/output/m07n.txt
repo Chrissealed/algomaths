@@ -1,0 +1,26 @@
+# Exercice. Calculer l'expression donnée.
+# ------------------
+# N = (−21) × 1/−18.
+-----------------------------------------------------------------------------------
+Les fractions (−21)/1 et 1/(−18) sont irréductibles.
+Signe du produit de -21/1 par 1/-18 : +.
+
+On multiplie les numérateurs de chaque fraction puis les dénominateurs :
+facteurs premiers de 21 :
+21	=>	3
+7	=>	7
+3 × 7
+
+facteurs premiers de 18 :
+18	=>	2
+9	=>	3
+3	=>	3
+2 × 3 × 3
+2 × 3^2
+
+Facteurs obtenus pour 21 × 1 = 21 : 1 3 7.
+Facteurs obtenus pour 1 × 18 = 18 : 1 2 3 3.
+Facteurs résultants : 7 ; 2 3.
+Fraction résultante : 7/6.
+
+

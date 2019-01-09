@@ -1,0 +1,32 @@
+# Exercice. Calculer l'expression donnée.
+# ------------------
+# E = 12/55 ÷ 18.
+-----------------------------------------------------------------------------------
+Les fractions 12/35 et 18/1 sont irréductibles.
+Signe de la division de 12/35 par 18/1 : +.
+
+On multiplie le premier nombre en écriture fractionnaire par l'inverse du second : 12 × 1 = 12
+facteurs premiers de 12 :
+12	=>	2
+6	=>	2
+3	=>	3
+2 × 2 × 3
+2^2 × 3
+
+Facteurs premiers de 35 :
+35	=>	5
+7	=>	7
+5 × 7
+Facteurs premiers de 18 :
+18	=>	2
+9	=>	3
+3	=>	3
+2 × 3 × 3
+2 × 3^2
+
+Facteurs premiers obtenus pour 12 × 1 = 12 : 1 2 2 3.
+Facteurs premiers obtenus pour 35 × 18 = 630 : 2 3 3 5 7.
+Facteurs premiers résultants : 1 2 ; 3 5 7.
+Fraction résultante : 2/105.
+
+
