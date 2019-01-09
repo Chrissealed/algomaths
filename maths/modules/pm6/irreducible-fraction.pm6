@@ -5,7 +5,7 @@ use v6;
 =begin pod
 =NAME class B<IrreducibleFraction> in B<algomaths> Perl6 modules : maths/modules/pm6/B<irreducible-fraction.pm6>
 =AUTHOR https://github.com/Chrissealed/algomaths.git
-=VERSION 2019.01.09
+=VERSION 2019.01.09 18:22
 
 =for head1
 L'objectif de ce module est de renvoyer la fraction irréductible

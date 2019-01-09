@@ -5,7 +5,7 @@ use v6;
 =begin pod
 =NAME B<OperationsOnFractions> : B<algomaths> Perl 6 module in /maths/modules/pm6/B<operations-on-fractions.pm6>
 =AUTHOR  https://github.com/Chrissealed/algomaths.git
-=VERSION 2019.01.09
+=VERSION 2019.01.09 18:22
 
 =for head1
 Ce module est destiné à faire des opérations sur des fractions.
