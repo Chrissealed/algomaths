@@ -5,7 +5,7 @@ use v6;
 =begin pod
 =NAME class B<IrreducibleFraction> in B<algomaths> Perl6 modules : maths/modules/pm6/B<irreducible-fraction.pm6>
 =AUTHOR https://github.com/Chrissealed/algomaths.git
-=VERSION 2019.01.02
+=VERSION 2019.01.09
 
 =for head1
 L'objectif de ce module est de renvoyer la fraction irréductible
@@ -87,7 +87,7 @@ class IrreducibleFraction is export {
         if $!numerator == (1 || -1) && $!denominator == (1 || -1) {
             $pair = $!numerator => $!denominator;
             $!t.tput: "La fraction $!numerator/$!denominator est irréductible.";
-            $!t.tput: "Fraction résolue : {$sign ~ $pair.key}.";
+            $!t.tput: "Fraction résolue : {$pair.key}.";
             return $pair;
         }
         if ($n == 1 || $n == -1) {
@@ -98,7 +98,7 @@ class IrreducibleFraction is export {
         if ($d == 1 || $d == -1) {
             $pair = $sign ~ $n => $d;
             $!t.tput: "La fraction $!numerator/$!denominator est irréductible.";
-            $!t.tput: "Fraction résolue : {$sign ~ $pair.key}.";
+            $!t.tput: "Fraction résolue : {$pair.key}.";
             return $pair;
         }
         my Str $algo = $!pgcd-algorithm;
@@ -139,7 +139,7 @@ class IrreducibleFraction is export {
                 }
                 if ($divisor == 1 || $divisor == -1) {
                     $pair = $sign ~ $dividend => $divisor;
-                    $!t.tput: "Fraction résolue : {$sign ~ $pair.key}.";
+                    $!t.tput: "Fraction résolue : {$pair.key}.";
                     return $pair;
                 }
                 # Redéfinition de la classe ArePrime déclarée plus haut
@@ -178,21 +178,22 @@ class IrreducibleFraction is export {
             return $pair;
         }
         if ($n == 0) { $!t.tput: '0'; $pair = $n => $d; return $pair; }
-        if $n == (1 || -1) && $d == (1 || -1) {
-            $pair = $sign ~ $n => $d;
-            $!t.tput: "La fraction $n/$d est irréductible.";
-            $!t.tput: "Fraction résolue : $sign ~ {$pair.key.Int div $pair.value}.";
+        if ($!numerator == 1 || $!numerator == -1) && ($!denominator == 1 || $!denominator == -1) {
+            $pair = $!numerator => $!denominator;
+            $!t.tput: "La fraction $!numerator/$!denominator est irréductible.";
+            $!t.tput: "Fraction résolue : {$pair.key div $pair.value}.";
             return $pair;
         }
-        if ($n == 1 || $n == -1) {
+        if ($!numerator == 1 || $!numerator == -1) {
             $pair = $sign ~ $n => $d;
-            $!t.tput: "La fraction $n/$d est irréductible.";
+            $!t.tput: "La fraction $!numerator/$!denominator est irréductible.";
             return $pair;
         }
-        if ($d == 1 || $d == -1) {
-            $pair = $sign ~ $n => $d;
-            $!t.tput: "La fraction $n/$d est irréductible.";
-            $!t.tput: "Fraction résolue : $sign ~ {$pair.key}.";
+        if ($!denominator == 1 || $!denominator == -1) {
+            $pair = $!numerator => $!denominator;
+            $!t.tput: "La fraction $!numerator/$!denominator est irréductible.";
+            #$!t.tput: "Fraction résolue : {$sign ~ ($dividend div $divisor)}.";
+            $!t.tput: "Fraction résolue : {$pair.key}.";
             return $pair;
         }
         my Str $algo = $!pgcd-algorithm;
@@ -272,10 +273,10 @@ class IrreducibleFraction is export {
             return $pair;
         }
         if ($n == 0) { $!t.tput: '0'; $pair = $!numerator => $!denominator; return $pair; }
-        if $n == (1 || -1) && $d == (1 || -1) {
-            $pair = $sign ~ $n => $d;
-            $!t.tput: "La fraction $sign$n/$d est irréductible.";
-            $!t.tput: "Fraction résolue : {$pair.key.Int div $pair.value}.";
+        if ($!numerator == 1 || $!numerator == -1) && ($!denominator == 1 || $!denominator == -1) {
+            $pair = $!numerator => $!denominator;
+            $!t.tput: "La fraction $!numerator/$!denominator est irréductible.";
+            $!t.tput: "Fraction résolue : {$pair.key div $pair.value}.";
             return $pair;
         }
         if ($n == 1 || $n == -1) {
@@ -286,6 +287,7 @@ class IrreducibleFraction is export {
         if ($d == 1 || $d == -1) {
             $pair = $sign ~ $n => $d;
             $!t.tput: "La fraction $sign$n/$d est irréductible.";
+            $!t.tput: "Fraction résolue : {$pair.key div $pair.value}.";
             return $pair;
         }
         my Str $algo = $!pgcd-algorithm;
@@ -327,6 +329,7 @@ class IrreducibleFraction is export {
                 if ($divisor == 1 || $divisor == -1) {
                     $pair = $sign ~ $dividend => $divisor;
                     $!t.tput: "La fraction $sign$dividend/$divisor est irréductible.";
+                    $!t.tput: "Fraction résolue : {$sign ~ ($dividend div $divisor)}.";
                     return $pair;
                 }
                 $are-prime.integer1 = $dividend;

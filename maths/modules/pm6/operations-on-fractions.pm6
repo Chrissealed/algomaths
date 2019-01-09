@@ -5,7 +5,7 @@ use v6;
 =begin pod
 =NAME B<OperationsOnFractions> : B<algomaths> Perl 6 module in /maths/modules/pm6/B<operations-on-fractions.pm6>
 =AUTHOR  https://github.com/Chrissealed/algomaths.git
-=VERSION 2019.01.04
+=VERSION 2019.01.09
 
 =for head1
 Ce module est destiné à faire des opérations sur des fractions.
@@ -286,25 +286,45 @@ une chaîne vide.
 
     method are-they-prime(Int:D @numerators, Int:D @denominators --> Pair:D) {
         if defined($!nudepair3) {
-            if is-prime(@numerators[0]) && is-prime(@numerators[1]) && is-prime(@numerators[2]) {
+            if ($!breakdown-numerators) || ($!breakdown-numerator1 && $!breakdown-numerator2 && $!breakdown-numerator3) {
                 $!are-prime-nu = True;
-            } else { $!are-prime-nu = False; }
+            }
+            else {
+                if is-prime(@numerators[0]) && is-prime(@numerators[1]) && is-prime(@numerators[2]) {
+                    $!are-prime-nu = True;
+                } else { $!are-prime-nu = False; }
+            }
         }
         else {
-            if is-prime(@numerators[0]) && is-prime(@numerators[1]) {
+            if ($!breakdown-numerators) || ($!breakdown-numerator1 && $!breakdown-numerator2) {
                 $!are-prime-nu = True;
-            } else { $!are-prime-nu = False; }
+            }
+            else {
+                if is-prime(@numerators[0]) && is-prime(@numerators[1]) {
+                    $!are-prime-nu = True;
+                } else { $!are-prime-nu = False; }
+            }
         }
 
         if defined($!nudepair3) {
-            if is-prime(@denominators[0]) && is-prime(@denominators[1]) && is-prime(@denominators[2]) {
+            if ($!breakdown-denominators) || ($!breakdown-denominator1 && $!breakdown-denominator2 && $!breakdown-denominator3) {
                 $!are-prime-de = True;
-            } else { $!are-prime-de = False; }
+            }
+            else {
+                if is-prime(@denominators[0]) && is-prime(@denominators[1]) && is-prime(@denominators[2]) {
+                    $!are-prime-de = True;
+                } else { $!are-prime-de = False; }
+            }
         }
         else {
-            if is-prime(@denominators[0]) && is-prime(@denominators[1]) {
+            if ($!breakdown-denominators) || ($!breakdown-denominator1 && $!breakdown-denominator2) {
                 $!are-prime-de = True;
-            } else { $!are-prime-de = False; }
+            }
+            else {
+                if is-prime(@denominators[0]) && is-prime(@denominators[1]) {
+                    $!are-prime-de = True;
+                } else { $!are-prime-de = False; }
+            }
         }
         my Pair $are-they-prime;
         $are-they-prime = $!are-prime-nu => $!are-prime-de;
@@ -830,18 +850,18 @@ Elle retourne une nouvelle B<paire>.
 
         my Pair $prime = $.are-they-prime(@numerators, @denominators); 
         if defined($pair3) {
-            $!are-prime-nu ?? $!t.tprint: "Facteurs premiers " !! $!t.tprint: "Facteurs ";
+            $!are-prime-nu == True ?? $!t.tprint: "Facteurs premiers " !! $!t.tprint: "Facteurs ";
             $!t.tput: "obtenus pour {$P1.key} × {$P2.key} × {$P3.key} = $numerator : @numerators[].";
         } else {
-            $!are-prime-nu ?? $!t.tprint: "Facteurs premiers " !! $!t.tprint: "Facteurs ";
+            $!are-prime-nu == True ?? $!t.tprint: "Facteurs premiers " !! $!t.tprint: "Facteurs ";
             $!t.tput: "obtenus pour {$P1.key} × {$P2.key} = $numerator : @numerators[].";
         }
 
         if defined($pair3) {
-            $!are-prime-de ?? $!t.tprint: "Facteurs premiers " !! $!t.tprint: "Facteurs ";
+            $!are-prime-de == True ?? $!t.tprint: "Facteurs premiers " !! $!t.tprint: "Facteurs ";
             $!t.tput: "obtenus pour {$P1.value} × {$P2.value} × {$P3.value} = $denominator : @denominators[].";
         } else {
-            $!are-prime-de ?? $!t.tprint: "Facteurs premiers " !! $!t.tprint: "Facteurs ";
+            $!are-prime-de == True ?? $!t.tprint: "Facteurs premiers " !! $!t.tprint: "Facteurs ";
             $!t.tput: "obtenus pour {$P1.value} × {$P2.value} = $denominator : @denominators[].";
         }
 
@@ -880,6 +900,9 @@ Consultez aussi la documentation du module B<prime-factors.pm6>.
         }
 
         $!t.tput: "Fraction résultante : $sign$numerator/$denominator.";
+        if ($denominator == 1 || $denominator == -1) {
+            $!t.tput: "Soit $sign$numerator/$denominator = $sign$numerator.";
+        }
         $!t.tprint: "\n";
         my Pair $P;
         if ($!reduce-last-one) {
@@ -976,10 +999,10 @@ contrairement aux autres opérations et sera donc ignoré.
         @denominators = @denominators.sort;
 
         my Pair $prime = $.are-they-prime(@numerators, @denominators); 
-        $!are-prime-nu ?? $!t.tprint: "Facteurs premiers " !! $!t.tprint: "Facteurs ";
+        $!are-prime-nu == True ?? $!t.tprint: "Facteurs premiers " !! $!t.tprint: "Facteurs ";
         $!t.tput: "obtenus pour {$P1.key} × {$P2.key} = $numerator : @numerators[].";
 
-        $!are-prime-de ?? $!t.tprint: "Facteurs premiers " !! $!t.tprint: "Facteurs ";
+        $!are-prime-de == True ?? $!t.tprint: "Facteurs premiers " !! $!t.tprint: "Facteurs ";
         $!t.tput: "obtenus pour {$P1.value} × {$P2.value} = $denominator : @denominators[].";
 
         my Int @prime-factors-n;
@@ -999,6 +1022,9 @@ contrairement aux autres opérations et sera donc ignoré.
         }
 
         $!t.tput: "Fraction résultante : $sign$numerator/$denominator.";
+        if ($denominator == 1 || $denominator == -1) {
+            $!t.tput: "Soit $sign$numerator/$denominator = $sign$numerator.";
+        }
         $!t.tprint: "\n";
         my Pair $P;
         if ($!reduce-last-one) {
