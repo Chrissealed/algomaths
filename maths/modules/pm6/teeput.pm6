@@ -5,7 +5,7 @@ use v6;
 =begin pod
 =NAME rôle B<Teeput::Tput> in B<algomaths> Perl 6 modules : maths/modules/pm6/B<teeput.pm6>
 =AUTHOR  https://github.com/Chrissealed/algomaths.git
-=VERSION 2018.12.16
+=VERSION 2019.01.28
 
 =for head1
 Le rôle Teeput::Tput
@@ -25,12 +25,18 @@ Il possède les attributs suivants qui possèdent
 chacun une valeur par défaut et sont en lecture/écriture :
 =item B<filepath> contient le chemin d'accès au fichier texte
 qui répliquera les informations, c'est à dire par défaut
-filepath => output/out.txt.
+filepath => ./teeput-out.txt ou normalement dans le sous-dossier
+B<output>.
 
 B<filemode> précise le mode d'ouverture des fichiers :
 =item :mode<wo>, :create, :exclusive qui s'écrit simplement B<:x>;
 =item :mode<wo>, :create, :truncate qui s'écrit simplement B<:w>;
 =item :mode<wo>, :create, :append qui s'écrit simplement B<:a>.
+
+B<writetty> par défaut à True permet de choisir si on veut
+de ne pas écrire sur le terminal les informations qui
+seront alors recueillies dans un fichier si vous passez
+la valeur B<True> au champ B<writefile>.
 
 Pour ce qui est des autres champs leur valeur par défaut est
 B<False> pour B<writefile> et B<True> pour B<closefile>.
@@ -75,51 +81,55 @@ de passer un argument de type B<Str>, B<Array> ou B<Hash>.
 
 role Tput is export {
     my $filemode-one-junction = ':x' ^ ':w' ^ ':a';
-    has Str $.filepath is rw = 'output/out.txt';
+    has Str $.filepath is rw = './teeput.logout';
     has Str $.filemode is rw where { $_ ~~ $filemode-one-junction or die "Attribut filemode invalide! ':x', ':w' ou ':a' requis."; } = ':a';
     has Bool $.writefile is rw = False;
+    has Bool $.writetty is rw = True;
     # Utilisé uniquement pour le mode :a
     has Bool $.closefile is rw = True;
+    
     my $param-one-junction = Str:D ^ Array:D ^ Hash:D;
+
     method tput($param-one-junction --> Bool:D) {
+        my Bool $status = True;
         # :mode<wo>, :create, :exclusive
         if ($!filemode eq ':x') {
             try {
-                put $param-one-junction;
+                if $!writetty { put $param-one-junction; }
                 if $!writefile {
                     my $fh = open :x, $!filepath;
                     $fh.put: $param-one-junction;
-                    $fh.close;
                 }
                 # Check for existence
-                if $!filepath.IO.e {
-                    ;
-                } else {
+                if ($!filepath.IO.e) {
+                    return $status;
+                }
+                else {
                     put "Ecriture dans $!filepath en mode $!filemode impossible!";
-                    return False;
+                    return !$status;
                 }
             }
         # :mode<wo>, :create, :truncate
         } elsif ($!filemode eq ':w') {
             try {
-                put $param-one-junction;
+                if $!writetty { put $param-one-junction; }
                 if $!writefile {
                     my $fh = open :w, $!filepath;
                     $fh.put: $param-one-junction;
-                    $fh.close;
                 }
                 # Check for existence
                 if $!filepath.IO.e {
-                    ;
-                } else {
+                    return $status;
+                }
+                else {
                     put "Ecriture dans $!filepath en mode $!filemode impossible!";
-                    return False;
+                    return !$status;
                 }
             }
         # :mode<wo>, :create, :append   
         } elsif ($!filemode eq ':a') {
             try {
-                put $param-one-junction;
+                if $!writetty { put $param-one-junction; }
                 if $!writefile {
                     my $fh = open :a, $!filepath;
                     $fh.put: $param-one-junction;
@@ -127,135 +137,127 @@ role Tput is export {
                 }
                 # Check for existence
                 if $!filepath.IO.e {
-                    ;
-                } else {
+                    return $status;
+                }
+                else {
                     put "Ecriture dans $!filepath en mode $!filemode impossible!";
-                    return False;
+                    return !$status;
                 }
             }
-        } else {
-            put $param-one-junction;
-            return False;
         }
-        return True;
     }
 
     method tprint($param-one-junction --> Bool:D) {
+        my Bool $status = True;
         # :mode<wo>, :create, :exclusive
         if ($!filemode eq ':x') {
             try {
-                print $param-one-junction;
+                if $!writetty { print $param-one-junction; }
                 if $!writefile {
                     my $fh = open :x, $!filepath;
-                    $fh.tprint: $param-one-junction;
-                    $fh.close;
+                    $fh.print: $param-one-junction;
                 }
                 # Check for existence
-                if $!filepath.IO.e {
-                    ;
-                } else {
+                if ($!filepath.IO.e) {
+                    return $status;
+                }
+                else {
                     put "Ecriture dans $!filepath en mode $!filemode impossible!";
-                    return False;
+                    return !$status;
                 }
             }
         # :mode<wo>, :create, :truncate
         } elsif ($!filemode eq ':w') {
             try {
-                print $param-one-junction;
+                if $!writetty { print $param-one-junction; }
                 if $!writefile {
                     my $fh = open :w, $!filepath;
                     $fh.print: $param-one-junction;
-                    $fh.close;
                 }
                 # Check for existence
-                if $!filepath.IO.e {
-                    ;
-                } else {
+                if ($!filepath.IO.e) {
+                    return $status;
+                }
+                else {
                     put "Ecriture dans $!filepath en mode $!filemode impossible!";
-                    return False;
+                    return !$status;
                 }
             }
         # :mode<wo>, :create, :append   
         } elsif ($!filemode eq ':a') {
             try {
-                print $param-one-junction;
+                if $!writetty { print $param-one-junction; }
                 if $!writefile {
                     my $fh = open :a, $!filepath;
                     $fh.print: $param-one-junction;
                     $fh.close if $!closefile;
                 }
                 # Check for existence
-                if $!filepath.IO.e {
-                    ;
-                } else {
+                if ($!filepath.IO.e) {
+                    return $status;
+                }
+                else {
                     put "Ecriture dans $!filepath en mode $!filemode impossible!";
-                    return False;
+                    return !$status;
                 }
             }
-        } else {
-            print $param-one-junction;
-            return False;
         }
-        return True;
     }
 
-    method tsay($param-one-junction --> Bool:D) {
+    method tsay($anytype --> Bool:D) {
+        my Bool $status = True;
         # :mode<wo>, :create, :exclusive
         if ($!filemode eq ':x') {
             try {
-                say $param-one-junction;
+                if $!writetty { say $param-one-junction; }
                 if $!writefile {
                     my $fh = open :x, $!filepath;
                     $fh.say: $param-one-junction;
-                    $fh.close;
                 }
                 # Check for existence
-                if $!filepath.IO.e {
-                    ;
-                } else {
+                if ($!filepath.IO.e) {
+                    return $status;
+                }
+                else {
                     put "Ecriture dans $!filepath en mode $!filemode impossible!";
-                    return False;
+                    return !$status;
                 }
             }
         # :mode<wo>, :create, :truncate
         } elsif ($!filemode eq ':w') {
             try {
-                say $param-one-junction;
+                if $!writetty { say $param-one-junction; }
                 if $!writefile {
                     my $fh = open :w, $!filepath;
-                    say $param-one-junction;
-                    $fh.close;
+                    $fh.say: $param-one-junction;
                 }
                 # Check for existence
-                if $!filepath.IO.e {
-                    ;
-                } else {
+                if ($!filepath.IO.e) {
+                    return $status;
+                }
+                else {
                     put "Ecriture dans $!filepath en mode $!filemode impossible!";
-                    return False;
+                    return !$status;
                 }
             }
         # :mode<wo>, :create, :append   
         } elsif ($!filemode eq ':a') {
             try {
-                say $param-one-junction;
+                if $!writetty { say $param-one-junction; }
                 if $!writefile {
                     my $fh = open :a, $!filepath;
                     $fh.say: $param-one-junction;
                     $fh.close if $!closefile;
                 }
                 # Check for existence
-                if $!filepath.IO.e {
-                    ;
-                } else {
+                if ($!filepath.IO.e) {
+                    return $status;
+                }
+                else {
                     put "Ecriture dans $!filepath en mode $!filemode impossible!";
-                    return False;
+                    return !$status;
                 }
             }
-        } else {
-            say $param-one-junction;
-            return False;
         }
-        return True;
     }
-
 }
