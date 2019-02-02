@@ -1,3 +1,7 @@
+# Exercices :
+# ---------
+# DIVISEURS ET NOMBRES PREMIERS
+
 Décomposez le nombre suivant en facteurs premiers.
 g. 1024
 1024	=>	2
@@ -12,4 +16,5 @@ g. 1024
 2	=>	2
 2 × 2 × 2 × 2 × 2 × 2 × 2 × 2 × 2 × 2
 2^10
+
 

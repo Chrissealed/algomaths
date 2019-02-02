@@ -1,3 +1,7 @@
+# Exercices :
+# ---------
+# DIVISEURS ET NOMBRES PREMIERS
+
 Décomposez le nombre suivant en facteurs premiers.
 h. 315
 315	=>	3
@@ -6,4 +10,5 @@ h. 315
 7	=>	7
 3 × 3 × 5 × 7
 3^2 × 5 × 7
+
 

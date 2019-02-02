@@ -1,7 +1,12 @@
+# Exercices :
+# ---------
+# DIVISEURS ET NOMBRES PREMIERS
+
 Décomposez le nombre suivant en facteurs premiers.
 v. 2001
 2001	=>	3
 667	=>	23
 29	=>	29
 3 × 23 × 29
+
 

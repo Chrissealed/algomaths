@@ -1,3 +1,7 @@
+# Exercices :
+# ---------
+# DIVISEURS ET NOMBRES PREMIERS
+
 Décomposez le nombre suivant en facteurs premiers.
 b. 72
 72	=>	2
@@ -7,4 +11,5 @@ b. 72
 3	=>	3
 2 × 2 × 2 × 3 × 3
 2^3 × 3^2
+
 

@@ -1,3 +1,7 @@
+# Exercices :
+# ---------
+# DIVISEURS ET NOMBRES PREMIERS
+
 Décomposez le nombre suivant en facteurs premiers.
 y. 2004
 2004	=>	2
@@ -6,4 +10,5 @@ y. 2004
 167	=>	167
 2 × 2 × 3 × 167
 2^2 × 3 × 167
+
 

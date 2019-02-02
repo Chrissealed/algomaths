@@ -1,3 +1,7 @@
+# Exercices :
+# ---------
+# DIVISEURS ET NOMBRES PREMIERS
+
 Décomposez le nombre suivant en facteurs premiers.
 s. 432
 432	=>	2
@@ -9,4 +13,5 @@ s. 432
 3	=>	3
 2 × 2 × 2 × 2 × 3 × 3 × 3
 2^4 × 3^3
+
 

@@ -1,3 +1,7 @@
+# Exercices :
+# ---------
+# DIVISEURS ET NOMBRES PREMIERS
+
 Décomposez le nombre suivant en facteurs premiers.
 m. 2025
 2025	=>	3
@@ -8,4 +12,5 @@ m. 2025
 5	=>	5
 3 × 3 × 3 × 3 × 5 × 5
 3^4 × 5^2
+
 

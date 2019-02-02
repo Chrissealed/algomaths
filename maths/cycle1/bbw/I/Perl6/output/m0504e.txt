@@ -1,6 +1,11 @@
+# Exercices :
+# ---------
+# DIVISEURS ET NOMBRES PREMIERS
+
 Décomposez le nombre suivant en facteurs premiers.
 t. 985
 985	=>	5
 197	=>	197
 5 × 197
+
 

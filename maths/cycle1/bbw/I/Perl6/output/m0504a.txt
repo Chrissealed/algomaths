@@ -1,7 +1,12 @@
+# Exercices :
+# ---------
+# DIVISEURS ET NOMBRES PREMIERS
+
 Décomposez le nombre suivant en facteurs premiers.
 p. 255
 255	=>	3
 85	=>	5
 17	=>	17
 3 × 5 × 17
+
 

@@ -1,3 +1,7 @@
+# Exercices :
+# ---------
+# DIVISEURS ET NOMBRES PREMIERS
+
 Décomposez le nombre suivant en facteurs premiers.
 u. 2000
 2000	=>	2
@@ -9,4 +13,5 @@ u. 2000
 5	=>	5
 2 × 2 × 2 × 2 × 5 × 5 × 5
 2^4 × 5^3
+
 

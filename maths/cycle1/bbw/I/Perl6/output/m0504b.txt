@@ -1,3 +1,7 @@
+# Exercices :
+# ---------
+# DIVISEURS ET NOMBRES PREMIERS
+
 Décomposez le nombre suivant en facteurs premiers.
 q. 441
 441	=>	3
@@ -6,4 +10,5 @@ q. 441
 7	=>	7
 3 × 3 × 7 × 7
 3^2 × 7^2
+
 

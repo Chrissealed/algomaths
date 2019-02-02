@@ -1,3 +1,7 @@
+# Exercices :
+# ---------
+# DIVISEURS ET NOMBRES PREMIERS
+
 Décomposez le nombre suivant en facteurs premiers.
 i. 396
 396	=>	2
@@ -7,4 +11,5 @@ i. 396
 11	=>	11
 2 × 2 × 3 × 3 × 11
 2^2 × 3^2 × 11
+
 

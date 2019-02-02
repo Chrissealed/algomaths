@@ -1,3 +1,7 @@
+# Exercices :
+# ---------
+# DIVISEURS ET NOMBRES PREMIERS
+
 Décomposez le nombre suivant en facteurs premiers.
 k. 972
 972	=>	2
@@ -9,4 +13,5 @@ k. 972
 3	=>	3
 2 × 2 × 3 × 3 × 3 × 3 × 3
 2^2 × 3^5
+
 

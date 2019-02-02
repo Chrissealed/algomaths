@@ -1,7 +1,12 @@
+# Exercices :
+# ---------
+# DIVISEURS ET NOMBRES PREMIERS
+
 Décomposez le nombre suivant en facteurs premiers.
 x. 2003
 2003	=>	1
 2003 est un nombre premier!
 Il n'admet que 1 et lui-même comme diviseurs.
 1 × 2003.
+
 

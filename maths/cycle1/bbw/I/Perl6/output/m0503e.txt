@@ -1,3 +1,7 @@
+# Exercices :
+# ---------
+# DIVISEURS ET NOMBRES PREMIERS
+
 Décomposez le nombre suivant en facteurs premiers.
 o. 860
 860	=>	2
@@ -6,4 +10,5 @@ o. 860
 43	=>	43
 2 × 2 × 5 × 43
 2^2 × 5 × 43
+
 
