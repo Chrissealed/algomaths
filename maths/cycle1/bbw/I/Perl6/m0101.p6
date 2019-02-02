@@ -3,7 +3,7 @@
 use v6;
 
 =begin pod
-=NAME Perl 6 executable in B<algomaths>/maths/cycle1/bbw/I/Perl6/B<m01to04.p6> 
+=NAME Perl 6 executable in B<algomaths>/maths/cycle1/bbw/I/Perl6/B<m0101.p6> 
 =AUTHOR  https://github.com/Chrissealed/algomaths.git
 =VERSION 2019.02.02
 =end pod
@@ -11,7 +11,7 @@ use v6;
 use method01to04;
 
 sub answering {
-    my Junction $any-junction = 0|'0'|'O';
+    my Junction $any-junction = 1|'a'|'A';
     my $xchoice = ChooseX.new();
     my Bool $status = $xchoice.exercises_01to04($any-junction);
 }  

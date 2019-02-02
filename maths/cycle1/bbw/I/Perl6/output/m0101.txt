@@ -1,0 +1,35 @@
+# Exercices :
+# ---------
+# CALCUL MENTAL : OPERATIONS
+
+ADDITIONS
+
+a.
+   873
+   112
+  1718
+   157
++ 3461
+  ----
+  ... = 456
+Faux. Recommencez.
+a.
+   873
+   112
+  1718
+   157
++ 3461
+  ----
+  ... = 123
+Faux. Recommencez.
+a.
+   873
+   112
+  1718
+   157
++ 3461
+  ----
+  ... = q
+Réponses correctes : 0.
+Réponses incorrectes : 2.
+

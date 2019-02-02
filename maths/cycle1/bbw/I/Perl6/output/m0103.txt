@@ -1,0 +1,13 @@
+# Exercices :
+# ---------
+# CALCUL MENTAL : OPERATIONS
+
+MULTIPLICATIONS
+
+1. 34 × 89 = 456
+Faux. Recommencez.
+1. 34 × 89 = 789
+Faux. Recommencez.
+1. 34 × 89 = 123
+Faux. Recommencez.
+1. 34 × 89 = 

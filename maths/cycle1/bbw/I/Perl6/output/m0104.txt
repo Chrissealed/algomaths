@@ -1,0 +1,9 @@
+# Exercices :
+# ---------
+# CALCUL MENTAL : OPERATIONS
+
+DIVISIONS
+
+Attention! Donnez le quotient et le reste concaténés (c-à-d. sans espace entre eux).
+1. 154 ÷ 13 = 
+

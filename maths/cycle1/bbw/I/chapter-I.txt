@@ -1,0 +1,37 @@
+bbw − Aperçu de l'ensemble du chapitre I
+----------------------------------------
+I - CALCULER AVEC DES NOMBRES ENTIERS
+
+0. Les 4 opérations.
+1. Addition.
+2. Soustraction.
+3. Multiplication.
+4. Division avec reste.
+
+5. Décomposer un entier en facteurs premiers :
+501a 501b 501c 501d 501e.
+502a 502b 502c 502d 502e.
+503a 503b 503c 503d 503e.
+504a 504b 504c 504d 504e.
+505a 505b 505c 505d 505e.
+
+6. Déterminer tous les facteurs d'un entier :
+601a 601b 601c 601d 601e.
+602a 602b 602c 602d 602e.
+
+7. PGCD :
+701a 701b 701c 701d 701e.
+702a 702b 702c 702d 702e.
+703a 703b 703c 703d 703e.
+704a 704b 704c 704d 704e.
+
+8. PPCM :
+801a 801b 801c 801d 801e.
+802a 802b 802c 802d 802e.
+803a 803b 803c 803d 803e.
+804a 804b 804c 804d1 804d2 804d3 804e.
+
+9. PGCD et PPCM :
+901a 901b 901c 901d 901e
+902a 902b 902c 902d 902e.
+

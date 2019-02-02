@@ -1,0 +1,28 @@
+# Exercices :
+# ---------
+# CALCUL MENTAL : OPERATIONS
+
+SOUSTRACTIONS
+
+a.
+  9134
+– 4319
+  ----
+  ... = 4815
+Vrai
+b.
+  4585
+– 3287
+  ----
+  ... = 1298
+Vrai
+c.
+  7033
+– 1398
+  ----
+  ... = 5635
+Vrai
+Réponses correctes : 3.
+Réponses incorrectes : 0.
+Fin des opérations avec les soustractions.
+

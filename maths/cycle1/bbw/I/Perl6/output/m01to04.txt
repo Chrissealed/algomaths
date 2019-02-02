@@ -4,3 +4,13 @@
 
 Choix aléatoire
 
+QUATRE OPÉRATIONS
+
+34. 16155 ÷ 215 = 789
+Faux. Recommencez.
+34. 16155 ÷ 215 = 123
+Faux. Recommencez.
+34. 16155 ÷ 215 = q
+Réponses correctes : 0.
+Réponses incorrectes : 2.
+
