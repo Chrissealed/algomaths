@@ -5,7 +5,7 @@ use v6;
 =begin pod
 =NAME rôle B<Teeput::Tput> in B<algomaths> Perl 6 modules : maths/modules/pm6/B<teeput.pm6>
 =AUTHOR  https://github.com/Chrissealed/algomaths.git
-=VERSION 2019.01.28
+=VERSION 2019.02.03
 
 =for head1
 Le rôle Teeput::Tput
@@ -88,7 +88,7 @@ role Tput is export {
     # Utilisé uniquement pour le mode :a
     has Bool $.closefile is rw = True;
     
-    my $param-one-junction = Str:D ^ Array:D ^ Hash:D;
+    #my $param-one-junction = Str:D ^ Array:D ^ Hash:D;
 
     method tput($param-one-junction --> Bool:D) {
         my Bool $status = True;
@@ -204,7 +204,7 @@ role Tput is export {
         }
     }
 
-    method tsay($anytype --> Bool:D) {
+    method tsay($param-one-junction --> Bool:D) {
         my Bool $status = True;
         # :mode<wo>, :create, :exclusive
         if ($!filemode eq ':x') {

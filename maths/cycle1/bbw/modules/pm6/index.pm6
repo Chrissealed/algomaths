@@ -5,7 +5,7 @@ use v6;
 =begin pod
 =NAME class B<BBW-Index> : Perl 6 module in B<algomaths>/maths/cycle1/bbw/modules/pm6/B<index.pm6>
 =AUTHOR  https://github.com/Chrissealed/algomaths.git
-=VERSION 2019.02.02
+=VERSION 2019.02.03
 =end pod
 
 use teeput; 
@@ -76,10 +76,11 @@ class BBW-Index is export {
 
    method chapter-content-output-filepath(Str $chapter --> Bool:D) {
       my Bool $status = True;
+      my $path = "%*ENV<ALGOMATHS>/maths/cycle1/bbw";
       given $chapter {
-         when 'I' { $t.filepath = './I/chapter-I.txt'; }
-         #when 'II' { $t.filepath = './II/chapter-II.txt'; }
-         #when 'III' { $t.filepath = './III/chapter-III.txt'; }
+         when 'I' { $t.filepath = "$path/I/chapter-I.txt"; }
+         #when 'II' { $t.filepath = "$path/II/chapter-II.txt"; }
+         #when 'III' { $t.filepath = "$path/III/chapter-III.txt"; }
          default { put 'Choix de chapitre invalide!'; return $status = False; }
       }
       $t.filemode = ':x'; # :mode<wo>, :create, :exclusive
@@ -101,7 +102,10 @@ class BBW-Index is export {
       }
       given $chapter {
          # Méthode de  la classe BbwXChoice-I
-         when 'I' { my $bbwx = BbwXChoice-I.new(); @status = $bbwx.x-choice(); }
+         when 'I' { my $bbwx = BbwXChoice-I.new(
+            chapter => $chapter,
+            path => "%*ENV<ALGOMATHS>/maths/cycle1/bbw/$chapter/Perl6",
+         ); @status = $bbwx.x-choice(); }
          #when 'II' { my $bbwx = BbwXChoice-II.new(); @!status = $bbwx.x-choice(); }
          #when 'III' { my $bbwx = BbwXChoice-III.new(); @!status = $bbwx.x-choice(); }
          default { put 'Chapitre non valide!'; push @status, '-1'; return @status; }

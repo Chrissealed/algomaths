@@ -15,17 +15,12 @@ use prime-factors;
 
 sub answering {
     class T does Tput {}
-    my $io = IO::Path.new("$*CWD/init.p6");
-    my $t = T.new();
-    if $io ~~ / 'bbw/init.p6' / {
-        $t.filepath = './I/Perl6/output/m0505e.txt';
-    } else {
-        $t.filepath = './output/m0505e.txt';
-    }
-    $t.writefile = True;
-    $t.filemode = ':a'; # :mode<wo>, :create, :append
-    $t.closefile = False;
-
+    my $t = T.new(
+        writefile => True,
+        filemode => ':a', # :mode<wo>, :create, :append
+        closefile => False,
+        filepath => "%*ENV<ALGOMATHS>/maths/cycle1/bbw/I/Perl6/output/m0505e.txt",
+    );
     class P does PrimeFactors {}
     my $prime = P.new( t => $t );
     my %p = $prime.breakdown(2004);

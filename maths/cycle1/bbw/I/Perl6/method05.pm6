@@ -5,7 +5,7 @@ use v6;
 =begin pod
 =NAME class B<Method05::ChooseX> : Perl 6 module in B<algomaths>/maths/cycle1/bbw/I/Perl6/B<method05.pm6>
 =AUTHOR  https://github.com/Chrissealed/algomaths.git
-=VERSION 2019.02.02
+=VERSION 2019.02.03
 =end pod
 
 use teeput;
@@ -42,38 +42,24 @@ class ChooseX is export {
     ###################################################################################
 
     EOM
-        my $io = IO::Path.new("$*CWD/init.p6");
-        if $io ~~ / 'bbw/init.p6' / {
-            $t.filepath = 'I/Perl6/output/method05.txt';
-        } else {
-            $t.filepath = './output/method05.txt';
-        }
+        my Str $filepath = "%*ENV<ALGOMATHS>/maths/cycle1/bbw/I/Perl6/output/method05.txt";
+        $t.filepath = $filepath;
         $t.filemode = ':x'; # :mode<wo>, :create, :exclusive
         $t.tput($wording);
     }
 
     method show-examples() {
-        my $io = IO::Path.new("$*CWD/init.p6");
-        if $io ~~ / 'bbw/init.p6' / {
-            shell "xdg-open ./I/examples05.pdf &";
-        } else {
-            shell "xdg-open ../examples05.pdf &";
-        }
+        my Str $path = "%*ENV<ALGOMATHS>/maths/cycle1/bbw/I";
+        shell "xdg-open $path/examples05.pdf";
     }
 
     method set-output-file-mode(Str:D $file) {
-        my $io = IO::Path.new("$*CWD/init.p6");
-        my Str $filepath = '';
-        my Bool $local-call = False;
-        my Bool $remote-call = True;
+        #my $io = IO::Path.new("$*CWD/init.p6");
+        #my Bool $local-call = False;
+        #my Bool $remote-call = True;
         $t.filemode = ':w'; # :mode<wo>, :create, :truncate
-        if $io ~~ / 'bbw/init.p6' / {
-            $t.filepath = "./I/Perl6/output/$file";
-        } else {
-            $t.filepath = "./output/$file";
-            $local-call = True;
-            $remote-call = False;
-        }
+        $t.filepath = "%*ENV<ALGOMATHS>/maths/cycle1/bbw/I/Perl6/output/$file";
+
         $t.tput: '# Exercices :';
         $t.filemode = ':a'; # :mode<wo>, :create, :append
         $t.closefile = False;
