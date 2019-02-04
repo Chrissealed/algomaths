@@ -5,18 +5,14 @@ use v6;
 =begin pod
 =NAME B<MAIN.p6> : Perl 6 executable in B<algomaths>/maths/cycle1
 =AUTHOR  https://github.com/Chrissealed/algomaths.git
-=VERSION 2019.02.03
+=VERSION 2019.02.04
 =end pod
-
-use teeput;
 
 INIT {
    put 'Nice to meet you! Hope that this program will help you to make progress and have fun.';
 }
 
 sub select-a-course() {
-    class T does Tput {}
-    my $t = T.new();
     my Str $init-path = '';
     my Str $init-file-path = '';
     loop {
@@ -37,7 +33,6 @@ sub select-a-course() {
             put "Identifiant du cours invalide!";
         }
     }
-    $t.filepath = $init-file-path;
     shell "perl6 -I $init-path $init-file-path";
 }
 
