@@ -5,7 +5,7 @@ use v6;
 =begin pod
 =NAME B<Method01to04> : Perl 6 module in B<algomaths>/maths/cycle1/bbw/I/Perl6/B<method01to04.pm6>
 =AUTHOR  https://github.com/Chrissealed/algomaths.git
-=VERSION 2019.02.02
+=VERSION 2019.02.05
 =end pod
 
 use corrective;
@@ -21,23 +21,15 @@ my $t = T.new(
 class DoOperations is export {
 
     method put-up-method(Str:D $method-text-file, Str:D $method-wording) {
-        my $io = IO::Path.new("$*CWD/init.p6");
-        if $io ~~ / 'bbw/init.p6' / {
-            $t.filepath = "I/Perl6/output/$method-text-file";
-        } else {
-            $t.filepath = "output/$method-text-file";
-        }
+        my Str $filepath = "%*ENV<ALGOMATHS>/maths/cycle1/bbw/I/Perl6/output/$method-text-file";
+        $t.filepath = $filepath;
         $t.filemode = ':x'; # :mode<wo>, :create, :exclusive
         $t.tput($method-wording);
     }
 
     method show-examples(Str:D $pdf-file) {
-        my $io = IO::Path.new("$*CWD/init.p6");
-        if $io ~~ / 'bbw/init.p6' / {
-            shell "xdg-open I/$pdf-file &";
-        } else {
-            shell "xdg-open ../$pdf-file &";
-        }
+        my Str $path = "%*ENV<ALGOMATHS>/maths/cycle1/bbw/I";
+        shell "xdg-open $path/$pdf-file";
     }
 
     method stop(--> Bool:D) {
@@ -85,7 +77,7 @@ class DoOperations is export {
     }
 
     method additions(--> Bool:D) {
-        my Str $examples-file = 'method01.pdf';
+        my Str $examples-file = 'examples01.pdf';
         my Str $output-file = 'method01.txt';
         my Str $wording = qq:to/EOM/;
     ###################################################################################
@@ -143,7 +135,7 @@ class DoOperations is export {
     }
 
     method subtractions(--> Bool:D) {
-        my Str $examples-file = 'method02.pdf';
+        my Str $examples-file = 'examples02.pdf';
         my Str $output-file = 'method02.txt';
         my Str $wording = qq:to/EOM/;
     ###################################################################################
@@ -204,7 +196,7 @@ class DoOperations is export {
     }
 
     method multiplications(--> Bool:D) {
-        my Str $examples-file = 'method03.pdf';
+        my Str $examples-file = 'examples03.pdf';
         my Str $output-file = 'method03.txt';
         my Str $wording = qq:to/EOM/;
     ###################################################################################
@@ -310,7 +302,7 @@ class DoOperations is export {
     }
 
     method divisions(--> Bool:D) {
-        my Str $examples-file = 'method04.pdf';
+        my Str $examples-file = 'examples04.pdf';
         my Str $output-file = 'method04.txt';
         my Str $wording = qq:to/EOM/;
     ###################################################################################
@@ -472,7 +464,7 @@ class DoOperations is export {
     }
 
     method four-operations(--> Bool:D) {
-        my Str $examples-file = 'method01to04.pdf';
+        my Str $examples-file = 'examples01to04.pdf';
         my Str $output-file = 'method01to04-sum-up.txt';
         my Str $wording = qq:to/EOM/;
     ################################################################################### 
@@ -834,8 +826,9 @@ class DoOperations is export {
 
 class ChooseX is export {
 
-    method set-output-file-mode() {
+    method set-output-file-mode(Str:D $file) {
         $t.filemode = ':w'; # :mode<wo>, :create, :truncate
+        $t.filepath = "%*ENV<ALGOMATHS>/maths/cycle1/bbw/I/Perl6/output/$file";
         $t.tput: '# Exercices :';
         $t.filemode = ':a'; # :mode<wo>, :create, :append
         $t.closefile = False;
@@ -855,62 +848,32 @@ class ChooseX is export {
 
         given $exercise-label {
             when 1|'a'|'A' {
-                if $io ~~ / 'bbw/init.p6' / {
-                    $t.filepath = 'I/Perl6/output/m0101.txt';
-                } else {
-                    $t.filepath = './output/m0101.txt';
-                    $local-call = True;
-                    $remote-call = False;
-                }
-                self.set-output-file-mode();
+                my $output-file = 'm0101.txt';
+                self.set-output-file-mode($output-file);
                 $status = $operations.additions();
                 return $status;
             }
             when 2|'s'|'S' {
-                if $io ~~ / 'bbw/init.p6' / {
-                    $t.filepath = 'I/Perl6/output/m0102.txt';
-                } else {
-                    $t.filepath = './output/m0102.txt';
-                    $local-call = True;
-                    $remote-call = False;
-                }
-                self.set-output-file-mode();
+                my $output-file = 'm0102.txt';
+                self.set-output-file-mode($output-file);
                 $status = $operations.subtractions();
                 return $status;
             }
             when 3|'m'|'M' {
-                if $io ~~ / 'bbw/init.p6' / {
-                    $t.filepath = 'I/Perl6/output/m0103.txt';
-                } else {
-                    $t.filepath = './output/m0103.txt';
-                    $local-call = True;
-                    $remote-call = False;
-                }
-                self.set-output-file-mode();
+                my $output-file = 'm0103.txt';
+                self.set-output-file-mode($output-file);
                 $status = $operations.multiplications();
                 return $status;
             }
             when 4|'d'|'D' {
-                if $io ~~ / 'bbw/init.p6' / {
-                    $t.filepath = 'I/Perl6/output/m0104.txt';
-                } else {
-                    $t.filepath = './output/m0104.txt';
-                    $local-call = True;
-                    $remote-call = False;
-                }
-                self.set-output-file-mode();
+                my $output-file = 'm0104.txt';
+                self.set-output-file-mode($output-file);
                 $status = $operations.divisions();
                 return $status;
             }
             when 0|'0'|'O' {
-                if $io ~~ / 'bbw/init.p6' / {
-                    $t.filepath = 'I/Perl6/output/m01to04.txt';
-                } else {
-                    $t.filepath = './output/m01to04.txt';
-                    $local-call = True;
-                    $remote-call = False;
-                }
-                self.set-output-file-mode();
+                my $output-file = 'm01to04.txt';
+                self.set-output-file-mode($output-file);
                 $t.tput: "Choix aléatoire";
                 $t.tprint: "\n";
                 $status = $operations.four-operations();

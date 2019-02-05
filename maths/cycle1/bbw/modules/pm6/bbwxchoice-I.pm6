@@ -5,7 +5,7 @@ use v6;
 =begin pod
 =NAME class B<BbwXChoice-I> in B<algomaths>/maths/bbw/modules/pm6/B<bbwxchoice-I.pm6>
 =AUTHOR  https://github.com/Chrissealed/algomaths.git
-=VERSION 2019.02.03
+=VERSION 2019.02.05
 =end pod
 
 use teeput;
@@ -22,13 +22,13 @@ class BbwXChoice-I does Teeput::Tput is export {
     }
 
     method x-choice(--> Array:D) {
-        my $stats-file = 'I-statistics.txt';
+        my $stats-file1 = 'I-statistics.txt';
         my $t = Tput.new(
             writefile => True,
             filemode => ':a', # :mode<wo>, :create, :append
             writetty => False,
             closefile => True,
-            filepath => "%*ENV<ALGOMATHS>/maths/cycle1/bbw/stats/$stats-file",
+            filepath => "%*ENV<ALGOMATHS>/maths/cycle1/bbw/stats/$stats-file1",
         );
         my Str $method01 = 'Addition.';
         my Str $method02 = 'Soustraction.';
@@ -47,7 +47,15 @@ class BbwXChoice-I does Teeput::Tput is export {
         my Str $xchoice = prompt "Choisissez un exercice : (0,1,2,3 ou 4 puis chiffres et lettres accolés; ex: 504c); (q ou Q pour quitter) > ";
         my $time = now.DateTime;
         given $xchoice {
-            when 'q' || 'Q' { $confirm = self.stop(); if ($confirm) { push @status, '-1'; return @status; } else { @status = self.x-choice; } }
+            when 'q' || 'Q'
+            {
+                $confirm = self.stop(); 
+                if ($confirm) {
+                    $t.tput: "\n"; push @status, '-1';
+                    return @status;
+                }
+                else { @status = self.x-choice; }
+            }
             when '1' { $t.tput: "1. $method01 ($pseudopath/output/m0101.txt) -- $time"; shell "perl6 -I $!path $!path/m0101.p6"; push @status, '1'; }
             when '2' { $t.tput: "2. $method02 ($pseudopath/output/m0102.txt) -- $time"; shell "perl6 -I $!path $!path/m0102.p6"; push @status, '2'; }
             when '3' { $t.tput: "3. $method03 ($pseudopath/output/m0103.txt) -- $time"; shell "perl6 -I $!path $!path/m0103.p6"; push @status, '3'; }

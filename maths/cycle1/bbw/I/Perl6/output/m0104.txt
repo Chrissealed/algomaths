@@ -5,5 +5,11 @@
 DIVISIONS
 
 Attention! Donnez le quotient et le reste concaténés (c-à-d. sans espace entre eux).
-1. 154 ÷ 13 = 
+1. 154 ÷ 13 = 456
+Faux. Recommencez.
+1. 154 ÷ 13 = 789
+Faux. Recommencez.
+1. 154 ÷ 13 = q
+Réponses correctes : 0.
+Réponses incorrectes : 2.
 

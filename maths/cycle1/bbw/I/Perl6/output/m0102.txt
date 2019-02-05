@@ -8,21 +8,19 @@ a.
   9134
 – 4319
   ----
-  ... = 4815
-Vrai
-b.
-  4585
-– 3287
+  ... = 159
+Faux. Recommencez.
+a.
+  9134
+– 4319
   ----
-  ... = 1298
-Vrai
-c.
-  7033
-– 1398
+  ... = 753
+Faux. Recommencez.
+a.
+  9134
+– 4319
   ----
-  ... = 5635
-Vrai
-Réponses correctes : 3.
-Réponses incorrectes : 0.
-Fin des opérations avec les soustractions.
+  ... = q
+Réponses correctes : 0.
+Réponses incorrectes : 2.
 

@@ -5,7 +5,7 @@ use v6;
 =begin pod
 =NAME Perl 6 executable in B<algomaths>/maths/cycle1/bbw/I/Perl6/B<m0505e.p6> 
 =AUTHOR  https://github.com/Chrissealed/algomaths.git
-=VERSION 2019.02.03
+=VERSION 2019.02.05
 =end pod
 
 use corrective;
@@ -21,6 +21,7 @@ sub answering {
         closefile => False,
         filepath => "%*ENV<ALGOMATHS>/maths/cycle1/bbw/I/Perl6/output/m0505e.txt",
     );
+
     class P does PrimeFactors {}
     my $prime = P.new( t => $t );
     my %p = $prime.breakdown(2004);

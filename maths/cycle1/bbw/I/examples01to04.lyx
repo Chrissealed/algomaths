@@ -1,0 +1,400 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass article
+\use_default_options true
+\maintain_unincluded_children false
+\language french
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize a4paper
+\use_geometry true
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\leftmargin 4cm
+\topmargin 3cm
+\rightmargin 4cm
+\bottommargin 3cm
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation 0cm
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style french
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 2
+\paperpagestyle empty
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Subsection*
+☉ Exemples
+\end_layout
+
+\begin_layout Subsubsection*
+Comment additionner rapidement
+\begin_inset space ~
+\end_inset
+
+?
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection*
+➣ Exemple : Calculer 17 + 7.
+\end_layout
+
+\begin_layout Standard
+Voici comment on procède : on peut aller de 17 à 20 (la dizaine suivante
+ la plus proche) avec 3, il reste 4.
+ D'ou : 17 + 7 = 17 + 3 + 4 = 24.
+ 
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection*
+➣ Exemple : Calculer 86 + 27.
+\end_layout
+
+\begin_layout Standard
+On peut aller de 86 à 100 avec 14, il reste 13 (car 27 = 14 + 13).
+ D'où : 86 + 27 = 86 + 14 + 13 = 100 + 13 = 113.
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection*
+➣ Exemple : Calculer 174 + 257.
+\end_layout
+
+\begin_layout Standard
+On peut aller de 174 à 200 avec 26, il reste 231 (car 257 = 26 + 231).
+ D'où 174 + 257 = 174 + 26 + 231 = 200 + 231 = 431.
+\end_layout
+
+\begin_layout Subsection*
+☉ Exemples
+\end_layout
+
+\begin_layout Subsubsection*
+Comment soustraire rapidement
+\begin_inset space ~
+\end_inset
+
+?
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection*
+➣ Exemple : Calculer 67 – 39.
+\end_layout
+
+\begin_layout Standard
+On part de 39 pour rejoindre 67.
+ De 39 à 40, il faut 1.
+ De 40 à 67, il faut 27 d'où 67 – 39 = 1 + 27 = 28.
+ L'idée étant toujours de se ramener à des dizaines proches (comme 10, 20,
+ 30, etc.) ou à des centaines (100, 200, etc.) très facilement maniables.
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection*
+➣ Exemple : Calculer 452 – 267.
+\end_layout
+
+\begin_layout Standard
+De 267 à 270, il faut 3.
+ De 270 à 300, il faut 30.
+ De 300 à 452, il faut 152 d'où 452 – 267 = 3 + 30 + 152 = 33 + 152 = 185.
+ 
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection*
+➣ Exemple : Calculer 45014 – 41965.
+\end_layout
+
+\begin_layout Standard
+De 41965 à 42000, il faut 35.
+ De 42000 à 45000, il faut 3000.
+ De 45000 à 45014, l faut 14.
+ D'ou 45014 – 41965 = 35 + 3000 + 14 = 3049.
+ 
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection*
+➣ Exemple : Calculer 70250 – 67587.
+\end_layout
+
+\begin_layout Standard
+De 67587 à 67600, il faut 13.
+ De 67600 à 68000, il faut 400.
+ De 68000 à 70000, il faut 2000.
+ De 70000 à 70250, il faut 250.
+ D'où : 70250 – 67587 = 13 + 400 + 2000 + 250 = 2413 + 250 = 2663.
+\end_layout
+
+\begin_layout Subsection*
+☉ Exemples – Comment multiplier rapidement
+\begin_inset space ~
+\end_inset
+
+?
+\end_layout
+
+\begin_layout Subsubsection*
+A.
+ En connaissant parfaitement ses tables.
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection*
+B.
+ En décomposant par additions.
+\end_layout
+
+\begin_layout Subsubsection*
+➣ Exemple : Calculer 17 × 3.
+\end_layout
+
+\begin_layout Standard
+On a : 17 × 3 = (10 + 7) × 3 = 10 × 3 + 7 × 3 = 30 + 21 = 51.
+ Ramenez vous toujours à des nombres faciles comme 10, 100, 1000...
+ les dizaines sont simples et très maniables.
+ 
+\end_layout
+
+\begin_layout Subsubsection*
+➣ Exemple : Calculer 27 × 16.
+\end_layout
+
+\begin_layout Standard
+On a : 27 × 16 = (20 + 7) × 16 = 20 × 16 + 7 × 16 = 320 + 7 × (10 + 6) =
+ 320 + 7 × 10 + 7 × 6 = 320 + 70 + 42 = 390 + 42 = 432.
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection*
+C.
+ En décomposant par soustractions.
+\end_layout
+
+\begin_layout Subsubsection*
+➣ Exemple : Calculer 19 × 7.
+\end_layout
+
+\begin_layout Standard
+On a 19 × 7 = (20 – 1) × 17 = 20 × 17 – 1 × 17 = 340 – 17 = 323.
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection*
+D.
+ En décomposant par plusieurs petites multiplications.
+\end_layout
+
+\begin_layout Subsubsection*
+➣ Exemple: Calculer 153 × 6.
+\end_layout
+
+\begin_layout Standard
+On a : 153 × 6 = 153 × 2 × 3 = 306 × 3 = 918 #(car 306 × 3 = (300 + 6) ×
+ 3 = 300 × 3 + 6 × 3 = 900 + 18).
+\end_layout
+
+\begin_layout Subsubsection*
+➣ Exemple: Calculer 38 × 15.
+\end_layout
+
+\begin_layout Standard
+On a : 38 × 15 = 38 × 3 × 5 = 114 × 5 = 570 # (car 114 × 5 = (100 + 14)
+ × 5 = 100 × 5 + 14 × 5 = 500 + 70 = 570).
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection*
+E.
+ En utilisant la division.
+\end_layout
+
+\begin_layout Subsubsection*
+➣ Exemple: Calculer 12 × 25.
+\end_layout
+
+\begin_layout Standard
+On a 12 × 25 = 12 × 100 ÷ 4 = 1200 ÷ 4 = 300 (sinon on pouvait utiliser
+ la méthode 3 et obtenir 12 × 25 = (10 + 2) × 25 = 10 × 25 + 2 × 25 = 250
+ + 50 = 300).
+\end_layout
+
+\begin_layout Subsection*
+☉ Exemples – Comment diviser rapidement
+\begin_inset space ~
+\end_inset
+
+?
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection*
+A.
+ En partant du deuxième.
+\end_layout
+
+\begin_layout Subsubsection*
+➣ Exemple : Calculer 72 ÷ 8.
+\end_layout
+
+\begin_layout Standard
+On sait que 8 × 9 = 72.
+ Ainsi 72 ÷ 8 = 9.
+\end_layout
+
+\begin_layout Subsubsection*
+➣ Exemple : Calculer 720 ÷ 120.
+\end_layout
+
+\begin_layout Standard
+On a 120 × 6 = 720 d'ou : 720 ÷ 120 = 6.
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection*
+B.
+ En décomposant par plusieurs petites divisions.
+\end_layout
+
+\begin_layout Subsubsection*
+➣ Exemple : Calculer 162 ÷ 18.
+\end_layout
+
+\begin_layout Standard
+On a 162 ÷ 18 = (162 ÷ 2) ÷ 9 = 81 ÷ 9 = 9.
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection*
+C.
+ En utilisant la multiplication.
+\end_layout
+
+\begin_layout Subsubsection*
+➣ Exemple : Calculer 7500 ÷ 5.
+\end_layout
+
+\begin_layout Standard
+On a : 7500 ÷ 5 = (7500 × 2) ÷ 10 = 15000 ÷ 10 = 1500.
+\end_layout
+
+\begin_layout Subsubsection*
+➣ Exemple : Calculer 1500 ÷ 25.
+\end_layout
+
+\begin_layout Standard
+On a : 1500 ÷ 25 = (1500 × 4) ÷ 100 = 6000 ÷ 100 = 60.
+\end_layout
+
+\end_body
+\end_document
