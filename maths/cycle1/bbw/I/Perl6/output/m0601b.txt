@@ -1,3 +1,7 @@
+# Exercices :
+# ---------
+# DIVISEURS ET NOMBRES PREMIERS
+
 Déterminez tous les facteurs du nombre suivant.
 b. 20
 1	<=>	20

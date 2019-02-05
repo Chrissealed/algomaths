@@ -5,7 +5,7 @@ use v6;
 =begin pod
 =NAME class B<BBW-Index> : Perl 6 module in B<algomaths>/maths/cycle1/bbw/modules/pm6/B<index.pm6>
 =AUTHOR  https://github.com/Chrissealed/algomaths.git
-=VERSION 2019.02.03
+=VERSION 2019.02.05
 =end pod
 
 use teeput; 
@@ -93,6 +93,9 @@ class BBW-Index is export {
       state Int $firstcall = 0;
       state Str $last-chapter = '';
       state Str @status = ();
+      # Paramètre facultatif par défaut à False
+      my Bool $put-empty-line = True;
+      my Bool $last-x = True;
       if ($firstcall == 0) || ($last-chapter ne $chapter) {
          self.chapter-content-output-filepath($chapter);
          $firstcall++;
@@ -100,18 +103,19 @@ class BBW-Index is export {
       } else {
          self.display-chapter-content($chapter);
       }
+      # Méthode de  la classe BbwXChoice-I
+      my $bbwx = BbwXChoice-I.new(
+         chapter => $chapter,
+         path => "%*ENV<ALGOMATHS>/maths/cycle1/bbw/$chapter/Perl6",
+      );
       given $chapter {
-         # Méthode de  la classe BbwXChoice-I
-         when 'I' { my $bbwx = BbwXChoice-I.new(
-            chapter => $chapter,
-            path => "%*ENV<ALGOMATHS>/maths/cycle1/bbw/$chapter/Perl6",
-         ); @status = $bbwx.x-choice(); }
+         when 'I' { @status = $bbwx.x-choice() } 
          #when 'II' { my $bbwx = BbwXChoice-II.new(); @!status = $bbwx.x-choice(); }
          #when 'III' { my $bbwx = BbwXChoice-III.new(); @!status = $bbwx.x-choice(); }
          default { put 'Chapitre non valide!'; push @status, '-1'; return @status; }
       }
       my Str $confirm = prompt "Essayer un autre exercice du chapitre $chapter ? O/n > ";
-      if $confirm ~~ / <[nN]> / { push @status, '-1'; return @status; }
+      if $confirm ~~ / <[nN]> / { @status = $bbwx.x-choice($put-empty-line, $last-x); return @status; }
       self.pick-exe($chapter);
       return @status;
    }

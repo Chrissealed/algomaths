@@ -21,7 +21,7 @@ class BbwXChoice-I does Teeput::Tput is export {
         return $confirm;
     }
 
-    method x-choice(--> Array:D) {
+    method x-choice(Bool $put-blank-line = False, Bool $last = False --> Array:D) {
         my $stats-file1 = 'I-statistics.txt';
         my $t = Tput.new(
             writefile => True,
@@ -44,6 +44,8 @@ class BbwXChoice-I does Teeput::Tput is export {
         state Str @status = ();
         my Bool $confirm = False;
 
+        if $put-blank-line { $t.tput: "\n" }
+        if $last { push @status, '-1'; return @status; }
         my Str $xchoice = prompt "Choisissez un exercice : (0,1,2,3 ou 4 puis chiffres et lettres accolés; ex: 504c); (q ou Q pour quitter) > ";
         my $time = now.DateTime;
         given $xchoice {
