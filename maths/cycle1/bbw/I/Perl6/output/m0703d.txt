@@ -1,7 +1,10 @@
-# Exercice 3.
+# Exercices :
+# ---------
+# PGCD ET FACTEURS PREMIERS
+
 # d. PGCD(1960 ; 6370)
 -----------------------------------------------------------------------------------
-− Utilisation de l'algorithme de factorisation en facteurs premiers −
+− Calcul du PGCD : Utilisation de l'algorithme de factorisation en facteurs premiers −
 Facteurs premiers de 1960 :
 1960	=>	2
 980	=>	2

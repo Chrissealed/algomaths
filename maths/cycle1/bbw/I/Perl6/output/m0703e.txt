@@ -1,7 +1,10 @@
-# Exercice 3.
+# Exercices :
+# ---------
+# PGCD ET FACTEURS PREMIERS
+
 # e. PGCD(1024 ; 1152)
 -----------------------------------------------------------------------------------
-− Utilisation de l'algorithme de factorisation en facteurs premiers −
+− Calcul du PGCD : Utilisation de l'algorithme de factorisation en facteurs premiers −
 Facteurs premiers de 1024 :
 1024	=>	2
 512	=>	2

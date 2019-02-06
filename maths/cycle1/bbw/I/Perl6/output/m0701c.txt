@@ -1,7 +1,10 @@
-# Exercice 1.
+# Exercices :
+# ---------
+# PGCD ET FACTEURS PREMIERS
+
 # c. PGCD(27 ; 45)
 -----------------------------------------------------------------------------------
-− Utilisation de l'algorithme de factorisation en facteurs premiers −
+− Calcul du PGCD : Utilisation de l'algorithme de factorisation en facteurs premiers −
 Facteurs premiers de 27 :
 27	=>	3
 9	=>	3

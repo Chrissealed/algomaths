@@ -1,7 +1,10 @@
-# Exercice 4.
+# Exercices :
+# ---------
+# PGCD ET FACTEURS PREMIERS
+
 # b. PGCD(1721 ; 1726)
 -----------------------------------------------------------------------------------
-− Utilisation de l'algorithme de factorisation en facteurs premiers −
+− Calcul du PGCD : Utilisation de l'algorithme de factorisation en facteurs premiers −
 Facteurs premiers de 1721 :
 1721	=>	1
 1721 est un nombre premier!

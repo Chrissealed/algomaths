@@ -1,7 +1,10 @@
-# Exercice 1.
+# Exercices :
+# ---------
+# PGCD ET FACTEURS PREMIERS
+
 # d. PGCD(32 ; 56)
 -----------------------------------------------------------------------------------
-− Utilisation de l'algorithme de factorisation en facteurs premiers −
+− Calcul du PGCD : Utilisation de l'algorithme de factorisation en facteurs premiers −
 Facteurs premiers de 32 :
 32	=>	2
 16	=>	2

@@ -3,9 +3,9 @@ unit module Method07;
 use v6;
 
 =begin pod
-=NAME B<Method07> : Perl 6 module in B<algomaths>/maths/cycle1/bbw/I/Perl6/B<method07.pm6>
+=NAME class B<Method07::ChooseX> : Perl 6 module in B<algomaths>/maths/cycle1/bbw/I/Perl6/B<method07.pm6>
 =AUTHOR  https://github.com/Chrissealed/algomaths.git
-=VERSION 2018.12.17
+=VERSION 2019.02.06
 =end pod
 
 use teeput;
@@ -13,10 +13,13 @@ use teeput;
 class T does Teeput::Tput {}
 my $t = T.new(
     writefile => True,
+    filepath => 'teeput.logout',
 );
-    
-sub put-up-method is export(:methodwording) {
-    my $message = q:to/EOM/;
+
+class ChooseX does Teeput::Tput is export {
+
+    method put-up-method {
+        my $wording = q:to/EOM/;
 ###################################################################################
 # Méthode 7. Comment déterminer le PGCD de deux nombres à l'aide de leur décomposi-
 # tion en facteurs premiers :
@@ -34,211 +37,166 @@ sub put-up-method is export(:methodwording) {
 ###################################################################################
 
 EOM
-    $t.filepath = 'output/method07.txt';
-    $t.filemode = ':x'; # :mode<wo>, :create, :exclusive
-    $t.tput($message);
-}
+        my Str $filepath = "%*ENV<ALGOMATHS>/maths/cycle1/bbw/I/Perl6/output/method07.txt";
+        $t.filepath = $filepath;
+        $t.filemode = ':x'; # :mode<wo>, :create, :exclusive
+        $t.tput($wording);
+    }
 
-sub show-examples() is export(:examples) {
-    shell 'xdg-open ../examples07.pdf &'
-}
+    method show-examples() {
+        my Str $path = "%*ENV<ALGOMATHS>/maths/cycle1/bbw/I";
+        shell "xdg-open $path/examples07.pdf &";
+    }
 
-sub exercise_01a is export(:exe01a) {
-    $t.filemode = ':w'; # :mode<wo>, :create, :truncate
-    $t.filepath = 'output/m0701a.txt';
-    $t.tput: '# Exercice 1.';
-    $t.filemode = ':a'; # :mode<wo>, :create, :append
-    $t.closefile = False;
-    $t.tput: '# a. PGCD(12 ; 30)';
-    $t.tput: '-----------------------------------------------------------------------------------';
-}
+    method set-output-file-mode(Str:D $file) {
+        $t.filemode = ':w'; # :mode<wo>, :create, :truncate
+        $t.filepath = "%*ENV<ALGOMATHS>/maths/cycle1/bbw/I/Perl6/output/$file";
 
-sub exercise_01b is export(:exe01b) {
-    $t.filemode = ':w'; # :mode<wo>, :create, :truncate
-    $t.filepath = 'output/m0701b.txt';
-    $t.tput: '# Exercice 1.';
-    $t.filemode = ':a'; # :mode<wo>, :create, :append
-    $t.closefile = False;
-    $t.tput: '# b. PGCD(24 ; 84)';
-    $t.tput: '-----------------------------------------------------------------------------------';
-}
+        $t.tput: '# Exercices :';
+        $t.filemode = ':a'; # :mode<wo>, :create, :append
+        $t.closefile = False;
+        $t.tput: '# ---------';
+        $t.tput: '# PGCD ET FACTEURS PREMIERS';
+        $t.tprint: "\n";
+    }
+    
+    method exercise_01a {
+        my $output-file = 'm0701a.txt';
+        self.set-output-file-mode($output-file);
+        $t.tput: '# a. PGCD(12 ; 30)';
+        $t.tput: '-----------------------------------------------------------------------------------';
+    }
 
-sub exercise_01c is export(:exe01c) {
-    $t.filemode = ':w'; # :mode<wo>, :create, :truncate
-    $t.filepath = 'output/m0701c.txt';
-    $t.tput: '# Exercice 1.';
-    $t.filemode = ':a'; # :mode<wo>, :create, :append
-    $t.closefile = False;
-    $t.tput: '# c. PGCD(27 ; 45)';
-    $t.tput: '-----------------------------------------------------------------------------------';
-}
+    method exercise_01b {
+        my $output-file = 'm0701b.txt';
+        self.set-output-file-mode($output-file);
+        $t.tput: '# b. PGCD(24 ; 84)';
+        $t.tput: '-----------------------------------------------------------------------------------';
+    }
 
-sub exercise_01d is export(:exe01d) {
-    $t.filemode = ':w'; # :mode<wo>, :create, :truncate
-    $t.filepath = 'output/m0701d.txt';
-    $t.tput: '# Exercice 1.';
-    $t.filemode = ':a'; # :mode<wo>, :create, :append
-    $t.closefile = False;
-    $t.tput: '# d. PGCD(32 ; 56)';
-    $t.tput: '-----------------------------------------------------------------------------------';
-}
+    method exercise_01c {
+        my $output-file = 'm0701c.txt';
+        self.set-output-file-mode($output-file);
+        $t.tput: '# c. PGCD(27 ; 45)';
+        $t.tput: '-----------------------------------------------------------------------------------';
+    }
 
-sub exercise_01e is export(:exe01e) {
-    $t.filemode = ':w'; # :mode<wo>, :create, :truncate
-    $t.filepath = 'output/m0701e.txt';
-    $t.tput: '# Exercice 1.';
-    $t.filemode = ':a'; # :mode<wo>, :create, :append
-    $t.closefile = False;
-    $t.tput: '# e. PGCD(34 ; 85)';
-    $t.tput: '-----------------------------------------------------------------------------------';
-}
+    method exercise_01d {
+        my $output-file = 'm0701d.txt';
+        self.set-output-file-mode($output-file);
+        $t.tput: '# d. PGCD(32 ; 56)';
+        $t.tput: '-----------------------------------------------------------------------------------';
+    }
 
-sub exercise_02a is export(:exe02a) {
-    $t.filemode = ':w'; # :mode<wo>, :create, :truncate
-    $t.filepath = 'output/m0702a.txt';
-    $t.tput: '# Exercice 2.';
-    $t.filemode = ':a'; # :mode<wo>, :create, :append
-    $t.closefile = False;
-    $t.tput: '# a. PGCD(45 ; 225)';
-    $t.tput: '-----------------------------------------------------------------------------------';
-}
+    method exercise_01e {
+        my $output-file = 'm0701e.txt';
+        self.set-output-file-mode($output-file);
+        $t.tput: '# e. PGCD(34 ; 85)';
+        $t.tput: '-----------------------------------------------------------------------------------';
+    }
 
-sub exercise_02b is export(:exe02b) {
-    $t.filemode = ':w'; # :mode<wo>, :create, :truncate
-    $t.filepath = 'output/m0702b.txt';
-    $t.tput: '# Exercice 2.';
-    $t.filemode = ':a'; # :mode<wo>, :create, :append
-    $t.closefile = False;
-    $t.tput: '# b. PGCD(144 ; 216)';
-    $t.tput: '-----------------------------------------------------------------------------------';
-}
+    method exercise_02a {
+        my $output-file = 'm0702a.txt';
+        self.set-output-file-mode($output-file);
+        $t.tput: '# a. PGCD(45 ; 225)';
+        $t.tput: '-----------------------------------------------------------------------------------';
+    }
 
-sub exercise_02c is export(:exe02c) {
-    $t.filemode = ':w'; # :mode<wo>, :create, :truncate
-    $t.filepath = 'output/m0702c.txt';
-    $t.tput: '# Exercice 2.';
-    $t.filemode = ':a'; # :mode<wo>, :create, :append
-    $t.closefile = False;
-    $t.tput: '# c. PGCD(90 ; 196)';
-    $t.tput: '-----------------------------------------------------------------------------------';
-}
+    method exercise_02b {
+        my $output-file = 'm0702b.txt';
+        self.set-output-file-mode($output-file);
+        $t.tput: '# b. PGCD(144 ; 216)';
+        $t.tput: '-----------------------------------------------------------------------------------';
+    }
 
-sub exercise_02d is export(:exe02d) {
-    $t.filemode = ':w'; # :mode<wo>, :create, :truncate
-    $t.filepath = 'output/m0702d.txt';
-    $t.tput: '# Exercice 2.';
-    $t.filemode = ':a'; # :mode<wo>, :create, :append
-    $t.closefile = False;
-    $t.tput: '# d. PGCD(243 ; 135)';
-    $t.tput: '-----------------------------------------------------------------------------------';
-}
+    method exercise_02c {
+        my $output-file = 'm0702c.txt';
+        self.set-output-file-mode($output-file);
+        $t.tput: '# c. PGCD(90 ; 196)';
+        $t.tput: '-----------------------------------------------------------------------------------';
+    }
 
-sub exercise_02e is export(:exe02e) {
-    $t.filemode = ':w'; # :mode<wo>, :create, :truncate
-    $t.filepath = 'output/m0702e.txt';
-    $t.tput: '# Exercice 2.';
-    $t.filemode = ':a'; # :mode<wo>, :create, :append
-    $t.closefile = False;
-    $t.tput: '# e. PGCD(188 ; 168)';
-    $t.tput: '-----------------------------------------------------------------------------------';
-}
+    method exercise_02d {
+        my $output-file = 'm0702d.txt';
+        self.set-output-file-mode($output-file);
+        $t.tput: '# d. PGCD(243 ; 135)';
+        $t.tput: '-----------------------------------------------------------------------------------';
+    }
 
-sub exercise_03a is export(:exe03a) {
-    $t.filemode = ':w'; # :mode<wo>, :create, :truncate
-    $t.filepath = 'output/m0703a.txt';
-    $t.tput: '# Exercice 3.';
-    $t.filemode = ':a'; # :mode<wo>, :create, :append
-    $t.closefile = False;
-    $t.tput: '# a. PGCD(1024 ; 864)';
-    $t.tput: '-----------------------------------------------------------------------------------';
-}
+    method exercise_02e {
+        my $output-file = 'm0702e.txt';
+        self.set-output-file-mode($output-file);
+        $t.tput: '# e. PGCD(188 ; 168)';
+        $t.tput: '-----------------------------------------------------------------------------------';
+    }
 
-sub exercise_03b is export(:exe03b) {
-    $t.filemode = ':w'; # :mode<wo>, :create, :truncate
-    $t.filepath = 'output/m0703b.txt';
-    $t.tput: '# Exercice 3.';
-    $t.filemode = ':a'; # :mode<wo>, :create, :append
-    $t.closefile = False;
-    $t.tput: '# b. PGCD(1122 ; 1815)';
-    $t.tput: '-----------------------------------------------------------------------------------';
-}
+    method exercise_03a {
+        my $output-file = 'm0703a.txt';
+        self.set-output-file-mode($output-file);
+        $t.tput: '# a. PGCD(1024 ; 864)';
+        $t.tput: '-----------------------------------------------------------------------------------';
+    }
 
-sub exercise_03c is export(:exe03c) {
-    $t.filemode = ':w'; # :mode<wo>, :create, :truncate
-    $t.filepath = 'output/m0703c.txt';
-    $t.tput: '# Exercice 3.';
-    $t.filemode = ':a'; # :mode<wo>, :create, :append
-    $t.closefile = False;
-    $t.tput: '# c. PGCD(875 ; 1125)';
-    $t.tput: '-----------------------------------------------------------------------------------';
-}
+    method exercise_03b {
+        my $output-file = 'm0703b.txt';
+        self.set-output-file-mode($output-file);
+        $t.tput: '# b. PGCD(1122 ; 1815)';
+        $t.tput: '-----------------------------------------------------------------------------------';
+    }
 
-sub exercise_03d is export(:exe03d) {
-    $t.filemode = ':w'; # :mode<wo>, :create, :truncate
-    $t.filepath = 'output/m0703d.txt';
-    $t.tput: '# Exercice 3.';
-    $t.filemode = ':a'; # :mode<wo>, :create, :append
-    $t.closefile = False;
-    $t.tput: '# d. PGCD(1960 ; 6370)';
-    $t.tput: '-----------------------------------------------------------------------------------';
-}
+    method exercise_03c {
+        my $output-file = 'm0703c.txt';
+        self.set-output-file-mode($output-file);
+        $t.tput: '# c. PGCD(875 ; 1125)';
+        $t.tput: '-----------------------------------------------------------------------------------';
+    }
 
-sub exercise_03e is export(:exe03e) {
-    $t.filemode = ':w'; # :mode<wo>, :create, :truncate
-    $t.filepath = 'output/m0703e.txt';
-    $t.tput: '# Exercice 3.';
-    $t.filemode = ':a'; # :mode<wo>, :create, :append
-    $t.closefile = False;
-    $t.tput: '# e. PGCD(1024 ; 1152)';
-    $t.tput: '-----------------------------------------------------------------------------------';
-}
+    method exercise_03d {
+        my $output-file = 'm0703d.txt';
+        self.set-output-file-mode($output-file);
+        $t.tput: '# d. PGCD(1960 ; 6370)';
+        $t.tput: '-----------------------------------------------------------------------------------';
+    }
 
-sub exercise_04a is export(:exe04a) {
-    $t.filemode = ':w'; # :mode<wo>, :create, :truncate
-    $t.filepath = 'output/m0704a.txt';
-    $t.tput: '# Exercice 4.';
-    $t.filemode = ':a'; # :mode<wo>, :create, :append
-    $t.closefile = False;
-    $t.tput: '# a. PGCD(1243 ; 1244)';
-    $t.tput: '-----------------------------------------------------------------------------------';
-}
+    method exercise_03e {
+        my $output-file = 'm0703e.txt';
+        self.set-output-file-mode($output-file);
+        $t.tput: '# e. PGCD(1024 ; 1152)';
+        $t.tput: '-----------------------------------------------------------------------------------';
+    }
 
-sub exercise_04b is export(:exe04b) {
-    $t.filemode = ':w'; # :mode<wo>, :create, :truncate
-    $t.filepath = 'output/m0704b.txt';
-    $t.tput: '# Exercice 4.';
-    $t.filemode = ':a'; # :mode<wo>, :create, :append
-    $t.closefile = False;
-    $t.tput: '# b. PGCD(1721 ; 1726)';
-    $t.tput: '-----------------------------------------------------------------------------------';
-}
+    method exercise_04a {
+        my $output-file = 'm0704a.txt';
+        self.set-output-file-mode($output-file);
+        $t.tput: '# a. PGCD(1243 ; 1244)';
+        $t.tput: '-----------------------------------------------------------------------------------';
+    }
 
-sub exercise_04c is export(:exe04c) {
-    $t.filemode = ':w'; # :mode<wo>, :create, :truncate
-    $t.filepath = 'output/m0704c.txt';
-    $t.tput: '# Exercice 4.';
-    $t.filemode = ':a'; # :mode<wo>, :create, :append
-    $t.closefile = False;
-    $t.tput: '# c. PGCD(875 ; 900)';
-    $t.tput: '-----------------------------------------------------------------------------------';
-}
+    method exercise_04b {
+        my $output-file = 'm0704b.txt';
+        self.set-output-file-mode($output-file);
+        $t.tput: '# b. PGCD(1721 ; 1726)';
+        $t.tput: '-----------------------------------------------------------------------------------';
+    }
 
-sub exercise_04d is export(:exe04d) {
-    $t.filemode = ':w'; # :mode<wo>, :create, :truncate
-    $t.filepath = 'output/m0704d.txt';
-    $t.tput: '# Exercice 4.';
-    $t.filemode = ':a'; # :mode<wo>, :create, :append
-    $t.closefile = False;
-    $t.tput: '# d. PGCD(1960 ; 5880)';
-    $t.tput: '-----------------------------------------------------------------------------------';
-}
+    method exercise_04c {
+        my $output-file = 'm0704c.txt';
+        self.set-output-file-mode($output-file);
+        $t.tput: '# c. PGCD(875 ; 900)';
+        $t.tput: '-----------------------------------------------------------------------------------';
+    }
 
-sub exercise_04e is export(:exe04e) {
-    $t.filemode = ':w'; # :mode<wo>, :create, :truncate
-    $t.filepath = 'output/m0704e.txt';
-    $t.tput: '# Exercice 4.';
-    $t.filemode = ':a'; # :mode<wo>, :create, :append
-    $t.closefile = False;
-    $t.tput: '# e. PGCD(1024 ; 2024)';
-    $t.tput: '-----------------------------------------------------------------------------------';
+    method exercise_04d {
+        my $output-file = 'm0704d.txt';
+        self.set-output-file-mode($output-file);
+        $t.tput: '# d. PGCD(1960 ; 5880)';
+        $t.tput: '-----------------------------------------------------------------------------------';
+    }
+
+    method exercise_04e {
+        my $output-file = 'm0704e.txt';
+        self.set-output-file-mode($output-file);
+        $t.tput: '# e. PGCD(1024 ; 2024)';
+        $t.tput: '-----------------------------------------------------------------------------------';
+    }
 }

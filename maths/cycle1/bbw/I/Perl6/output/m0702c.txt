@@ -1,7 +1,10 @@
-# Exercice 2.
+# Exercices :
+# ---------
+# PGCD ET FACTEURS PREMIERS
+
 # c. PGCD(90 ; 196)
 -----------------------------------------------------------------------------------
-− Utilisation de l'algorithme de factorisation en facteurs premiers −
+− Calcul du PGCD : Utilisation de l'algorithme de factorisation en facteurs premiers −
 Facteurs premiers de 90 :
 90	=>	2
 45	=>	3

@@ -1,7 +1,10 @@
-# Exercice 1.
+# Exercices :
+# ---------
+# PGCD ET FACTEURS PREMIERS
+
 # e. PGCD(34 ; 85)
 -----------------------------------------------------------------------------------
-− Utilisation de l'algorithme de factorisation en facteurs premiers −
+− Calcul du PGCD : Utilisation de l'algorithme de factorisation en facteurs premiers −
 Facteurs premiers de 34 :
 34	=>	2
 17	=>	17
@@ -11,5 +14,5 @@ Facteurs premiers de 85 :
 17	=>	17
 5 × 17
 Facteurs communs à 34 et 85 : 17
-PGCD(34 ; 85) :  = 17.
+PGCD(34 ; 85) = 17.
 

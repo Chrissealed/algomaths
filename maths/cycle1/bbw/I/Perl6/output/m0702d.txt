@@ -1,7 +1,10 @@
-# Exercice 2.
+# Exercices :
+# ---------
+# PGCD ET FACTEURS PREMIERS
+
 # d. PGCD(243 ; 135)
 -----------------------------------------------------------------------------------
-− Utilisation de l'algorithme de factorisation en facteurs premiers −
+− Calcul du PGCD : Utilisation de l'algorithme de factorisation en facteurs premiers −
 Facteurs premiers de 243 :
 243	=>	3
 81	=>	3

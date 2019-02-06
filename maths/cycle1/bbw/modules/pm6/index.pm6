@@ -5,7 +5,7 @@ use v6;
 =begin pod
 =NAME class B<BBW-Index> : Perl 6 module in B<algomaths>/maths/cycle1/bbw/modules/pm6/B<index.pm6>
 =AUTHOR  https://github.com/Chrissealed/algomaths.git
-=VERSION 2019.02.05
+=VERSION 2019.02.06
 =end pod
 
 use teeput; 
@@ -93,7 +93,7 @@ class BBW-Index is export {
       state Int $firstcall = 0;
       state Str $last-chapter = '';
       state Str @status = ();
-      # Paramètre facultatif par défaut à False
+      # Paramètres facultatifs ignorés par défaut (leur valeur est False)
       my Bool $put-empty-line = True;
       my Bool $last-x = True;
       if ($firstcall == 0) || ($last-chapter ne $chapter) {

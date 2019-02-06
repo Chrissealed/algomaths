@@ -3,9 +3,9 @@ unit module Method01to04;
 use v6;
 
 =begin pod
-=NAME B<Method01to04> : Perl 6 module in B<algomaths>/maths/cycle1/bbw/I/Perl6/B<method01to04.pm6>
+=NAME class B<Method01to04::ChooseX> : Perl 6 module in B<algomaths>/maths/cycle1/bbw/I/Perl6/B<method01to04.pm6>
 =AUTHOR  https://github.com/Chrissealed/algomaths.git
-=VERSION 2019.02.05
+=VERSION 2019.02.06
 =end pod
 
 use corrective;

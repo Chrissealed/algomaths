@@ -1,7 +1,10 @@
-# Exercice 2.
+# Exercices :
+# ---------
+# PGCD ET FACTEURS PREMIERS
+
 # e. PGCD(188 ; 168)
 -----------------------------------------------------------------------------------
-− Utilisation de l'algorithme de factorisation en facteurs premiers −
+− Calcul du PGCD : Utilisation de l'algorithme de factorisation en facteurs premiers −
 Facteurs premiers de 288 :
 288	=>	2
 144	=>	2

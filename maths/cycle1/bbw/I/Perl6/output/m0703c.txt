@@ -2,7 +2,7 @@
 # ---------
 # PGCD ET FACTEURS PREMIERS
 
-# c. PGCD(875 ; 900)
+# c. PGCD(875 ; 1125)
 -----------------------------------------------------------------------------------
 − Calcul du PGCD : Utilisation de l'algorithme de factorisation en facteurs premiers −
 Facteurs premiers de 875 :
@@ -12,15 +12,14 @@ Facteurs premiers de 875 :
 7	=>	7
 5 × 5 × 5 × 7
 5^3 × 7
-Facteurs premiers de 900 :
-900	=>	2
-450	=>	2
-225	=>	3
-75	=>	3
+Facteurs premiers de 1125 :
+1125	=>	3
+375	=>	3
+125	=>	5
 25	=>	5
 5	=>	5
-2 × 2 × 3 × 3 × 5 × 5
-2^2 × 3^2 × 5^2
-Facteurs communs à 875 et 900 : 5 5
-PGCD(875 ; 900) : 5 × 5 = 25.
+3 × 3 × 5 × 5 × 5
+3^2 × 5^3
+Facteurs communs à 875 et 1125 : 5 5 5
+PGCD(875 ; 1125) : 5 × 5 × 5 = 125.
 
