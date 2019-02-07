@@ -1,0 +1,105 @@
+701a. PGCD. ($ALGOMATHS/maths/cycle1/bbw/I/Perl6/output/m0701a.txt) -- 2019-02-06T05:12:04.752343Z
+
+701b. PGCD. ($ALGOMATHS/maths/cycle1/bbw/I/Perl6/output/m0701b.txt) -- 2019-02-06T05:25:07.183642Z
+
+701c. PGCD. ($ALGOMATHS/maths/cycle1/bbw/I/Perl6/output/m0701c.txt) -- 2019-02-06T08:09:35.109563Z
+701d. PGCD. ($ALGOMATHS/maths/cycle1/bbw/I/Perl6/output/m0701d.txt) -- 2019-02-06T08:10:08.676840Z
+701e. PGCD. ($ALGOMATHS/maths/cycle1/bbw/I/Perl6/output/m0701e.txt) -- 2019-02-06T08:10:26.372272Z
+
+702a. PGCD. ($ALGOMATHS/maths/cycle1/bbw/I/Perl6/output/m0701a.txt) -- 2019-02-06T18:59:54.328002Z
+702b. PGCD. ($ALGOMATHS/maths/cycle1/bbw/I/Perl6/output/m0702b.txt) -- 2019-02-06T19:00:20.631455Z
+702c. PGCD. ($ALGOMATHS/maths/cycle1/bbw/I/Perl6/output/m0702c.txt) -- 2019-02-06T19:01:31.838046Z
+702d. PGCD. ($ALGOMATHS/maths/cycle1/bbw/I/Perl6/output/m0702d.txt) -- 2019-02-06T19:02:01.356914Z
+702e. PGCD. ($ALGOMATHS/maths/cycle1/bbw/I/Perl6/output/m0702e.txt) -- 2019-02-06T19:02:29.532265Z
+703a. PGCD. ($ALGOMATHS/maths/cycle1/bbw/I/Perl6/output/m0703a.txt) -- 2019-02-06T19:02:48.634866Z
+703b. PGCD. ($ALGOMATHS/maths/cycle1/bbw/I/Perl6/output/m0703b.txt) -- 2019-02-06T19:03:54.482498Z
+703c. PGCD. ($ALGOMATHS/maths/cycle1/bbw/I/Perl6/output/m0703c.txt) -- 2019-02-06T19:04:15.370255Z
+703d. PGCD. ($ALGOMATHS/maths/cycle1/bbw/I/Perl6/output/m0703d.txt) -- 2019-02-06T19:04:28.273970Z
+703e. PGCD. ($ALGOMATHS/maths/cycle1/bbw/I/Perl6/output/m0703e.txt) -- 2019-02-06T19:04:46.713492Z
+704a. PGCD. ($ALGOMATHS/maths/cycle1/bbw/I/Perl6/output/m0704a.txt) -- 2019-02-06T19:05:12.207764Z
+704b. PGCD. ($ALGOMATHS/maths/cycle1/bbw/I/Perl6/output/m0704b.txt) -- 2019-02-06T19:05:30.400197Z
+704c. PGCD. ($ALGOMATHS/maths/cycle1/bbw/I/Perl6/output/m0704c.txt) -- 2019-02-06T19:05:46.823829Z
+704d. PGCD. ($ALGOMATHS/maths/cycle1/bbw/I/Perl6/output/m0704d.txt) -- 2019-02-06T19:06:08.200418Z
+704e. PGCD. ($ALGOMATHS/maths/cycle1/bbw/I/Perl6/output/m0704e.txt) -- 2019-02-06T19:06:31.518900Z
+
+601a. Déterminer tous les facteurs d'un entier. ($ALGOMATHS/maths/cycle1/bbw/I/Perl6/output/m0601a.txt) -- 2019-02-06T19:16:21.201560Z
+702d. PGCD. ($ALGOMATHS/maths/cycle1/bbw/I/Perl6/output/m0702d.txt) -- 2019-02-06T19:17:05.065047Z
+
+801a. PPCM. ($ALGOMATHS/maths/cycle1/bbw/I/Perl6/output/m0801a.txt) -- 2019-02-07T06:07:55.959436Z
+801a. PPCM. ($ALGOMATHS/maths/cycle1/bbw/I/Perl6/output/m0801a.txt) -- 2019-02-07T06:13:47.440659Z
+801a. PPCM. ($ALGOMATHS/maths/cycle1/bbw/I/Perl6/output/m0801a.txt) -- 2019-02-07T06:19:32.033019Z
+801a. PPCM. ($ALGOMATHS/maths/cycle1/bbw/I/Perl6/output/m0801a.txt) -- 2019-02-07T08:09:18.247843Z
+
+801b. PPCM. ($ALGOMATHS/maths/cycle1/bbw/I/Perl6/output/m0801b.txt) -- 2019-02-07T08:28:34.357657Z
+
+801a. PPCM. ($ALGOMATHS/maths/cycle1/bbw/I/Perl6/output/m0801a.txt) -- 2019-02-07T08:30:56.498958Z
+
+801a. PPCM. ($ALGOMATHS/maths/cycle1/bbw/I/Perl6/output/m0801a.txt) -- 2019-02-07T08:48:49.179620Z
+801b. PPCM. ($ALGOMATHS/maths/cycle1/bbw/I/Perl6/output/m0801b.txt) -- 2019-02-07T08:49:17.746888Z
+
+801c. PPCM. ($ALGOMATHS/maths/cycle1/bbw/I/Perl6/output/m0801c.txt) -- 2019-02-07T08:55:38.522103Z
+801c. PPCM. ($ALGOMATHS/maths/cycle1/bbw/I/Perl6/output/m0801c.txt) -- 2019-02-07T08:57:04.120726Z
+
+801d. PPCM. ($ALGOMATHS/maths/cycle1/bbw/I/Perl6/output/m0801d.txt) -- 2019-02-07T09:00:47.995572Z
+
+801a. PPCM. ($ALGOMATHS/maths/cycle1/bbw/I/Perl6/output/m0801a.txt) -- 2019-02-07T09:11:26.013220Z
+801b. PPCM. ($ALGOMATHS/maths/cycle1/bbw/I/Perl6/output/m0801b.txt) -- 2019-02-07T09:11:46.996988Z
+801c. PPCM. ($ALGOMATHS/maths/cycle1/bbw/I/Perl6/output/m0801c.txt) -- 2019-02-07T09:12:50.827240Z
+
+801a. PPCM. ($ALGOMATHS/maths/cycle1/bbw/I/Perl6/output/m0801a.txt) -- 2019-02-07T09:18:26.124064Z
+801b. PPCM. ($ALGOMATHS/maths/cycle1/bbw/I/Perl6/output/m0801b.txt) -- 2019-02-07T09:19:12.218933Z
+801c. PPCM. ($ALGOMATHS/maths/cycle1/bbw/I/Perl6/output/m0801c.txt) -- 2019-02-07T09:19:53.602162Z
+801d. PPCM. ($ALGOMATHS/maths/cycle1/bbw/I/Perl6/output/m0801d.txt) -- 2019-02-07T09:20:19.297915Z
+
+801c. PPCM. ($ALGOMATHS/maths/cycle1/bbw/I/Perl6/output/m0801c.txt) -- 2019-02-07T09:24:06.332642Z
+
+801e. PPCM. ($ALGOMATHS/maths/cycle1/bbw/I/Perl6/output/m0801e.txt) -- 2019-02-07T12:57:21.919612Z
+
+802a. PPCM. ($ALGOMATHS/maths/cycle1/bbw/I/Perl6/output/m0802a.txt) -- 2019-02-07T13:01:28.019087Z
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+802b. PPCM. ($ALGOMATHS/maths/cycle1/bbw/I/Perl6/output/m0802b.txt) -- 2019-02-07T13:48:21.148699Z
+
+802c. PPCM. ($ALGOMATHS/maths/cycle1/bbw/I/Perl6/output/m0802c.txt) -- 2019-02-07T14:01:27.073996Z
+
+802d. PPCM. ($ALGOMATHS/maths/cycle1/bbw/I/Perl6/output/m0802d.txt) -- 2019-02-07T14:04:23.759347Z
+
+802e. PPCM. ($ALGOMATHS/maths/cycle1/bbw/I/Perl6/output/m0802e.txt) -- 2019-02-07T14:07:04.027493Z
+
+803a. PPCM. ($ALGOMATHS/maths/cycle1/bbw/I/Perl6/output/m0803a.txt) -- 2019-02-07T15:48:22.053131Z
+
+803b. PPCM. ($ALGOMATHS/maths/cycle1/bbw/I/Perl6/output/m0803b.txt) -- 2019-02-07T15:51:34.481544Z
+
+803c. PPCM. ($ALGOMATHS/maths/cycle1/bbw/I/Perl6/output/m0803c.txt) -- 2019-02-07T15:55:35.868935Z
+
+803d. PPCM. ($ALGOMATHS/maths/cycle1/bbw/I/Perl6/output/m0803d.txt) -- 2019-02-07T15:58:01.889350Z
+
+803e. PPCM. ($ALGOMATHS/maths/cycle1/bbw/I/Perl6/output/m0803e.txt) -- 2019-02-07T16:01:38.020576Z
+
+804a. PPCM. ($ALGOMATHS/maths/cycle1/bbw/I/Perl6/output/m0804a.txt) -- 2019-02-07T16:05:13.143961Z
+
+804b. PPCM. ($ALGOMATHS/maths/cycle1/bbw/I/Perl6/output/m0804b.txt) -- 2019-02-07T16:07:51.633274Z
+
+804c. PPCM. ($ALGOMATHS/maths/cycle1/bbw/I/Perl6/output/m0804c.txt) -- 2019-02-07T16:10:49.000550Z
+
+804d1. PPCM. ($ALGOMATHS/maths/cycle1/bbw/I/Perl6/output/m0804d1.txt) -- 2019-02-07T16:15:52.938323Z
+
+804d2. PPCM. ($ALGOMATHS/maths/cycle1/bbw/I/Perl6/output/m0804d2.txt) -- 2019-02-07T16:18:30.378902Z
+
+804d3. PPCM. ($ALGOMATHS/maths/cycle1/bbw/I/Perl6/output/m0804d3.txt) -- 2019-02-07T16:20:57.179603Z
+
+804e. PPCM. ($ALGOMATHS/maths/cycle1/bbw/I/Perl6/output/m0804e.p6) -- 2019-02-07T16:23:14.408689Z
+

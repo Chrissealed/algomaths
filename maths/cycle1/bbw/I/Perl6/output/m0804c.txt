@@ -1,4 +1,7 @@
-# Exercice 4.
+# Exercices :
+# ---------
+# PPCM ET FACTEURS PREMIERS
+
 # c. PPCM(588 ; 504)
 -----------------------------------------------------------------------------------
 − Recherche du PPCM : Méthode par décomposition en facteurs premiers −

@@ -1,10 +1,13 @@
-# Exercice 3.
+# Exercices :
+# ---------
+# PPCM ET FACTEURS PREMIERS
+
 # d. PPCM(888 ; 185)
 -----------------------------------------------------------------------------------
 − Recherche du PPCM : Méthode par décomposition en facteurs premiers −
 − Calcul du PGCD : Utilisation de l'algorithme d'Euclide −
-PGCD(341 ; 124) = PGCD(124 ; 93)
-PGCD(124 ; 93) = PGCD(93 ; 31)
+PGCD(124 ; 341) = PGCD(124 ; 93)
+PGCD(124 ; 341) = PGCD(93 ; 31)
 Le reste de la division de 93 par 31 est nul,
 donc PGCD(124 ; 341) = 31.
 124 et 341 ont un diviseur commun autre que 1 : 31.

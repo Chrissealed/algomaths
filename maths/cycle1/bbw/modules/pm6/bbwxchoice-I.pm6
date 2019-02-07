@@ -5,7 +5,7 @@ use v6;
 =begin pod
 =NAME class B<BbwXChoice-I> in B<algomaths>/maths/bbw/modules/pm6/B<bbwxchoice-I.pm6>
 =AUTHOR  https://github.com/Chrissealed/algomaths.git
-=VERSION 2019.02.06
+=VERSION 2019.02.07
 =end pod
 
 use teeput;
@@ -49,11 +49,11 @@ class BbwXChoice-I does Teeput::Tput is export {
         my Str $xchoice = prompt "Choisissez un exercice : (0,1,2,3 ou 4 puis chiffres et lettres accolés; ex: 504c); (q ou Q pour quitter) > ";
         my $time = now.DateTime;
         given $xchoice {
-            when 'q' || 'Q'
+            when / <[qQ]> /
             {
                 $confirm = self.stop(); 
                 if ($confirm) {
-                    $t.tput: "\n"; push @status, '-1';
+                    $t.tprint: "\n"; push @status, '-1';
                     return @status;
                 }
                 else { @status = self.x-choice; }

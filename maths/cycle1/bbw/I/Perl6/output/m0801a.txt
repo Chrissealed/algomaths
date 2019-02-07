@@ -1,4 +1,7 @@
-# Exercice 1.
+# Exercices :
+# ---------
+# PPCM ET FACTEURS PREMIERS
+
 # a. PPCM(12 ; 30)
 -----------------------------------------------------------------------------------
 − Recherche du PPCM : Méthode par additions successives du plus grand nombre à lui-même −

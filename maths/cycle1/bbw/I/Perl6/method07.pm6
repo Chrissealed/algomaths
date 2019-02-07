@@ -5,7 +5,7 @@ use v6;
 =begin pod
 =NAME class B<Method07::ChooseX> : Perl 6 module in B<algomaths>/maths/cycle1/bbw/I/Perl6/B<method07.pm6>
 =AUTHOR  https://github.com/Chrissealed/algomaths.git
-=VERSION 2019.02.06
+=VERSION 2019.02.07
 =end pod
 
 use teeput;
@@ -13,6 +13,7 @@ use teeput;
 class T does Teeput::Tput {}
 my $t = T.new(
     writefile => True,
+    # Fichier de garde dans le cas ou l'attribut filepath n'est pas assigné
     filepath => 'teeput.logout',
 );
 

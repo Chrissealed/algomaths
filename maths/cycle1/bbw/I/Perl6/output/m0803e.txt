@@ -1,4 +1,7 @@
-# Exercice 3.
+# Exercices :
+# ---------
+# PPCM ET FACTEURS PREMIERS
+
 # e. PPCM(124 ; 341)
 -----------------------------------------------------------------------------------
 − Recherche du PPCM : Méthode par utilisation du PGCD −

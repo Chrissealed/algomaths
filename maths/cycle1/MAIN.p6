@@ -5,7 +5,7 @@ use v6;
 =begin pod
 =NAME B<MAIN.p6> : Perl 6 executable in B<algomaths>/maths/cycle1
 =AUTHOR  https://github.com/Chrissealed/algomaths.git
-=VERSION 2019.02.04
+=VERSION 2019.02.07
 =end pod
 
 INIT {
@@ -16,7 +16,7 @@ sub select-a-course() {
     my Str $init-path = '';
     my Str $init-file-path = '';
     loop {
-        my Str $course = prompt "Veuillez choisir un cours du cycle1 S.V.P. (bbw, fm3 ou ms3) > ";
+        my Str $course = prompt "Veuillez choisir un cours du cycle 1 S.V.P. (bbw, fm3 ou ms3) > ";
         if ($course eq 'bbw') {
             $init-path = "%*ENV<ALGOMATHS>/maths/cycle1/bbw";
             $init-file-path = "%*ENV<ALGOMATHS>/maths/cycle1/bbw/init.p6";

@@ -1,5 +1,4 @@
 .precomp/
-stats/
 tmp/
 *~
 *.bak
@@ -9,5 +8,4 @@ tmp/
 *.ppu
 *.swo
 *.swp
-teeput.logout
 *.vim

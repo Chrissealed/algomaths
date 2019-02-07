@@ -1,10 +1,13 @@
-# Exercice 4.
+# Exercices :
+# ---------
+# PPCM ET FACTEURS PREMIERS
+
 # d. PPCM(315 ; 189)
 -----------------------------------------------------------------------------------
 − Recherche du PPCM : Méthode par utilisation du PGCD −
 − Calcul du PGCD : Utilisation de l'algorithme d'Euclide −
 PGCD(315 ; 189) = PGCD(189 ; 126)
-PGCD(189 ; 126) = PGCD(126 ; 63)
+PGCD(315 ; 189) = PGCD(126 ; 63)
 Le reste de la division de 126 par 63 est nul,
 donc PGCD(315 ; 189) = 63.
 Produit de 315 par 189 = 59535;

@@ -5,7 +5,7 @@ use v6;
 =begin pod
 =NAME class B<BBW-Index> : Perl 6 module in B<algomaths>/maths/cycle1/bbw/modules/pm6/B<index.pm6>
 =AUTHOR  https://github.com/Chrissealed/algomaths.git
-=VERSION 2019.02.06
+=VERSION 2019.02.07
 =end pod
 
 use teeput; 
@@ -109,7 +109,7 @@ class BBW-Index is export {
          path => "%*ENV<ALGOMATHS>/maths/cycle1/bbw/$chapter/Perl6",
       );
       given $chapter {
-         when 'I' { @status = $bbwx.x-choice() } 
+         when 'I' { @status = $bbwx.x-choice(); if (@status[@status.end] eq '-1') { return @status; } } 
          #when 'II' { my $bbwx = BbwXChoice-II.new(); @!status = $bbwx.x-choice(); }
          #when 'III' { my $bbwx = BbwXChoice-III.new(); @!status = $bbwx.x-choice(); }
          default { put 'Chapitre non valide!'; push @status, '-1'; return @status; }
@@ -133,7 +133,7 @@ class BBW-Index is export {
          $chapter-ID = prompt "Choisissez un chapitre du cours 'bbw' : 'I' (ou '1') (tapez 'q' si vous voulez fermer le programme) > ";
          given $chapter-ID {
             when / <[qQ]> / {
-               $chapter-ID = 'quit';
+               $chapter-ID = '-1';
                my Bool $confirm = self.stop();
                if $confirm { return $chapter-ID; }
             }
@@ -145,11 +145,12 @@ class BBW-Index is export {
    }
 
    method select(--> Array:D) {
+      state Str @status = ();
       my Bool $confirm-exit = False;
       my Str $chapter-choice = self.chapter-choice();
-      state Str @status = ();
-      if ($chapter-choice eq 'quit') { $confirm-exit = True; }
+      if ($chapter-choice eq '-1') { $confirm-exit = True; }
       if $confirm-exit {
+         push @status, '-1';
          put 'Fin des exercices.';
          return @status;
       } else {
