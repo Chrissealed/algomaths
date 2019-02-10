@@ -1,4 +1,7 @@
-# Exercice 1.
+# Exercices :
+# ---------
+# PGCD, PPCM ET FACTEURS PREMIERS
+
 # Déterminez le PGCD et le PPCM.
 # b. PGCD(24 ; 30 ; 36). PPCM(24 ; 30 ; 36).
 -----------------------------------------------------------------------------------

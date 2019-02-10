@@ -5,6 +5,6 @@
 # à partir de leurs décompositions en facteurs premiers. Par exemple :
 # PGCD(180 ; 585 ; 3003) = 3.
 # PPCM(180 ; 585 ; 3003) = 2² × 3² × 5 × 7 × 11 × 13 = 180180.
-# (Voir aussi méthodes 5, 6, 7 et 8 de fm3).
+# (Voir aussi méthodes 4, 5, 6, 7 et 8 du cursus fm3).
 ####################################################################################
 

@@ -82,6 +82,242 @@
 \begin_body
 
 \begin_layout Subsection*
+☉ Exemple
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection*
+⊝ Les diviseurs de 48 sont : 1, 2, 3, 4, 6, 8, 12, 16, 24, 32, 48.
+ Les diviseurs de 72 sont : 1, 2, 3, 4, 6, 8, 9, 12, 18, 24, 36, 72.
+\end_layout
+
+\begin_layout Subsubsection*
+a.
+ Donner la liste des diviseurs communs de 48 et 72.
+\end_layout
+
+\begin_layout Subsubsection*
+b.
+ En déduire le PGCD de 48 et 42.
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+a.
+ Les diviseurs communs de 48 et 72 sont : 1, 2, 3, 4, 6, 8, 12.
+\end_layout
+
+\begin_layout Standard
+b.
+ Le PGCD de 48 et 72 est 12.
+ ► On a repéré le plus grand nombre de la liste.
+\end_layout
+
+\begin_layout Subsection*
+☉ Exemple
+\end_layout
+
+\begin_layout Subsubsection*
+Déterminer le PGCD de 2016 et 1632 par l'algorithme des soustractions.
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $2016-1632=384$
+\end_inset
+
+ d'où PGCD
+\begin_inset Formula $(2016;1632)=$
+\end_inset
+
+ PGCD
+\begin_inset Formula $(1632;384)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $1632-384=1248$
+\end_inset
+
+ d'où PGCD
+\begin_inset Formula $(1632;384)=$
+\end_inset
+
+ PGCD
+\begin_inset Formula $(1248;384)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $1248-384=864$
+\end_inset
+
+ d'où PGCD
+\begin_inset Formula $(1248;384)=$
+\end_inset
+
+ PGCD
+\begin_inset Formula $(864;384)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $864-384=480$
+\end_inset
+
+ d'où PGCD
+\begin_inset Formula $(864;384)=$
+\end_inset
+
+ PGCD
+\begin_inset Formula $(480;384)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $480-384=96$
+\end_inset
+
+ d'où PGCD
+\begin_inset Formula $(480;384)=$
+\end_inset
+
+ PGCD
+\begin_inset Formula $(384;96)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $384-96=288$
+\end_inset
+
+ d'où PGCD
+\begin_inset Formula $(384;96)=$
+\end_inset
+
+ PGCD
+\begin_inset Formula $(288;96)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $288-96=192$
+\end_inset
+
+ d'où PGCD
+\begin_inset Formula $(288;96)=$
+\end_inset
+
+ PGCD
+\begin_inset Formula $(192;196)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $192-96=96$
+\end_inset
+
+ d'où PGCD
+\begin_inset Formula $(192;96)=$
+\end_inset
+
+ PGCD
+\begin_inset Formula $(96;96)$
+\end_inset
+
+ or PGCD
+\begin_inset Formula $(96;96)=96$
+\end_inset
+
+ ► On est arrivé à deux nombres égaux.
+\end_layout
+
+\begin_layout Standard
+Donc PGCD
+\begin_inset Formula $(2016;1632)=96$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsection*
+☉ Exemples
+\end_layout
+
+\begin_layout Subsubsection*
+a.
+ Déterminer le PGCD de 2016 et 1632 par l'algorithme d'Euclide.
+\end_layout
+
+\begin_layout Subsubsection*
+b.
+ Comparer la détermination du PGCD de 2016 et 1632 par l'algorithme d'Euclide
+ et par celui des soustractions (méthode 5).
+\end_layout
+
+\begin_layout Standard
+a.
+ 2016 = 1632 × 1 + 384 d'où PGCD(2016 ; 1632) = PGCD(1632 ; 384)
+\end_layout
+
+\begin_layout Standard
+1632 = 384 × 4 + 96 d'où PGCD(1632 ; 384) = PGCD(384 ; 96)
+\end_layout
+
+\begin_layout Standard
+384 = 96 + 4 + 0 d'où PGCD(384 ; 96) = 96 ► On est arrivé à un résultat
+ nul.
+\end_layout
+
+\begin_layout Standard
+Donc PGDC(2016 ; 1632) = 96.
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+b.
+ Pour déterminer le PGCD de 2016 et 1632 par l'algorithme d'Euclide il faut
+ trois opérations tandis que par l'algorithme des soustractions il en faut
+ 8.
+ La recherche du PGCD de 2016 et 1632 est plus courte par l'algorithme d'Euclide.
+\end_layout
+
+\begin_layout Subsection*
 ☉ Exemples – Déterminer le PGCD et le PPCM
 \begin_inset space ~
 \end_inset

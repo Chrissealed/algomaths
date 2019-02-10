@@ -5,7 +5,7 @@ use v6;
 =begin pod
 =NAME class B<Method08::ChooseX> : Perl 6 module in B<algomaths>/maths/cycle1/bbw/I/Perl6/B<method08_123.pm6>
 =AUTHOR  https://github.com/Chrissealed/algomaths.git
-=VERSION 2019.02.07
+=VERSION 2019.02.10
 =end pod
 
 use teeput;
@@ -36,23 +36,6 @@ EOM
         $t.tput($method-wording);
     }
 
-    method show-examples() {
-        my Str $path = "%*ENV<ALGOMATHS>/maths/cycle1/bbw/I";
-        shell "xdg-open $path/examples08.pdf &";
-    }
-
-    method set-output-file-mode(Str:D $file) {
-        $t.filemode = ':w'; # :mode<wo>, :create, :truncate
-        $t.filepath = "%*ENV<ALGOMATHS>/maths/cycle1/bbw/I/Perl6/output/$file";
-
-        $t.tput: '# Exercices :';
-        $t.filemode = ':a'; # :mode<wo>, :create, :append
-        $t.closefile = False;
-        $t.tput: '# ---------';
-        $t.tput: '# PPCM ET FACTEURS PREMIERS';
-        $t.tprint: "\n";
-    }
-    
     method put-up-method1 {
         my $wording = qq:to/EOM/;
     # Première méthode, en cherchant les multiples des deux nombres :
@@ -106,6 +89,23 @@ EOM
         self.put-up-method('method08_3.txt', $wording);
     }
 
+    method show-examples() {
+        my Str $path = "%*ENV<ALGOMATHS>/maths/cycle1/bbw/I";
+        shell "xdg-open $path/examples08_123.pdf &";
+    }
+
+    method set-output-file-mode(Str:D $file) {
+        $t.filemode = ':w'; # :mode<wo>, :create, :truncate
+        $t.filepath = "%*ENV<ALGOMATHS>/maths/cycle1/bbw/I/Perl6/output/$file";
+
+        $t.tput: '# Exercices :';
+        $t.filemode = ':a'; # :mode<wo>, :create, :append
+        $t.closefile = False;
+        $t.tput: '# ---------';
+        $t.tput: '# PPCM ET FACTEURS PREMIERS';
+        $t.tprint: "\n";
+    }
+    
     method exercise_01a {
         my $output-file = 'm0801a.txt';
         self.set-output-file-mode($output-file);

@@ -1,9 +1,12 @@
-# Exercice 2.
+# Exercices :
+# ---------
+# PGCD, PPCM ET FACTEURS PREMIERS
+
 # Déterminez le PGCD et le PPCM.
 # e. PGCD(189 ; 252 ; 315). PPCM(189 ; 252 ; 315).
 -----------------------------------------------------------------------------------
 − Calcul du PGCD : Utilisation de l'algorithme d'Euclide −
-PGCD(252 ; 189) = PGCD(189 ; 63)
+PGCD(189 ; 252) = PGCD(189 ; 63)
 Le reste de la division de 189 par 63 est nul,
 donc PGCD(189 ; 252) = 63.
 − Calcul du PGCD : Utilisation de l'algorithme d'Euclide −
@@ -21,7 +24,7 @@ PPCM(252 ; 189) = 47628 div 63 = 756.
 − Recherche du PPCM : Méthode par utilisation du PGCD −
 − Calcul du PGCD : Utilisation de l'algorithme d'Euclide −
 PGCD(756 ; 315) = PGCD(315 ; 126)
-PGCD(315 ; 126) = PGCD(126 ; 63)
+PGCD(756 ; 315) = PGCD(126 ; 63)
 Le reste de la division de 126 par 63 est nul,
 donc PGCD(756 ; 315) = 63.
 Produit de 756 par 315 = 238140;

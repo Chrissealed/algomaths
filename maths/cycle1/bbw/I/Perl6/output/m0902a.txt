@@ -1,9 +1,12 @@
-# Exercice 2.
+# Exercices :
+# ---------
+# PGCD, PPCM ET FACTEURS PREMIERS
+
 # Déterminez le PGCD et le PPCM.
 # a. PGCD(28 ; 35 ; 49). PPCM(28 ; 35 ; 49).
 -----------------------------------------------------------------------------------
 − Calcul du PGCD : Utilisation de l'algorithme d'Euclide −
-PGCD(35 ; 28) = PGCD(28 ; 7)
+PGCD(28 ; 35) = PGCD(28 ; 7)
 Le reste de la division de 28 par 7 est nul,
 donc PGCD(28 ; 35) = 7.
 − Calcul du PGCD : Utilisation de l'algorithme d'Euclide −
@@ -20,7 +23,7 @@ PPCM(35 ; 28) = 980 div 7 = 140.
 − Recherche du PPCM : Méthode par utilisation du PGCD −
 − Calcul du PGCD : Utilisation de l'algorithme d'Euclide −
 PGCD(140 ; 49) = PGCD(49 ; 42)
-PGCD(49 ; 42) = PGCD(42 ; 7)
+PGCD(140 ; 49) = PGCD(42 ; 7)
 Le reste de la division de 42 par 7 est nul,
 donc PGCD(140 ; 49) = 7.
 Produit de 140 par 49 = 6860;

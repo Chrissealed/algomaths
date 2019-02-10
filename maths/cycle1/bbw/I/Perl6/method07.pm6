@@ -5,7 +5,7 @@ use v6;
 =begin pod
 =NAME class B<Method07::ChooseX> : Perl 6 module in B<algomaths>/maths/cycle1/bbw/I/Perl6/B<method07.pm6>
 =AUTHOR  https://github.com/Chrissealed/algomaths.git
-=VERSION 2019.02.07
+=VERSION 2019.02.08
 =end pod
 
 use teeput;
@@ -34,7 +34,7 @@ class ChooseX does Teeput::Tput is export {
 # s'avère plus rapide. L'idée de base est que le PGCD de deux nombres est aussi
 # forcément un diviseur de leur différence. Voyez-vous pourquoi il en est ainsi ?
 ###################################################################################
-# (Voir aussi les méthodes 4, 5, 6, 7 et 8 du dossier fm3).
+# (Voir aussi les méthodes 4, 5, 6, 7 et 8 du cursus fm3).
 ###################################################################################
 
 EOM

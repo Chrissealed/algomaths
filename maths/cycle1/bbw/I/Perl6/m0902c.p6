@@ -1,19 +1,26 @@
 #!/usr/bin/env perl6
 
 use v6;
+
+=begin pod
+=NAME Perl 6 executable in B<algomaths>/maths/cycle1/bbw/I/Perl6/B<m0902c.p6> 
+=AUTHOR  https://github.com/Chrissealed/algomaths.git
+=VERSION 2019.02.10
+=end pod
+
 use corrective;
 use teeput;
-use method09 :methodwording, :exe02c, :examples;
+use method09;
 use pgcd;
 use ppcm;
 
 sub answering {
     class T does Tput {}
     my $t = T.new(
-        filepath => 'output/m0902c.txt',
-        filemode => ':a', # :mode<wo>, :create, :append
         writefile => True,
+        filemode => ':a', # :mode<wo>, :create, :append
         closefile => False,
+        filepath => "%*ENV<ALGOMATHS>/maths/cycle1/bbw/I/Perl6/output/m0902c.txt",
     );
 
     my $pgcd = PGCD.new(
@@ -42,14 +49,16 @@ sub answering {
     $t.tprint: "\n";
 }
 
-exercise_02c();
+my $xchoice = ChooseX.new();
+$xchoice.exercise_02c();
 my Bool $boolean = do-put-up-method();
 if $boolean {
-    put-up-method();
+    $xchoice.put-up-methodfm3_5();
+    $xchoice.put-up-method8_1();
 }
 $boolean = do-put-up-examples();
 if $boolean {
-    show-examples;
+    $xchoice.show-examples;
 }
 do-put-up-correct-version();
 answering();
