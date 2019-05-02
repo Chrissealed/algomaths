@@ -5,7 +5,7 @@ use v6;
 =begin pod
 =NAME B<MAIN.p6> : Perl 6 executable in B<algomaths>/maths/cycle1
 =AUTHOR  https://github.com/Chrissealed/algomaths.git
-=VERSION 2019.02.07
+=VERSION 2019.04.30
 =end pod
 
 INIT {
@@ -13,27 +13,24 @@ INIT {
 }
 
 sub select-a-course() {
-    my Str $init-path = '';
-    my Str $init-file-path = '';
+    my $init-path = IO::Path.new("%*ENV<ALGOMATHS>/maths/cycle1");
+    my Str $init-file = 'init.p6';
     loop {
         my Str $course = prompt "Veuillez choisir un cours du cycle 1 S.V.P. (bbw, fm3 ou ms3) > ";
         if ($course eq 'bbw') {
-            $init-path = "%*ENV<ALGOMATHS>/maths/cycle1/bbw";
-            $init-file-path = "%*ENV<ALGOMATHS>/maths/cycle1/bbw/init.p6";
+            $init-path = $init-path.add("bbw");
             last;
         } elsif ($course eq 'fm3') {
-            $init-path = "%*ENV<ALGOMATHS>/maths/cycle1/fm3";
-            $init-file-path = "%*ENV<ALGOMATHS>/maths/cycle1/fm3/init.p6";
+            $init-path = $init-path.add("fm3");
             last;
         } elsif ($course eq 'ms3') {
-            $init-path = "%*ENV<ALGOMATHS>/maths/cycle1/ms3";
-            $init-file-path = "%*ENV<ALGOMATHS>/maths/cycle1/ms3/init.p6";
+            $init-path = $init-path.add("ms3");
             last;
         } else {
             put "Identifiant du cours invalide!";
         }
     }
-    shell "perl6 -I $init-path $init-file-path";
+    for $init-path.dir(test => $init-file).Str -> $file { say $file; shell($file, cwd => $init-path) }
 }
 
 select-a-course();

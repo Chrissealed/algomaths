@@ -1,0 +1,11 @@
+501a. Décomposer un entier en facteurs premiers. ($ALGOMATHS/maths/cycle1/bbw/I/Perl6/output/m0501a.txt) -- 2019-03-21T19:49:10.388462Z
+501b. Décomposer un entier en facteurs premiers. ($ALGOMATHS/maths/cycle1/bbw/I/Perl6/output/m0501b.txt) -- 2019-03-21T19:50:10.589620Z
+
+501a. Décomposer un entier en facteurs premiers. ($ALGOMATHS/maths/cycle1/bbw/I/Perl6/output/m0501a.txt) -- 2019-04-26T14:09:45.177108Z
+
+501a. Décomposer un entier en facteurs premiers. ($ALGOMATHS/maths/cycle1/bbw/I/Perl6/output/m0501a.txt) -- 2019-04-27T14:32:55.630544Z
+505e. Décomposer un entier en facteurs premiers. ($ALGOMATHS/maths/cycle1/bbw/I/Perl6/output/m0505e.txt) -- 2019-04-27T14:34:29.460054Z
+
+
+501a. Décomposer un entier en facteurs premiers. ($ALGOMATHS/maths/cycle1/bbw/I/Perl6/output/m0501a.txt) -- 2019-04-30T17:39:09.108886Z
+

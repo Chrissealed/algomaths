@@ -5,7 +5,7 @@ use v6;
 =begin pod
 =NAME B<init.p6> : Perl 6 executable in B<algomaths>/maths/cycle1/bbw
 =AUTHOR  https://github.com/Chrissealed/algomaths.git
-=VERSION 2019.02.03
+=VERSION 2019.03.21
 =end pod
 
 use index;
