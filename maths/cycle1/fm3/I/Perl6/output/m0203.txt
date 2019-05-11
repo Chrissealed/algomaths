@@ -1,5 +1,9 @@
-# Exercice 3.
-# ----------
+# Exercices :
+# ---------
+# CHAPITRE I − ARITHMÉTIQUE
+
+# Exercice 2.03.
+# -------------
 # Dans une division euclidienne, le quotient est 19, le reste est 4 et le
 # diviseur 6. Quel est le dividende ?
 -----------------------------------------------------------------------------------

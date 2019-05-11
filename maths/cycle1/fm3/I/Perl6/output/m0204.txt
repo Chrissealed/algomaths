@@ -1,5 +1,9 @@
-# Exercice 4.
-# ----------
+# Exercices :
+# ---------
+# CHAPITRE I − ARITHMÉTIQUE
+
+# Exercice 2.04.
+# -------------
 # Quelles sont, parmi les égalités suivantes, celles qui traduisent une division
 # euclidienne ? Si l'égalité convient, donner le dividende, le diviseur, le quotient
 # et le reste. Sinon expliquer pourquoi l'égalité ne convient pas.

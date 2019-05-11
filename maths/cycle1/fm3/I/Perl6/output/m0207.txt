@@ -1,5 +1,9 @@
-# Exercice 7.
-# ----------
+# Exercices :
+# ---------
+# CHAPITRE I − ARITHMÉTIQUE
+
+# Exercice 2.07.
+# -------------
 # Une fermière a récolté 59 œufs. Pour les transporter au marché et les vendre,
 # elle les range dans des boîtes de 12. Combien lui faudra-t-il de boîtes ?
 -----------------------------------------------------------------------------------

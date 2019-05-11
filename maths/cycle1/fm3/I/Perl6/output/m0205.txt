@@ -1,5 +1,9 @@
-# Exercice 5.
-# ----------
+# Exercices :
+# ---------
+# CHAPITRE I − ARITHMÉTIQUE
+
+# Exercice 2.05.
+# -------------
 # On distribue 52 cartes à jouer à trois personnes qui reçoivent chacune le même
 # nombre de cartes. Combien de cartes recevra au maximum chaque personne ?
 # Combien de cartes restera-t-il ?

@@ -1,5 +1,9 @@
-# Exercice 8.
-# ----------
+# Exercices :
+# ---------
+# CHAPITRE I − ARITHMÉTIQUE
+
+# Exercice 2.08.
+# -------------
 # Un confiseur a pu réaliser 346 chocolats. Il veut les présenter pour la vente
 # dans des coffrets de 16. Combien pourra-t-il remplir de coffrets ?
 -----------------------------------------------------------------------------------
