@@ -5,7 +5,7 @@ use v6;
 =begin pod
 =NAME class B<BbwXChoice-I> in B<algomaths>/maths/bbw/modules/pm6/B<bbwxchoice-I.pm6>
 =AUTHOR  https://github.com/Chrissealed/algomaths.git
-=VERSION 2019.02.10
+=VERSION 2019.05.11
 =end pod
 
 use teeput;
@@ -47,11 +47,18 @@ class BbwXChoice-I does Teeput::Tput is export {
         if $put-blank-line { $t.tprint: "\n" }
         if $last { push @status, '-1'; return @status; }
         my Str $xchoice = prompt "Choisissez l'ID d'un exercice : (0,1,2,3 ou 4 puis chiffres et lettres accolés; ex: 504c); (q ou Q pour quitter) > ";
-        my $time = now.DateTime;
+        # Ajouter la date et le temps de l'exécution
+        #my $time = now.DateTime;
+        # Ceci se résout de cette manière avec 'local' (ou 'utc')
+        # Eliminer la partie 'timezone'
+        my $time = DateTime.now.local.truncated-to('second');
+        # Eliminer le Z final de la 'timezone'
+        $time = $time ~~ / <[\d.\-T:]>+ /;
+
         given $xchoice {
             when / <[qQ]> /
             {
-                $confirm = self.stop(); 
+                $confirm = self.stop();
                 if ($confirm) {
                     $t.tprint: "\n"; push @status, '-1';
                     return @status;
