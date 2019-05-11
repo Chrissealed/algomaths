@@ -1,3 +1,7 @@
+# Exercices :
+# ---------
+# CHAPITRE I − ARITHMÉTIQUE
+
 # Exercice 5.
 # ----------
 # Démontrer que la somme de trois multiples consécutifs de 5 est un multiple de 15.
