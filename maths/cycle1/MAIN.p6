@@ -5,7 +5,7 @@ use v6;
 =begin pod
 =NAME B<MAIN.p6> : Perl 6 executable in B<algomaths>/maths/cycle1
 =AUTHOR  https://github.com/Chrissealed/algomaths.git
-=VERSION 2019.04.30
+=VERSION 2019.05.04
 =end pod
 
 INIT {
@@ -30,7 +30,7 @@ sub select-a-course() {
             put "Identifiant du cours invalide!";
         }
     }
-    for $init-path.dir(test => $init-file).Str -> $file { say $file; shell($file, cwd => $init-path) }
+    for $init-path.dir(test => $init-file).Str -> $file { shell($file, cwd => $init-path) }
 }
 
 select-a-course();
