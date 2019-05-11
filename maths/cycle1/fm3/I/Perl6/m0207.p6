@@ -1,17 +1,24 @@
 #!/usr/bin/env perl6
 
 use v6;
+
+=begin pod
+=NAME Perl 6 executable in B<algomaths>/maths/cycle1/fm3/I/Perl6/B<m0207.p6> 
+=AUTHOR  https://github.com/Chrissealed/algomaths.git
+=VERSION 2019.04.21
+=end pod
+
 use corrective;
 use teeput;
-use method02 :methodwording, :exe07, :examples;
+use method02;
 
 sub answering {
     class T does Tput {}
     my $t = T.new(
-        filepath => 'output/m0207.txt',
-        filemode => ':a',
         writefile => True,
+        filemode => ':a', # :mod<wo>, :create, :append
         closefile => False,
+        filepath => "%*ENV<ALGOMATHS>/maths/cycle1/fm3/I/Perl6/output/m0207.txt",
     );
     my Int $eggs = 59;
     my Int $capacity = 12;
@@ -29,17 +36,18 @@ sub answering {
     }
 
     $t.closefile = True;
-    $t.tput: '';
+    $t.tprint: "\n";
 }
 
-exercise_07();
+my $xchoice = ChooseX.new();
+$xchoice.exercise_07();
 my Bool $boolean = do-put-up-method();
 if $boolean {
-    put-up-method();
+    $xchoice.put-up-method();
 }
 $boolean = do-put-up-examples();
 if $boolean {
-    show-examples;
+    $xchoice.show-examples;
 }
 do-put-up-correct-version();
 answering();
