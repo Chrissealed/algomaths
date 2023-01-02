@@ -1,6 +1,6 @@
-unit module Teeput;
-
 use v6;
+
+unit module Teeput;
 
 =begin pod
 =NAME rôle B<Teeput::Tput> in B<algomaths> Perl 6 modules : maths/modules/pm6/B<teeput.pm6>

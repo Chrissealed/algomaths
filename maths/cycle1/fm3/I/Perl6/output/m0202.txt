@@ -1,5 +1,9 @@
-# Exercice 2.
-# ----------
+# Exercices :
+# ---------
+# CHAPITRE I − ARITHMÉTIQUE
+
+# Exercice 2.02
+# -------------
 # Dans un collège en rénovation, on a décidé de changer les tables de la cantine.
 # Il y a deux cent soixante demi-pensionnaires et un seul service.
 # Combien doit-on acheter de nouvelles tables de 8 ?

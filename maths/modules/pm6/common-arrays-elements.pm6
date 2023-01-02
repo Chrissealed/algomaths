@@ -1,6 +1,5 @@
-unit module Common-arrays-elements;
-
 use v6;
+unit module Common-arrays-elements;
 
 =begin pod
 =NAME module B<Common-arrays-elements> in B<algomaths> Perl6 modules : maths/modules/pm6/B<common-arrays-elements.pm6>

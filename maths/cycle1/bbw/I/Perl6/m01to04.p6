@@ -1,7 +1,5 @@
 #!/usr/bin/env perl6
 
-use v6;
-
 =begin pod
 =NAME Perl 6 executable in B<algomaths>/maths/cycle1/bbw/I/Perl6/B<m01to04.p6> 
 =AUTHOR  https://github.com/Chrissealed/algomaths.git

@@ -1,6 +1,6 @@
-unit module Corrective;
-
 use v6;
+
+unit module Corrective;
 
 =begin pod
 =NAME Perl 6 module B<Corrective> in B<algomaths>/maths/modules/pm6/B<corrective.pm6>

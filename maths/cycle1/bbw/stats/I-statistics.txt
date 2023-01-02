@@ -1,0 +1,17 @@
+501a. Décomposer un entier en facteurs premiers. ($ALGOMATHS/maths/cycle1/bbw/I/Perl6/output/m0501a.txt) -- 2019-06-19T09:29:54.470631Z
+501a. Décomposer un entier en facteurs premiers. ($ALGOMATHS/maths/cycle1/bbw/I/Perl6/output/m0501a.txt) -- 2019-06-19T12:38:46.778602Z
+
+501a. Décomposer un entier en facteurs premiers. ($ALGOMATHS/maths/cycle1/bbw/I/Perl6/output/m0501a.txt) -- 2019-06-19T16:29:58.788340Z
+
+501a. Décomposer un entier en facteurs premiers. ($ALGOMATHS/maths/cycle1/bbw/I/Perl6/output/m0501a.txt) -- 2019-06-19T17:00:26.437457Z
+
+0. Les 4 opérations. ($ALGOMATHS/maths/cycle1/bbw/I/Perl6/output/m01to04.txt) -- 2022-12-25T08:20:09.991391Z
+0. Les 4 opérations. ($ALGOMATHS/maths/cycle1/bbw/I/Perl6/output/m01to04.txt) -- 2022-12-25T08:33:52.807661Z
+0. Les 4 opérations. ($ALGOMATHS/maths/cycle1/bbw/I/Perl6/output/m01to04.txt) -- 2022-12-25T08:40:16.543770Z
+0. Les 4 opérations. ($ALGOMATHS/maths/cycle1/bbw/I/Perl6/output/m01to04.txt) -- 2022-12-30T01:12:49.487389Z
+0. Les 4 opérations. ($ALGOMATHS/maths/cycle1/bbw/I/Perl6/output/m01to04.txt) -- 2022-12-30T01:32:38.799314Z
+501a. Décomposer un entier en facteurs premiers. ($ALGOMATHS/maths/cycle1/bbw/I/Perl6/output/m0501a.txt) -- 2022-12-30T01:47:23.606886Z
+1. Addition. ($ALGOMATHS/maths/cycle1/bbw/I/Perl6/output/m0101.txt) -- 2022-12-31T03:49:46.580803Z
+
+2. Soustraction. ($ALGOMATHS/maths/cycle1/bbw/I/Perl6/output/m0102.txt) -- 2022-12-31T16:57:51.087732Z
+

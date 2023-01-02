@@ -1,6 +1,6 @@
-unit module Irreducible-fraction;
-
 use v6;
+
+unit module Irreducible-fraction;
 
 =begin pod
 =NAME class B<IrreducibleFraction> in B<algomaths> Perl6 modules : maths/modules/pm6/B<irreducible-fraction.pm6>

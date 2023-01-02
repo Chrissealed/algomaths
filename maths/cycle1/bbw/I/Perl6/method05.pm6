@@ -5,7 +5,7 @@ use v6;
 =begin pod
 =NAME class B<Method05::ChooseX> : Perl 6 module in B<algomaths>/maths/cycle1/bbw/I/Perl6/B<method05.pm6>
 =AUTHOR  https://github.com/Chrissealed/algomaths.git
-=VERSION 2019.02.03
+=VERSION Windows release : 2019.06.19
 =end pod
 
 use teeput;
@@ -50,7 +50,7 @@ class ChooseX is export {
 
     method show-examples() {
         my Str $path = "%*ENV<ALGOMATHS>/maths/cycle1/bbw/I";
-        shell "xdg-open $path/examples05.pdf";
+        shell "start $path/examples05.pdf";
     }
 
     method set-output-file-mode(Str:D $file) {

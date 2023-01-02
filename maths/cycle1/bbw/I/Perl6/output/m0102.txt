@@ -2,25 +2,3 @@
 # ---------
 # CALCUL MENTAL : OPERATIONS
 
-SOUSTRACTIONS
-
-a.
-  9134
-– 4319
-  ----
-  ... = 159
-Faux. Recommencez.
-a.
-  9134
-– 4319
-  ----
-  ... = 753
-Faux. Recommencez.
-a.
-  9134
-– 4319
-  ----
-  ... = q
-Réponses correctes : 0.
-Réponses incorrectes : 2.
-

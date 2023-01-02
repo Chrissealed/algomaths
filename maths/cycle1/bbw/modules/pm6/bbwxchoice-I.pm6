@@ -1,11 +1,11 @@
-unit module bbwxchoice-I;
-
 use v6;
+
+unit module bbwxchoice-I;
 
 =begin pod
 =NAME class B<BbwXChoice-I> in B<algomaths>/maths/bbw/modules/pm6/B<bbwxchoice-I.pm6>
 =AUTHOR  https://github.com/Chrissealed/algomaths.git
-=VERSION 2019.02.07
+=VERSION 2019.02.10
 =end pod
 
 use teeput;
@@ -46,7 +46,7 @@ class BbwXChoice-I does Teeput::Tput is export {
 
         if $put-blank-line { $t.tprint: "\n" }
         if $last { push @status, '-1'; return @status; }
-        my Str $xchoice = prompt "Choisissez un exercice : (0,1,2,3 ou 4 puis chiffres et lettres accolés; ex: 504c); (q ou Q pour quitter) > ";
+        my Str $xchoice = prompt "Choisissez l'ID d'un exercice : (0,1,2,3 ou 4 puis chiffres et lettres accolés; ex: 504c); (q ou Q pour quitter) > ";
         my $time = now.DateTime;
         given $xchoice {
             when / <[qQ]> /

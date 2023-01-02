@@ -1,3 +1,13 @@
+# Exercices :
+# ---------
+# CHAPITRE I − ARITHMÉTIQUE
+
+# Exercice 1.07+.
+# ----------
+# Peut-on trouver un nombre non nul inférieur à 150 qui soit à la fois
+# a. multiple de 11 et de 13 ?
+# b. multiple de 11 et de 15 ?
+-----------------------------------------------------------------------------------
 a.
 Si un nombre est multiple à la fois de 11 et de 13 qui n'ont pas de diviseur commun
 autre que 1, alors il est nécessairement multiple de leur produit 143 (11 × 13 = 143),

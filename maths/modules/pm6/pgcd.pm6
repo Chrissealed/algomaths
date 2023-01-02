@@ -1,6 +1,6 @@
-unit module pgcd;
-
 use v6;
+
+unit module pgcd;
 
 =begin pod
 =NAME class PGCD in B<algomaths> Perl6 modules : maths/modules/pm6/B<pgcd.pm6>

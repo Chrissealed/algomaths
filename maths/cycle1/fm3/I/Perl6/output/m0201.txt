@@ -1,3 +1,14 @@
+# Exercices :
+# ---------
+# CHAPITRE I − ARITHMÉTIQUE
+
+# Exercice 2.01.
+# -------------
+# On effectue la division euclidienne d'un entier a par 7, on trouve 23 comme
+# quotient.
+# a. Quels sont les restes possibles ?
+# b. Trouver toutes les valeurs de a.
+-----------------------------------------------------------------------------------
 D'après la définition de la division euclidienne on a :
 a ÷ 7 = 23 + r et r < 7. Le reste est strictement inférieur au diviseur 7
 donc les restes possibles sont r = 0, 1, 2, 3, 4, 5 ou 6.

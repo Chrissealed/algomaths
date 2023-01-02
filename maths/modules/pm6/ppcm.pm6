@@ -1,6 +1,6 @@
-unit module ppcm;
-
 use v6;
+
+unit module ppcm;
 
 =begin pod
 =NAME class PPCM in B<algomaths> Perl6 modules : maths/modules/pm6/B<ppcm.pm6>

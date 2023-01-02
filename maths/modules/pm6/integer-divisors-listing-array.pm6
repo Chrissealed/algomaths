@@ -1,6 +1,6 @@
-unit module Integer-divisors-listing-array;
-
 use v6;
+
+unit module Integer-divisors-listing-array;
 
 =begin pod
 =NAME B<IntegerDivisorsListingA> : B<algomaths> Perl 6 module in /maths/modules/pm6/B<integer-divisors-listing.pm6>

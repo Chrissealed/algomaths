@@ -1,6 +1,6 @@
-unit module Integer-divisors-listing-hash;
-
 use v6;
+
+unit module Integer-divisors-listing-hash;
 
 use teeput;
 

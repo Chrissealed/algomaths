@@ -1,11 +1,11 @@
 unit module Method01to04;
 
-use v6;
-
 =begin pod
 =NAME class B<Method01to04::ChooseX> : Perl 6 module in B<algomaths>/maths/cycle1/bbw/I/Perl6/B<method01to04.pm6>
 =AUTHOR  https://github.com/Chrissealed/algomaths.git
-=VERSION 2019.02.06
+=VERSION 2022.12.25
+=HISTORY 2019.02.06; 
+=HISTORY 2022.12.25 : Suppression de la clause use v6; à ce stade.
 =end pod
 
 use corrective;

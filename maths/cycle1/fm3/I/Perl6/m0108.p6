@@ -1,17 +1,24 @@
 #!/usr/bin/env perl6
 
 use v6;
+
+=begin pod
+=NAME Perl 6 executable in B<algomaths>/maths/cycle1/fm3/I/Perl6/B<m0108.p6> 
+=AUTHOR  https://github.com/Chrissealed/algomaths.git
+=VERSION 2019.02.13
+=end pod
+
 use corrective;
 use teeput;
-use method01 :methodwording, :exe08, :examples;
+use method01;
 
 sub answering {
     class T does Tput {}
     my $t = T.new(
-        filepath => 'output/m0108.txt',
-        filemode => ':a',
         writefile => True,
+        filemode => ':a', # :mod<wo>, :create, :append
         closefile => False,
+        filepath => "%*ENV<ALGOMATHS>/maths/cycle1/fm3/I/Perl6/output/m0108.txt",
     );
     my Int $m = Int(393 / 13);
     my Int $n1 = 13 * $m;
@@ -35,17 +42,18 @@ sub answering {
     }
 
     $t.closefile = True;
-    $t.tput: '';
+    $t.tprint: "\n"; 
 }
 
-exercise_08();
+my $xchoice = ChooseX.new();
+$xchoice.exercise_08();
 my Bool $boolean = do-put-up-method();
 if $boolean {
-    put-up-method();
+    $xchoice.put-up-method();
 }
 $boolean = do-put-up-examples();
 if $boolean {
-    show-examples;
+    $xchoice.show-examples;
 }
 do-put-up-correct-version();
 answering();

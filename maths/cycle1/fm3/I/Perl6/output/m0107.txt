@@ -1,3 +1,7 @@
+# Exercices :
+# ---------
+# CHAPITRE I − ARITHMÉTIQUE
+
 # Exercice 7.
 # ----------
 # Peut-on trouver un nombre non nul inférieur à 150 qui soit à la fois

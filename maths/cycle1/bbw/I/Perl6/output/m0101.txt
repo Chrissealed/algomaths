@@ -11,16 +11,7 @@ a.
    157
 + 3461
   ----
-  ... = 123
-Faux. Recommencez.
-a.
-   873
-   112
-  1718
-   157
-+ 3461
-  ----
-  ... = 951
+  ... = 4240
 Faux. Recommencez.
 a.
    873
@@ -31,5 +22,5 @@ a.
   ----
   ... = q
 Réponses correctes : 0.
-Réponses incorrectes : 2.
+Réponses incorrectes : 1.
 

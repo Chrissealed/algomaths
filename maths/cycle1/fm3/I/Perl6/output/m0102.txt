@@ -1,3 +1,7 @@
+# Exercices :
+# ---------
+# CHAPITRE I − ARITHMÉTIQUE
+
 # Exercice 2.
 # ----------
 # Trouver les multiples de 53 compris entre 300 et 500.

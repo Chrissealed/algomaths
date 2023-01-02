@@ -1,17 +1,24 @@
 #!/usr/bin/env perl6
 
 use v6;
+
+=begin pod
+=NAME Perl 6 executable in B<algomaths>/maths/cycle1/fm3/I/Perl6/B<m0106+.p6> 
+=AUTHOR  https://github.com/Chrissealed/algomaths.git
+=VERSION 2019.02.13
+=end pod
+
 use corrective;
 use teeput;
-use method01 :methodwording, :exe06b, :examples;
+use method01;
 
 sub answering {
     class T does Tput {}
     my $t = T.new(
-        filepath => 'output/m0106+.txt',
-        filemode => ':a',
         writefile => True,
+        filemode => ':a', # :mod<wo>, :create, :append
         closefile => False,
+        filepath => "%*ENV<ALGOMATHS>/maths/cycle1/fm3/I/Perl6/output/m0106+.txt",
     );
     $t.tput: "Si un nombre est multiple à la fois de 11 et de 17 qui n'ont pas de diviseur";
     $t.tput: "commun autre que 1, alors il est nécessairement multiple de leur produit 187";
@@ -36,17 +43,18 @@ sub answering {
     }
 
     $t.closefile = True;
-    $t.tput: '';
+    $t.tprint: "\n";
 }
 
-exercise_06b();
+my $xchoice = ChooseX.new();
+$xchoice.exercise_06b();
 my Bool $boolean = do-put-up-method();
 if $boolean {
-    put-up-method();
+    $xchoice.put-up-method();
 }
 $boolean = do-put-up-examples();
 if $boolean {
-    show-examples;
+    $xchoice.show-examples;
 }
 do-put-up-correct-version();
 answering();

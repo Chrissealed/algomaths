@@ -1,5 +1,9 @@
-# Exercice 1.
-# ----------
+# Exercices :
+# ---------
+# CHAPITRE I − ARITHMÉTIQUE
+
+# Exercice 1.01.
+# -------------
 # 180 et 260 sont-ils des multiples de 15 ?
 -----------------------------------------------------------------------------------
 Existe-t-il un entier q tel que 180 = 15q ?

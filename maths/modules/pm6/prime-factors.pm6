@@ -1,6 +1,6 @@
-unit module Prime-factors;
-
 use v6;
+
+unit module Prime-factors;
 
 =begin pod
 =NAME class B<PrimeFactors> in B<algomaths> Perl6 modules : maths/modules/pm6/B<prime-factors.pm6>

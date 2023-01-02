@@ -1,6 +1,6 @@
-unit module Operations-on-fractions;
-
 use v6;
+
+unit module Operations-on-fractions;
 
 =begin pod
 =NAME B<OperationsOnFractions> : B<algomaths> Perl 6 module in /maths/modules/pm6/B<operations-on-fractions.pm6>

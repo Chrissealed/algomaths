@@ -12,5 +12,5 @@ use index;
 
 my $index = Index::BBW-Index.new();
 my Str @selection = $index.select();
+
 say "Bilan des exercices effectués : @selection[]";
-   

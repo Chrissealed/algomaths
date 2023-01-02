@@ -1,6 +1,6 @@
-unit module usual-divisibility-criteria;
-
 use v6;
+
+unit module usual-divisibility-criteria;
 
 =begin pod
 =NAME rôle B<UsualDivisibilityCriteria> in B<algomaths> Perl6 modules : maths/modules/pm6/B<usual-divisibility-criteria.pm6>

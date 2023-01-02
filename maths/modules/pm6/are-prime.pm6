@@ -1,6 +1,5 @@
-unit module Are-prime;
-
 use v6;
+unit module Are-prime;
 
 =begin pod
 =NAME class B<ArePrime> in B<algomaths> Perl6 modules : maths/modules/pm6/B<are-prime.pm6>

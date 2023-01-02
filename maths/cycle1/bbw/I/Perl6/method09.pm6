@@ -5,7 +5,7 @@ use v6;
 =begin pod
 =NAME class B<Method09::ChooseX> : Perl 6 module in B<algomaths>/maths/cycle1/bbw/I/Perl6/B<method09.pm6>
 =AUTHOR  https://jithub.com/Chrissealed/algomaths.git
-=VERSION 2019.02.10
+=VERSION 2019.02.11
 =end pod
 
 use teeput;
@@ -229,7 +229,7 @@ class ChooseX does Teeput::Tput is export {
         $t.tprint: "\n";
     }
 
-    method exercise_01a is export {
+    method exercise_01a {
         my $output-file = 'm0901a.txt';
         self.set-output-file-mode($output-file);
         $t.tput: '# Déterminez le PGCD et le PPCM.';

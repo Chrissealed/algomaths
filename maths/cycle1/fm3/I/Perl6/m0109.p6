@@ -1,17 +1,24 @@
 #!/usr/bin/env perl6
 
 use v6;
+
+=begin pod
+=NAME Perl 6 executable in B<algomaths>/maths/cycle1/fm3/I/Perl6/B<m0109.p6> 
+=AUTHOR  https://github.com/Chrissealed/algomaths.git
+=VERSION 2019.02.13
+=end pod
+
 use corrective;
 use teeput;
-use method01 :methodwording, :exe09, :examples;
+use method01;
 
 sub answering {
     class T does Tput {}
     my $t = T.new(
-        filepath => 'output/m0109.txt',
-        filemode => ':a',
         writefile => True,
+        filemode => ':a', # :mod<wo>, :create, :append
         closefile => False,
+        filepath => "%*ENV<ALGOMATHS>/maths/cycle1/fm3/I/Perl6/output/m0108.txt",
     );
     $t.tput: "Quatre multiples consécutifs de 6 peuvent s'écrire :";
     $t.tput: "6 × (n―1), 6 × n, 6 × (n+1) et 6 × (n+2)";
@@ -33,17 +40,18 @@ sub answering {
     $t.tput: "On a bien $m1 + $m2 + $m3 + $m4 = {$m1+$m2+$m3+$m4}.";
 
     $t.closefile = True;
-    $t.tput: '';
+    $t.tprint: "\n";
 }
 
-exercise_09();
+my $xchoice = ChooseX.new();
+$xchoice.exercise_09();
 my Bool $boolean = do-put-up-method();
 if $boolean {
-    put-up-method();
+    $xchoice.put-up-method();
 }
 $boolean = do-put-up-examples();
 if $boolean {
-    show-examples;
+    $xchoice.show-examples;
 }
 do-put-up-correct-version();
 answering();

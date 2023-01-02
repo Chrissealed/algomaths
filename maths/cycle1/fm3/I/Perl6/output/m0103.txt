@@ -1,3 +1,7 @@
+# Exercices :
+# ---------
+# CHAPITRE I − ARITHMÉTIQUE
+
 # Exercice 3.
 # ----------
 # a. 36 et 42 sont-ils des multiples consécutifs de 6 ?

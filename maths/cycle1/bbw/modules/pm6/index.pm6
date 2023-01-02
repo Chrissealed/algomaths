@@ -1,11 +1,11 @@
-unit module Index;
-
 use v6;
+
+unit module Index;
 
 =begin pod
 =NAME class B<BBW-Index> : Perl 6 module in B<algomaths>/maths/cycle1/bbw/modules/pm6/B<index.pm6>
 =AUTHOR  https://github.com/Chrissealed/algomaths.git
-=VERSION 2019.02.07
+=VERSION 2019.02.15
 =end pod
 
 use teeput; 
@@ -103,7 +103,7 @@ class BBW-Index is export {
       } else {
          self.display-chapter-content($chapter);
       }
-      # Méthode de  la classe BbwXChoice-I
+      # Attributs requis de  la classe BbwXChoice-I
       my $bbwx = BbwXChoice-I.new(
          chapter => $chapter,
          path => "%*ENV<ALGOMATHS>/maths/cycle1/bbw/$chapter/Perl6",

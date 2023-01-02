@@ -1,3 +1,7 @@
+# Exercices :
+# ---------
+# CHAPITRE I − ARITHMÉTIQUE
+
 # Exercice 6.
 # ----------
 # Trouver un nombre pair compris entre 500 et 800 qui soit multiple à la fois de

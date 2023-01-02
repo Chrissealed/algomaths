@@ -1,5 +1,9 @@
-# Exercice 6.
-# ----------
+# Exercices :
+# ---------
+# CHAPITRE I − ARITHMÉTIQUE
+
+# Exercice 2.06.
+# -------------
 # Lors d'un voyage scolaire à Millau, on doit répartir 22 garçons dans des chambres
 # à 4 lits. Combien faudra-t-il au minimum de chambres pour que chacun dispose d'un
 # lit ?
